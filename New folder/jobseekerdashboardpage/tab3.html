@@ -1,0 +1,55 @@
+<div ng-show="activeTabF=='tab3'" >
+			<div class="col-md-6 jobdetailsbox graycolor" ng-repeat="item in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+			<div class="jobdetails fontlight">
+						<div class="h6title jobdate graycolor">{{item.jobdate}}</div>
+
+			<div class="pinjob removejob" ng-click="removejob(item)"><i class="fa fa-times" aria-hidden="true"></i></div>
+		<div class="row rowonejob">
+		<div class="col-md-4 col-xs-12 centerjobrespon">
+		<div class="companylogo col-md-12 col-xs-12">
+<img src="{{item.companylogo}}" ><md-tooltip
+              md-direction="top">
+              {{item.companyname}}
+            </md-tooltip>
+</div>
+<div class="jobrateuser col-md-12 col-xs-12">
+        <rate-yo class="mstarbb" on-set="set" on-change="showpagestarjobchange" ng-model="showpagestarjobrating" read-only="showpagestarjoboptions.readOnly" options="showpagestarjoboptions"></rate-yo>
+</div>
+<div class="jobratesystem col-md-12 col-xs-12">
+        <rate-yo on-set="set" on-change="showpagerectanjobchange" ng-model="showpagerectanjobrating" read-only="showpagerectanjoboptions.readOnly" options="showpagerectanjoboptions"></rate-yo>
+</div>
+</div>
+<div class="col-md-8 col-xs-12 paddingjobrespon">
+			<div class="h2title bluecolor jobname fontmedium">{{item.jobname}}</div>
+			<div class="h5title graycolor joblocations fontlight"><i class="fa fa-map-marker" aria-hidden="true"></i>{{item.joblocations}}</div>
+			<div class="h4title bluecolor jobfield">{{item.jobfield}}</div>
+			<div class="col-md-2 h6title typeofcooperation fontlight graycolor {{item.activeclass}}" ng-repeat="item in item.typeofcooperation">
+			<div class="fontlight">
+			{{item.textbtn}}
+			</div>
+
+</div>
+
+			
+</div>
+			</div>
+			
+					<div class="row rowtwojob">
+		<div class="col-md-6 requestforcooperationjob">
+		<button type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>
+</div>
+<div class="col-md-6 readmorejob">
+<button type="button" class="btn greenbtnreverse fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
+</div>
+
+			
+</div>
+			</div>
+			</div>
+		
+		
+<div class="col-md-12 paginationcenter">
+    <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"  items-per-page="itemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+</div>
+</div>
+

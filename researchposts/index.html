@@ -1,0 +1,153 @@
+﻿
+<div ng-controller="researchposts" class="resarchpage">
+
+<div class="container">
+<div class="col-md-12 col-xs-12 h1title bluecolor fontmedium" style="padding-top: 30px;">پژوهش های پیشنهاد شده</div>
+<div class="col-md-12 col-xs-12">
+<div class="col-md-12 col-xs-12 jobpostpfilterbox graycolor">
+<div class="row" style="margin-right: -30px;margin-left: -30px;">
+<div class="searchdatabaser">
+							<div class="col-md-2 col-xs-12">
+							    <span class="titlefildsear-tabazmon  h5title fontmedium">جستجو (عبارت کلیدی)</span>
+								</div>
+<div class="col-md-10 col-xs-12">
+<input class="form-control jostojoazmon ng-pristine ng-valid ng-empty ng-touched" type="text" size="100" ng-model="searchtabname.nametest" aria-invalid="false" style="">
+<i class="form-control-feedback fa fa-search"></i>
+</div>
+
+
+</div>
+<div class="searchdatabaser">
+							<div class="col-md-2 col-xs-12">
+							    <span class="titlefildsear-tabazmon  h5title fontmedium">مهارت ها و تخصص های شما</span>
+								</div>
+<div class="col-md-10 col-xs-12">
+  <ui-select multiple ng-model="yourskillsandexpertise" theme="bootstrap" close-on-select="false" style="width: 100%;" title="Choose a color">
+    <ui-select-match>{{$item.title}}</ui-select-match>
+    <ui-select-choices repeat="skill in yourskillsandexpertises">
+      {{skill.title}}
+    </ui-select-choices>
+  </ui-select>
+</div>
+
+
+</div>
+
+
+
+
+
+	        <div class="searchdatabaser">
+											<div class="col-md-2 col-xs-12">
+																		    <span class="titlefildsear graycolor h5title fontmedium">زمان آگهی</span>
+
+								</div>
+
+							<div class="col-md-10 col-xs-12">
+
+				  <select ng-model="adstime"  style="width: 25%;">
+<option ng-repeat="x in adstime" value="{{x.nameper}}">{{x.nameper}}</option>
+</select>
+
+								</div>
+
+
+</div>
+   
+
+
+   <div class="searchdatabaser">
+											<div class="col-md-2 col-xs-12">
+																		    <span class="titlefildsear graycolor h5title fontmedium">امتیاز کارفرما</span>
+
+								</div>
+
+<div class="jobrateuser col-md-10 col-xs-12" style="padding: 5px 10px;">
+        <rate-yo on-set="set" on-change="ratesearchchange" ng-model="ratesearch" read-only="ratesearchoptions.readOnly" options="ratesearchoptions"></rate-yo></div>
+</div>
+
+</div>
+
+<div class="col-md-12 col-xs-12" style="padding-top: 15px;">
+<button type="button" class="btn bluebtn">جستجو</button>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+<div class="clearfix bgforjsppb"></div>
+
+
+  <div class="ourjobpositions sameposi">
+              <div class="container">
+<div class="col-md-12 col-xs-12 h2title bluecolor fontmedium" style="padding-bottom: 30px;">پژوهش های پیشنهاد شده</div>
+<div class="col-md-12 col-xs-12 jobdetailsbox graycolor" ng-repeat="item in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+			<div class="jobdetails fontlight">
+						<div class="h6title jobdate graycolor">{{item.jobdate}}</div>
+
+			<div class="pinjob addjob" ng-click="add(item)"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 9.6 9.6" style="enable-background:new 0 0 9.6 9.6;" xml:space="preserve"><path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z M8.9,4.1"/></svg></div>
+		<div class="row rowonejob">
+		<div class="col-md-2 col-xs-12 centerjobrespon">
+<div class="companylogo col-md-12 col-xs-12">
+<img src="{{item.companylogo}}" ><md-tooltip
+              md-direction="top">
+              {{item.companyname}}
+            </md-tooltip>
+</div>
+<div class="jobrateuser col-md-12 col-xs-12">
+        <rate-yo class="mstarbb" on-set="set" on-change="showpagestarjobchange" ng-model="showpagestarjobrating" read-only="showpagestarjoboptions.readOnly" options="showpagestarjoboptions"></rate-yo></div>
+<div class="jobratesystem col-md-12 col-xs-12">
+        <rate-yo on-set="set" on-change="showpagerectanjobchange" ng-model="showpagerectanjobrating" read-only="showpagerectanjoboptions.readOnly" options="showpagerectanjoboptions"></rate-yo>
+</div>
+</div>
+<div class="col-md-10 col-xs-12 paddingjobrespon">
+			<div class="col-md-12 col-xs-12 h3title bluecolor jobname fontmedium">{{item.jobname}}</div>
+			<div class="col-md-8 col-xs-8 h5title darkgraycolor jobfield">{{item.jobfield}}</div>
+			<div class="col-md-4 col-xs-4">
+<div class="row" style="padding: 10px 0 15px;">
+			<span class="col-md-8 col-xs-12 darkgraycolor h5title">مبلغ سرمایه گذاری شده </span>
+			<span class="col-md-4 col-xs-12 greencolor textleft h5title">{{item.jobprice}}</span>
+			</div>		
+<div class="row" style="padding: 0px 0 15px;">
+			<span class="col-md-8 col-xs-12 darkgraycolor h5title">زمان در نظر گرفته شده </span>
+			<span class="col-md-4 col-xs-12 greencolor textleft h5title">{{item.jobtime}}</span>
+			</div>
+			</div>
+			<div class="col-md-8 col-xs-8 nopaddingright">
+			<div class="h6title typeofcooperation fontlight graycolor {{item.activeclass}}" ng-repeat="item in item.jobtag">
+			<div class="fontlight">
+			{{item.textbtn}}
+			</div>
+</div>
+</div>
+					<div class="col-md-4">
+		<div class="col-md-6 row requestforcooperationjob">
+		<button type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>
+</div>
+<div class="col-md-6 readmorejob">
+<button type="button" class="btn greenbtnreverse fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
+</div>
+	
+</div>
+			
+</div>
+			</div>
+			
+
+			</div>
+			</div>
+ <div class="searchdatabasepage">
+ <div class="col-md-6 col-xs-12 textright">
+    <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"  items-per-page="itemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+</div> 
+<div class="col-md-6 col-xs-12 chngsetitem">
+<span class="fontmedium h5title graycolor">تعداد نتایج در یک صفحه </span><select ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select>
+</div>
+</div>
+</div>
+</div>
+	
+</div>

@@ -1,0 +1,281 @@
+﻿<div ng-controller="chooseatestpage" class="chsentest">
+
+	<div class="sabtagahishog">
+						        <div class="container" style="padding-right: 0;">
+
+							<h1 class="h1title bluecolor">
+        <span class="fontmedium">ثبت یک آگهی شغلی</span>
+    </h1>
+	         <div class="tabhead">
+                        <ul class="nav nav-tabs">
+                            <li><a style="margin-right: 0px;" ng-class="{active: activeTab == 'tab1'}"ng-click="activeTab='tab1'">ارزیابی روانشناختی</a></li>
+                            <li><a ng-class="{active: activeTab == 'tab2'}"  ng-click="activeTab='tab2'">ارزیابی مهارتی</a></li>
+                            <li><a ng-class="{active: activeTab == 'tab3'}" ng-click="activeTab='tab3'">ارزیابی شایستگی ها</a></li>
+      
+                        </ul>
+<div class="col-md-3 col-xs-12" style="
+    bottom: 5px;
+    left: 0;
+    position: absolute;
+    padding: 0;
+">
+  <input class="form-control jostojoazmon" type="text" size="100" ng-model="searchtabname.nametest" placeholder="جستجوی یک ارزیابی" style="
+    background-color: #eaedf1;
+"></input>
+<i class="form-control-feedback fa fa-search" style="
+    left: 5px;
+"></i>
+
+</div>
+                </div>
+
+						        <div class="sabtagahishogbox">
+		    <div ng-show="activeTab=='tab1'">
+ <div class="pgsabtshoglbox"style="width: 100%;">
+
+<div ng-repeat="x in azmonshaksiyat">
+<div class="col-md-12 col-xs-12 fontmedium bluecolor h2title"  style="
+    padding: 0 30px; */
+">{{x.name}}
+</div>
+<div class="col-md-12 col-xs-12 flexclassazmon">
+<div class="withtestazmonh" ng-repeat="x in x.test | filter:searchtabname">
+<div class="btn col-xs-12 testbotto h4title fontlight"   ng-class="{'tringledettest' : x.id==detailslogt3.shown}" ng-click="toggleDetails(x.id)" style="text-align: right;padding-right: 15px;">{{x.nametest}}  </div>
+		 <div class="col-md-12 col-xs-12 boxdetclass" ng-show="x.id==detailslogt3.shown">
+	 <div class="col-md-12 col-xs-12">		
+		 <div class="row r1boxdetclass h2title fontmedium">{{x.nametest}}</div>
+         </div>
+		 <div class="col-md-9 col-xs-9">
+		 <div class="row r2boxdetclass">{{x.desctest}}</div>
+	
+		 </div>
+				<div class="col-md-3 col-xs-3 linehigh25" style="padding-left: 0;">
+						 <div class="rownom">
+						     <span class="khasneagdtitlch">	مبلغ سرمایه گذاری:</span>
+				<span class="kasneaggeyjo pull-left">{{ geymatkargozarmaharat }} ریال</span><br>  
+				<span class="khasneagdtitlch">	زمان مورد نیاز:</span>
+				<span class="kasneaggeyjo pull-left">{{ timekargozarmaharat }} دقیقه</span>
+									</div>
+
+		 				</div>
+						
+							 <div class="col-md-6 col-xs-6">
+							 	 <div class="row r3boxdetclass">  
+<span>		 
+		    <button type="button" class="btn greenbtn addtestvakargo alanjamazmonmod" ng-click="addtestvakargomaharat(x)">انجام آزمون</button>
+            <button type="button" class="btn greenbtnreverse">مطالعه بیشتر <i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
+			</span>
+	
+								</div>
+	</div>	
+<div class="col-md-2 col-xs-6" style="
+    margin: 15px 0;
+">
+	<span class="geymatkargozarr3 pull-right">
+						 <span class="h4title fontlight">کارگزار مورد نظر:</span></span>
+						</div> 
+		
+							
+				<div class="col-md-4 col-xs-6 textleft" style="padding-left: 0;">
+				
+<div class="pull-left">
+<div class="kargozarentkhabazimg"  ng-repeat="kargozarmaharat in x.kargozarha">
+<md-tooltip
+              md-direction="top">
+              {{kargozarmaharat.kargozarname}}
+            </md-tooltip>
+<img class="img" ng-class="{active: kargozarmaharat == selectedmaharat}" src="{{kargozarmaharat.kargozaricon}}" ng-click="showgeymatkargozarmaharat(kargozarmaharat)">
+</div>	
+								</div>
+	</div>
+						
+						
+				</div>
+				</div>
+				</div>
+				</div>
+				
+
+
+
+						</div>
+
+		
+	<div class="col-md-12 col-xs-12 btnsnexbacre"  style="padding: 0px;">
+<div class="col-md-2 col-xs-2" style="padding: 0;">
+<a  ui-sref=""  class="backgam btn h5title fontmedium">بازگشت به پروفایل</a>
+			</div>
+
+						</div>
+						</div>
+	     <div ng-show="activeTab=='tab2'">
+ <div class="pgsabtshoglbox"style="width: 100%;">
+
+<div ng-repeat="x in azmonmaharat">
+<div class="col-md-12 col-xs-12 fontmedium bluecolor h2title"  style="
+    padding: 0 30px; */
+">{{x.name}}
+</div>
+<div class="col-md-12 col-xs-12 flexclassazmon">
+<div class="withtestazmonh" ng-repeat="x in x.test | filter:searchtabname">
+<div class="btn col-xs-12 testbotto h4title fontlight"   ng-class="{'tringledettest' : x.id==detailslogt3maharat.shown}" ng-click="toggleDetailsmaharat(x.id)" style="text-align: right;padding-right: 15px;">{{x.nametest}}  </div>
+		 <div class="col-md-12 col-xs-12 boxdetclass" ng-show="x.id==detailslogt3maharat.shown">
+		 <div class="col-md-12 col-xs-12">		
+		 <div class="row r1boxdetclass h2title fontmedium">{{x.nametest}}</div>
+         </div>
+		 <div class="col-md-9 col-xs-9">
+		 <div class="row r2boxdetclass">{{x.desctest}}</div>
+	
+		 </div>
+				<div class="col-md-3 col-xs-3 linehigh25" style="padding-left: 0;">
+						 <div class="rownom">
+						     <span class="khasneagdtitlch">	مبلغ سرمایه گذاری:</span>
+				<span class="kasneaggeyjo pull-left">{{ geymatkargozarmaharat }} ریال</span><br>  
+				<span class="khasneagdtitlch">	زمان مورد نیاز:</span>
+				<span class="kasneaggeyjo pull-left">{{ timekargozarmaharat }} دقیقه</span>
+									</div>
+
+		 				</div>
+						
+							 <div class="col-md-6 col-xs-6">
+							 	 <div class="row r3boxdetclass">  
+<span>		 
+		    <button type="button" class="btn greenbtn addtestvakargo alanjamazmonmod" ng-click="addtestvakargomaharat(x)">انجام آزمون</button>
+            <button type="button" class="btn greenbtnreverse">مطالعه بیشتر <i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
+			</span>
+	
+								</div>
+	</div>	
+<div class="col-md-2 col-xs-6" style="
+    margin: 15px 0;
+">
+	<span class="geymatkargozarr3 pull-right">
+						 <span class="h4title fontlight">کارگزار مورد نظر:</span></span>
+						</div> 
+		
+							
+				<div class="col-md-4 col-xs-6 textleft" style="padding-left: 0;">
+				
+<div class="pull-left">
+<div class="kargozarentkhabazimg"  ng-repeat="kargozarmaharat in x.kargozarha">
+<md-tooltip
+              md-direction="top">
+              {{kargozarmaharat.kargozarname}}
+            </md-tooltip>
+<img class="img" ng-class="{active: kargozarmaharat == selectedmaharat}" src="{{kargozarmaharat.kargozaricon}}" ng-click="showgeymatkargozarmaharat(kargozarmaharat)">
+</div>	
+								</div>
+	</div>
+						
+						
+				</div>
+				</div>
+				</div>
+				</div>
+				
+
+
+		
+
+						</div>
+
+			
+	<div class="col-md-12 col-xs-12 btnsnexbacre"  style="padding: 0px;">
+<div class="col-md-2 col-xs-2" style="padding: 0;">
+<a  ui-sref=""  class="backgam btn h5title fontmedium">بازگشت به پروفایل</a>
+			</div>
+
+						</div>
+						</div>
+	     <div ng-show="activeTab=='tab3'">
+ <div class="pgsabtshoglbox"style="width: 100%;">
+ 
+<div ng-repeat="x in azmonshyestegi">
+<div class="col-md-12 col-xs-12 fontmedium bluecolor h2title"  style="
+    padding: 0 30px; */
+">{{x.name}}
+</div>
+<div class="col-md-12 col-xs-12 flexclassazmon">
+<div class="withtestazmonh" ng-repeat="x in x.test | filter:searchtabname">
+<div class="btn col-xs-12 testbotto h4title fontlight"   ng-class="{'tringledettest' : x.id==detailslogt3shyestegi.shown}" ng-click="toggleDetailsshyestegi(x.id)" style="text-align: right;padding-right: 15px;">{{x.nametest}}  </div>
+		 <div class="col-md-12 col-xs-12 boxdetclass" ng-show="x.id==detailslogt3shyestegi.shown">
+	 <div class="col-md-12 col-xs-12">		
+		 <div class="row r1boxdetclass h2title fontmedium">{{x.nametest}}</div>
+         </div>
+		 <div class="col-md-9 col-xs-9">
+		 <div class="row r2boxdetclass">{{x.desctest}}</div>
+	
+		 </div>
+				<div class="col-md-3 col-xs-3 linehigh25" style="padding-left: 0;">
+						 <div class="rownom">
+						     <span class="khasneagdtitlch">	مبلغ سرمایه گذاری:</span>
+				<span class="kasneaggeyjo pull-left">{{ geymatkargozarmaharat }} ریال</span><br>  
+				<span class="khasneagdtitlch">	زمان مورد نیاز:</span>
+				<span class="kasneaggeyjo pull-left">{{ timekargozarmaharat }} دقیقه</span>
+									</div>
+
+		 				</div>
+						
+							 <div class="col-md-6 col-xs-6">
+							 	 <div class="row r3boxdetclass">  
+<span>		 
+		    <button type="button" class="btn greenbtn addtestvakargo alanjamazmonmod" ng-click="addtestvakargomaharat(x)">انجام آزمون</button>
+            <button type="button" class="btn greenbtnreverse">مطالعه بیشتر <i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
+			</span>
+	
+								</div>
+	</div>	
+<div class="col-md-2 col-xs-6" style="
+    margin: 15px 0;
+">
+	<span class="geymatkargozarr3 pull-right">
+						 <span class="h4title fontlight">کارگزار مورد نظر:</span></span>
+						</div> 
+		
+							
+				<div class="col-md-4 col-xs-6 textleft" style="padding-left: 0;">
+				
+<div class="pull-left">
+<div class="kargozarentkhabazimg"  ng-repeat="kargozarmaharat in x.kargozarha">
+<md-tooltip
+              md-direction="top">
+              {{kargozarmaharat.kargozarname}}
+            </md-tooltip>
+<img class="img" ng-class="{active: kargozarmaharat == selectedmaharat}" src="{{kargozarmaharat.kargozaricon}}" ng-click="showgeymatkargozarmaharat(kargozarmaharat)">
+</div>	
+								</div>
+	</div>
+						
+						
+				</div>
+				</div>
+				</div>
+				
+
+						</div>
+						</div>
+
+					
+	<div class="col-md-12 col-xs-12 btnsnexbacre"  style="padding: 0px;">
+<div class="col-md-2 col-xs-2" style="padding: 0;">
+<a  ui-sref=""  class="backgam btn h5title fontmedium">بازگشت به پروفایل</a>
+			</div>
+
+						</div>
+						</div>
+	
+        </div>
+
+
+									</div>
+									</div>
+
+		
+			
+			
+			
+			
+			
+			
+			
+			</div>

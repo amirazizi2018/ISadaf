@@ -1,0 +1,131 @@
+﻿<div class="evaluationbrokershead textcenter">
+			<div class="col-md-12-5 graycolor">Id</div>
+			<div class="col-md-12-5 graycolor">Name</div>
+			<div class="col-md-12-5 graycolor">Last</div>
+			<div class="col-md-12-5 graycolor">Alert</div>
+			<div class="col-md-12-5 graycolor">Action</div>
+            <div class="clearfix"></div>
+</div>
+<div class="basicinformationeb textcenter" >
+			<div class="col-md-12-5 bluecolor fontmedium" style="direction: ltr;" ng-click="toggleDetailsbi('basicinformationeb')">1</div>
+			<div class="col-md-12-5 bluecolor fontmedium" style="direction: ltr;" ng-click="toggleDetailsbi('basicinformationeb')">امیر</div>
+			<div class="col-md-12-5 bluecolor fontmedium" style="direction: ltr;" ng-click="toggleDetailsbi('basicinformationeb')">عباس زاده</div>
+			<div class="col-md-12-5 bluecolor fontmedium" style="direction: ltr;" ng-click="toggleDetailsbi('basicinformationeb')">تست</div>
+			<div class="col-md-12-5 bluecolor fontmedium" style="direction: ltr;">
+			<select style="width: 70%;direction: rtl;" ng-model="drdoale" aria-invalid="false"  ng-confirm-click="آیا مطمئن هستید؟" confirmed-click="changedrdoale()">
+            <option value="1">حذف پیام</option>
+            <option value="2">رفع مسدودی</option>
+            <option value="3">بازیابی کلمه عبور و ارسال</option>
+            <option value="4">تایید درخواست</option>
+            <option value="5">ارسال پیام</option>
+            <option value="6">اسنرداد وجه</option>
+            <option value="7">ارجاع به روابط عمومی</option>
+            </select>
+			</div>
+            <div class="clearfix"></div>
+			<div class="col-md-12 col-xs-12 boxbrokersele" ng-hide="basicinformationeb==biselbroker.shown" >
+
+    <ul class="col-md-1 nav nav-tabs">
+        <li ng-class="{active: activeTab == 'info'}">
+            <a class="alertlogboxtab" ng-click="activeTab='info'">Info</a>
+        </li>
+        <li ng-class="{active: activeTab == 'logs'}">
+            <a class="alertlogboxtab" ng-click="activeTab='logs'">Logs</a>
+        </li>     
+		<li ng-class="{active: activeTab == 'ein'}">
+            <a class="alertlogboxtab" ng-click="activeTab='ein'">Ein</a>
+        </li>
+    </ul>    
+    <div class="alertboxdet col-md-11 col-xs-12 ">
+    <div ng-show="activeTab=='info'" class="alertboxdetlogs">
+<div class="col-md-6 col-xs-12">نام و نام خانوادگی : امیرحسین عبدالله زاده</div>
+<div class="col-md-6 col-xs-12">عنوان شغلی فعلی : برنامه نویس</div>
+<div class="col-md-6 col-xs-12">A20Group@Yahoo.com : پست الکترونیکی</div>
+<div class="col-md-6 col-xs-12">09377891052 : شماره تلفن</div>
+<div class="col-md-6 col-xs-12">وضعیت پروفایل : فعال</div>
+<div class="col-md-6 col-xs-12">آخرین زمان آنلاین بودن : دیروز</div>
+    </div>
+
+    <div ng-show="activeTab=='logs'">
+Not Senario
+    </div>
+    
+    
+    <div ng-show="activeTab=='ein'">
+  <table class="table table-bordered transactionstable">
+    <thead>
+      <tr>
+        <th>  
+		<a ng-click="orderByField='transactionhistory'; reverseSort = !reverseSort">
+           تاریخ تراکنش <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactiontype'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactionhistory'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+          </a></th>
+        <th>
+          <a ng-click="orderByField='transactiontype'; reverseSort = !reverseSort">
+            نوع تراکنش <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span>  <span ng-show="orderByField == 'transactionhistory'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactiontype'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+          </a>
+        </th>
+        <th>شماره پیگیری</th>
+        <th>مبلغ (تومان)</th>
+        <th>موجودی (تومان)</th>
+        <th>دریافت فاکتور</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="transaction in mytransactions|orderBy:orderByField:reverseSort">
+        <td>{{transaction.transactionhistory}}</td>
+        <td>{{transaction.transactiontype}}</td>
+        <td>{{transaction.issuetracking}}</td>
+        <td ng-class="{'greencolor': transaction.transactiontype == 'واریز',
+           'graycolor': transaction.transactiontype == 'واریز ناموفق',
+           'redcolor': transaction.transactiontype == 'پرداخت'}">{{transaction.transactionprice}}</td>
+        <td ng-class="{'greencolor': transaction.transactiontype == 'واریز',
+           'graycolor': transaction.transactiontype == 'واریز ناموفق'}">{{transaction.transactioncredit}}</td>
+        <td class="recivefactorlink"><a href="{{transaction.recivefactorlink}}"><i class="fa fa-download h2title" aria-hidden="true"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+
+				</div>
+
+<section  class="cd-horizontal-timeline" data-spacing="60" time-line>
+    <div class="timeline">
+        <div class="events-wrapper">
+            <div class="events">
+                <ol>
+                    <li time-line-li ng-repeat="node in nodes">
+                        <a ng-class="{'selected':$index == 0}" href="#0" data-date="{{node.date}}"
+                           class="border-after-blue bg-after-blue">{{node.name}}
+                        </a>
+                    </li>
+                    <!--<li><a href="#0" data-date="28/02/2014">28 Feb</a></li>-->
+                    <!--<li><a href="#0" data-date="20/04/2014">20 Mar</a></li>-->
+                    <!--<li><a href="#0" data-date="20/05/2014">20 May</a></li>-->
+                    <!--<li><a href="#0" data-date="09/07/2014">09 Jul</a></li>-->
+                    <!--<li><a href="#0" data-date="30/08/2014">30 Aug</a></li>-->
+                    <!--<li><a href="#0" data-date="15/09/2014">15 Sep</a></li>-->
+                    <!--<li><a href="#0" data-date="01/11/2014">01 Nov</a></li>-->
+                    <!--<li><a href="#0" data-date="10/12/2014">10 Dec</a></li>-->
+                    <!--<li><a href="#0" data-date="19/01/2015">29 Jan</a></li>-->
+                    <!--<li><a href="#0" data-date="03/03/2015">3 Mar</a></li>-->
+                </ol>
+
+                <span class="filling-line" aria-hidden="true"></span>
+            </div>
+            <!-- .events -->
+        </div>
+        <!-- .events-wrapper -->
+
+        <ul class="cd-timeline-navigation">
+            <li><a href="#0" class="prev inactive">Prev</a></li>
+            <li><a href="#0" class="next">Next</a></li>
+        </ul>
+        <!-- .cd-timeline-navigation -->
+    </div>
+    <!-- .timeline -->
+
+    <!-- .events-content -->
+</section>
+</div>
+

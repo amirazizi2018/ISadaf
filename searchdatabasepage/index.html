@@ -1,0 +1,348 @@
+﻿<div ng-controller="searchdatabasepage">
+
+ <div class="container searchdatabasepage">
+ 
+         <div class="col-md-12 col-xs-12 nopaddinglr h1title bluecolor fontmedium">جستجوی دیتابیس</div>
+
+ <div class="pgsabtshoglbox">
+					        <div class="searchdatabase">
+   <div class="searchdatabaser">
+
+<div class="col-md-2 col-xs-12">			
+															    <span class="titlefildsear graycolor h5title fontmedium">عنوان جایگاه شغلی</span>
+
+								</div>
+
+							<div class="col-md-10 col-xs-12">
+								                            <input class="form-control onvanjayghahshoghl" type="text" size="100"  ng-model="onvanjayghahshoghl"></input>
+
+								</div>
+
+
+</div>
+
+		        <div class="searchdatabaser">
+							<div class="col-md-2 col-xs-12">
+							    <span class="titlefildsear graycolor h5title fontmedium">مهارت های کلیدی</span>
+								</div>
+															<div class="col-md-9 col-xs-12">
+								                            <input class="form-control addinputtott"  type="text" size="100" ng-model="formdate.inpuvaluemaharatkilidi"></input>
+
+</div>
+<div class="col-md-1 col-xs-12">
+                                <a class="btn btn-default addmaharatbtn h6title fontmedium" ng-click="addmaharatkilidi()">اضافه</a>
+
+</div>
+
+</div>
+
+	        <div class="searchdatabaser resanakal" ng-repeat="maharat in maharatkilidi" id="mahratkilidiid{{$index}}">
+											<div class="col-md-2 col-xs-1">
+								</div>
+
+							<div class="col-md-10 col-xs-12">
+
+								                                <div class="namemaharatkilid">{{maharat.title}}</div>
+								                                <div class="removemahartkilid" ng-click="removemahartkilid($index)">حذف</div>
+
+
+								</div>
+
+
+</div>
+		  
+	        <div class="searchdatabaser">
+											<div class="col-md-2 col-xs-12">
+																		    <span class="titlefildsear graycolor h5title fontmedium">تحصیلات</span>
+
+								</div>
+
+							<div class="col-md-10 col-xs-12">
+
+				  <select ng-model="shahr">
+<option ng-repeat="x in shahr" value="{{x.nameper}}">{{x.nameper}}</option>
+</select>
+
+								</div>
+
+
+</div>
+
+	        <div class="searchdatabaser">
+											<div class="col-md-2 col-xs-12">
+																		    <span class="titlefildsear graycolor h5title fontmedium">جنسیت</span>
+
+								</div>
+
+							<div class="col-md-10 col-xs-12">
+
+				  <select ng-model="shahr">
+<option ng-repeat="x in shahr" value="{{x.nameper}}">{{x.nameper}}</option>
+</select>
+
+								</div>
+
+
+</div>
+	        <div class="searchdatabaser">
+											<div class="col-md-2 col-xs-12">
+																		    <span class="titlefildsear graycolor h5title fontmedium">سن</span>
+
+								</div>
+
+							<div class="col-md-10 col-xs-12">
+
+				  <select ng-model="shahr">
+<option ng-repeat="x in shahr" value="{{x.nameper}}">{{x.nameper}}</option>
+</select>
+
+								</div>
+
+
+</div>
+
+<div class="searchdatabaser" style="padding: 15px;">			
+								<div class="col-md-2 col-xs-12">
+																		    <span class="titlefildsear graycolor h5title fontmedium">نوع همکاری</span>
+
+								</div>
+
+<div class="col-md-10 col-xs-12" style="
+    padding: 0;
+    padding-top: 5px;
+">							  <md-checkbox class="h5title fontlight" ng-model="noehamkari.tamamvaght" aria-label="Checkbox 1">تمام وقت</md-checkbox>
+							  <md-checkbox class="h5title fontlight" ng-model="noehamkari.parevaght" aria-label="Checkbox 2">پاره وقت</md-checkbox>
+							  <md-checkbox class="h5title fontlight" ng-model="noehamkari.karamozi" aria-label="Checkbox 3">کارآموزی</md-checkbox>
+							  <md-checkbox class="h5title fontlight" ng-model="noehamkari.karvandi" aria-label="Checkbox 4">کاروندی</md-checkbox>
+
+								</div>
+
+</div>
+
+
+
+
+
+
+	 	        <div ng-show="showallfilter">
+	 	        <div class="extrafiltersarda">
+
+
+	     
+
+
+	        <div class="searchdatabaser">
+														<div class="col-md-6 col-xs-12 exfildsearctwo">
+
+<div class="col-md-4 col-xs-12 exfildsearcfou" style="padding-right: 0;">			
+																		    <span class="titlefildsear graycolor h5title fontmedium">شهر</span>
+
+								</div>
+								<div class="col-md-8 col-xs-12 exfildsearcthe" style="padding-right: 10px;">
+							  <select ng-model="sabeghekari">
+<option ng-repeat="x in sabeghekari" value="{{x.nameper}}">{{x.nameper}}</option>
+</select>
+					
+
+</div>
+</div>
+
+													<div class="col-md-6 col-xs-12 exfildsearctwo">
+
+											<div class="col-md-5 col-xs-12">
+																		    <span class="titlefildsear graycolor h5title fontmedium">وضعیت نظام وظیفه (آقایان)<span>
+
+								</div>
+
+							<div class="col-md-7 col-xs-12">
+					  <select ng-model="hozedaraysabeghe">
+<option ng-repeat="x in hozedaraysabeghe" value="{{x.nameper}}">{{x.nameper}}</option>
+</select>
+								</div>
+
+</div>
+
+</div>
+
+
+	        <div class="searchdatabaser">
+														<div class="col-md-6 col-xs-12 exfildsearctwo">
+
+<div class="col-md-4 col-xs-12 exfildsearcfou" style="padding-right: 0;">			
+																		    <span class="titlefildsear graycolor h5title fontmedium">وضعیت تاهل</span>
+
+								</div>
+
+							<div class="col-md-8 col-xs-12 exfildsearcthe" style="padding-right: 10px;">
+				  <select ng-model="mogeatdarjayghah">
+<option ng-repeat="x in mogeatdarjayghah" value="{{x.nameper}}">{{x.nameper}}</option>
+</select>
+								</div>
+
+</div>
+
+													<div class="col-md-6 col-xs-12 exfildsearctwo">
+
+											<div class="col-md-5 col-xs-12">
+																		    <span class="titlefildsear graycolor h5title fontmedium">صنعت<span>
+
+								</div>
+
+							<div class="col-md-7 col-xs-12">
+				  <select ng-model="vahedsazmani">
+<option ng-repeat="x in vahedsazmani" value="{{x.nameper}}">{{x.nameper}}</option>
+</select>
+								</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="searchdatabaser">
+														<div class="col-md-6 col-xs-12 exfildsearctwo">
+
+<div class="col-md-4 col-xs-12 exfildsearcfou" style="padding-right: 0;">			
+																		    <span class="titlefildsear graycolor h5title fontmedium">وضعیت اقامتی</span>
+
+								</div>
+
+							<div class="col-md-8 col-xs-12 exfildsearcthe" style="padding-right: 10px;">
+
+				  <select ng-model="mahalfaliat">
+<option ng-repeat="x in mahalfaliat" value="{{x.nameper}}">{{x.nameper}}</option>
+</select>
+								</div>
+
+</div>
+
+													<div class="col-md-6 col-xs-12 exfildsearctwo">
+
+											<div class="col-md-5 col-xs-12">
+																		    <span class="titlefildsear graycolor h5title fontmedium">آخرین زمان آنلاین بودن<span>
+
+								</div>
+
+							<div class="col-md-7 col-xs-12">
+				  <select ng-model="noemahalfaliat">
+<option ng-repeat="x in noemahalfaliat" value="{{x.nameper}}">{{x.nameper}}</option>
+</select>
+								</div>
+
+</div>
+
+</div>
+
+<div class="searchdatabaser" style="padding: 15px;">			
+								<div class="col-md-2 col-xs-12">
+																		    <span class="titlefildsear graycolor h5title fontmedium">وضعیت ارزیابی</span>
+
+								</div>
+
+<div class="col-md-10 col-xs-12" style="
+    padding: 0;
+    padding-top: 5px;
+">							  <md-checkbox class="h5title fontlight" ng-model="vaziatarzyabi.shaksiyat" aria-label="Checkbox 5">ارزیابی شخصیت</md-checkbox>
+							  <md-checkbox class="h5title fontlight" ng-model="vaziatarzyabi.mahrati" aria-label="Checkbox 6">ارزیابی مهارتی</md-checkbox>
+							  <md-checkbox class="h5title fontlight" ng-model="vaziatarzyabi.shayestegi" aria-label="Checkbox 7">ارزیابی شایستگی</md-checkbox>
+
+								</div>
+
+</div>
+</div>
+		</div>
+
+<div class="col-md-12 col-xs-12">
+<div class="col-md-6 col-xs-12">
+<button type="button" class="btn bluebtn">جستجو</button>
+</div>
+<div class="col-md-6 col-xs-12 textleft">
+<span  ng-click="showallfilter = !showallfilter" >
+<span class="graycolor" ng-show="!showallfilter"> <i class="fa fa-angle-double-down" aria-hidden="true"></i> فیلترهای پیشرفته</span>
+<span class="graycolor underline" ng-show="showallfilter"> <i class="fa fa-angle-double-up" aria-hidden="true"></i> فیلترهای کمتر </span>
+</span>
+</div>
+
+
+		</div>
+
+
+<div class="col-xs-12">
+                    <div class="sta-info">
+                        <div class="col-xs-7">
+                            <ul>
+                                <li ng-repeat="x in searchdet">{{x.title}} <span class="graycolor {{x.classa}}">{{x.nubmer}}</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-5 text-left">
+                            <button class="btn btn-update btn-sm" type="button">ارتقای سطح کاربری</button>
+                        </div>
+                    </div>
+                </div>
+
+ 
+  <div class="col-md-12 col-xs-12">
+  <table class="table table-bordered transactionstable shearchdbres">
+    <thead>
+      <tr>
+        <th>ذخیره</th>
+        <th>
+		<a ng-click="orderByField='name'; reverseSort = !reverseSort">
+           نام کارجو <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'age' ||  orderByField == 'sex' ||  orderByField == 'job' ||  orderByField == 'education'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'name'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+          </a>
+        </th>
+        <th>
+          <a ng-click="orderByField='age'; reverseSort = !reverseSort">
+            سن <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span>  <span ng-show="orderByField == 'name' ||  orderByField == 'sex' ||  orderByField == 'job' ||  orderByField == 'education'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'age'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+          </a>
+        </th>
+        <th>
+          <a ng-click="orderByField='sex'; reverseSort = !reverseSort">
+            جنسیت <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span>  <span ng-show="orderByField == 'age' ||  orderByField == 'name' ||  orderByField == 'job' ||  orderByField == 'education'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'sex'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+          </a>
+        </th>
+        <th>
+          <a ng-click="orderByField='job'; reverseSort = !reverseSort">
+            شغل <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span>  <span ng-show="orderByField == 'age' ||  orderByField == 'sex' ||  orderByField == 'name' ||  orderByField == 'education'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'job'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+          </a>
+        </th>
+        <th>
+          <a ng-click="orderByField='education'; reverseSort = !reverseSort">
+            تحصیلات <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span>  <span ng-show="orderByField == 'age' ||  orderByField == 'sex' ||  orderByField == 'job' ||  orderByField == 'name'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'education'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+          </a>
+        </th>
+        <th>مشاهده</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in shearchdbres.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))|orderBy:orderByField:reverseSort">
+        <td class="recivefactorlink"><a href=""><div class="pinjob addjob savesaechdbk" ng-click="add(item)" role="button" tabindex="0"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 9.6 9.6" style="enable-background:new 0 0 9.6 9.6;" xml:space="preserve"><path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z M8.9,4.1"/></svg></div></a></td>
+        <td>{{x.name}}</td>
+        <td>{{x.age}}</td>
+        <td>{{x.sex}}</td>
+        <td>{{x.job}}</td>
+        <td>{{x.education}}</td>
+        <td class="recivefactorlink"><a href="{{x.profilelink}}"><i class="fa fa-address-card-o h2title" aria-hidden="true"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ <div class="col-md-6 col-xs-12 textright">
+    <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"  items-per-page="itemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+</div> 
+<div class="col-md-6 col-xs-12 chngsetitem">
+<span class="fontmedium h5title graycolor">تعداد نتایج در یک صفحه </span><select ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select>
+</div>
+
+
+
+
+			</div>
+			</div>
+			
+
+<div class="clearfix"></div>
+
+</div>

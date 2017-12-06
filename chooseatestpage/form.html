@@ -1,0 +1,54 @@
+				   <div ng-controller="formController" class="chsentest">
+
+	<div class="sabtagahishog">
+						        <div class="container" style="padding-right: 0;">
+
+							<h1 class="h1title bluecolor">
+        <span class="fontmedium">ثبت یک آگهی شغلی</span>
+    </h1>
+	         <div class="tabhead">
+                        <ul class="nav nav-tabs">
+                            <li><a ui-sref-active="active" style="margin-right: 0px;" ui-sref-active="active" ui-sref=".tab1">ارزیابی روانشناختی</a></li>
+                            <li><a ui-sref-active="active"  ui-sref=".tab2">ارزیابی مهارتی</a></li>
+                            <li><a ui-sref-active="active"  ui-sref=".tab3">ارزیابی شایستگی ها</a></li>
+      
+                        </ul>
+<div class="col-md-3 col-xs-12" style="
+    bottom: 5px;
+    left: 0;
+    position: absolute;
+    padding: 0;
+">
+  <input class="form-control jostojoazmon" type="text" size="100" ng-model="searchtabname.nametest" placeholder="جستجوی یک ارزیابی" style="
+    background-color: #eaedf1;
+"></input>
+<i class="form-control-feedback fa fa-search" style="
+    left: 5px;
+"></i>
+
+</div>
+                </div>
+
+						        <div class="sabtagahishogbox">
+		
+          <div ui-view></div>
+        </div>
+  <pre style="
+    display: none;
+">  >
+    {{formData}}
+
+  </pre>
+
+									</div>
+									</div>
+
+		
+			
+			
+			
+			
+			
+			
+			
+			</div>

@@ -1,0 +1,120 @@
+﻿<div ng-controller="companymainpage">
+<section class="banner2-home bg-co-img">
+    <div class="container">
+         <div class="slide-banner-home col-md-12">
+            <div class="col-md-7 row">
+                <h2>به دنبال چه نیرویی هستید؟</h2>
+                <p class="color-p">    
+                    سامانه های صدف، Hub یا بستری است که در آن امکان ارائه تمامی سرویس¬ها و خدمات HR که منجر به بهره این حوزه میسر خواهد بودلب<br/>
+                    تحقق این هدف و د که این سامانه دارای ویژگی¬های خاصی باش: ب
+                </p><br/>
+                <div class="col-md-12">
+                    <div class="row">
+                        <button type="button" class="btn btn-blue pull-right" ng-click="gotosearchdb()" >جستجوی رایگان دیتابیس</button>
+                        <button type="button" class="btn btn-green pull-right" ng-click="gotocreatepost()" >ایجاد یک آگهی رایگان</button>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+</section>
+
+<section class="statistics-home">
+    <div class="container">
+        <div class="show-grid">
+            <div class="col-sm-6 col-md-4-5 col-lg-1-5 border-left-right" ng-repeat="x in companystatistics">
+                <img width="55" height="auto" src="{{x.img}}" alt="">
+                <div class="statistics-info">
+                    <p class="number">{{x.number}}</p>
+                    <p class="title fontmedium">{{x.title}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="samaneh-sadaf">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-samaneh2">
+            <div class="col-md-10">
+                <h2>تایید حساب کاربری</h2>
+                <p>
+                    تحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد.  
+                </p>
+            </div>
+            <div class="col-md-2">
+            <div class="samaneh-btn">
+                    <button type="button" class="btn btn-warning btn-md pull-right">درخواست تایید</button>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="com-main-3">
+     <div class="container">
+        <div class="col-md-12">
+            <div class="box-com row">
+                <div class="col-md-4" >
+                    <img src="/assets/images/co1.png" title="" alt="">
+                    <div class="h2title fontbold" >آگهی یک شغل</div>
+                    <p class="h5tilte fontlight">
+برای اضافه نمودن یک آگهی شغلی  کافیست ابتدا اقدام به عضویت نموده و وارد حساب کاربری خود بشوید                    </p>
+                    <button type="button" class="btn btn-blue-b h6title fontmedium" ng-click="gotocreatepost()">مشاهده جزئیات
+                        <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                    </button>
+</div>      
+          <div class="col-md-4" >
+                    <img src="/assets/images/co2.png" title="" alt="">
+                    <div class="h2title fontbold" >جستجوی دیتابیس</div>
+                    <p class="h5tilte fontlight">
+برای اضافه نمودن یک آگهی شغلی  کافیست ابتدا اقدام به عضویت نموده و وارد حساب کاربری خود بشوید                  </p>
+                    <button type="button" class="btn btn-blue-b h6title fontmedium" ng-click="gotosearchdb()" >مشاهده جزئیات
+                        <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                    </button>
+</div>              
+  <div class="col-md-4" >
+                    <img src="/assets/images/co3.png" title="" alt="">
+                    <div class="h2title fontbold" >ثبت یک پژوهش</div>
+                    <p class="h5tilte fontlight">
+برای اضافه نمودن یک آگهی شغلی  کافیست ابتدا اقدام به عضویت نموده و وارد حساب کاربری خود بشوید                   </p>
+                    <button type="button" class="btn btn-blue-b h6title fontmedium" ng-click="gotocreateresearch()">مشاهده جزئیات
+                        <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                    </button>
+</div>
+            </div>
+        </div>
+     </div>
+</section>
+
+<section class="topcomsadaf">
+    <div class="container">
+        <span class="col-md-12 col-xs-12 bluecolor h1title">سازمان های برتر صدف:</span>
+    <div class="row">
+        <div class="col-md-2 col-sm-4 col-xs-6"  ng-repeat="company in companies">
+            <a  ng-click="showaemp(company)" >
+            <div class="col-md-12 company">
+                <img src="{{company.avatar}}" title="" alt="">
+   <div class="jobrateuser col-md-12 col-xs-12">
+        <rate-yo class="mstarbb" on-set="set" on-change="showpagestarchange" ng-model="showpagestarrating" read-only="showpagestaroptions.readOnly" options="showpagestaroptions"></rate-yo>
+</div>
+<div class="jobratesystem col-md-12 col-xs-12">
+        <rate-yo on-set="set" on-change="showpagerectanchange" ng-model="showpagerectanrating" read-only="showpagerectanoptions.readOnly" options="showpagerectanoptions"></rate-yo>
+</div>
+                <div class="hovercompany">
+                    <p class="hover1">{{$index+1}}</p>
+                    <p class="hover2">{{company.rate}}</p>
+                </div>
+            </div>
+            </a>
+        </div>
+   
+    </div>
+    </div>
+</section>
+
+
+
+</div>

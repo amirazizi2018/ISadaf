@@ -1,0 +1,43 @@
+<div ng-show="activeTabF=='tab7'"  class="myfinancialtransactions">
+            
+  <table class="table table-bordered transactionstable">
+    <thead>
+      <tr>
+        <th>  
+		<a ng-click="orderByField='transactionhistory'; reverseSort = !reverseSort">
+           تاریخ تراکنش <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactiontype'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactionhistory'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+          </a></th>
+        <th>
+          <a ng-click="orderByField='transactiontype'; reverseSort = !reverseSort">
+            نوع تراکنش <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span>  <span ng-show="orderByField == 'transactionhistory'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactiontype'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+          </a>
+        </th>
+        <th>شماره پیگیری</th>
+        <th>مبلغ (تومان)</th>
+        <th>موجودی (تومان)</th>
+        <th>دریافت فاکتور</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="transaction in mytransactions.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))|orderBy:orderByField:reverseSort">
+        <td>{{transaction.transactionhistory}}</td>
+        <td>{{transaction.transactiontype}}</td>
+        <td>{{transaction.issuetracking}}</td>
+        <td ng-class="{'greencolor': transaction.transactiontype == 'واریز',
+           'graycolor': transaction.transactiontype == 'واریز ناموفق',
+           'redcolor': transaction.transactiontype == 'پرداخت'}">{{transaction.transactionprice}}</td>
+        <td ng-class="{'greencolor': transaction.transactiontype == 'واریز',
+           'graycolor': transaction.transactiontype == 'واریز ناموفق'}">{{transaction.transactioncredit}}</td>
+        <td class="recivefactorlink"><a href="{{transaction.recivefactorlink}}"><i class="fa fa-download h2title" aria-hidden="true"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+ <div class="col-md-6 col-xs-12 textright">
+    <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"  items-per-page="itemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+</div> 
+
+<div class="col-md-6 col-xs-12 mysetincreasecredit">
+					<button type="button" class="btn greenbtn fontmedium"><span>افزایش اعتبار</span></button>
+</div>
+
+</div>

@@ -1,0 +1,38 @@
+<div ng-show="activeTabF=='tab4'" >
+ 			            <div class="clearfix"></div>
+
+			<div class="col-md-6 graycolor">تعداد تکرار پروفایل شما در جستجوی سازمان ها:</div>
+			<div class="col-md-6 bulecolor underlinelink" ng-repeat="item in numberdownandrep">{{item.numrepeat}}</div>
+            <div class="clearfix"></div>
+
+			<div class="col-md-12 graycolor">سازمان های خواستار شما:</div>
+			            <div class="clearfix"></div>
+            <div class="col-md-12">
+			<div class="col-md-2  col-xs-4 yourrequestingorganizations" ng-repeat="item in yourrequestingorganizations">
+			<a href="{{item.companylink}}"><img src="{{item.companylogo}}" alt="{{item.companyname}}"></a>
+			<md-tooltip
+              md-direction="top">
+              {{item.companyname}}
+            </md-tooltip>
+            </div>
+			</div>
+			            <div class="clearfix"></div>
+						
+			<div class="col-md-6 graycolor">تعداد دفعات دانلود پروفایل شما از طرف سازمان ها:</div>
+			<div class="col-md-6 bulecolor underlinelink" ng-repeat="item in numberdownandrep">{{item.numdownload}}</div>
+            <div class="clearfix"></div>
+			
+			<div class="col-md-12 graycolor">سازمان های خواستار شما:</div>
+			            <div class="clearfix"></div>
+            <div class="col-md-12 col-xs-12 yourskill" ng-repeat="item in yourskill">
+			<div class="col-md-12   col-xs-6  skillname graycolor">{{item.skill}}</div>
+			<div class="col-md-6 col-xs-12 skillprogressbar">
+	    <uib-progressbar max="100" value="item.persent" duration="800" animation="easeInOutQuart" animation-delay="0" on-render="showPreciseCurrent"></uib-progressbar>
+
+            </div>
+			<span class="skillpersent graycolor">{{item.persent}}%</span>
+            </div>
+			
+			</div>
+
+		
