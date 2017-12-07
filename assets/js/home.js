@@ -7,102 +7,102 @@ app.config(function($routeProvider,$locationProvider) {
 
     $routeProvider.when("/home", {
         controller: "mainpage",
-        templateUrl: "/mainpage/index.html"
+        templateUrl: "mainpage/index.html"
     });
 
     $routeProvider.when("/jobseekermainpage", {
         controller: "jobseekermainpage",
-        templateUrl: "/jobseekermainpage/index.html"
+        templateUrl: "jobseekermainpage/index.html"
     });
 
     $routeProvider.when("/jobpostspage", {
         controller: "jobpostspage",
-        templateUrl: "/jobpostspage/index.html"
+        templateUrl: "jobpostspage/index.html"
     });
 
 	$routeProvider.when("/apostpage", {
         controller: "apostpage",
-        templateUrl: "/apostpage/index.html"
+        templateUrl: "apostpage/index.html"
     });
 
 	$routeProvider.when("/acompanypage", {
         controller: "acompanypage",
-        templateUrl: "/acompanypage/index.html"
+        templateUrl: "acompanypage/index.html"
     });
 
 	$routeProvider.when("/jobseekerprofilepage", {
         controller: "jobseekerprofilepage",
-        templateUrl: "/jobseekerprofilepage/index.html"
+        templateUrl: "jobseekerprofilepage/index.html"
     });
 
 	$routeProvider.when("/chooseatestpage", {
         controller: "chooseatestpage",
-        templateUrl: "/chooseatestpage/index.html"
+        templateUrl: "chooseatestpage/index.html"
     });	
 
 	$routeProvider.when("/companymainpage", {
         controller: "companymainpage",
-        templateUrl: "/companymainpage/index.html"
+        templateUrl: "companymainpage/index.html"
     });
 
 	$routeProvider.when("/searchscenarios", {
         controller: "searchscenarios",
-        templateUrl: "/searchscenarios/index.html"
+        templateUrl: "searchscenarios/index.html"
     });	
 
 	$routeProvider.when("/postajobscenarios", {
         controller: "postajobscenarios",
-        templateUrl: "/postajobscenarios/index.html"
+        templateUrl: "postajobscenarios/index.html"
     });	
 
 	$routeProvider.when("/createapostpage", {
         controller: "createapostpage",
-        templateUrl: "/createapostpage/index.html"
+        templateUrl: "createapostpage/index.html"
     });	
 
 	$routeProvider.when("/searchdatabasepage", {
         controller: "searchdatabasepage",
-        templateUrl: "/searchdatabasepage/index.html"
+        templateUrl: "searchdatabasepage/index.html"
     });
 
 	$routeProvider.when("/jobseekerdashboardpage", {
         controller: "jobseekerdashboardpage",
-        templateUrl: "/jobseekerdashboardpage/index.html"
+        templateUrl: "jobseekerdashboardpage/index.html"
     });
 
 	$routeProvider.when("/companydashboardpage", {
         controller: "companydashboardpage",
-        templateUrl: "/companydashboardpage/index.html"
+        templateUrl: "companydashboardpage/index.html"
     });
 
 	$routeProvider.when("/spmainpage", {
         controller: "spmainpage",
-        templateUrl: "/spmainpage/index.html"
+        templateUrl: "spmainpage/index.html"
     });
 
 	$routeProvider.when("/spprofilepage", {
         controller: "spprofilepage",
-        templateUrl: "/spprofilepage/index.html"
+        templateUrl: "spprofilepage/index.html"
     });
 
 	$routeProvider.when("/spdashboardpage", {
         controller: "spdashboardpage",
-        templateUrl: "/spdashboardpage/index.html"
+        templateUrl: "spdashboardpage/index.html"
     });	
 
 	$routeProvider.when("/jobsalbum", {
         controller: "jobsalbum",
-        templateUrl: "/jobsalbum/index.html"
+        templateUrl: "jobsalbum/index.html"
     });	
 
 	$routeProvider.when("/aresearchpage", {
         controller: "aresearchpage",
-        templateUrl: "/aresearchpage/index.html"
+        templateUrl: "aresearchpage/index.html"
     });
 
 	$routeProvider.when("/researchposts", {
         controller: "researchposts",
-        templateUrl: "/researchposts/index.html"
+        templateUrl: "researchposts/index.html"
     });
 
 
