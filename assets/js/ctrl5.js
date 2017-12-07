@@ -351,17 +351,17 @@ app.controller('acompanypage' ,function($compile, $sce, $scope, $window, $http, 
   } 
 	
 	$scope.productsandservices = [
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
     ];		
 	
 	$scope.ourbrands = [
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
     ];
 
 	$scope.companystatistics = [
@@ -379,23 +379,23 @@ app.controller('acompanypage' ,function($compile, $sce, $scope, $window, $http, 
 
 	
 	$scope.companychart = [
-	{upimg : '/assets/images/u1.jpg' , mainimg : '/assets/images/u2.jpg' , 
+	{upimg : 'assets/images/u1.jpg' , mainimg : 'assets/images/u2.jpg' , 
 	"downimg" : [
-	{name : 'شرکت ایساکو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'شرکت تست' , img : '/assets/images/u3.png' , link : '' ,},
-	{name : 'شرکت مپنا' , img : '/assets/images/u1' , link : '' ,},
+	{name : 'شرکت ایساکو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'شرکت تست' , img : 'assets/images/u3.png' , link : '' ,},
+	{name : 'شرکت مپنا' , img : 'assets/images/u1' , link : '' ,},
    ]
 	},
 	];
 	    
 
 		  $scope.data = [
-         {id:'1', companyname:'بانک سامان',companylogo:'/assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-         {id:'2', companyname:'شرکت مپنا',companylogo:'/assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-         {id:'3', companyname:'بانک سامان',companylogo:'/assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-         {id:'4', companyname:'شرکت مپنا',companylogo:'/assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-         {id:'5', companyname:'بانک سامان',companylogo:'/assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-         {id:'6', companyname:'شرکت مپنا',companylogo:'/assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+         {id:'1', companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+         {id:'2', companyname:'شرکت مپنا',companylogo:'assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+         {id:'3', companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+         {id:'4', companyname:'شرکت مپنا',companylogo:'assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+         {id:'5', companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+         {id:'6', companyname:'شرکت مپنا',companylogo:'assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
    ];
 
 	

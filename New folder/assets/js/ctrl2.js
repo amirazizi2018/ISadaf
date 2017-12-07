@@ -38,17 +38,17 @@ app.controller('jobseekermainpage', function($compile, $sce, $scope, $window, $h
         };	
 
 	$scope.banners = [
-	{title : 'ایجاد پروفایل شغلی' , img : '/assets/images/three-home1.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
-	{title : 'انجام پژوهش برای صنعت توسط شما' , img : '/assets/images/three-home2.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
-	{title : 'معرفی شما به عنوان نیروی کار' , img : '/assets/images/three-home3.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
+	{title : 'ایجاد پروفایل شغلی' , img : 'assets/images/three-home1.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
+	{title : 'انجام پژوهش برای صنعت توسط شما' , img : 'assets/images/three-home2.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
+	{title : 'معرفی شما به عنوان نیروی کار' , img : 'assets/images/three-home3.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
 	];	
 
 	$scope.companystatistics = [
-	{img : '/assets/images/statistics1.svg' , number : '۲۰۱۵۵۳' , title : 'نیروی کارجو' ,},
-	{img : '/assets/images/statistics2.svg' , number : '۸۷۸۵' , title : 'شرکت/سازمان' ,},
-	{img : '/assets/images/statistics3.svg' , number : '۱۲۰۸' , title : 'موقعیت شغلی' ,},
-	{img : '/assets/images/statistics4.svg' , number : '۱۷۹' , title : 'کارگزار خدمات' ,},
-	{img : '/assets/images/statistics5.svg' , number : '36' , title : 'فرصت پژوهشی' ,},
+	{img : 'assets/images/statistics1.svg' , number : '۲۰۱۵۵۳' , title : 'نیروی کارجو' ,},
+	{img : 'assets/images/statistics2.svg' , number : '۸۷۸۵' , title : 'شرکت/سازمان' ,},
+	{img : 'assets/images/statistics3.svg' , number : '۱۲۰۸' , title : 'موقعیت شغلی' ,},
+	{img : 'assets/images/statistics4.svg' , number : '۱۷۹' , title : 'کارگزار خدمات' ,},
+	{img : 'assets/images/statistics5.svg' , number : '36' , title : 'فرصت پژوهشی' ,},
 	];	
 
 

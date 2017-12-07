@@ -344,30 +344,30 @@ app.controller('apostpage' ,function($compile, $sce, $scope, $window, $http, Upl
 	$scope.assmereq = [
 	{name : 'ارزیابی کلی:' , 
 	"row" : [
-	{title : 'روزمه شخصی' , img : '/assets/images/lk1' , link : '' , level : '' ,},
+	{title : 'روزمه شخصی' , img : 'assets/images/lk1' , link : '' , level : '' ,},
    ]
 	},
 	
 	{name : 'ارزیابی شخصیت:' , 
 	"row" : [
-	{title : 'تست MBTI' , img : '/assets/images/lk1' , link : '' , level : '' ,},
-	{title : 'تست Watson-Glaser' , img : '/assets/images/lk1' , link : '' , level : '' ,},
+	{title : 'تست MBTI' , img : 'assets/images/lk1' , link : '' , level : '' ,},
+	{title : 'تست Watson-Glaser' , img : 'assets/images/lk1' , link : '' , level : '' ,},
    ]
 	},	
 	
 	{name : 'ارزیابی مهارتی:' , 
 	"row" : [
-	{title : 'گزارش نویسی' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
-	{title : 'Microsoft Exell' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
-	{title : 'Microsoft Project' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
-	{title : 'Comfar' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
-	{title : 'بازرسی فنی' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'گزارش نویسی' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'Microsoft Exell' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'Microsoft Project' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'Comfar' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'بازرسی فنی' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
    ]
 	},	
 	
 	{name : 'ارزیابی شایستگی:' , 
 	"row" : [
-	{title : 'تفکر تحلیلی' , img : '/assets/images/lk3' , link : '' , level : '' ,},
+	{title : 'تفکر تحلیلی' , img : 'assets/images/lk3' , link : '' , level : '' ,},
    ]
 	},
 	

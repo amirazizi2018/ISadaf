@@ -383,7 +383,7 @@ $scope.sentEmails.some(function(obj, i) {
 
 app.controller('myinformation', function($compile, $sce, $scope, $window, $http) {
 	
-   	$scope.yourrequestingorganizations = [ {companylogo : '/assets/images/samanlogo.png' ,companyname:'بانک سامان',companylink:'#'},{companylogo : '/assets/images/mapnalogo.png' ,companyname:'مپنا',companylink:'#'},];
+   	$scope.yourrequestingorganizations = [ {companylogo : 'assets/images/samanlogo.png' ,companyname:'بانک سامان',companylink:'#'},{companylogo : 'assets/images/mapnalogo.png' ,companyname:'مپنا',companylink:'#'},];
     $scope.yourskill = [{skill : 'Microsoft Exell' ,persent:'70'},{skill : 'مدیریت پروژه' ,persent:'60'},{skill:'MSP' ,persent:'50'},{skill:'Comfar' ,persent:'40'},{skill:'گزارش نویسی' ,persent:'30'},];
 	$scope.numberdownandrep  = [{numrepeat:'27',numdownload:'77'}];
 
@@ -392,7 +392,7 @@ app.controller('myinformation', function($compile, $sce, $scope, $window, $http)
 
 app.controller('myevaluationbrokers', function($compile, $sce, $scope, $window, $http) {
 	
-	$scope.brokers = [ {kargozarname : "کارگزار۱" , kargozargeymat : "310000", kargozaricon : "/assets/images/lk1.png" } , {kargozarname : "کارگزار2" , kargozargeymat : "320000", kargozaricon : "/assets/images/lk2.png" } ,{kargozarname : "کارگزار3" , kargozargeymat : "330000", kargozaricon : "/assets/images/lk3.png" } ,{kargozarname : "کارگزار4" , kargozargeymat : "340000", kargozaricon : "/assets/images/lk5.png" } ,{kargozarname : "کارگزار5" , kargozargeymat : "350000", kargozaricon : "/assets/images/lk5.png" } ,{kargozarname : "کارگزار6" , kargozargeymat : "360000", kargozaricon : "/assets/images/lk1.png" } ,{kargozarname : "کارگزار7" , kargozargeymat : "370000", kargozaricon : "/assets/images/lk2.png" } ,{kargozarname : "کارگزار 8" , kargozargeymat : "380000", kargozaricon : "/assets/images/lk3.png" } ,];
+	$scope.brokers = [ {kargozarname : "کارگزار۱" , kargozargeymat : "310000", kargozaricon : "assets/images/lk1.png" } , {kargozarname : "کارگزار2" , kargozargeymat : "320000", kargozaricon : "assets/images/lk2.png" } ,{kargozarname : "کارگزار3" , kargozargeymat : "330000", kargozaricon : "assets/images/lk3.png" } ,{kargozarname : "کارگزار4" , kargozargeymat : "340000", kargozaricon : "assets/images/lk5.png" } ,{kargozarname : "کارگزار5" , kargozargeymat : "350000", kargozaricon : "assets/images/lk5.png" } ,{kargozarname : "کارگزار6" , kargozargeymat : "360000", kargozaricon : "assets/images/lk1.png" } ,{kargozarname : "کارگزار7" , kargozargeymat : "370000", kargozaricon : "assets/images/lk2.png" } ,{kargozarname : "کارگزار 8" , kargozargeymat : "380000", kargozaricon : "assets/images/lk3.png" } ,];
 	
 	 $scope.biselbroker = {};
      $scope.toggleDetailsbi = function(name){

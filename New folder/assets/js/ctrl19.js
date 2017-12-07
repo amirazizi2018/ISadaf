@@ -87,17 +87,17 @@ $scope.showpagerectanrating = 7.2;
   } 
 	
 	$scope.productsandservices = [
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
     ];		
 	
 	$scope.ourbrands = [
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
     ];
 
 	$scope.companystatistics = [
@@ -121,11 +121,11 @@ $scope.showpagerectanrating = 7.2;
 	];
 	
 	$scope.companychart = [
-	{upimg : '/assets/images/u1.jpg' , mainimg : '/assets/images/u2.jpg' , 
+	{upimg : 'assets/images/u1.jpg' , mainimg : 'assets/images/u2.jpg' , 
 	"downimg" : [
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید خودرو' , img : '/assets/images/u3.png' , link : '' ,},
-	{name : 'تولید خودرو' , img : '/assets/images/u1.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/u3.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/u1.png' , link : '' ,},
    ]
 	},
 	];
@@ -147,30 +147,30 @@ $scope.showpagerectanrating = 7.2;
 	$scope.assmereq = [
 	{name : 'ارزیابی کلی:' , 
 	"row" : [
-	{title : 'روزمه شخصی' , img : '/assets/images/lk1' , link : '' , level : '' ,},
+	{title : 'روزمه شخصی' , img : 'assets/images/lk1' , link : '' , level : '' ,},
    ]
 	},
 	
 	{name : 'ارزیابی شخصیت:' , 
 	"row" : [
-	{title : 'تست MBTI' , img : '/assets/images/lk1' , link : '' , level : '' ,},
-	{title : 'تست Watson-Glaser' , img : '/assets/images/lk1' , link : '' , level : '' ,},
+	{title : 'تست MBTI' , img : 'assets/images/lk1' , link : '' , level : '' ,},
+	{title : 'تست Watson-Glaser' , img : 'assets/images/lk1' , link : '' , level : '' ,},
    ]
 	},	
 	
 	{name : 'ارزیابی مهارتی:' , 
 	"row" : [
-	{title : 'گزارش نویسی' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
-	{title : 'Microsoft Exell' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
-	{title : 'Microsoft Project' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
-	{title : 'Comfar' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
-	{title : 'بازرسی فنی' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'گزارش نویسی' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'Microsoft Exell' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'Microsoft Project' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'Comfar' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'بازرسی فنی' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
    ]
 	},	
 	
 	{name : 'ارزیابی شایستگی:' , 
 	"row" : [
-	{title : 'تفکر تحلیلی' , img : '/assets/images/lk3' , link : '' , level : '' ,},
+	{title : 'تفکر تحلیلی' , img : 'assets/images/lk3' , link : '' , level : '' ,},
    ]
 	},
 	
@@ -178,10 +178,10 @@ $scope.showpagerectanrating = 7.2;
 	    
 
 			$scope.data = [
-         {id:'1',  companyname:'بانک سامان',companylogo:'/assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-         {id:'1',  companyname:'بانک سامان',companylogo:'/assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-         {id:'1',  companyname:'بانک سامان',companylogo:'/assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-         {id:'1',  companyname:'بانک سامان',companylogo:'/assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+         {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+         {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+         {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+         {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
        ];
 	
 

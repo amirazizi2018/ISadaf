@@ -45,17 +45,17 @@ app.controller('companymainpage', function($compile, $sce, $scope, $window, $htt
 	
 	
 	$scope.banners = [
-	{title : 'ارزیابی از کارجویان' , img : '/assets/images/sptopb3.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
-	{title : 'نمایش خدمات و محصولات' , img : '/assets/images/sptopb2.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
-	{title : 'مشاوره به کارفرمایان' , img : '/assets/images/sptopb1.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
+	{title : 'ارزیابی از کارجویان' , img : 'assets/images/sptopb3.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
+	{title : 'نمایش خدمات و محصولات' , img : 'assets/images/sptopb2.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
+	{title : 'مشاوره به کارفرمایان' , img : 'assets/images/sptopb1.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
 	];	
 	
 	$scope.companystatistics = [
-	{img : '/assets/images/statistics1.svg' , number : '۲۰۱۵۵۳' , title : 'نیروی کارجو' ,},
-	{img : '/assets/images/statistics2.svg' , number : '۸۷۸۵' , title : 'شرکت/سازمان' ,},
-	{img : '/assets/images/statistics3.svg' , number : '۱۲۰۸' , title : 'موقعیت شغلی' ,},
-	{img : '/assets/images/statistics4.svg' , number : '۱۷۹' , title : 'کارگزار خدمات' ,},
-	{img : '/assets/images/statistics5.svg' , number : '36' , title : 'فرصت پژوهشی' ,},
+	{img : 'assets/images/statistics1.svg' , number : '۲۰۱۵۵۳' , title : 'نیروی کارجو' ,},
+	{img : 'assets/images/statistics2.svg' , number : '۸۷۸۵' , title : 'شرکت/سازمان' ,},
+	{img : 'assets/images/statistics3.svg' , number : '۱۲۰۸' , title : 'موقعیت شغلی' ,},
+	{img : 'assets/images/statistics4.svg' , number : '۱۷۹' , title : 'کارگزار خدمات' ,},
+	{img : 'assets/images/statistics5.svg' , number : '36' , title : 'فرصت پژوهشی' ,},
 	];	
 
 

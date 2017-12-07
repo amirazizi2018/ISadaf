@@ -171,17 +171,17 @@ app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window,
     }); 
 
 	$scope.productsandservices = [
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
     ];		
 
 	$scope.ourbrands = [
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید قطعات' , img : '/assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید قطعات' , img : 'assets/images/isaco.png' , link : '' ,},
     ];
 
 	$scope.companystatistics = [
@@ -205,11 +205,11 @@ app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window,
 	];
 
 	$scope.companychart = [
-	{upimg : '/assets/images/u1.jpg' , mainimg : '/assets/images/u2.jpg' , 
+	{upimg : 'assets/images/u1.jpg' , mainimg : 'assets/images/u2.jpg' , 
 	"downimg" : [
-	{name : 'تولید خودرو' , img : '/assets/images/isaco.png' , link : '' ,},
-	{name : 'تولید خودرو' , img : '/assets/images/u3.png' , link : '' ,},
-	{name : 'تولید خودرو' , img : '/assets/images/u1.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/isaco.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/u3.png' , link : '' ,},
+	{name : 'تولید خودرو' , img : 'assets/images/u1.png' , link : '' ,},
    ]
 	},
 	];
@@ -220,25 +220,25 @@ app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window,
 	$scope.assmereq = [
 	{name : 'ارزیابی کلی:' , 
 	"row" : [
-	{title : 'روزمه شخصی' , img : '/assets/images/lk1' , link : '' , level : '' ,},
+	{title : 'روزمه شخصی' , img : 'assets/images/lk1' , link : '' , level : '' ,},
 	{title : 'اضافه نمودن رزومه' , img : '' , link : '' , level : '' , classes : 'addbtnpgjp',},
    ]
 	},
 
 	{name : 'ارزیابی شخصیت:' , 
 	"row" : [
-	{title : 'تست MBTI' , img : '/assets/images/lk1' , link : '' , level : '' ,},
-	{title : 'تست Watson-Glaser' , img : '/assets/images/lk1' , link : '' , level : '' ,},
+	{title : 'تست MBTI' , img : 'assets/images/lk1' , link : '' , level : '' ,},
+	{title : 'تست Watson-Glaser' , img : 'assets/images/lk1' , link : '' , level : '' ,},
 	{title : 'اضافه نمودن آزمون شخصیت' , img : '' , link : '' , level : '' , classes : 'addbtnpgjp',},
    ]
 	},	
 
 	{name : 'ارزیابی مهارتی:' , 
 	"row" : [
-	{title : 'گزارش نویسی' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
-	{title : 'Microsoft Exell' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
-	{title : 'Microsoft Project' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
-	{title : 'Comfar' , img : '/assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'گزارش نویسی' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'Microsoft Exell' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'Microsoft Project' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
+	{title : 'Comfar' , img : 'assets/images/lk2' , link : '' , level : 'سطح 1' ,},
 	{title : 'اضافه نمودن مهارت' , img : '' , link : '' , level : '' , classes : 'addbtnpgjp',},
 
    ]
@@ -246,7 +246,7 @@ app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window,
 
 	{name : 'ارزیابی شایستگی:' , 
 	"row" : [
-	{title : 'تفکر تحلیلی' , img : '/assets/images/lk3' , link : '' , level : '' ,},
+	{title : 'تفکر تحلیلی' , img : 'assets/images/lk3' , link : '' , level : '' ,},
 	{title : 'اضافه نمودن شایستگی' , img : '' , link : '' , level : '' , classes : 'addbtnpgjp',},
 
    ]
