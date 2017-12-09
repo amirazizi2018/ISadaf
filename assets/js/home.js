@@ -104,6 +104,11 @@ app.config(function($routeProvider,$locationProvider) {
         controller: "researchposts",
         templateUrl: "researchposts/index.html"
     });
+	
+	$routeProvider.when("/createaresearchpage", {
+        controller: "createaresearchpage",
+        templateUrl: "createaresearchpage/index.html"
+    });
 
 
     $routeProvider.otherwise({

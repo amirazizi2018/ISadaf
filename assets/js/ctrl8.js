@@ -69,7 +69,7 @@ app.controller('companymainpage', function($compile, $sce, $scope, $window, $htt
 				}	
 				
 				$scope.gotocreateresearch = function() {
-							$location.path("createapostpage");
+							$location.path("createaresearchpage");
 				}
 				
 								
