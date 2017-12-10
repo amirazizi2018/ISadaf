@@ -187,83 +187,7 @@
 
 						</div>
 						</div>
-	     <div ng-show="activeTab=='tab3'">
- <div class="pgsabtshoglbox"style="width: 100%;">
- 
-<div ng-repeat="x in azmonshyestegi">
-<div class="col-md-12 col-xs-12 fontmedium bluecolor h2title"  style="
-    padding: 0 30px; */
-">{{x.name}}
-</div>
-<div class="col-md-12 col-xs-12 flexclassazmon">
-<div class="withtestazmonh" ng-repeat="x in x.test | filter:searchtabname">
-<div class="btn col-xs-12 testbotto h4title fontlight"   ng-class="{'tringledettest' : x.id==detailslogt3shyestegi.shown}" ng-click="toggleDetailsshyestegi(x.id)" style="text-align: right;padding-right: 15px;">{{x.nametest}}  </div>
-		 <div class="col-md-12 col-xs-12 boxdetclass" ng-show="x.id==detailslogt3shyestegi.shown">
-	 <div class="col-md-12 col-xs-12">		
-		 <div class="row r1boxdetclass h2title fontmedium">{{x.nametest}}</div>
-         </div>
-		 <div class="col-md-9 col-xs-9">
-		 <div class="row r2boxdetclass">{{x.desctest}}</div>
-	
-		 </div>
-				<div class="col-md-3 col-xs-3 linehigh25" style="padding-left: 0;">
-						 <div class="rownom">
-						     <span class="khasneagdtitlch">	مبلغ سرمایه گذاری:</span>
-				<span class="kasneaggeyjo pull-left">{{ geymatkargozarmaharat }} ریال</span><br>  
-				<span class="khasneagdtitlch">	زمان مورد نیاز:</span>
-				<span class="kasneaggeyjo pull-left">{{ timekargozarmaharat }} دقیقه</span>
-									</div>
-
-		 				</div>
-						
-							 <div class="col-md-6 col-xs-6">
-							 	 <div class="row r3boxdetclass">  
-<span>		 
-		    <button type="button" class="btn greenbtn addtestvakargo alanjamazmonmod" ng-click="addtestvakargomaharat(x)">انجام آزمون</button>
-            <button type="button" class="btn greenbtnreverse">مطالعه بیشتر <i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
-			</span>
-	
-								</div>
-	</div>	
-<div class="col-md-2 col-xs-6" style="
-    margin: 15px 0;
-">
-	<span class="geymatkargozarr3 pull-right">
-						 <span class="h4title fontlight">کارگزار مورد نظر:</span></span>
-						</div> 
-		
-							
-				<div class="col-md-4 col-xs-6 textleft" style="padding-left: 0;">
-				
-<div class="pull-left">
-<div class="kargozarentkhabazimg"  ng-repeat="kargozarmaharat in x.kargozarha">
-<md-tooltip
-              md-direction="top">
-              {{kargozarmaharat.kargozarname}}
-            </md-tooltip>
-<img class="img" ng-class="{active: kargozarmaharat == selectedmaharat}" src="{{kargozarmaharat.kargozaricon}}" ng-click="showgeymatkargozarmaharat(kargozarmaharat)">
-</div>	
-								</div>
-	</div>
-						
-						
-				</div>
-				</div>
-				</div>
-				
-
-						</div>
-						</div>
-
-					
-	<div class="col-md-12 col-xs-12 btnsnexbacre"  style="padding: 0px;">
-<div class="col-md-2 col-xs-2" style="padding: 0;">
-<a  ui-sref=""  class="backgam btn h5title fontmedium">بازگشت به پروفایل</a>
-			</div>
-
-						</div>
-						</div>
-	
+	   	    <div ng-show="activeTab=='tab3'"> <div class="pgsabtshoglbox"style="width: 100%;"><div class="searchdatabaser" style="padding-bottom: 15px;">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear-tabazmon  h5title fontmedium">نوع دسته بندی شایستگی ها</span>								</div>															<div class="col-md-10 col-xs-12 padleftminupzero">	  <select class="h5title fontlight" ><option value="azmonshksiat">دسته بندی شایستگی</option></select></div></div>	<!-- 	        <div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear-tabazmon  h5title fontmedium">جستجوی آزمون</span>								</div>															<div class="col-md-10 col-xs-12 padleftminupzero">								                            <input class="form-control jostojoazmon" id="profileshoghl" type="text" size="100" ng-model="searchtabname.nametest"></input><i class="form-control-feedback fa fa-search"></i></div></div> -->	<div style="padding: 5px 30px;"><hr></div>  	<div class="col-md-12 col-xs-12 flexclassazmon updatemrboxdeshap"><div class="col-md-12 col-xs-12 flexclassazmon nopaddinglr" ng-repeat="x in azmonshyestegi"  ng-init="outerIndex = $index"><span class="col-md-12 col-xs-12 fontmedium h4title bluecolor" style="padding-bottom: 10px;">{{x.partname}}</span><div class="withtestazmonh" ng-repeat="x in x.parts"><div></div><div class="btn col-xs-12 testbotto h4title fontlight"   ng-class="{'tringledettest' : x.id==detailslogt3shyestegi.shown}" ng-click="toggleDetailsshyestegi(x.id)" style="text-align: right;padding-right: 15px;">{{x.nametest}}  </div>		 <div class="col-md-12 col-xs-12 boxdetclass" ng-show="x.id==detailslogt3shyestegi.shown">		 <div class="col-md-12 col-xs-12">		 <div class="row r1boxdetclass h2title fontmedium">{{x.nametest}}</div>		 <div class="row r2boxdetclass">{{x.desctest}}</div>		 <div class="row r3boxdetclass">  <span>		 		    <button type="button" class="btn greenbtn addtestvakargo aladdazmonp11" ng-click="addtestvakargoshyestegi(x , outerIndex)">اضافه نمودن</button>            <button type="button" class="btn greenbtnreverse">مطالعه بیشتر <i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>			</span>							<span class="selectimportant">					اهمیت	<i class="fa fa-info-circle" aria-hidden="true"> <md-tooltip              md-direction="top">تست تولتیپ            </md-tooltip></i>			<select class="h5title fontlight" ng-model="selectimportant"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select>								</div>		</span>		 </div>				</div>				</div>				</div>				</div>				<div style="padding: 5px 30px;"><hr></div>  <div class="col-md-12  col-xs-12" style="padding: 0 0 15px;"><div class="col-md-6  col-xs-12 customwid40" style="float: left;text-align: right;padding-left: 30px;">						    <span class="bluecolor  h5title fontmedium">انتخاب کارگزار:</span>		</div>		<div class="col-md-6  col-xs-12 customwid60" style="float: right;padding-right: 30px;">						    <span class="  h5title fontmedium">شایستگی های انتخاب شده:</span>						    <span class="numberentkhansshp bluecolor  h5title fontmedium">{{formData.testentekhabshyestegi.length}} عدد</span>		</div>					<div class="col-md-12 col-xs-12 kasneaggeyjo customwid60ksd">		<div class="addwithtestazmonh col-xs-12" ng-repeat="x in formData.testentekhabshyestegi" ng-click="removetestvakargoshyestegi(x  , outerIndex)"><button class="btn testbotto addedbote" >   <span style="float: right;padding-right: 15px;">{{x.nametest}}</span>   <i class="fa fa-check" style="float: left;padding-left: 15px;"></i>  </button>				</div>				</div>				<div class="col-md-6  col-xs-12 customwid40">						<div class="col-md-12  col-xs-12 nopaddinglr">	<div class="selectkargozarshayes" ng-repeat="kargozarshyestegi in kargozarhashyestegi" ng-click="showgeymatkargozarshyestegi(kargozarshyestegi)"><div class="kargozarshentkhabazimg"  ><md-tooltip              md-direction="top">              {{kargozarshyestegi.kargozarname}}            </md-tooltip><img class="img" ng-class="{active: kargozarshyestegi == selectedshyestegi}" src="{{kargozarshyestegi.kargozaricon}}"></div>					</div>				</div>				<div class="detailskargozarhashyestegich col-md-12 col-xs-12 nopaddinglr" ng-show="showgheymatkargozsp">				<div class="nopaddinglr col-xs-12 col-md-12" ng-repeat="prod2 in formData.detkargozarhashyestegi">				<div class="col-md-6 col-xs-6 nopaddinglr">							    <span class="khasneagdtitlch ">													  <md-checkbox ng-model="orders2.prod2s.prod2[prod2.packtitle]" aria-label="Checkbox{{$index}}">{{prod2.packtitle}}</md-checkbox></span>   						</div><div class="col-md-6 col-xs-12 kasneaggeyjo"><span class="agahikhas2">{{prod2.packprice}}</span><span> ریال</span></div>               		</div>		</div>		</div>				</div>		<!-- <div class="col-md-12  col-xs-12" style="    padding: 15px;"><div class="col-md-6  col-xs-12" style="float: left;"><div class="col-md-7 col-xs-10" style="text-align: left;padding: 0;">							    <span class="khasneagdtitlch">	مجموع سرمایه گذاری در این مرحله:</span>								</div><div class="col-md-5 col-xs-2 kasneaggeyjo" style="padding: 0;"><span class="majmosarmayegozarikhas">{{totalazmonshyestegi()}}</span><span> ریال</span></div>		</div>						</div> -->						</div>				<div class="col-md-12 col-xs-12 btnsnexbacre"  style="padding: 0px;"><div class="col-md-2 col-xs-2" style="padding: 0;"><a  ng-click="activeTab='tab4'"  class="backgam btn h5title fontmedium">« بازگشت به گام قبل</a>			</div><div class="col-md-8  col-xs-8" style="    padding: 10px 0 15px;"><div class="col-md-10 col-xs-10 mablagrescss" style="    text-align: left;    padding-left: 0;">							    <span class="khasneagdtitlch">	مبلغ کل تا این مرحله:</span>								</div><div class="col-md-2 col-xs-2 kasneaggeyjo"><span class="majmosarmayegozarikhas">{{ totalazmonravan() + totalazmonmaharat() + totalazmonshyestegi() }}</span><span> ریال</span></div>		</div><div class="col-md-2 col-xs-2" style="padding: 0;"><a  ng-click="activeTab='tab6'"  class="nextgam btn h5title fontmedium">تایید و گام بعد »</a>			</div>						</div>						</div>		
         </div>
 
 

@@ -1934,7 +1934,7 @@ color: #D9E021;
 margin: 22px 0 15px !important;
     position: relative;
     text-align: center;
-    padding: 0;
+    padding: 0;   	cursor: pointer;
 }
 
 .topcomsadaf .company img {
