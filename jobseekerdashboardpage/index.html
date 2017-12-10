@@ -145,7 +145,7 @@
 </div>
 </div>
 <div ng-show="activeTabF=='tab3'" >	
-<div ng-repeat="items in jobsaveddata.slice(((jobsaveddatacurrentPage-1)*jobsaveddataitemsPerPage), ((jobsaveddatacurrentPage)*jobsaveddataitemsPerPage))"><div class="col-md-6 col-xs-12 jobdetailsbox graycolor" ng-repeat="item in items">
+<div class="col-md-6 col-xs-12 jobdetailsbox graycolor" ng-repeat="item in jobsaveddata.job.slice(((jobsaveddatacurrentPage-1)*jobsaveddataitemsPerPage), ((jobsaveddatacurrentPage)*jobsaveddataitemsPerPage))">
        <div class="jobdetails fontlight">
             <div class="h6title jobdate graycolor">{{item.created_at | jalaliDate:'jDD / jMMMM / jYY' }}</div>
 				<div class="pinjob removejob" ng-click="removejob(item)"><i class="fa fa-times" aria-hidden="true"></i></div>
@@ -196,7 +196,7 @@
              <div class="col-md-6 requestforcooperationjob">                  <button ng-click="requestjob(item,$index)" ng-show="requestshow[$index] || item.requested == null  || item.requested == false" ng-hide="requestshowshow[$index] || item.requested == true"  type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>                  <button  ng-click="derequestjob(item,$index)" ng-show="derequestshow[$index] || item.requested == true" ng-hide="derequestshowhide[$index] || item.requested == null  || item.requested == false" type="button" class="btn greenbtn dereq fontmedium"><span>لغو درخواست</span></button>                             </div>               <div class="col-md-6 readmorejob">                  <button  ng-click="showajob(item)" type="button" class="btn greenbtnreverse algnbtnmd fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>               </div>
             </div>
          </div>
-			</div>			</div>
+			</div>
 		
 		
 <div class="col-md-12 paginationcenter">
