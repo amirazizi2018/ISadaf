@@ -132,39 +132,20 @@
                         </p>
                     </div>
                     <div class="col-md-2 col-xs-12 textleft">
-                <button ng-click="NotShowForJS()" type="button" class="btn upgradeprofile greenbtn fontmedium"><i class="fa fa-share-square-o" aria-hidden="true"></i><span>ارتقـای پروفایل</span></button>
+                <button ng-if="NotShowForJS()" type="button" class="btn upgradeprofile greenbtn fontmedium"><i class="fa fa-share-square-o" aria-hidden="true"></i><span>ارتقـای پروفایل</span></button>
 <button type="button" class="btn increasecredit greenbtnreverse fontmedium"><i class="fa fa-download" aria-hidden="true"></i><span>دریافت پروفایل</span></button>
                     </div>
                     </div>
 </div>
 
-<div class="clearfix"></div>
+<div class="clearfix"></div>				<div id="ShowPopupgotores" class="modal modal-md" role="dialog">        <div class="modal-dialog">        <div class="modal-content ">        <div class="modal-header">            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>            <h3>انتخاب کارگزار</h3>        </div>        <div class="modal-body">                   <div class="kargozarentkhabazimg"  ng-repeat="kargozar kargozarha"><md-tooltip              md-direction="top">              {{kargozar.kargozarname}}            </md-tooltip><img class="img" ng-class="{active: kargozar == selected}" src="{{kargozar.kargozaricon}}" ng-click="selectkargozar(kargozar)"></div>                <button ng-click="gotocreateres()" type="button" class="btn upgradeprofile greenbtn fontmedium"><span>تکمیل رزومه</span></button>	        </div>    </div>    </div></div>
 
 		<div class="col-md-12 coompanyservices jobpagetable">
                 <div class="h2title fontmedium bluecolor" style="padding: 5px 0 10px;">ارزیابی های انجام شده:
 </div>
 				
 				<div class="col-md-12 col-xs-12 assmereq">
-				<div class="col-md-12 col-xs-12 row" ng-repeat="x in assmereq"  style="padding: 20px 0 30px;">
-								<div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">{{x.name}}</div>
-
-						<div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in x.row">
-<div class="btn testbotto finalbotdetres {{x.classes}}" > 
-<md-tooltip
-              md-direction="top">
-              {{x.title}}
-            </md-tooltip>
-<div class="finalbotdetrestext" > 
-  <span class="fontlight h6title"><i ng-if="x.classes"  class="fa fa-plus-circle" aria-hidden="true"></i><span ng-if="x.classes" style="padding-right: 20px;">{{x.title | limitTo: 20 }}</span><span ng-if="!x.classes">{{x.title | limitTo: 20 }}</span></span>
-  <span class="finalbotdetressath fontlight" ng-if="x.level">{{x.level}}</span>
-    </div>
-
-  <div ng-if="x.img" class="finalbotdetresimg"><img class="img" src="{{x.img}}"></div>
-
-  </div>
-				</div>
-				
-				</div>
+				<div class="col-md-12 col-xs-12 row"  style="padding: 20px 0 30px;">								<div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی کلی:</div>						<div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in azryabires"><div class="btn testbotto finalbotdetres " > <md-tooltip              md-direction="top">              {{x.title}}            </md-tooltip><div class="finalbotdetrestext" >   <span class="fontlight h6title"><span>{{x.title | limitTo: 20 }}</span></span>  <span class="finalbotdetressath fontlight" ng-if="x.level">{{x.level}}</span>    </div>  <div ng-if="x.img" class="finalbotdetresimg"><img class="img" src="{{x.img}}"></div>  </div>				</div>						<div class="finaldetwithtestazmonh col-xs-12" ng-if="NotShowForJS()"  ng-click="gotoresu()"><div class="btn testbotto finalbotdetres addbtnpgjp" > <md-tooltip              md-direction="top">اضافه نمودن رزومه            </md-tooltip><div class="finalbotdetrestext" >   <span class="fontlight h6title"><i class="fa fa-plus-circle" aria-hidden="true"></i><span style="padding-right: 20px;">{{addresscotxt | limitTo: 20 }}</span></span>    </div>  </div>				</div>				</div>								<div class="col-md-12 col-xs-12 row"  style="padding: 20px 0 30px;">								<div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی شخصیت:</div>						<div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in azryabishaks"><div class="btn testbotto finalbotdetres" > <md-tooltip              md-direction="top">              {{x.title}}            </md-tooltip><div class="finalbotdetrestext" >   <span class="fontlight h6title"><span>{{x.title | limitTo: 20 }}</span></span>  <span class="finalbotdetressath fontlight" ng-if="x.level">{{x.level}}</span>    </div>  <div ng-if="x.img" class="finalbotdetresimg"><img class="img" src="{{x.img}}"></div>  </div>				</div>						<div class="finaldetwithtestazmonh col-xs-12" ng-if="NotShowForJS()"  ng-click="gotoarzshaks()"><div class="btn testbotto finalbotdetres addbtnpgjp" > <md-tooltip              md-direction="top">اضافه نمودن ارزیابی شخصیت			  </md-tooltip><div class="finalbotdetrestext" >   <span class="fontlight h6title"><i class="fa fa-plus-circle" aria-hidden="true"></i><span style="padding-right: 20px;">{{addshakscotxt | limitTo: 20 }}</span></span>    </div>  </div>				</div>				</div>								<div class="col-md-12 col-xs-12 row"  style="padding: 20px 0 30px;">								<div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی مهارتی:</div>						<div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in azryabimahar"><div class="btn testbotto finalbotdetres " > <md-tooltip              md-direction="top">              {{x.title}}            </md-tooltip><div class="finalbotdetrestext" >   <span class="fontlight h6title"><span>{{x.title | limitTo: 20 }}</span></span>  <span class="finalbotdetressath fontlight" ng-if="x.level">{{x.level}}</span>    </div>  <div ng-if="x.img" class="finalbotdetresimg"><img class="img" src="{{x.img}}"></div>  </div>				</div>						<div class="finaldetwithtestazmonh col-xs-12" ng-if="NotShowForJS()"  ng-click="gotoarzshaks()"><div class="btn testbotto finalbotdetres addbtnpgjp" > <md-tooltip              md-direction="top">اضافه نمودن مهارت			  </md-tooltip><div class="finalbotdetrestext" >   <span class="fontlight h6title"><i class="fa fa-plus-circle" aria-hidden="true"></i><span style="padding-right: 20px;">{{addmahrscotxt | limitTo: 20 }}</span></span>    </div>  </div>				</div>				</div>								<div class="col-md-12 col-xs-12 row"  style="padding: 20px 0 30px;">								<div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی شایستگی:</div>						<div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in azryabishayes"><div class="btn testbotto finalbotdetres " > <md-tooltip              md-direction="top">              {{x.title}}            </md-tooltip><div class="finalbotdetrestext" >   <span class="fontlight h6title"><span>{{x.title | limitTo: 20 }}</span></span>  <span class="finalbotdetressath fontlight" ng-if="x.level">{{x.level}}</span>    </div>  <div ng-if="x.img" class="finalbotdetresimg"><img class="img" src="{{x.img}}"></div>  </div>				</div>						<div class="finaldetwithtestazmonh col-xs-12" ng-if="NotShowForJS()"  ng-click="gotoarzshaks()"><div class="btn testbotto finalbotdetres addbtnpgjp" > <md-tooltip              md-direction="top">اضافه نمودن شایستگی			  </md-tooltip><div class="finalbotdetrestext" >   <span class="fontlight h6title"><i class="fa fa-plus-circle" aria-hidden="true"></i><span style="padding-right: 20px;">{{addshayesscotxt | limitTo: 20 }}</span></span>    </div>  </div>				</div>				</div>				
 				</div>
 </div>
 		

@@ -2,7 +2,7 @@ console.clear();
 
 app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window, $http, Upload, $timeout , ShareData , $location ,  $localStorage , $sessionStorage) {
 	    var mustafasite = "https://sadaf.systmngr.ir/api/v1";
-$scope.ShowForJS = function() {   if($localStorage.UserType == 'JS'){	   return false   }   else {	   return  true   }}$scope.NotShowForJS = function() {   if($localStorage.UserType == 'JS'){	   return true   }   else {	   return  false   }}
+$scope.ShowForJS = function() {   if($localStorage.UserType == 'JS'){	   return false   }   else {	   return  true   }}$scope.NotShowForJS = function() {   if($localStorage.UserType == 'JS'){	   return true   }   else {	   return  false   }}$scope.pindedplus = [];$scope.pindedcheck = [];$scope.pindedplusshow = [];$scope.pindedcheckhide = [];$scope.requestshow = [];$scope.requestshowshow = [];$scope.derequestshow = [];$scope.derequestshowhide = [];
 
     $scope.showpagestarrating = 4;
         $scope.showpagestaroptions = {
@@ -217,9 +217,9 @@ app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window,
 	];
 
 
+	$scope.addresscotxt = "اضافه نمودن رزومه";	$scope.addshakscotxt = "اضافه نمودن ارزیابی شخصیت";	$scope.addmahrscotxt = "اضافه نمودن مهارت";	$scope.addshayesscotxt = "اضافه نمودن شایستگی";
 
-
-	$scope.assmereq = [
+/* 	$scope.assmereq = [
 	{name : 'ارزیابی کلی:' , 
 	"row" : [
 	{title : 'روزمه شخصی' , img : 'assets/images/lk1' , link : '' , level : '' ,},
@@ -254,9 +254,9 @@ app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window,
    ]
 	},
 
-	];
-
-
+	]; */				$scope.gotoresu = function() {					  		  $('#ShowPopupgotores').modal('show');		}					$scope.gotoarzshaks = function() {					$location.path("chooseatestpage");		}				
+	$scope.selectkargozarinint = [];    $scope.selectkargozar = function(kargozar) {	$scope.selectkargozarinint = [];	$scope.selected = kargozar; 	$scope.selectkargozarinint.push(kargozar);    } 
+		$scope.gotocreateres = function() {if ( $scope.selectkargozarinint == null ) {alert("لطفا اول کارگزار را انتخاب کنید")}else {      }    }	
 /* 	$scope.notifications = [
       {description:'شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی <a href>طرح سفارش</a> گرفته شده استفاده می نماید'},
       {description:'شی و بی&zwnj;معنی در صنعت چاپ، صفحه&zwnj;آرایی و طراحی گرافیک گفته می&zwnj;شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح <button type="button" class="btn btn-info btn-sm">ورود سازمان ها</button>  شی و بی&zwnj;معنی در صنعت چاپ '},

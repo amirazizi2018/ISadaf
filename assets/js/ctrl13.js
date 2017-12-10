@@ -110,7 +110,7 @@ app.controller('jobseekerdashboardpage',
 '<path id="XMLID_1775_" class="st0" d="M-310.9,247h-4.1c-0.6,0-1-0.4-1-1v-9.3c0-0.6,0.4-1,1-1h4.1c0.6,0,1,0.4,1,1v9.3  C-309.9,246.6-310.4,247-310.9,247z"/>'+
 '</svg>'   };	
 		       				  $scope.getbookmarkedjob = function () {	      var configjap = {           headers: {        "Content-Type": 'application/json',        'Access-Token': $localStorage.TokenKey.access,    }            }     $http.get(mustafasite +"/job_seeker",configjap).then(function (response) {        $scope.jobsaveddata = response.data.bookmarked_job;					  $scope.jobsaveddatatotalItems = $scope.jobsaveddata.length;					    $scope.jobsaveddataviewby = 6;  $scope.jobsaveddatacurrentPage = 1;  $scope.jobsaveddataitemsPerPage = $scope.jobsaveddataviewby;  $scope.jobsaveddatamaxSize = 5;  $scope.jobsaveddatasetPage = function (pageNo) {    $scope.jobsaveddatacurrentPage = pageNo;  };    });   }
-  $scope.getbookmarkedjob();
+  $scope.getbookmarkedjob();    $scope.pindedplus = [];$scope.pindedcheck = [];$scope.pindedplusshow = [];$scope.pindedcheckhide = [];$scope.requestshow = [];$scope.requestshowshow = [];$scope.derequestshow = [];$scope.derequestshowhide = [];
 				$scope.removejob = function(item) {
                 var data =  item.id;
 
