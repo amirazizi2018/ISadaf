@@ -106,7 +106,7 @@
 <div class="col-md-2 h4title graycolor linehigh30 fontmedium">اطلاعات دسترسی</div>
 <div class="col-md-10 preminfor">
 <a ng-class="{'greencolor': phone ,'graycolor': phone == null }"  class="mobile" href=""><md-tooltip md-direction="top">{{phone}}</md-tooltip><i class="fa fa-mobile" aria-hidden="true"></i></a>
-<a ng-class="{'greencolor': phone ,'graycolor': phone == null }"  class="phone" href=""><md-tooltip md-direction="top">{{phone}}</md-tooltip><i class="fa fa-phone-square" aria-hidden="true"></i></a>
+<a ng-class="{'greencolor': phonefix ,'graycolor': phone == null }"  class="phone" href=""><md-tooltip md-direction="top">{{phonefix}}</md-tooltip><i class="fa fa-phone-square" aria-hidden="true"></i></a>
 <a ng-class="{'greencolor': address ,'graycolor': address == null }"  class="addressloc" href=""><md-tooltip md-direction="top">{{address}}</md-tooltip><i class="fa fa-building" aria-hidden="true"></i></a>
 <a ng-class="{'greencolor': email ,'graycolor': email == null }"  class="mail" href=""><md-tooltip md-direction="top">{{email}}</md-tooltip><i class="fa fa-envelope" aria-hidden="true"></i></a>
 </div>
@@ -145,7 +145,7 @@
 </div>
 </div>
 <div ng-show="activeTabF=='tab3'" >	
-<div class="col-md-6 col-xs-12 jobdetailsbox graycolor" ng-repeat="item in jobsaveddata.slice(((jobsaveddatacurrentPage-1)*jobsaveddataitemsPerPage), ((jobsaveddatacurrentPage)*jobsaveddataitemsPerPage))">
+<div class="col-md-6 col-xs-12 jobdetailsbox graycolor" ng-repeat="item in jobsaveddata.job.slice(((jobsaveddatacurrentPage-1)*jobsaveddataitemsPerPage), ((jobsaveddatacurrentPage)*jobsaveddataitemsPerPage))">
        <div class="jobdetails fontlight">
             <div class="h6title jobdate graycolor">{{item.created_at | jalaliDate:'jDD / jMMMM / jYY' }}</div>
 				<div class="pinjob removejob" ng-click="removejob(item)"><i class="fa fa-times" aria-hidden="true"></i></div>

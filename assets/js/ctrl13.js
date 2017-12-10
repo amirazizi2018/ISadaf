@@ -20,7 +20,7 @@ app.controller('jobseekerdashboardpage',
 		    $scope.position = response.data.position;
 		    $scope.email = response.data.email;
 		    $scope.activestatus = response.data.active;
-		    $scope.phone = response.data.phone;
+		    $scope.phone = response.data.phone;					    $scope.phonefix  = response.data.fixed_phone;
 		    $scope.address = response.data.address;
     });    
 	
@@ -109,7 +109,7 @@ app.controller('jobseekerdashboardpage',
             "starSvg": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="-316 235.7 6.1 11.3" style="enable-background:new -316 235.7 6.1 11.3;" xml:space="preserve">'+
 '<path id="XMLID_1775_" class="st0" d="M-310.9,247h-4.1c-0.6,0-1-0.4-1-1v-9.3c0-0.6,0.4-1,1-1h4.1c0.6,0,1,0.4,1,1v9.3  C-309.9,246.6-310.4,247-310.9,247z"/>'+
 '</svg>'   };	
-		       				  $scope.getbookmarkedjob = function () {	      var configjap = {           headers: {        "Content-Type": 'application/json',        'Access-Token': $localStorage.TokenKey.access,    }            }     $http.get(mustafasite +"/job_seeker",configjap).then(function (response) {        $scope.jobsaveddata = response.data.bookmarked_job;					  $scope.jobsaveddatatotalItems = $scope.jobsaveddata.length;    });   }
+		       				  $scope.getbookmarkedjob = function () {	      var configjap = {           headers: {        "Content-Type": 'application/json',        'Access-Token': $localStorage.TokenKey.access,    }            }     $http.get(mustafasite +"/job_seeker",configjap).then(function (response) {        $scope.jobsaveddata = response.data.bookmarked_job;					  $scope.jobsaveddatatotalItems = $scope.jobsaveddata.length;					    $scope.jobsaveddataviewby = 6;  $scope.jobsaveddatacurrentPage = 1;  $scope.jobsaveddataitemsPerPage = $scope.jobsaveddataviewby;  $scope.jobsaveddatamaxSize = 5;  $scope.jobsaveddatasetPage = function (pageNo) {    $scope.jobsaveddatacurrentPage = pageNo;  };    });   }
   $scope.getbookmarkedjob();
 				$scope.removejob = function(item) {
                 var data =  item.id;
@@ -130,14 +130,6 @@ app.controller('jobseekerdashboardpage',
 
 				$scope.showajob = function(item) {                    var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                    }                    $http.get(mustafasite + "/job_seeker", config).then(function(response) {					ShareData.setPropertyjobid(item.id);					$location.path("apostpage");                    });				}
 	
-  $scope.jobsaveddataviewby = 6;
-  $scope.jobsaveddatacurrentPage = 1;
-  $scope.jobsaveddataitemsPerPage = $scope.jobsaveddataviewby;
-  $scope.jobsaveddatamaxSize = 5;
-
-  $scope.jobsaveddatasetPage = function (pageNo) {
-    $scope.jobsaveddatacurrentPage = pageNo;
-  };
 
 
 
