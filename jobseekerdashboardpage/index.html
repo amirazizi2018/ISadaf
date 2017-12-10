@@ -11,7 +11,7 @@
                             <li><a class="topborderradius" ng-class="{active: activeTabF == 'tab1'}" ng-click="activeTabF='tab1'">وضعیت فعلی کاربر</a></li>
                             <li><a ng-class="{active: activeTabF == 'tab2'}" ng-click="activeTabF='tab2'">اعلانات</a></li>
                             <li><a ng-class="{active: activeTabF == 'tab3'}" ng-click="activeTabF='tab3'">موقعیت های ذخیره شده</a></li>
-                            <li><a ng-class="{active: activeTabF == 'tab4'}" ng-click="activeTabF='tab4'">آمار و اطلاعات من</a></li>
+<!--                             <li><a ng-class="{active: activeTabF == 'tab4'}" ng-click="activeTabF='tab4'">آمار و اطلاعات من</a></li> -->
                             <li><a ng-class="{active: activeTabF == 'tab5'}" ng-click="activeTabF='tab5'">کارگزاران ارزیابی من</a></li>
                             <li><a ng-class="{active: activeTabF == 'tab6'}" ng-click="activeTabF='tab6'">صندوق پیام من</a></li>
                             <li><a class="botborderradius" ng-class="{active: activeTabF == 'tab7'}" ng-click="activeTabF='tab7'">تراکنش های مالی من</a></li>
@@ -26,15 +26,15 @@
 <div class="profilestatuscurrent">
 <div class="col-md-2 col-xs-12 profileimg">
 <img src="{{logopic}}" >
-<a data-toggle="modal" data-target="#ShowPopupUploadLogo" class="titleandicon"> 
-<div class="editlogohover"> 
-<div class="titleandicon"> 
-<i class="fa fa-picture-o" aria-hidden="true"></i> <br> تغییر لوگو
+<!-- <a data-toggle="modal" data-target="#ShowPopupUploadLogo" class="titleandicon">  -->
+<!-- <div class="editlogohover">  -->
+<!-- <div class="titleandicon">  -->
+<!-- <i class="fa fa-picture-o" aria-hidden="true"></i> <br> تغییر لوگو -->
+<!-- </div> -->
+<!-- </div> -->
+ <!-- </a>  -->
 </div>
-</div>
- </a> 
-</div>
-<div id="ShowPopupUploadLogo" class="modal modal-md" role="dialog">
+<!-- <div id="ShowPopupUploadLogo" class="modal modal-md" role="dialog">
         <div class="modal-dialog">
         <div class="modal-content ">
         <div class="modal-header">
@@ -58,7 +58,7 @@
         </div>
     </div>
     </div>
-    </div>
+    </div> -->
 <div class="col-md-8  col-xs-12 userinfor">
 <div class="h2title bluecolor fontmedium">{{fullname}}</div>
 <div class="h4title graycolor">{{position}}</div>
@@ -100,7 +100,7 @@
 <div class="clearfix"></div>
 
 <div class="col-md-2 h4title graycolor fontmedium">وضعیت کاربری</div>
-<div ng-class="{'greencolor': activestatus == active,'redcolor': activestatus == false}" class="col-md-10 h4title fontmedium">فعال</div>
+<div ng-if="activestatus == true" class="col-md-10 h4title fontmedium greencolor">فعال</div><div ng-if="activestatus == false" class="col-md-10 h4title fontmedium redcolor">غیر فعال</div>
 <div class="clearfix"></div>
 
 <div class="col-md-2 h4title graycolor linehigh30 fontmedium">اطلاعات دسترسی</div>
@@ -193,13 +193,7 @@
                </div>
             </div>
             <div class="row rowtwojob">
-               <div class="col-md-6 requestforcooperationjob">
-                  <button ng-click="requestjob(item)" ng-show="requestshow" type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>
-                  <button  ng-click="derequestjob(item)" ng-show="derequestshow" type="button" class="btn greenbtn dereq fontmedium"><span>لغو درخواست</span></button>
-               </div>
-               <div class="col-md-6 readmorejob">
-                  <button type="button" class="btn greenbtnreverse algnbtnmd fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
-               </div>
+             <div class="col-md-6 requestforcooperationjob">                  <button ng-click="requestjob(item,$index)" ng-show="requestshow[$index] || item.requested == null  || item.requested == false" ng-hide="requestshowshow[$index] || item.requested == true"  type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>                  <button  ng-click="derequestjob(item,$index)" ng-show="derequestshow[$index] || item.requested == true" ng-hide="derequestshowhide[$index] || item.requested == null  || item.requested == false" type="button" class="btn greenbtn dereq fontmedium"><span>لغو درخواست</span></button>                             </div>               <div class="col-md-6 readmorejob">                  <button  ng-click="showajob(item)" type="button" class="btn greenbtnreverse algnbtnmd fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>               </div>
             </div>
          </div>
 			</div>
