@@ -64,8 +64,8 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http ,
 	
 		$http.get(mustafasite +"/job?and_keywords=" + $scope.searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " +  skarvarzi + " " + $scope.sexvalue + " " ,config).then(function (response) {
         $scope.jobsdata = response.data.hits;
-							$scope.pindedplus = true;
-					$scope.requestshow = true;
+/* 							$scope.pindedplus = true;
+					$scope.requestshow = true; */
 					  $scope.totalItems = $scope.jobsdata.length;
     }); 
 	
@@ -90,8 +90,8 @@ else {
 
      $http.get(mustafasite +"/job",config).then(function (response) {
         $scope.jobsdata = response.data.hits;
-							$scope.pindedplus = true;
-					$scope.requestshow = true;
+				/* 			$scope.pindedplus = true;
+					$scope.requestshow = true; */
 					  $scope.totalItems = $scope.jobsdata.length;
 
 
@@ -104,32 +104,7 @@ else {
     $scope.currentPage = pageNo;
   };
   
-  
-			$scope.searchbtnjp = function () {
-			      var config = {
-                headers : {
-                    'Content-Type': 'application/json'
-                }
-            }
-
-     $http.get(mustafasite +"/job?and_keywords=" + $scope.searchkeyword ,config).then(function (response) {
-        $scope.jobsdata = response.data.hits;
-							$scope.pindedplus = true;
-					$scope.requestshow = true;
-					  $scope.totalItems = $scope.jobsdata.length;
-
-
-    }); 
-  $scope.viewby = 9;
-  $scope.currentPage = 1;
-  $scope.itemsPerPage = $scope.viewby;
-  $scope.maxSize = 5;
-    $scope.setPage = function (pageNo) {
-    $scope.currentPage = pageNo;
-  };
-}
-
-
+  		$scope.searchkeyword = ShareData.getPropertysermahhp();							$scope.searchbtnjp = function () {			      var config = {                headers : {                    'Content-Type': 'application/json',					'Access-Token': $localStorage.TokenKey.access,                }            }						if($scope.full_time == true ){				var sfulltime = "full_time";			}			else {				var sfulltime = " ";			}				if($scope.part_time == true ){				var sparttime = "part_time";			}			else {				var sparttime = " ";			}				if($scope.kar_amuzi == true ){				var skaramuzi = "kar_amuzi";			}			else {				var skaramuzi = " ";			}			if($scope.karvarzi == true ){				var skarvarzi = "karvarzi";			}			else {				var skarvarzi = " ";			}							var myDate = new Date();			if ($scope.adstimevalue == "previousDay"){			var Mindate = new Date(myDate);			Mindate.setDate(myDate.getDate()-1);			}			else if ($scope.adstimevalue == "previousWeek"){			var Mindate = new Date(myDate);			Mindate.setDate(myDate.getDate()-7);			}			else if ($scope.adstimevalue == "previousMonth"){			var Mindate = new Date(myDate);			Mindate.setMonth(myDate.getMonth()-1);			}			else if ($scope.adstimevalue == "previousYear"){			var Mindate = new Date(myDate);			Mindate.setYear(myDate.getFullYear()-1);			}						$http.get(mustafasite +"/job?and_keywords=" + $scope.searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " +  skarvarzi + " " + $scope.sexvalue + " " ,config).then(function (response) {        $scope.jobsdata = response.data.hits;/* 							$scope.pindedplus = true;					$scope.requestshow = true; */					  $scope.totalItems = $scope.jobsdata.length;    }); 	  $scope.viewby = 9;  $scope.currentPage = 1;  $scope.itemsPerPage = $scope.viewby;  $scope.maxSize = 5;    $scope.setPage = function (pageNo) {    $scope.currentPage = pageNo;  };}
 }
 
         $scope.ratesearch = 0;
@@ -203,10 +178,10 @@ else {
     ];
 	$scope.adstimevalue = "previousYear";
 
-	$scope.sex = [
-        {nameper : "مرد", nameeng : "male"},
-		{nameper : "زن", nameeng : "female"},
-    ];		
+	$scope.sex = [
+        {nameper : "مرد", nameeng : "male"},
+		{nameper : "زن", nameeng : "female"},
+    ];			$scope.adstimevalue = "male";
 
 
 	$scope.sazman = [

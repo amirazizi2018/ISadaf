@@ -272,11 +272,7 @@ app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window,
 
      $http.get(mustafasite +"/job",config).then(function (response) {
         $scope.data = response.data.hits;
-		  $scope.totalItems = $scope.data.length;
-
-							$scope.pindedplus = true;
-					$scope.requestshow = true;
-
+		  $scope.totalItems = $scope.data.length;
     }); 
 
 
