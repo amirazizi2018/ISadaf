@@ -8,7 +8,7 @@
             <div class="box-price-one  {{x.class}}">
                 <div class="h2title fontbold bluecolor">{{x.name}}</div>
                 <p class="graycolor">{{x.desshort}}</p>
-                <p class="detail-2 h2title .darkgraycolor">{{x.price}} <span ng-hide="x.price == 'رایگان'">ريال</span></p>
+                <p ng-click="gotosearchdatabase()"class="detail-2 h2title .darkgraycolor">{{x.price}} <span ng-hide="x.price == 'رایگان'">ريال</span></p>
                 <button type="button" class="btn btn-primary btn-lg h4title fontmedium">در خواست این محصول</button>
                 <p class="detail-3 h6title">{{x.desshort2}}</p>
                 <p  ng-repeat="x in x.description"class="detail-4 h5title graycolor">{{x.title}}</p>

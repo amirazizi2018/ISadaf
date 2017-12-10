@@ -82,6 +82,7 @@ $scope.totalazmonravan = function() {
             totalazmonravan += item.geymatkargozar * 1;
         })
         return totalazmonravan;
+    }		$scope.searchdatabasepage = function() {					$location.path("searchdatabasepage");
     }
 
 });

@@ -288,11 +288,65 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 	$scope.checkauth(); 
 
 
-		
+		$scope.ShowForJS = function() {
+   if($localStorage.UserType == 'JS'){
+	   return true
+   }
+   else {
+	   return  false
+   }
+	}	
+	$scope.ShowForEMP = function() {
+   if($localStorage.UserType == 'EMP'){
+	   return true
+   }
+   else {
+	   return  false
+   }
+	}
+	$scope.ShowForSP = function() {
+   if($localStorage.UserType == 'SP'){
+	   return true
+   }
+   else {
+	   return  false
+   }
+	}
+
+
 		
 
 
-    $scope.gotoprofilepage = function() {
+    $scope.gotoprofilepagejs = function() {
+		$location.path("jobseekerprofilepage");
+		$localStorage.LocationUser =  "jobseekerprofilepage";
+	} 
+	$scope.gotojobalbum = function() {
+		$location.path("jobsalbum");
+		$localStorage.LocationUser =  "jobsalbum";
+	}
+    $scope.gotosppage = function() {
+		$location.path("spmainpage");
+		$localStorage.LocationUser =  "spmainpage";
+	}  
+	$scope.gotojobpage = function() {
+		$location.path("jobpostspage");
+		$localStorage.LocationUser =  "jobpostspage";
+	} 
+	$scope.gotoadsjob = function() {
+		$location.path("postajobscenarios");
+		$localStorage.LocationUser =  "postajobscenarios";
+	} 
+	$scope.gotosearchdat = function() {
+		$location.path("searchscenarios");
+		$localStorage.LocationUser =  "searchscenarios";
+	}
+    $scope.gotocrearesarch = function() {
+		$location.path("createaresearchpage");
+		$localStorage.LocationUser =  "createaresearchpage";
+	}  
+		
+		$scope.gotoprofilepage = function() {
 					if($localStorage.UserType == "JS"){
 								$location.path("jobseekerprofilepage");
 		$localStorage.LocationUser =  "jobseekerprofilepage";
@@ -324,10 +378,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 		$localStorage.LocationUser =  "spdashboardpage";
 					}
 	}  
-
-    $scope.gotosppage = function() {
-		$location.path("spmainpage");
-	}  
+ 
 
 	$scope.gotoemppage = function() {
 		$location.path("companymainpage");

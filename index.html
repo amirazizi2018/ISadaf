@@ -77,11 +77,22 @@
                         </button>
                      </div>
                      <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                           <li><a class="cursorpointer">ثبت رزومه</a></li>
-                           <li><a class="cursorpointer">آلبوم مشاغل</a></li>
-                           <li><a class="cursorpointer">مسیر حرفه ای من</a></li>
+                        <ul class="nav navbar-nav"  ng-if="ShowForJS()">
+                           <li><a class="cursorpointer" ng-click="gotoprofilepagejs()">ثبت رزومه</a></li>
+                           <li><a class="cursorpointer" ng-click="gotojobalbum()">آلبوم مشاغل</a></li>
+                           <li><a class="cursorpointer" ng-click="gotojobpage()" >آگهی های شغلی</a></li>
+                           <li><a class="cursorpointer" ng-click="gotosppage()" >کارگزاران صدف</a></li>
+                        </ul> 
+						<ul class="nav navbar-nav" ng-if="ShowForEMP()">
+                           <li><a class="cursorpointer"  ng-click="gotoadsjob()" >آگهی یک شغل</a></li>
+                           <li><a class="cursorpointer"  ng-click="gotosearchdat()">جستجوی دیتابیس</a></li>
+                           <li><a class="cursorpointer"  ng-click="gotocrearesarch()" >ثبت یک پژوهش</a></li>
                            <li><a class="cursorpointer"  ng-click="gotosppage()" >کارگزاران صدف</a></li>
+                        </ul>	
+						<ul class="nav navbar-nav" ng-if="ShowForSP()">
+                           <li><a class="cursorpointer" ng-click="gotojobpage()" >آگهی های شغلی</a></li>
+                           <li><a class="cursorpointer" ng-click="gotoemppage()" >کارفرمایان برتر</a></li>
+                           <li><a class="cursorpointer" ng-click="gotojobalbum()">آلبوم مشاغل</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-left style-25">
                            <li ng-click="gotoemppage()" ><button type="button" class="btn btn-info btn-sm" >ورود سازمان ها</button></li>

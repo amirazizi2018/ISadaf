@@ -49,6 +49,6 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
       
     }
 
-
+$scope.gotocreatejob = function() {					$location.path("createapostpage");    }
 
 });
