@@ -217,7 +217,15 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
 	
 	 $scope.checkauth = function() {
-		 if ($localStorage.TokenKey != null || $localStorage.UserType != null){
+		 if ($localStorage.TokenKey == null || $localStorage.UserType == null){
+		 		$scope.isHideafterlogin = true;
+						$scope.isActiveafterlogin = false;
+						$scope.isHidelogin = false;
+						$scope.isActivelogin = false;
+						$location.path("mainpage");
+	
+	 }
+	 else {
 		       var config = {
                         headers: {
                             'Content-Type': 'application/json',
@@ -273,14 +281,6 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 						$location.path("mainpage");
   });
 	 }
-	
-	 }
-	 else {
-		 		$scope.isHideafterlogin = true;
-						$scope.isActiveafterlogin = false;
-						$scope.isHidelogin = false;
-						$scope.isActivelogin = false;
-						$location.path("mainpage");
 	 }
 	
 	}
