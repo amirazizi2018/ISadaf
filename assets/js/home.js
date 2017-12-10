@@ -293,16 +293,16 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
 
     $scope.gotoprofilepage = function() {
-					if(response.data.type == "JS"){
+					if($localStorage.UserType == "JS"){
 								$location.path("jobseekerprofilepage");
 		$localStorage.LocationUser =  "jobseekerprofilepage";
 
 					}	
-					if(response.data.type == "EMP"){
+					if($localStorage.UserType == "EMP"){
 						$location.path("acompanypage");
 						$localStorage.LocationUser =  "acompanypage";
 					}	
-					if(response.data.type == "SP"){
+					if($localStorage.UserType == "SP"){
 								$location.path("spprofilepage");
 		$localStorage.LocationUser =  "spprofilepage";
 					}
@@ -310,16 +310,16 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 	}  
 
 	$scope.gotodashboard = function() {
-				if(response.data.type == "JS"){
+				if($localStorage.UserType == "JS"){
 								$location.path("jobseekerdashboardpage");
 		$localStorage.LocationUser =  "jobseekerdashboardpage";
 
 					}	
-					if(response.data.type == "EMP"){
+					if($localStorage.UserType == "EMP"){
 						$location.path("companydashboardpage");
 						$localStorage.LocationUser =  "companydashboardpage";
 					}	
-					if(response.data.type == "SP"){
+					if($localStorage.UserType == "SP"){
 								$location.path("spdashboardpage");
 		$localStorage.LocationUser =  "spdashboardpage";
 					}
