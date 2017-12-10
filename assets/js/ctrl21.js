@@ -478,7 +478,7 @@ $scope.totalazmonravan = function() {
       reshte: reshteload
     });
   };
-  
+  	$scope.yourskillsandexpertises = [	{title : 'ایجاد پروفایل شغلی'},	{title : 'fdddfdfdf'},	{title : 'بلیلبیلبیل'},	];	
   
 	  $scope.removemahartkilid = function(i) {
     $scope.formData.maharatkilidi.splice(i, 1);
