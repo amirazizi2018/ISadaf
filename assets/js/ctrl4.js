@@ -335,7 +335,7 @@ app.controller('apostpage' ,function($compile, $sce, $scope, $window, $http, Upl
 		var getjobid = ShareData.getPropertyjobid();
 
      $http.get(mustafasite +"/job/"+getjobid ,config).then(function (response) {
-        $scope.ajob = response.data.job;
+        $scope.ajob = response.data.job;        $scope.advertisementtypes = response.data.job.advertisement_types;
     }); 
 	
 	
@@ -383,8 +383,7 @@ app.controller('apostpage' ,function($compile, $sce, $scope, $window, $http, Upl
      $http.get(mustafasite +"/job",config).then(function (response) {
         $scope.jobsdata = response.data.hits;
 		  $scope.totalItems = $scope.jobsdata.length;
-							$scope.pindedplus = true;
-					$scope.requestshow = true;
+				
 
     }); 
 
@@ -402,85 +401,13 @@ $scope.setItemsPerPage = function(num) {
   $scope.itemsPerPage = num;
   $scope.currentPage = 1; 
 }
+	            $scope.addone = function() {                var data = {                    id: getjobid,                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.post(mustafasite + '/job_seeker/bookmark/job', JSON.stringify(data), config).then(function(response) {					$scope.pindedplusonej = false;					$scope.pindedcheckonej = true ;									    }); 				}	       				$scope.removeone = function() {                var config = {                        headers: {                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.delete(mustafasite + '/job_seeker/bookmark/job/' + getjobid, config).then(function(response) {					$scope.pindedplusonej = true;					$scope.pindedcheckonej = false ;					    }); 				}								$scope.requestjobpage = function() {                var data = {                    id: getjobid,                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.post(mustafasite + '/job_seeker/request_job', JSON.stringify(data), config).then(function(response) {				$scope.derequestshowpage = true;				$scope.requestshowpage = false;					    }); 				}					$scope.derequestjobpage = function() {                var config = {                        headers: {                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.delete(mustafasite + '/job_seeker/request_job/' + getjobid, config).then(function(response) {				$scope.derequestshowpage = false;				$scope.requestshowpage = true;							    }); 				}				
+				
+$scope.pindedplus = [];$scope.pindedcheck = [];$scope.pindedplusshow = [];$scope.pindedcheckhide = [];$scope.requestshow = [];$scope.requestshowshow = [];$scope.derequestshow = [];$scope.derequestshowhide = [];
 
-					$scope.pindedplus = true;
-					$scope.requestshowpage = true;
-
-
-	            $scope.add = function(item) {
-                var data = {
-                    id: getjobid,
-                };
-
-                var config = {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Access-Token': $localStorage.TokenKey.access,
-                        }
-                 }
-
-                $http.post(mustafasite + '/job_seeker/bookmark/job', JSON.stringify(data), config).then(function(response) {
-					$scope.pindedplus = false;
-					$scope.pindedcheck = true ;
-				    }); 
-
-				}	       
-
-				$scope.remove = function(item) {
-                var data =  getjobid;
-
-                var config = {
-                        headers: {
-                            'Access-Token': $localStorage.TokenKey.access,
-                        }
-                 }
-
-                $http.delete(mustafasite + '/job_seeker/bookmark/job/' + data, config).then(function(response) {
-					$scope.pindedplus = true;
-					$scope.pindedcheck = false ;
-				    }); 
-
-				}
-
-				$scope.requestjobpage = function() {
-                var data = {
-                    id: getjobid,
-                };
-
-                var config = {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Access-Token': $localStorage.TokenKey.access,
-                        }
-                 }
-
-                $http.post(mustafasite + '/job_seeker/request_job', JSON.stringify(data), config).then(function(response) {
-					$scope.requestshowpage = false;
-					$scope.derequestshowpage = true ;
-				    }); 
-
-				}	
-
-
-				$scope.derequestjobpage = function() {
-                var data =  getjobid;
-
-                var config = {
-                        headers: {
-                            'Access-Token': $localStorage.TokenKey.access,
-                        }
-                 }
-
-                $http.delete(mustafasite + '/job_seeker/request_job/' + data, config).then(function(response) {
-					$scope.requestshowpage = true;
-					$scope.derequestshowpage = false ;
-				    }); 
-
-				}
-
-
-      
-
+		            $scope.add = function(item,$index) {                var data = {                    id: item.id,                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.post(mustafasite + '/job_seeker/bookmark/job', JSON.stringify(data), config).then(function(response) {			$scope.pindedplusshow[$index] = false;					$scope.pindedcheckhide[$index] = false ;					$scope.pindedplus[$index] = true;					$scope.pindedcheck[$index] = true ;									    }); 				}	       				$scope.remove = function(item,$index) {                var data =  item.id;                var config = {                        headers: {                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.delete(mustafasite + '/job_seeker/bookmark/job/' + data, config).then(function(response) {			$scope.pindedplus[$index] = false;					$scope.pindedcheck[$index] = false ;					$scope.pindedplusshow[$index] = true;					$scope.pindedcheckhide[$index] = true ;				    }); 				}				$scope.requestjob = function(item,$index) {                var data = {                    id: item.id,                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.post(mustafasite + '/job_seeker/request_job', JSON.stringify(data), config).then(function(response) {		$scope.requestshowshow[$index] = true;					$scope.requestshow[$index] = false ;					$scope.derequestshowhide[$index] = false;					$scope.derequestshow[$index] = true ;				    }); 				}					$scope.derequestjob = function(item,$index) {                var data =  item.id;                var config = {                        headers: {                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.delete(mustafasite + '/job_seeker/request_job/' + data, config).then(function(response) {				$scope.requestshowshow[$index] = false;					$scope.requestshow[$index] = true ;					$scope.derequestshowhide[$index] = true;					$scope.derequestshow[$index] = false ;				    }); 				}
+              $scope.showpagestarratingj = 4;        $scope.showpagestaroptionsj = {            ratedFill: '#FFD24D',            normalFill: '#fff',            rtl: false,            readOnly: true,			maxValue: 5,            numStars: 5,			spacing: "5px",            starWidth: "16px"        }; 
+$scope.showpagerectanratingj = 7.2;        $scope.showpagerectanoptionsj = {            ratedFill: '#3DC474',            normalFill: '#E6E6E6',            rtl: false,            readOnly: true,			maxValue: 10,            numStars: 10,			starWidth: "12px",			spacing: "-2px",            "starSvg": '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="-316 235.7 6.1 11.3" style="enable-background:new -316 235.7 6.1 11.3;" xml:space="preserve">'+'<path id="XMLID_1775_" class="st0" d="M-310.9,247h-4.1c-0.6,0-1-0.4-1-1v-9.3c0-0.6,0.4-1,1-1h4.1c0.6,0,1,0.4,1,1v9.3  C-309.9,246.6-310.4,247-310.9,247z"/>'+'</svg>'        };	
 			
 
 			

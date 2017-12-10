@@ -16,29 +16,29 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http ,
                 }
             }
 			
-			if($scope.full_time == true ){
-				var sfulltime = "full_time";
+			if($scope.FULL_TIME == true ){
+				var sfulltime = "FULL_TIME";
 			}
 			else {
 				var sfulltime = " ";
 			}	
-			if($scope.part_time == true ){
-				var sparttime = "part_time";
+			if($scope.PART_TIME == true ){
+				var sparttime = "PART_TIME";
 			}
 			else {
 				var sparttime = " ";
 			}	
-			if($scope.kar_amuzi == true ){
-				var skaramuzi = "kar_amuzi";
+			if($scope.KAR_AMUZI == true ){
+				var skaramuzi = "KAR_AMUZI";
 			}
 			else {
 				var skaramuzi = " ";
 			}
-			if($scope.karvarzi == true ){
-				var skarvarzi = "karvarzi";
+			if($scope.KARVARZI == true ){
+				var sKARVARZI = "KARVARZI";
 			}
 			else {
-				var skarvarzi = " ";
+				var sKARVARZI = " ";
 			}
 			
 	
@@ -62,7 +62,7 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http ,
 			}
 			
 	
-		$http.get(mustafasite +"/job?and_keywords=" + $scope.searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " +  skarvarzi + " " + $scope.sexvalue + " " ,config).then(function (response) {
+		$http.get(mustafasite +"/job?and_keywords=" + $scope.searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " +  sKARVARZI + " " + $scope.sexvalue + " " ,config).then(function (response) {
         $scope.jobsdata = response.data.hits;
 							$scope.pindedplus = true;
 					$scope.requestshow = true;

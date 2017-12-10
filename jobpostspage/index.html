@@ -46,10 +46,10 @@
 <div class="col-md-10 col-xs-12" style="
     padding: 0;
     padding-top: 5px;
-">							  <md-checkbox class="h5title fontlight" ng-model="full_time" aria-label="Checkbox 1">تمام وقت</md-checkbox>
-							  <md-checkbox class="h5title fontlight" ng-model="part_time" aria-label="Checkbox 2">پاره وقت</md-checkbox>
-							  <md-checkbox class="h5title fontlight" ng-model="kar_amuzi" aria-label="Checkbox 3">کارآموزی</md-checkbox>
-							  <md-checkbox class="h5title fontlight" ng-model="karvarzi" aria-label="Checkbox 4">کاروندی</md-checkbox>
+">							  <md-checkbox class="h5title fontlight" ng-model="FULL_TIME" aria-label="Checkbox 1">تمام وقت</md-checkbox>
+							  <md-checkbox class="h5title fontlight" ng-model="PART_TIME" aria-label="Checkbox 2">پاره وقت</md-checkbox>
+							  <md-checkbox class="h5title fontlight" ng-model="KAR_AMUZI" aria-label="Checkbox 3">کارآموزی</md-checkbox>
+							  <md-checkbox class="h5title fontlight" ng-model="KARVARZI" aria-label="Checkbox 4">کاروندی</md-checkbox>
 
 								</div>
 </div>
@@ -190,22 +190,22 @@
                   <div class="h2title bluecolor jobname fontmedium">{{item.title}}</div>
                   <div class="h5title graycolor joblocations fontlight"><i class="fa fa-map-marker" aria-hidden="true"></i>{{item.city}}</div>
                   <div class="h4title bluecolor jobfield">{{item.education}}</div>
-                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='full_time'}">
+                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='FULL_TIME'}">
                      <div class="fontlight">
                         تمام وقت
                      </div>
                   </div>
-                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='part_time'}">
+                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='PART_TIME'}">
                      <div class="fontlight">
                         پاره وقت
                      </div>
                   </div>
-                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='kar_amuzi'}">
+                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='KAR_AMUZI'}">
                      <div class="fontlight">
                         کارآموزی			
                      </div>
                   </div>
-                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='karvarzi'}">
+                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='KARVARZI'}">
                      <div class="fontlight">
                         کاروندی
                      </div>
