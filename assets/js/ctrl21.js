@@ -472,14 +472,10 @@ $scope.totalazmonravan = function() {
 	
   $scope.addtahsilat = function() {
 	  
-    var reshteload = $scope.formData.reshteselec;
-    var grayeshload = $scope.formData.grayeshselec;
-    var magtaload = $scope.formData.maghtaselec;
+    var reshteload = $scope.formData.hozetakhasosi;
 	
     $scope.formData.teahsilat.push({
-      reshte: reshteload,
-      grayesh: grayeshload,
-      magta: magtaload,
+      reshte: reshteload,
     });
   };
   
