@@ -433,7 +433,7 @@ app.controller('spprofilepage' ,function($compile, $sce, $scope, $window, $http,
 
 	
     $scope.removeperson= function(person) {
-                var data =  person.id;                var config = {                        headers: {                            'Content-Type': "multipart/form-data",                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.delete(mustafasite + '/service_provider/team/' + data, config).then(function(response) {				    }); 
+                var data =  person.id;                var config = {                        headers: {                            'Content-Type': "multipart/form-data",                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.delete(mustafasite + '/service_provider/team/' + data, config).then(function(response) {								    }); 
     }
 	
 	
