@@ -17,7 +17,7 @@
 						        <div class="sabtagahishogbox">
 				    <div ng-show="activeTab=='tab1'">
  <div class="pgsabtshoglbox">
-					        <div class="searchdatabase">										   <div>		        <div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">عنوان پژوهش</span>								</div>															<div class="col-md-9 col-xs-12">								                            <input class="form-control addinputtott " id="profileshoghl" type="text" size="100" ng-model="formData.inpuvaluemaharatkild"></input>							</div>				</div>		        <div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear-tabazmon  h5title fontmedium">کلمات کلیدی</span>								</div><div class="col-md-10 col-xs-12">  <ui-select multiple ng-model="yourskillsandexpertise" theme="bootstrap" close-on-select="false" style="width: 100%;" title="Choose a color">    <ui-select-match>{{$item.title}}</ui-select-match>    <ui-select-choices repeat="skill in yourskillsandexpertises">      {{skill.title}}    </ui-select-choices>  </ui-select></div></div>						        <div class="searchdatabaser">											<div class="col-md-2 col-xs-12">																		    <span class="titlefildsear h5title fontmedium">شرح مسئله</span>								</div>							<div class="col-md-10 col-xs-12">		    <textarea ng-model="formData.tozihat" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>								</div></div>																	<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">نوع مسئله</span>								</div>															<div class="col-md-3 col-xs-12">						<select class="h5title fontlight" data-placeholder="نوع مسئله" class="selecttahsilat" tabindex="1" ng-model="formData.payanname" style="margin-left: 15px;">            <option value="2">پایان نامه</option>          </select></div></div>				<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">صنعت یا حوزه کاربردی</span>								</div>															<div class="col-md-3 col-xs-12">						<select class="h5title fontlight" data-placeholder="صنعت یا حوزه کاربردی" class="selecttahsilat" tabindex="1" ng-model="formData.sanathozekarbordi" style="margin-left: 15px;">            <option value="2">شیمیایی</option>          </select></div></div>		        								<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">حوزه تخصصی</span>								</div>															<div class="col-md-3 col-xs-12">						<select class="h5title fontlight" data-placeholder="حوزه تخصصی" class="selecttahsilat" tabindex="1" ng-model="formData.hozetakhasosi" style="margin-left: 15px;">            <option value="2">مهندسی شیمی</option>          </select></div><div class="col-md-1 col-xs-12">                                <a class="btn btn-default addmaharatbtn h6title fontmedium" ng-click="addtahsilat()">اضافه</a></div></div>		        		        <div class="searchdatabaser resanakal" ng-repeat="tahsil in formData.teahsilat" id="tahsilatid{{$index}}">											<div class="col-md-2 col-xs-1">								</div>							<div class="col-md-10 col-xs-12">								                                <div class="namemaharatkilid">{{tahsil.reshte}}</div>								                                <div class="removemahartkilid" ng-click="removettahsilat($index)">حذف</div>								</div></div>							        <div class="searchdatabaser">											<div class="col-md-2 col-xs-12">																		    <span class="titlefildsear h5title fontmedium">روش تحقیق و اجرا</span>								</div>							<div class="col-md-10 col-xs-12">		    <textarea ng-model="formData.raveshtahghigh" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>								</div></div>										<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">زمان تخمینی</span>								</div>															<div class="col-md-3 col-xs-12">						<select class="h5title fontlight" data-placeholder="زمان تخمینی" class="selecttahsilat" tabindex="1" ng-model="formData.zamantakmini" style="margin-left: 15px;">            <option value="2">1 الی 3 سال</option>          </select></div></div>								<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">برآورد هزینه</span>								</div>															<div class="col-md-3 col-xs-12">						<select class="h5title fontlight" data-placeholder="برآورد هزینه" class="selecttahsilat" tabindex="1" ng-model="formData.baravordhazine" style="margin-left: 15px;">            <option value="2">22,000,000 الی 25,000,000 ریال</option>          </select></div></div>				        <div class="searchdatabaser">											<div class="col-md-2 col-xs-12">																		    <span class="titlefildsear h5title fontmedium">نوع خروجی</span>								</div>							<div class="col-md-10 col-xs-12">		    <textarea ng-model="formData.nokhoroji" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>								</div></div>										<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">آپلود فایل های کاربردی</span>								</div><div class="col-md-1 col-xs-12">                                <a class="btn btn-default addmaharatbtn h6title fontmedium" ng-click="addtahsilat()">گزینش فایل</a></div></div>		        		</div>		  
+					        <div class="searchdatabase">										   <div>		        <div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">عنوان پژوهش</span>								</div>															<div class="col-md-10 col-xs-12">								                            <input class="form-control addinputtott " id="profileshoghl" type="text" size="100" ng-model="formData.inpuvaluemaharatkild"></input>							</div>				</div>		        <div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear-tabazmon  h5title fontmedium">کلمات کلیدی</span>								</div><div class="col-md-10 col-xs-12">  <ui-select multiple ng-model="yourskillsandexpertise" theme="bootstrap" close-on-select="false" style="width: 100%;" title="Choose a color">    <ui-select-match>{{$item.title}}</ui-select-match>    <ui-select-choices repeat="skill in yourskillsandexpertises">      {{skill.title}}    </ui-select-choices>  </ui-select></div></div>						        <div class="searchdatabaser">											<div class="col-md-2 col-xs-12">																		    <span class="titlefildsear h5title fontmedium">شرح مسئله</span>								</div>							<div class="col-md-10 col-xs-12">		    <textarea ng-model="formData.tozihat" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>								</div></div>																	<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">نوع مسئله</span>								</div>															<div class="col-md-3 col-xs-12">						<select class="h5title fontlight" data-placeholder="نوع مسئله" class="selecttahsilat" tabindex="1" ng-model="formData.payanname" style="margin-left: 15px;">            <option value="2">پایان نامه</option>          </select></div></div>				<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">صنعت یا حوزه کاربردی</span>								</div>															<div class="col-md-3 col-xs-12">						<select class="h5title fontlight" data-placeholder="صنعت یا حوزه کاربردی" class="selecttahsilat" tabindex="1" ng-model="formData.sanathozekarbordi" style="margin-left: 15px;">            <option value="2">شیمیایی</option>          </select></div></div>		        								<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">حوزه تخصصی</span>								</div>															<div class="col-md-3 col-xs-12">						<select class="h5title fontlight" data-placeholder="حوزه تخصصی" class="selecttahsilat" tabindex="1" ng-model="formData.hozetakhasosi" style="margin-left: 15px;">            <option value="2">مهندسی شیمی</option>          </select></div><div class="col-md-1 col-xs-12">                                <a class="btn btn-default addmaharatbtn h6title fontmedium" ng-click="addtahsilat()">اضافه</a></div></div>		        		        <div class="searchdatabaser resanakal" ng-repeat="tahsil in formData.teahsilat" id="tahsilatid{{$index}}">											<div class="col-md-2 col-xs-1">								</div>							<div class="col-md-10 col-xs-12">								                                <div class="namemaharatkilid">{{tahsil.reshte}}</div>								                                <div class="removemahartkilid" ng-click="removettahsilat($index)">حذف</div>								</div></div>							        <div class="searchdatabaser">											<div class="col-md-2 col-xs-12">																		    <span class="titlefildsear h5title fontmedium">روش تحقیق و اجرا</span>								</div>							<div class="col-md-10 col-xs-12">		    <textarea ng-model="formData.raveshtahghigh" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>								</div></div>										<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">زمان تخمینی</span>								</div>															<div class="col-md-3 col-xs-12">						<select class="h5title fontlight" data-placeholder="زمان تخمینی" class="selecttahsilat" tabindex="1" ng-model="formData.zamantakmini" style="margin-left: 15px;">            <option value="2">1 الی 3 سال</option>          </select></div></div>								<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">برآورد هزینه</span>								</div>															<div class="col-md-3 col-xs-12">						<select class="h5title fontlight" data-placeholder="برآورد هزینه" class="selecttahsilat" tabindex="1" ng-model="formData.baravordhazine" style="margin-left: 15px;">            <option value="2">22,000,000 الی 25,000,000 ریال</option>          </select></div></div>				        <div class="searchdatabaser">											<div class="col-md-2 col-xs-12">																		    <span class="titlefildsear h5title fontmedium">نوع خروجی</span>								</div>							<div class="col-md-10 col-xs-12">		    <textarea ng-model="formData.nokhoroji" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>								</div></div>										<div class="searchdatabaser">							<div class="col-md-2 col-xs-12">							    <span class="titlefildsear h5title fontmedium">آپلود فایل های کاربردی</span>								</div><div class="col-md-1 col-xs-12">                                <a class="btn btn-default addmaharatbtn h6title fontmedium" ng-click="addtahsilat()">گزینش فایل</a></div></div>		        		</div>		  
 
 
 
@@ -39,174 +39,7 @@
 
 			</div>
 			</div>			
- <div class="pgsabtshoglbox"style="width: 100%;">
-
-
-<div class="searchdatabaser" style="padding-bottom: 15px;">		
-					<div class="col-md-2 col-xs-12">
-							    <span class="titlefildsear-tabazmon  h5title fontmedium">نوع دسته بندی شایستگی ها</span>
-								</div>
-															<div class="col-md-10 col-xs-12 padleftminupzero">
-	  <select class="h5title fontlight" >
-<option value="azmonshksiat">دسته بندی شایستگی</option>
-</select>
-
-
-</div>
-
-
-</div>
-	<!-- 	        <div class="searchdatabaser">
-							<div class="col-md-2 col-xs-12">
-							    <span class="titlefildsear-tabazmon  h5title fontmedium">جستجوی آزمون</span>
-								</div>
-															<div class="col-md-10 col-xs-12 padleftminupzero">
-
-								                            <input class="form-control jostojoazmon" id="profileshoghl" type="text" size="100" ng-model="searchtabname.nametest"></input>
-<i class="form-control-feedback fa fa-search"></i>
-
-
-</div>
-
-
-</div> -->
-	<div style="padding: 5px 30px;"><hr></div>  
-	
-<div class="col-md-12 col-xs-12 flexclassazmon updatemrboxdeshap">
-<div class="col-md-12 col-xs-12 flexclassazmon nopaddinglr" ng-repeat="x in azmonshyestegi"  ng-init="outerIndex = $index">
-<span class="col-md-12 col-xs-12 fontmedium h4title bluecolor" style="padding-bottom: 10px;">{{x.partname}}</span>
-<div class="withtestazmonh" ng-repeat="x in x.parts">
-<div></div>
-<div class="btn col-xs-12 testbotto h4title fontlight"   ng-class="{'tringledettest' : x.id==detailslogt3shyestegi.shown}" ng-click="toggleDetailsshyestegi(x.id)" style="text-align: right;padding-right: 15px;">{{x.nametest}}  </div>
-		 <div class="col-md-12 col-xs-12 boxdetclass" ng-show="x.id==detailslogt3shyestegi.shown">
-		 <div class="col-md-12 col-xs-12">
-		 <div class="row r1boxdetclass h2title fontmedium">{{x.nametest}}</div>
-		 <div class="row r2boxdetclass">{{x.desctest}}</div>
-		 <div class="row r3boxdetclass">  
-<span>		 
-		    <button type="button" class="btn greenbtn addtestvakargo aladdazmonp11" ng-click="addtestvakargoshyestegi(x , outerIndex)">اضافه نمودن</button>
-            <button type="button" class="btn greenbtnreverse">مطالعه بیشتر <i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
-			</span>
-
-		
-					<span class="selectimportant">
-					اهمیت
-	<i class="fa fa-info-circle" aria-hidden="true"> <md-tooltip
-              md-direction="top">
-تست تولتیپ            </md-tooltip></i>
-			<select class="h5title fontlight" ng-model="selectimportant">
-<option value="0">0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-</select>
-								</div>
-		</span>
-		 </div>
-
-				</div>
-				</div>
-				</div>
-				</div>
-				
-<div style="padding: 5px 30px;"><hr></div>  
-
-<div class="col-md-12  col-xs-12" style="padding: 0 0 15px;">
-<div class="col-md-6  col-xs-12 customwid40" style="float: left;text-align: right;padding-left: 30px;">
-
-						    <span class="bluecolor  h5title fontmedium">انتخاب کارگزار:</span>
-		</div>
-		<div class="col-md-6  col-xs-12 customwid60" style="float: right;padding-right: 30px;">
-						    <span class="  h5title fontmedium">شایستگی های انتخاب شده:</span>
-						    <span class="numberentkhansshp bluecolor  h5title fontmedium">{{formData.testentekhabshyestegi.length}} عدد</span>
-		</div>
-	
-				<div class="col-md-12 col-xs-12 kasneaggeyjo customwid60ksd">
-		<div class="addwithtestazmonh col-xs-12" ng-repeat="x in formData.testentekhabshyestegi" ng-click="removetestvakargoshyestegi(x  , outerIndex)">
-<button class="btn testbotto addedbote" > 
-  <span style="float: right;padding-right: 15px;">{{x.nametest}}</span>
-   <i class="fa fa-check" style="float: left;padding-left: 15px;"></i>
-
-  </button>
-				</div>
-				</div>
-				<div class="col-md-6  col-xs-12 customwid40">
-						<div class="col-md-12  col-xs-12 nopaddinglr">
-	<div class="selectkargozarshayes" ng-repeat="kargozarshyestegi in kargozarhashyestegi" ng-click="showgeymatkargozarshyestegi(kargozarshyestegi)">
-<div class="kargozarshentkhabazimg"  >
-<md-tooltip
-              md-direction="top">
-              {{kargozarshyestegi.kargozarname}}
-            </md-tooltip>
-<img class="img" ng-class="{active: kargozarshyestegi == selectedshyestegi}" src="{{kargozarshyestegi.kargozaricon}}">
-</div>	
-
-				</div>
-				</div>
-				<div class="detailskargozarhashyestegich col-md-12 col-xs-12 nopaddinglr" ng-show="showgheymatkargozsp">
-				<div class="nopaddinglr col-xs-12 col-md-12" ng-repeat="prod2 in formData.detkargozarhashyestegi">
-				<div class="col-md-6 col-xs-6 nopaddinglr">
-							    <span class="khasneagdtitlch ">
-													  <md-checkbox ng-model="orders2.prod2s.prod2[prod2.packtitle]" aria-label="Checkbox{{$index}}">{{prod2.packtitle}}</md-checkbox>
-
-</span>
-   						</div>
-
-
-<div class="col-md-6 col-xs-12 kasneaggeyjo">
-<span class="agahikhas2">{{prod2.packprice}}</span>
-<span> ریال</span>
-</div>    
-           
-		</div>
-		</div>
-		</div>
-		
-		</div>
-
-		
-<!-- <div class="col-md-12  col-xs-12" style="
-    padding: 15px;
-">
-<div class="col-md-6  col-xs-12" style="float: left;">
-<div class="col-md-7 col-xs-10" style="text-align: left;padding: 0;">	
-						    <span class="khasneagdtitlch">	مجموع سرمایه گذاری در این مرحله:</span>
-								</div>
-<div class="col-md-5 col-xs-2 kasneaggeyjo" style="padding: 0;">
-<span class="majmosarmayegozarikhas">{{totalazmonshyestegi()}}</span>
-<span> ریال</span>
-</div>
-		</div>
-		
-		
-		</div> -->
-						</div>
-
-			
-	<div class="col-md-12 col-xs-12 btnsnexbacre"  style="padding: 0px;">
-<div class="col-md-2 col-xs-2" style="padding: 0;">
-<a  ng-click="activeTab='tab4'"  class="backgam btn h5title fontmedium">« بازگشت به گام قبل</a>
-			</div>
-
-<div class="col-md-8  col-xs-8" style="
-    padding: 10px 0 15px;
-"><div class="col-md-10 col-xs-10 mablagrescss" style="
-    text-align: left;
-    padding-left: 0;
-">							    <span class="khasneagdtitlch">	مبلغ کل تا این مرحله:</span>
-								</div>
-<div class="col-md-2 col-xs-2 kasneaggeyjo">
-<span class="majmosarmayegozarikhas">{{ totalazmonravan() + totalazmonmaharat() + totalazmonshyestegi() }}</span>
-<span> ریال</span>
-</div>
-
-		</div>
-<div class="col-md-2 col-xs-2" style="padding: 0;">
-
-<a  ng-click="activeTab='tab6'"  class="nextgam btn h5title fontmedium">تایید و گام بعد »</a>
-
-			</div>
-						</div>
-						</div>
+ 
 			    <div ng-show="activeTab=='tab2'">
 
  <div class="pgsabtshoglbox">

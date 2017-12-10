@@ -475,7 +475,7 @@ $scope.totalazmonravan = function() {
     var reshteload = $scope.formData.hozetakhasosi;
 	
     $scope.formData.teahsilat.push({
-      reshte: reshteload,
+      reshte: reshteload
     });
   };
   
