@@ -474,8 +474,8 @@ $scope.totalazmonravan = function() {
 	  
 
 	
-    $scope.formData.teahsilat.push({
-      hoze: $scope.hozetakhasosi,      reshte: "2",
+    $scope.formData.teahsilat.push({
+      hoze: $scope.hozetakhasosi,
     });
   };
   	$scope.yourskillsandexpertises = [	{title : 'ایجاد پروفایل شغلی'},	{title : 'fdddfdfdf'},	{title : 'بلیلبیلبیل'},	];	
