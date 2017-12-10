@@ -472,10 +472,10 @@ $scope.totalazmonravan = function() {
 	
   $scope.addtahsilat = function() {
 	  
-    var reshteload = $scope.hozetakhasosi;
+
 	
     $scope.formData.teahsilat.push({
-      reshte: reshteload,
+      hoze: $scope.hozetakhasosi,      reshte: "2",
     });
   };
   	$scope.yourskillsandexpertises = [	{title : 'ایجاد پروفایل شغلی'},	{title : 'fdddfdfdf'},	{title : 'بلیلبیلبیل'},	];	
