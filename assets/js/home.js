@@ -214,23 +214,22 @@ app.filter('jalaliDatewill', function() {
 app.controller('home', function($compile, $sce, $scope, $window, $http, ShareData , $location ,  $localStorage,$sessionStorage) {
     var mustafasite = "https://sadaf.systmngr.ir/api/v1";
         moment.locale('fa');  
-			if ($localStorage.TokenKey == null) {
-					$localStorage.TokenKey =  " ";
-}
-
 
 	
 	 $scope.checkauth = function() {
+		 if ($localStorage.TokenKey != null || $localStorage.UserType != null){
 		       var config = {
                         headers: {
                             'Content-Type': 'application/json',
                             'Access-Token': $localStorage.TokenKey.access,
                         }
                     }
-                    $http.get(mustafasite + "/service_provider/me", config).then(function(response) {
+					
+					if($localStorage.UserType == "JS"){
+                    $http.get(mustafasite + "/job_seeker", config).then(function(response) {
 						$scope.isHideafterlogin = false;
 						$scope.isActiveafterlogin = true;
-						                        $scope.profiledetaflogin = response.data;
+						$scope.profiledetaflogin = response.data;
 						$scope.isHidelogin = true;
 						$scope.isActivelogin = false;
 						$location.path($localStorage.LocationUser);
@@ -239,8 +238,51 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 						$scope.isActiveafterlogin = false;
 						$scope.isHidelogin = false;
 						$scope.isActivelogin = false;
+						$location.path("mainpage");
   });
-
+	 }	
+	 if($localStorage.UserType == "EMP"){
+                    $http.get(mustafasite + "/employer", config).then(function(response) {
+						$scope.isHideafterlogin = false;
+						$scope.isActiveafterlogin = true;
+						$scope.profiledetaflogin = response.data;
+						$scope.isHidelogin = true;
+						$scope.isActivelogin = false;
+						$location.path($localStorage.LocationUser);
+                    }, function errorCallback(response) {
+						$scope.isHideafterlogin = true;
+						$scope.isActiveafterlogin = false;
+						$scope.isHidelogin = false;
+						$scope.isActivelogin = false;
+						$location.path("mainpage");
+  });
+	 }	
+	 if($localStorage.UserType == "SP"){
+                    $http.get(mustafasite + "/service_provider/me", config).then(function(response) {
+						$scope.isHideafterlogin = false;
+						$scope.isActiveafterlogin = true;
+						$scope.profiledetaflogin = response.data;
+						$scope.isHidelogin = true;
+						$scope.isActivelogin = false;
+						$location.path($localStorage.LocationUser);
+                    }, function errorCallback(response) {
+						$scope.isHideafterlogin = true;
+						$scope.isActiveafterlogin = false;
+						$scope.isHidelogin = false;
+						$scope.isActivelogin = false;
+						$location.path("mainpage");
+  });
+	 }
+	
+	 }
+	 else {
+		 		$scope.isHideafterlogin = true;
+						$scope.isActiveafterlogin = false;
+						$scope.isHidelogin = false;
+						$scope.isActivelogin = false;
+						$location.path("mainpage");
+	 }
+	
 	}
 
 	$scope.checkauth(); 
@@ -393,6 +435,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 				if(response.data.type == "JS"){
                 $http.post(mustafasite + '/job_seeker/activate', JSON.stringify(data2), config).then(function(response) {
 					$localStorage.TokenKey =  response.data;
+					$localStorage.UserType =  "JS";
 					
                     var config2 = {
                         headers: {
@@ -414,7 +457,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 			if(response.data.type == "EMP"){
                 $http.post(mustafasite + '/employer/activate', JSON.stringify(data2), config).then(function(response) {
 					$localStorage.TokenKey =  response.data;
-					
+										$localStorage.UserType =  "EMP";
                     var config2 = {
                         headers: {
                             'Content-Type': 'application/json',
@@ -435,7 +478,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 			if(response.data.type == "SP"){
                 $http.post(mustafasite + '/service_provider/activate', JSON.stringify(data2), config).then(function(response) {
 					$localStorage.TokenKey =  response.data;
-					
+															$localStorage.UserType =  "SP";
+
                     var config2 = {
                         headers: {
                             'Content-Type': 'application/json',
@@ -470,13 +514,31 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
                 'Access-Token': $localStorage.TokenKey.access,
             }
         }
+		if($localStorage.UserType == "JS"){
+        $http.delete(mustafasite + "/job_seeker/revoke", config).then(function(response) {
+		    $location.path("mainpage");
+            $scope.isHideafterlogin = true;
+            $scope.isActiveafterlogin = false;
+            $scope.isHidelogin = false;
+        });
+	 }	
+	 if($localStorage.UserType == "EMP"){
+        $http.delete(mustafasite + "/employer/revoke", config).then(function(response) {
+		    $location.path("mainpage");
+            $scope.isHideafterlogin = true;
+            $scope.isActiveafterlogin = false;
+            $scope.isHidelogin = false;
+        });
+	 }	
+	 if($localStorage.UserType == "SP"){
         $http.delete(mustafasite + "/service_provider/revoke", config).then(function(response) {
 		    $location.path("mainpage");
             $scope.isHideafterlogin = true;
             $scope.isActiveafterlogin = false;
             $scope.isHidelogin = false;
         });
-    }
+	 }
+	}
     $scope.ForgotPass = function(Phone) {
         var data = {
             phone: Phone,
