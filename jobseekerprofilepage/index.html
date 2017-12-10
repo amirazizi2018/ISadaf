@@ -3,9 +3,9 @@
 <div class="col-md-12  col-xs-12 serviceprovider">
 <div class="col-md-10 nopaddinglr">
 <div class="col-md-10  col-xs-12 userinfor">
-<div ng-if="checkLocalStorage()" class="pinjob addjob companyname" ng-click="add(item)" role="button" tabindex="0"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 9.6 9.6" style="enable-background:new 0 0 9.6 9.6;" xml:space="preserve"><path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z M8.9,4.1"/></svg></div>
+<div ng-if="ShowForJS()" class="pinjob addjob companyname" ng-click="add(item)" role="button" tabindex="0"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 9.6 9.6" style="enable-background:new 0 0 9.6 9.6;" xml:space="preserve"><path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z M8.9,4.1"/></svg></div>
 <div class="h1title bluecolor companyname fontmedium">{{fullname}}</div>
-<div class="h3title graycolor companyslogan" ng-hide="editorEnabledposition">{{position}} <a class="cursorpointer" ng-click="enableEditorposition(editableTitleposition)"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+<div class="h3title graycolor companyslogan" ng-hide="editorEnabledposition">{{position}} <a ng-if="ShowForJS()" class="cursorpointer" ng-click="enableEditorposition(editableTitleposition)"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
 <div class="h3title graycolor companyslogan" ng-show="editorEnabledposition">   
     <input ng-model="editableTitleposition" ng-show="editorEnabledposition">
       <a class="cursorpointer" ng-click="saveeditposition()"><i class="fa fa-check greencolor" aria-hidden="true"></i></a>
@@ -50,7 +50,7 @@
 <div class="col-md-2 col-xs-12 profileimg">
 <div class="profileimgcl">
 <img src="{{logopic}}" >
-<a data-toggle="modal" data-target="#ShowPopupUploadLogo" class="titleandicon"> 
+<a ng-if="ShowForJS()" data-toggle="modal" data-target="#ShowPopupUploadLogo" class="titleandicon"> 
 <div class="editlogohover"> 
 <div class="titleandicon"> 
 <i class="fa fa-picture-o" aria-hidden="true"></i> <br> تغییر لوگو
@@ -84,10 +84,10 @@
     </div>
     </div>
 <div class="preminfor">
-<a data-toggle="modal" data-target="#ShowPopupEditTamas"  ng-class="{'greencolor': phone ,'graycolor': phone == null }"  class="mobile" href=""><md-tooltip md-direction="top">{{phone}}</md-tooltip><i class="fa fa-mobile" aria-hidden="true"></i></a>
-<a data-toggle="modal" data-target="#ShowPopupEditTamas"  ng-class="{'greencolor': phonefix ,'graycolor': phonefix == null }"  class="phone" href=""><md-tooltip md-direction="top">{{phonefix}}</md-tooltip><i class="fa fa-phone-square" aria-hidden="true"></i></a>
-<a data-toggle="modal" data-target="#ShowPopupEditTamas" ng-class="{'greencolor': address ,'graycolor': address == null }"  class="addressloc" href=""><md-tooltip md-direction="top">{{address}}</md-tooltip><i class="fa fa-building" aria-hidden="true"></i></a>
-<a data-toggle="modal" data-target="#ShowPopupEditTamas" ng-class="{'greencolor': email ,'graycolor': email == null }"  class="mail" href=""><md-tooltip md-direction="top">{{email}}</md-tooltip><i class="fa fa-envelope" aria-hidden="true"></i></a>
+<a ng-click="showpupedit()"  ng-class="{'greencolor': phone ,'graycolor': phone == null }"  class="mobile" href=""><md-tooltip md-direction="top">{{phone}}</md-tooltip><i class="fa fa-mobile" aria-hidden="true"></i></a>
+<a ng-click="showpupedit()"   ng-class="{'greencolor': phonefix ,'graycolor': phonefix == null }"  class="phone" href=""><md-tooltip md-direction="top">{{phonefix}}</md-tooltip><i class="fa fa-phone-square" aria-hidden="true"></i></a>
+<a ng-click="showpupedit()"  ng-class="{'greencolor': address ,'graycolor': address == null }"  class="addressloc" href=""><md-tooltip md-direction="top">{{address}}</md-tooltip><i class="fa fa-building" aria-hidden="true"></i></a>
+<a ng-click="showpupedit()"  ng-class="{'greencolor': email ,'graycolor': email == null }"  class="mail" href=""><md-tooltip md-direction="top">{{email}}</md-tooltip><i class="fa fa-envelope" aria-hidden="true"></i></a>
 </div>
 <div id="ShowPopupEditTamas" class="modal modal-md" role="dialog">
         <div class="modal-dialog">
@@ -122,7 +122,7 @@
     margin-top: -45px;
 ">                        <div class="h2title fontmedium bluecolor" style="padding: 5px 0;">درباره من:</div>
                         <p class="pdes graycolor" ng-hide="editorEnabledbio">
-{{mybio}} <a class="cursorpointer" ng-click="enableEditorbio(editableTitlebio)"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+{{mybio}} <a  ng-if="ShowForJS()" class="cursorpointer" ng-click="enableEditorbio(editableTitlebio)"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                         </p>     
 						<p class="pdes graycolor" ng-show="editorEnabledbio">
 						<textarea rows="4" cols="50"  ng-show="editorEnabledbio" ng-model="editableTitlebio" style="width: 100%;resize: none;"> </textarea>
@@ -132,7 +132,7 @@
                         </p>
                     </div>
                     <div class="col-md-2 col-xs-12 textleft">
-                <button type="button" class="btn upgradeprofile greenbtn fontmedium"><i class="fa fa-share-square-o" aria-hidden="true"></i><span>ارتقـای پروفایل</span></button>
+                <button ng-click="NotShowForJS()" type="button" class="btn upgradeprofile greenbtn fontmedium"><i class="fa fa-share-square-o" aria-hidden="true"></i><span>ارتقـای پروفایل</span></button>
 <button type="button" class="btn increasecredit greenbtnreverse fontmedium"><i class="fa fa-download" aria-hidden="true"></i><span>دریافت پروفایل</span></button>
                     </div>
                     </div>
@@ -169,7 +169,7 @@
 </div>
 		
 
-<div class="col-md-12">
+<div class="col-md-12"  ng-if="ShowForJS()" >
                 <div class="notifications graycolor pull-right">
                 <h4>اعلانات:</h4>
  			<div class="notificationrow graycolor" ng-repeat="x in notifications">
@@ -186,20 +186,13 @@
 </div>
 <div class="clearfix bgforjsppb"></div>
 
-  <div class="ourjobpositions sameposi">
+  <div class="ourjobpositions sameposi"  ng-if="ShowForJS()" >
               <div class="container">
 <div class="col-md-12 col-xs-12 h2title bluecolor fontmedium">موقعیت های مناسب شما:</div>
       <div class="col-md-4 col-xs-12 jobdetailsbox graycolor" ng-repeat="item in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
          <div class="jobdetails fontlight">
             <div class="h6title jobdate graycolor">{{item.created_at | jalaliDate:'jDD / jMMMM / jYY' }}</div>
-            <div ng-show="pindedplus" class="pinjob addjob" ng-click="add(item)">
-               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 9.6 9.6" style="enable-background:new 0 0 9.6 9.6;" xml:space="preserve">
-                  <path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z M8.9,4.1"/>
-               </svg>
-            </div> 
-			<div ng-show="pindedcheck"class="pinjob addjob" ng-click="remove(item)">
-<i class="fa fa-check" aria-hidden="true"></i>
-            </div>
+ <div ng-show="pindedplusshow[$index] || item.bookmarked == null  || item.bookmarked == false" ng-hide="pindedplus[$index] || item.bookmarked == true" class="pinjob addjob" ng-click="add(item,$index)">               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 9.6 9.6" style="enable-background:new 0 0 9.6 9.6;" xml:space="preserve">                  <path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z M8.9,4.1"/>               </svg>            </div> 							<div ng-show="pindedcheck[$index] || item.bookmarked == true" class="pinjob removejob" ng-hide="pindedcheckhide[$index] || item.bookmarked == null  || item.bookmarked == false" ng-click="remove(item,$index)"><i class="fa fa-times" aria-hidden="true"></i></div>      
             <div class="row rowonejob">
                <div class="col-md-4 col-xs-12 centerjobrespon">
                   <div class="companylogo col-md-12 col-xs-12">
@@ -243,13 +236,7 @@
                </div>
             </div>
             <div class="row rowtwojob">
-               <div class="col-md-6 requestforcooperationjob">
-                  <button ng-click="requestjob(item)" ng-show="requestshow" type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>
-                  <button  ng-click="derequestjob(item)" ng-show="derequestshow" type="button" class="btn greenbtn dereq fontmedium"><span>لغو درخواست</span></button>
-               </div>
-               <div class="col-md-6 readmorejob">
-                  <button type="button"  ng-click="showajob(item)" class="btn greenbtnreverse algnbtnmd fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
-               </div>
+				<div class="col-md-6 requestforcooperationjob">                  <button ng-click="requestjob(item,$index)" ng-show="requestshow[$index] || item.requested == null  || item.requested == false" ng-hide="requestshowshow[$index] || item.requested == true"  type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>                  <button  ng-click="derequestjob(item,$index)" ng-show="derequestshow[$index] || item.requested == true" ng-hide="derequestshowhide[$index] || item.requested == null  || item.requested == false" type="button" class="btn greenbtn dereq fontmedium"><span>لغو درخواست</span></button>                             </div>               <div class="col-md-6 readmorejob">                  <button  ng-click="showajob(item)" type="button" class="btn greenbtnreverse algnbtnmd fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>               </div>
             </div>
          </div>
       </div>

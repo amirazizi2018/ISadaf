@@ -2,7 +2,7 @@ console.clear();
 
 app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window, $http, Upload, $timeout , ShareData , $location ,  $localStorage , $sessionStorage) {
 	    var mustafasite = "https://sadaf.systmngr.ir/api/v1";
-$scope.checkLocalStorage = function() {   if($localStorage.UserType == 'JS'){	   return true   }   else {	   return  false   }}
+$scope.ShowForJS = function() {   if($localStorage.UserType == 'JS'){	   return false   }   else {	   return  true   }}$scope.NotShowForJS = function() {   if($localStorage.UserType == 'JS'){	   return true   }   else {	   return  false   }}
 
     $scope.showpagestarrating = 4;
         $scope.showpagestaroptions = {
@@ -57,6 +57,8 @@ app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window,
   $scope.enableEditorposition = function() {
     $scope.editorEnabledposition = true;
     $scope.editableTitleposition = $scope.position;
+  };  $scope.showpupedit = function() {   if($localStorage.UserType == 'JS'){		  		  $('#ShowPopupEditTamas').modal('show');	  }	  else {		  	  }
+
   };
 
   $scope.disableEditorposition = function() {
@@ -291,7 +293,7 @@ $scope.setItemsPerPage = function(num) {
   $scope.itemsPerPage = num;
   $scope.currentPage = 1; 
 }
-
+	            $scope.add = function(item,$index) {                var data = {                    id: item.id,                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.post(mustafasite + '/job_seeker/bookmark/job', JSON.stringify(data), config).then(function(response) {			$scope.pindedplusshow[$index] = false;					$scope.pindedcheckhide[$index] = false ;					$scope.pindedplus[$index] = true;					$scope.pindedcheck[$index] = true ;									    }); 				}	       				$scope.remove = function(item,$index) {                var data =  item.id;                var config = {                        headers: {                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.delete(mustafasite + '/job_seeker/bookmark/job/' + data, config).then(function(response) {			$scope.pindedplus[$index] = false;					$scope.pindedcheck[$index] = false ;					$scope.pindedplusshow[$index] = true;					$scope.pindedcheckhide[$index] = true ;				    }); 				}				$scope.requestjob = function(item,$index) {                var data = {                    id: item.id,                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.post(mustafasite + '/job_seeker/request_job', JSON.stringify(data), config).then(function(response) {		$scope.requestshowshow[$index] = true;					$scope.requestshow[$index] = false ;					$scope.derequestshowhide[$index] = false;					$scope.derequestshow[$index] = true ;				    }); 				}					$scope.derequestjob = function(item,$index) {                var data =  item.id;                var config = {                        headers: {                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.delete(mustafasite + '/job_seeker/request_job/' + data, config).then(function(response) {				$scope.requestshowshow[$index] = false;					$scope.requestshow[$index] = true ;					$scope.derequestshowhide[$index] = true;					$scope.derequestshow[$index] = false ;				    }); 				}
 
   				$scope.showajob = function(item) {
                     var config = {
