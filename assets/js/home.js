@@ -293,19 +293,40 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
 
     $scope.gotoprofilepage = function() {
-		$location.path("spprofilepage");
-		//$location.path("jobseekerprofilepage");
-		//$localStorage.LocationUser =  "spprofilepage";
-		//$localStorage.LocationUser =  "jobseekerprofilepage";
+					if(response.data.type == "JS"){
+								$location.path("jobseekerprofilepage");
+		$localStorage.LocationUser =  "jobseekerprofilepage";
+
+					}	
+					if(response.data.type == "EMP"){
+						$location.path("acompanypage");
+						$localStorage.LocationUser =  "acompanypage";
+					}	
+					if(response.data.type == "SP"){
+								$location.path("spprofilepage");
+		$localStorage.LocationUser =  "spprofilepage";
+					}
+
 	}  
 
 	$scope.gotodashboard = function() {
-		$location.path("spdashboardpage");
-		//$location.path("jobseekerdashboardpage");
+				if(response.data.type == "JS"){
+								$location.path("jobseekerdashboardpage");
+		$localStorage.LocationUser =  "jobseekerdashboardpage";
+
+					}	
+					if(response.data.type == "EMP"){
+						$location.path("companydashboardpage");
+						$localStorage.LocationUser =  "companydashboardpage";
+					}	
+					if(response.data.type == "SP"){
+								$location.path("spdashboardpage");
+		$localStorage.LocationUser =  "spdashboardpage";
+					}
 	}  
 
     $scope.gotosppage = function() {
-		$location.path("spdashboardpage");
+		$location.path("spmainpage");
 	}  
 
 	$scope.gotoemppage = function() {
@@ -520,6 +541,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
             $scope.isHideafterlogin = true;
             $scope.isActiveafterlogin = false;
             $scope.isHidelogin = false;
+			$localStorage.LocationUser =  null;
         });
 	 }	
 	 if($localStorage.UserType == "EMP"){
@@ -527,7 +549,9 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 		    $location.path("mainpage");
             $scope.isHideafterlogin = true;
             $scope.isActiveafterlogin = false;
-            $scope.isHidelogin = false;
+            $scope.isHidelogin = false;		
+			$localStorage.LocationUser =  null;
+
         });
 	 }	
 	 if($localStorage.UserType == "SP"){
@@ -535,7 +559,9 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 		    $location.path("mainpage");
             $scope.isHideafterlogin = true;
             $scope.isActiveafterlogin = false;
-            $scope.isHidelogin = false;
+            $scope.isHidelogin = false;			
+			$localStorage.LocationUser =  null;
+
         });
 	 }
 	}
