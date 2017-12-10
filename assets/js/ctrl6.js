@@ -2,7 +2,7 @@ console.clear();
 
 app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window, $http, Upload, $timeout , ShareData , $location ,  $localStorage , $sessionStorage) {
 	    var mustafasite = "https://sadaf.systmngr.ir/api/v1";
-
+$scope.checkLocalStorage = function() {    return localStorage.getItem('ngStorage-UserType') == 'JS';}
 
     $scope.showpagestarrating = 4;
         $scope.showpagestaroptions = {
