@@ -263,7 +263,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 	}  
 
     $scope.gotosppage = function() {
-		$location.path("spmainpage");
+		$location.path("spdashboardpage");
 	}  
 
 	$scope.gotoemppage = function() {
