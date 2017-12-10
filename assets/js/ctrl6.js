@@ -2,7 +2,7 @@ console.clear();
 
 app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window, $http, Upload, $timeout , ShareData , $location ,  $localStorage , $sessionStorage) {
 	    var mustafasite = "https://sadaf.systmngr.ir/api/v1";
-$scope.ShowForJS = function() {   if($localStorage.UserType == 'JS'){	   return false   }   else {	   return  true   }}$scope.NotShowForJS = function() {   if($localStorage.UserType != 'JS'){	   return true   }   else {	   return  false   }}
+$scope.ShowForJS = function() {   if($localStorage.UserType == 'JS'){	   return false   }   else {	   return  true   }}$scope.NotShowForJS = function() {   if($localStorage.UserType == 'JS'){	   return true   }   else {	   return  false   }}
 
     $scope.showpagestarrating = 4;
         $scope.showpagestaroptions = {
