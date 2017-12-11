@@ -193,9 +193,9 @@
     </div>
 <div class="col-md-10 nopaddinglr">
 <div class="col-md-9  col-xs-12 userinfor">
-<div class="h1title bluecolor companyname fontmedium">{{profileempsc.avatar}}</div>
-<span class="h4title graycolor companysaham fontlight">({{profileempsc.business_type}}) <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
-<div class="h4title bluecolor companyslogan fontlight">{{profileempsc.motto}}  <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+<div class="h1title bluecolor companyname fontmedium">{{fa_name}}</div>
+<span class="h4title graycolor companysaham fontlight">({{business_type}}) <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+<div class="h4title bluecolor companyslogan fontlight">{{motto}}  <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
 <div class="socialprofile">
 <a class="tumblr" href=""><i class="fa fa-tumblr" aria-hidden="true"></i></a>
 <a class="linkedin" href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
@@ -207,17 +207,17 @@
 <button type="button" class="btn upgradeprofile greenbtn fontmedium"><span>افزدون به علاقه مندی</span></button>
 <button type="button" class="btn increasecredit greenbtnreverse fontmedium"><i class="fa fa-picture-o" aria-hidden="true"></i><span>گالری تصاویر</span></button>
 <span class="preminfor">
-<a class="credit-card greencolor" ng-class="{'greencolor': profileempsc.padash == true ,'graycolor': profileempsc.padash == false }"><md-tooltip md-direction="top">پاداش</md-tooltip><i class="fa fa-credit-card" aria-hidden="true"></i></a>
-<a class="gift graycolor" ng-class="{'greencolor': profileempsc.advantage == true ,'graycolor': profileempsc.advantage == false }" ><md-tooltip md-direction="top">مزایا</md-tooltip><i class="fa fa-gift" aria-hidden="true"></i></a>
-<a class="life-ring graycolor" ng-class="{'greencolor': profileempsc.padash == true ,'graycolor': profileempsc.padash == false }" ><md-tooltip md-direction="top">وام</md-tooltip><i class="fa fa-life-ring" aria-hidden="true"></i></a>
-<a class="fa-shieldic greencolor"  ng-class="{'greencolor': profileempsc.assurance == true ,'graycolor': profileempsc.assurance == false }" ><md-tooltip md-direction="top">بیمه</md-tooltip><i class="fa fa-shield" aria-hidden="true"></i></a>
+<a class="credit-card greencolor" ng-class="{'greencolor': padash == true ,'graycolor': padash == false }"><md-tooltip md-direction="top">پاداش</md-tooltip><i class="fa fa-credit-card" aria-hidden="true"></i></a>
+<a class="gift graycolor" ng-class="{'greencolor': advantage == true ,'graycolor': advantage == false }" ><md-tooltip md-direction="top">مزایا</md-tooltip><i class="fa fa-gift" aria-hidden="true"></i></a>
+<a class="life-ring graycolor" ng-class="{'greencolor': padash == true ,'graycolor': padash == false }" ><md-tooltip md-direction="top">وام</md-tooltip><i class="fa fa-life-ring" aria-hidden="true"></i></a>
+<a class="fa-shieldic greencolor"  ng-class="{'greencolor': assurance == true ,'graycolor': assurance == false }" ><md-tooltip md-direction="top">بیمه</md-tooltip><i class="fa fa-shield" aria-hidden="true"></i></a>
 </span>
 </div>
 <div class="col-md-12 col-xs-12 spcontactdetbox nopaddingleft">
 <div class="col-md-12 col-xs-12 h5title fontlight graycolor spcontactdet">
                             <div class="col-md-2">
                                 <p><i class="fa fa-phone-square" aria-hidden="true"></i></p>
-                                <p style="margin: 0;"><i class="fa fa-fax" aria-hidden="true"></i> {{profileempsc.fax}}</p>
+                                <p style="margin: 0;"><i class="fa fa-fax" aria-hidden="true"></i> {{fax}}</p>
                             </div>
                             <div class="col-md-7">
                                 <p><i class="fa fa-building" aria-hidden="true"></i> {{address}}</p>
