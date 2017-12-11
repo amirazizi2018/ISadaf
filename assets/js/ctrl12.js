@@ -1,7 +1,7 @@
 console.clear();
 
 app.controller('searchdatabasepage', function($compile, $sce, $scope, $window, $http) {
-
+					$scope.searchbtnjp = function () {			      var config = {                headers : {                    'Content-Type': 'application/json',					'Access-Token': $localStorage.TokenKey.access,                }            }						if($scope.FULL_TIME == true ){				var sfulltime = "FULL_TIME";			}			else {				var sfulltime = " ";			}				if($scope.PART_TIME == true ){				var sparttime = "PART_TIME";			}			else {				var sparttime = " ";			}				if($scope.KAR_AMUZI == true ){				var skaramuzi = "KAR_AMUZI";			}			else {				var skaramuzi = " ";			}			if($scope.KARVARZI == true ){				var sKARVARZI = "KARVARZI";			}			else {				var sKARVARZI = " ";			}									}							$http.get(mustafasite +"/job_seeker/all?and_keywords=" + $scope.onvanjayghahshoghl + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " +  sKARVARZI + " " + $scope.sexvalue + " " ,config).then(function (response) {        $scope.shearchdbres = response.data.hits;  $scope.totalItems = $scope.shearchdbres.length;    }); 	 $scope.viewby = 7;  $scope.currentPage = 1;  $scope.itemsPerPage = $scope.viewby;  $scope.maxSize = 5;  $scope.setPage = function (pageNo) {    $scope.currentPage = pageNo;  };$scope.setItemsPerPage = function(num) {  $scope.itemsPerPage = num;  $scope.currentPage = 1; }    
 		  var counter = 0;
 
 	$scope.sanatmarbote = [
@@ -105,8 +105,10 @@ app.controller('searchdatabasepage', function($compile, $sce, $scope, $window, $
 	$scope.vaziateghamati = [
         {nameper : "بومی", nameeng : "bomi"},
 		{nameper : "مقیم", nameeng : "moghim"},
+    ];			$scope.tahsilat = [
+        {nameper : "کامپیوتر", nameeng : "comp"},
     ];	
-
+	$scope.sex = [        {nameper : "مرد", nameeng : "male"},		{nameper : "زن", nameeng : "female"},    ];			$scope.sexvalue = "male";
 	$scope.maharatkilidi = [];	
 
 
@@ -137,7 +139,7 @@ $scope.formdate.inpuvaluemaharatkilidi = "";
  $scope.orderByField = '';
   $scope.reverseSort = false;
   
-  $scope.shearchdbres = [
+/*   $scope.shearchdbres = [
   {id: '1' , name: 'اکبر همتی کمانچه',age: '28',sex: 'مرد',job: 'مهندس برق',education: 'مهندسی برق',profilelink: '',},
   {id: '2' , name: 'مریم اکبری کمانچه',age: '25',sex: 'زن',job: 'پزشک',education: 'پزشکی',profilelink: '',},
   {id: '3' , name: 'همت اکبری کمانچه',age: '33',sex: 'مرد',job: 'برنامه نویس',education: 'نرم افزار',profilelink: '',},
@@ -157,15 +159,12 @@ $scope.formdate.inpuvaluemaharatkilidi = "";
 $scope.setItemsPerPage = function(num) {
   $scope.itemsPerPage = num;
   $scope.currentPage = 1; 
-}
+} */
 
  //$scope.pageChanged = function() {
   //  console.log('Page changed to: ' + $scope.currentPage);
   //};
-
-  $scope.removejob = function(item) {
-    $scope.data.splice(item, 1);
-  };
+
   
     
 

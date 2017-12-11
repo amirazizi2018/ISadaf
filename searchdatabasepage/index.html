@@ -59,8 +59,8 @@
 
 							<div class="col-md-10 col-xs-12">
 
-				  <select ng-model="shahr">
-<option ng-repeat="x in shahr" value="{{x.nameper}}">{{x.nameper}}</option>
+				  <select ng-model="tahsilatvalue">
+<option ng-repeat="x in tahsilat" value="{{x.nameeng}}">{{x.nameper}}</option>
 </select>
 
 								</div>
@@ -76,8 +76,8 @@
 
 							<div class="col-md-10 col-xs-12">
 
-				  <select ng-model="shahr">
-<option ng-repeat="x in shahr" value="{{x.nameper}}">{{x.nameper}}</option>
+				  <select ng-model="sexvalue">
+<option ng-repeat="x in sex" value="{{x.nameeng}}">{{x.nameper}}</option>
 </select>
 
 								</div>
@@ -92,8 +92,8 @@
 
 							<div class="col-md-10 col-xs-12">
 
-				  <select ng-model="shahr">
-<option ng-repeat="x in shahr" value="{{x.nameper}}">{{x.nameper}}</option>
+				  <select ng-model="agevalue">
+<option ng-repeat="x in age" value="{{x.nameper}}">{{x.nameper}}</option>
 </select>
 
 								</div>
@@ -139,8 +139,8 @@
 
 								</div>
 								<div class="col-md-8 col-xs-12 exfildsearcthe" style="padding-right: 10px;">
-							  <select ng-model="sabeghekari">
-<option ng-repeat="x in sabeghekari" value="{{x.nameper}}">{{x.nameper}}</option>
+							  <select ng-model="cityvalue">
+<option ng-repeat="x in city" value="{{x.nameper}}">{{x.nameper}}</option>
 </select>
 					
 
@@ -155,8 +155,8 @@
 								</div>
 
 							<div class="col-md-7 col-xs-12">
-					  <select ng-model="hozedaraysabeghe">
-<option ng-repeat="x in hozedaraysabeghe" value="{{x.nameper}}">{{x.nameper}}</option>
+					  <select ng-model="vaziyatnezamvazifevalue">
+<option ng-repeat="x in vaziyatnezamvazife" value="{{x.nameper}}">{{x.nameper}}</option>
 </select>
 								</div>
 
@@ -174,8 +174,8 @@
 								</div>
 
 							<div class="col-md-8 col-xs-12 exfildsearcthe" style="padding-right: 10px;">
-				  <select ng-model="mogeatdarjayghah">
-<option ng-repeat="x in mogeatdarjayghah" value="{{x.nameper}}">{{x.nameper}}</option>
+				  <select ng-model="vaziyattaholvalue">
+<option ng-repeat="x in vaziyattahol" value="{{x.nameper}}">{{x.nameper}}</option>
 </select>
 								</div>
 
@@ -256,7 +256,7 @@
 
 <div class="col-md-12 col-xs-12">
 <div class="col-md-6 col-xs-12">
-<button type="button" class="btn bluebtn">جستجو</button>
+<button ng-click="searchbtnjp()" type="button" class="btn bluebtn">جستجو</button>
 </div>
 <div class="col-md-6 col-xs-12 textleft">
 <span  ng-click="showallfilter = !showallfilter" >
@@ -268,7 +268,7 @@
 
 		</div>
 
-
+<!-- 
 <div class="col-xs-12">
                     <div class="sta-info">
                         <div class="col-xs-7">
@@ -282,7 +282,7 @@
                     </div>
                 </div>
 
- 
+  -->
   <div class="col-md-12 col-xs-12">
   <table class="table table-bordered transactionstable shearchdbres">
     <thead>

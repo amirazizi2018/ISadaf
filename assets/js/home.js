@@ -448,7 +448,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
             username: UserNameEMP,
             phone: PhoneEMP,
             password: PassEMP,
-            fullname: FullNameEMP,
+            fa_name: FullNameEMP,
             email: EmailEMP,
         };
 
@@ -459,7 +459,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
         }
 
 
-        $http.post(mustafasite + '/job_seeker/register', JSON.stringify(data), config).then(function(response) {
+        $http.post(mustafasite + '/employer', JSON.stringify(data), config).then(function(response) {
 						$("#ShowPopupRegsEMP").modal('hide');
 						$scope.UserNameEMP= null;
 						$scope.PhoneEMP= null;
