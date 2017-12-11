@@ -1,6 +1,6 @@
 console.clear();
 
-app.controller('searchscenarios', function($compile, $sce, $scope, $window, $http) {
+app.controller('searchscenarios', function($compile, $sce, $scope, $window, $http, ShareData , $location ,  $localStorage , $sessionStorage) {
 	$scope.jobrateuser = '3' ;
 	$scope.jobratesystem = '7';
 	
