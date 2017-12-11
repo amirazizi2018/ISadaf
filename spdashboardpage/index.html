@@ -353,8 +353,8 @@
     </div> 
       <div class="col-md-12 textcenter bluecolor"  ng-repeat="servicesmanagement in servicesmanagements.slice(((servicesmanagementscurrentPage-1)*servicesmanagementsitemsPerPage), ((servicesmanagementscurrentPage)*servicesmanagementsitemsPerPage))|orderBy:orderByField:reverseSort">
         <div class="col-md-12 servicesmanagementrow">
-        <div ng-repeat="x in servicesmanagement.exam" class="col-md-3 textright" style="line-height: 35px;"><i  ng-class="{'circlebtngreen': servicesmanagement.condition == 'صعودی',
-           'circlebtnred': servicesmanagement.condition == 'نزولی'}" aria-hidden="true"></i>{{x.name}}</div>      
+        <div class="col-md-3 textright" style="line-height: 35px;"><i  ng-class="{'circlebtngreen': servicesmanagement.condition == 'صعودی',
+           'circlebtnred': servicesmanagement.condition == 'نزولی'}" aria-hidden="true"></i>{{servicesmanagement.exam.name}}</div>      
 		<div class="col-md-2"  style="line-height: 35px;">0 % <i  ng-class="{'fa-sort-asc greencolor': servicesmanagement.condition == 'صعودی',
            'fa-sort-desc redcolor': servicesmanagement.condition == 'نزولی'}" class="fa " aria-hidden="true"></i></div>
         <div class="col-md-2"  style="line-height: 35px;">0</div>
