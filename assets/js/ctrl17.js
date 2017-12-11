@@ -328,8 +328,8 @@ $scope.activeTabF = "tab1";
 
     $scope.max =            100;
 	
-
-	  $http.get(mustafasite +'/service_provider/me', {    headers: {        "Content-Type": 'application/json',                'Access-Token': $localStorage.TokenKey.access,    }  }).then(function (response) {		    $scope.current = response.data.null_percent;		    $scope.logopic = response.data.avatar;		    $scope.fa_name = response.data.fa_name;		    $scope.motto = response.data.motto;		    $scope.email = response.data.email;		    $scope.activestatus = response.data.active;		    $scope.phone = response.data.phone;					    $scope.phonefix  = response.data.fixed_phone;		    $scope.address = response.data.address;					    $scope.servicesmanagements = response.data.exams;						$scope.servicesmanagementstotalItems = $scope.servicesmanagements.length;  });      	  $scope.gotoprofilepage =  function() {	  	$location.path("spprofilepage");		$localStorage.LocationUser =  "spprofilepage";  }      
+  $scope.getaliispset =  function() {
+	  $http.get(mustafasite +'/service_provider/me', {    headers: {        "Content-Type": 'application/json',                'Access-Token': $localStorage.TokenKey.access,    }  }).then(function (response) {		    $scope.current = response.data.null_percent;		    $scope.logopic = response.data.avatar;		    $scope.fa_name = response.data.fa_name;		    $scope.motto = response.data.motto;		    $scope.email = response.data.email;		    $scope.activestatus = response.data.active;		    $scope.phone = response.data.phone;					    $scope.phonefix  = response.data.fixed_phone;		    $scope.address = response.data.address;					    $scope.servicesmanagements = response.data.exams;						$scope.servicesmanagementstotalItems = $scope.servicesmanagements.length;  });    }$scope.getaliispset();  $scope.gotoprofilepage =  function() {	  	$location.path("spprofilepage");		$localStorage.LocationUser =  "spprofilepage";  }      
 	$scope.packagesstatus = [
 	{packagename : 'بسته یکماهه ارائه خدمات کارگزاری سامانه صدف' ,packagestatus : 'فعال' ,packageremaining : '15 روز باقیمانده' ,},
     ];	
@@ -392,7 +392,7 @@ $scope.setItemsPerPage = function(num) {
 
 		$http.get(mustafasite +'/exam').then(function (response) {		    $scope.getexamnameid = response.data.exams;		}); 
 
-	            $scope.savekhdmat = function() {                var data = {                    exam_id: parseInt($scope.namekhedmatselected),                    price: parseInt($scope.pricekhedmatselected),                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {					$scope.namekhedmatselected = "";					$scope.pricekhedmatselected = "";						$("#ShowPopupaddexam").modal('hide');				    }); 				}	
+	            $scope.savekhdmat = function() {                var data = {                    exam_id: parseInt($scope.namekhedmatselected),                    price: parseInt($scope.pricekhedmatselected),                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {					$scope.namekhedmatselected = "";					$scope.pricekhedmatselected = "";						$("#ShowPopupaddexam").modal('hide');$scope.getaliispset();				    }); 				}	
    $scope.orderByField = '';
   $scope.reverseSort = false;
   
