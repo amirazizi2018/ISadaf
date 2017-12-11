@@ -329,7 +329,7 @@ $scope.activeTabF = "tab1";
     $scope.max =            100;
 	
 
-	  $http.get(mustafasite +'/service_provider/me', {    headers: {        "Content-Type": 'application/json',                'Access-Token': $localStorage.TokenKey.access,    }  }).then(function (response) {		    $scope.current = response.data.null_percent;		    $scope.logopic = response.data.avatar;		    $scope.fa_name = response.data.fa_name;		    $scope.motto = response.data.motto;		    $scope.email = response.data.email;		    $scope.activestatus = response.data.active;		    $scope.phone = response.data.phone;					    $scope.phonefix  = response.data.fixed_phone;		    $scope.address = response.data.address;					    $scope.spexams = response.data.exams;			  });      	  $scope.gotoprofilepage =  function() {	  	$location.path("spprofilepage");		$localStorage.LocationUser =  "spprofilepage";  }      
+	  $http.get(mustafasite +'/service_provider/me', {    headers: {        "Content-Type": 'application/json',                'Access-Token': $localStorage.TokenKey.access,    }  }).then(function (response) {		    $scope.current = response.data.null_percent;		    $scope.logopic = response.data.avatar;		    $scope.fa_name = response.data.fa_name;		    $scope.motto = response.data.motto;		    $scope.email = response.data.email;		    $scope.activestatus = response.data.active;		    $scope.phone = response.data.phone;					    $scope.phonefix  = response.data.fixed_phone;		    $scope.address = response.data.address;					    $scope.servicesmanagements = response.data.exams;			  $scope.servicesmanagementstotalItems = $scope.servicesmanagements.length;  });      	  $scope.gotoprofilepage =  function() {	  	$location.path("spprofilepage");		$localStorage.LocationUser =  "spprofilepage";  }      
 	$scope.packagesstatus = [
 	{packagename : 'بسته یکماهه ارائه خدمات کارگزاری سامانه صدف' ,packagestatus : 'فعال' ,packageremaining : '15 روز باقیمانده' ,},
     ];	
@@ -396,7 +396,7 @@ $scope.setItemsPerPage = function(num) {
    $scope.orderByField = '';
   $scope.reverseSort = false;
   
-  $scope.servicesmanagements = [
+/*   $scope. = [
   {id: '1' , name: 'MBTI', marketshare: '23',employers: '23',jobseeker: '120',condition:'صعودی',},
   {id: '2' , name: 'Neo-Pi', marketshare: '16',employers: '16',jobseeker: '52',condition:'صعودی',},
   {id: '3' , name: 'Microsoft Exell', marketshare: '17',employers: '17',jobseeker: '15',condition:'نزولی',},  
@@ -405,7 +405,7 @@ $scope.setItemsPerPage = function(num) {
   {id: '6' , name: 'Neo-Pi', marketshare: '16',employers: '16',jobseeker: '52',condition:'صعودی',},
   {id: '7' , name: 'Microsoft Exell', marketshare: '17',employers: '17',jobseeker: '15',condition:'نزولی',},  
   {id: '8' , name: 'Neo-Pi', marketshare: '42',employers: '42',jobseeker: '64',condition:'نزولی',},
-  ];
+  ]; */
 	
 	
 	 $scope.removeservicesmanagement = function(servicesmanagement) {
@@ -429,7 +429,7 @@ $scope.servicesmanagements.some(function(obj, i) {
  
 	 
   $scope.servicesmanagementsviewby = 6;
-  $scope.servicesmanagementstotalItems = $scope.servicesmanagements.length;
+
   $scope.servicesmanagementscurrentPage = 1;
   $scope.servicesmanagementsitemsPerPage = $scope.servicesmanagementsviewby;
   $scope.servicesmanagementsmaxSize = 5;
