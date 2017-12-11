@@ -392,7 +392,7 @@ $scope.setItemsPerPage = function(num) {
 
 		$http.get(mustafasite +'/exam').then(function (response) {		    $scope.getexamnameid = response.data.exams;		}); 
 
-	            $scope.savekhdmat = function() {                var data = {                    exam_id: $scope.namekhedmatselected,                    price: $scope.pricekhedmatselected,                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {					$scope.namekhedmatselected = "";					$scope.pricekhedmatselected = "";						$("#ShowPopupaddexam").modal('hide');				    }); 				}	
+	            $scope.savekhdmat = function() {                var data = {                    exam_id: $scope.namekhedmatselected,                    price: $scope.pricekhedmatselected,                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }                $http.post(mustafasite + '/exam', data , config).then(function(response) {					$scope.namekhedmatselected = "";					$scope.pricekhedmatselected = "";						$("#ShowPopupaddexam").modal('hide');				    }); 				}	
    $scope.orderByField = '';
   $scope.reverseSort = false;
   
