@@ -223,6 +223,9 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 						$scope.isHidelogin = false;
 						$scope.isActivelogin = false;
 						$location.path("mainpage");
+						$localStorage.UserType = " ";
+						$localStorage.LocationUser = " ";
+						$localStorage.Access-Token = " ";
 	
 	 }
 	 else {
@@ -536,8 +539,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
                             'Access-Token': $localStorage.TokenKey.access,
                         }
                     }
-                    $http.get(mustafasite + "/employer", config2).then(function(response) {
-		                $location.path("jobseekermainpage");
+                    $http.get(mustafasite + "/employer/me", config2).then(function(response) {
+		                $location.path("companymainpage");
                         $scope.profiledetaflogin = response.data;
 						$("#ShowPopupactivecode").modal('hide');
 						$scope.isHideafterlogin = false;
@@ -558,7 +561,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
                             'Access-Token': $localStorage.TokenKey.access,
                         }
                     }
-                    $http.get(mustafasite + "/service_provider", config2).then(function(response) {
+                    $http.get(mustafasite + "/service_provider/me", config2).then(function(response) {
 		                $location.path("spmainpage");
                         $scope.profiledetaflogin = response.data;
 						$("#ShowPopupactivecode").modal('hide');

@@ -97,8 +97,24 @@
                         <ul class="nav navbar-nav navbar-left style-25">
                            <li ng-click="gotoemppage()" ><button type="button" class="btn btn-info btn-sm" >ورود سازمان ها</button></li>
                            <li ng-class="{ active  : isActivelogin , hide : isHidelogin}"><a  class="cursorpointer"  data-toggle="modal" data-target="#ShowPopuplogin" ><i class="fa fa-user" aria-hidden="true"></i> عضویت/ورود به سامانه</a></li>
-                           <li class="dropdown user-login-menu"  ng-class="{ active  : isActiveafterlogin , hide : isHideafterlogin}">
+                           <li  ng-if="ShowForJS()" class="dropdown user-login-menu"  ng-class="{ active  : isActiveafterlogin , hide : isHideafterlogin}">
                               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span> {{profiledetaflogin.fullname}} <img src="{{profiledetaflogin.avatar}}" title="{{profiledetaflogin.fullname}}" alt="{{profiledetaflogin.fullname}}"/></a>
+                              <ul class="dropdown-menu">
+                                 <li><a class="cursorpointer"  ng-click="gotodashboard()">داشبورد</a></li>
+                                 <li><a class="cursorpointer" ng-click="gotoprofilepage()">پروفایل</a></li>
+                                 <li><a class="cursorpointer"  ng-click="logoutuser()">خروج</a></li>
+                              </ul>
+                           </li>        
+						   <li  ng-if="ShowForEMP()" class="dropdown user-login-menu"  ng-class="{ active  : isActiveafterlogin , hide : isHideafterlogin}">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span> {{profiledetaflogin.fa_name}} <img src="{{profiledetaflogin.avatar}}" title="{{profiledetaflogin.fa_name}}" alt="{{profiledetaflogin.fa_name}}"/></a>
+                              <ul class="dropdown-menu">
+                                 <li><a class="cursorpointer"  ng-click="gotodashboard()">داشبورد</a></li>
+                                 <li><a class="cursorpointer" ng-click="gotoprofilepage()">پروفایل</a></li>
+                                 <li><a class="cursorpointer"  ng-click="logoutuser()">خروج</a></li>
+                              </ul>
+                           </li>        
+						   <li  ng-if="ShowForSP()" class="dropdown user-login-menu"  ng-class="{ active  : isActiveafterlogin , hide : isHideafterlogin}">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span> {{profiledetaflogin.fa_name}} <img src="{{profiledetaflogin.avatar}}" title="{{profiledetaflogin.fa_name}}" alt="{{profiledetaflogin.fa_name}}"/></a>
                               <ul class="dropdown-menu">
                                  <li><a class="cursorpointer"  ng-click="gotodashboard()">داشبورد</a></li>
                                  <li><a class="cursorpointer" ng-click="gotoprofilepage()">پروفایل</a></li>

@@ -127,26 +127,15 @@ app.controller('mainpage', function($compile, $sce, $scope, $window, $http , Sha
 				    }); 
 
 				}
-
-				$scope.Searchmahratfun = function(searchmaharat) {
+	$scope.showajob = function(item) {                    var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                    }                    $http.get(mustafasite + "/job_seeker", config).then(function(response) {					ShareData.setPropertyjobid(item.id);					$location.path("apostpage");                    });				}
+						$scope.Searchmahratfun = function(searchmaharat) {
 					ShareData.setPropertysermahhp(searchmaharat);
 					$location.path("jobpostspage");
 				}
 
 				
 								
-				$scope.showajob = function(item) {
-                    var config = {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Access-Token': $localStorage.TokenKey.access,
-                        }
-                    }
-                    $http.get(mustafasite + "/job_seeker", config).then(function(response) {
-					ShareData.setPropertyjobid(item.id);
-					$location.path("apostpage");
-                    });
-				}
+			
 
 
 

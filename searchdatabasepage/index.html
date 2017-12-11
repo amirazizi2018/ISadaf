@@ -319,7 +319,7 @@
     <tbody>
       <tr ng-repeat="x in shearchdbres.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))|orderBy:orderByField:reverseSort">
         <td class="recivefactorlink"><a href=""><div class="pinjob addjob savesaechdbk" ng-click="add(item)" role="button" tabindex="0"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 9.6 9.6" style="enable-background:new 0 0 9.6 9.6;" xml:space="preserve"><path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z M8.9,4.1"/></svg></div></a></td>
-        <td>{{x.name}}</td>
+        <td>{{x.fullname}}</td>
         <td>{{x.age}}</td>
         <td>{{x.sex}}</td>
         <td>{{x.job}}</td>

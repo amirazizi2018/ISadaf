@@ -193,9 +193,9 @@
     </div>
 <div class="col-md-10 nopaddinglr">
 <div class="col-md-9  col-xs-12 userinfor">
-<div class="h1title bluecolor companyname fontmedium">گروه جاب اینجا</div>
-<span class="h4title graycolor companysaham fontlight">(سهامی خاص) <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
-<div class="h4title bluecolor companyslogan fontlight">شعار گروه جاب اینجا  <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+<div class="h1title bluecolor companyname fontmedium">{{profileempsc.avatar}}</div>
+<span class="h4title graycolor companysaham fontlight">({{profileempsc.business_type}}) <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+<div class="h4title bluecolor companyslogan fontlight">{{profileempsc.motto}}  <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
 <div class="socialprofile">
 <a class="tumblr" href=""><i class="fa fa-tumblr" aria-hidden="true"></i></a>
 <a class="linkedin" href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
@@ -207,25 +207,25 @@
 <button type="button" class="btn upgradeprofile greenbtn fontmedium"><span>افزدون به علاقه مندی</span></button>
 <button type="button" class="btn increasecredit greenbtnreverse fontmedium"><i class="fa fa-picture-o" aria-hidden="true"></i><span>گالری تصاویر</span></button>
 <span class="preminfor">
-<a class="credit-card greencolor" href=""><i class="fa fa-credit-card" aria-hidden="true"></i></a>
-<a class="gift graycolor" href=""><i class="fa fa-gift" aria-hidden="true"></i></a>
-<a class="life-ring graycolor" href=""><i class="fa fa-life-ring" aria-hidden="true"></i></a>
-<a class="fa-shieldic greencolor" href=""><i class="fa fa-shield" aria-hidden="true"></i></a>
+<a class="credit-card greencolor" ng-class="{'greencolor': profileempsc.padash == true ,'graycolor': profileempsc.padash == false }"><md-tooltip md-direction="top">پاداش</md-tooltip><i class="fa fa-credit-card" aria-hidden="true"></i></a>
+<a class="gift graycolor" ng-class="{'greencolor': profileempsc.advantage == true ,'graycolor': profileempsc.advantage == false }" ><md-tooltip md-direction="top">مزایا</md-tooltip><i class="fa fa-gift" aria-hidden="true"></i></a>
+<a class="life-ring graycolor" ng-class="{'greencolor': profileempsc.padash == true ,'graycolor': profileempsc.padash == false }" ><md-tooltip md-direction="top">وام</md-tooltip><i class="fa fa-life-ring" aria-hidden="true"></i></a>
+<a class="fa-shieldic greencolor"  ng-class="{'greencolor': profileempsc.assurance == true ,'graycolor': profileempsc.assurance == false }" ><md-tooltip md-direction="top">بیمه</md-tooltip><i class="fa fa-shield" aria-hidden="true"></i></a>
 </span>
 </div>
 <div class="col-md-12 col-xs-12 spcontactdetbox nopaddingleft">
 <div class="col-md-12 col-xs-12 h5title fontlight graycolor spcontactdet">
                             <div class="col-md-2">
-                                <p><i class="fa fa-phone-square" aria-hidden="true"></i> ۰۲۱۳۴۴۳۶۶۴۷</p>
-                                <p style="margin: 0;"><i class="fa fa-fax" aria-hidden="true"></i> ۰۲۱۳۴۴۳۶۶۴۷</p>
+                                <p><i class="fa fa-phone-square" aria-hidden="true"></i></p>
+                                <p style="margin: 0;"><i class="fa fa-fax" aria-hidden="true"></i> {{profileempsc.fax}}</p>
                             </div>
                             <div class="col-md-7">
-                                <p><i class="fa fa-building" aria-hidden="true"></i> تهران، بلوار کشاورز، خیابان نادری بعد از ایتالیا، پلاک 4، دفتر مرکزی</p>
+                                <p><i class="fa fa-building" aria-hidden="true"></i> {{address}}</p>
                                 <p style="margin: 0;"><i class="fa fa-industry" aria-hidden="true"></i> تهران، کیلومتر 7 جاده مخصوص، بلوار ایران خودرو، پلاک 219</p>
                             </div>
                             <div class="col-md-3">
-                                <p><i class="fa fa-envelope" aria-hidden="true"></i> info@irankhodro.com</p>
-                                <p style="margin: 0;"><i class="fa fa-external-link-square" aria-hidden="true"></i> www.ikco.com</p>
+                                <p><i class="fa fa-envelope" aria-hidden="true"></i> {{email}}</p>
+                                <p style="margin: 0;"><i class="fa fa-external-link-square" aria-hidden="true"></i> {{web_site}}</p>
                             </div>
 
 </div>
@@ -241,14 +241,12 @@
                     <div class="col-md-9 col-xs-12">
                         <div class="h2title fontmedium bluecolor" style="padding: 5px 0;">معرفی شرکت:</div>
                         <ul class="companymore">
-                            <li>
-                                لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی توسط کارفرما ارائه گردد و در صفحه مورد نظر قرار گیرد چگونه پر کنند؟؟ اکثر طراحان با نوشتن یک جمله مانند "این یک متن نمونه است" ویا "توضیحات در ای
-                            </li>
+                  <p class="pdes graycolor" ng-hide="editorEnabledbio">{{mybio}} <a  ng-if="NotShowForJS()" class="cursorpointer" ng-click="enableEditorbio(editableTitlebio)"><i class="fa fa-pencil" aria-hidden="true"></i></a>                        </p>     						<p class="pdes graycolor" ng-show="editorEnabledbio">						<textarea rows="4" cols="50"  ng-show="editorEnabledbio" ng-model="editableTitlebio" style="width: 100%;resize: none;"> </textarea>      <a class="cursorpointer" ng-click="saveeditbio()"><i class="fa fa-check greencolor" aria-hidden="true"></i></a>      <a class="cursorpointer" ng-click="disableEditorbio()"><i class="fa fa-times redcolor" aria-hidden="true"></i></a>                        </p>
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-12">
                         <div class="companystatistics">
-                            <p ng-repeat="x in companystatistics">{{x.name}}</p>
+							<p>نوع صنعت:</p>                            <p>{{industry_type}}</p>                            <p>سال تاسیس:</p>                            <p>{{foundation_year}}</p>                            <p>تعداد کارمندان:</p>                            <p>{{employee_count}}</p>                            <p>محل فعالیت:</p>                            <p>{{city}}</p><!--                             <p>نرخ پذیرش:</p>                            <p>32 درصد</p> -->
                         </div>
                     </div>
                     </div>
@@ -259,8 +257,8 @@
                 <div class="h2title fontmedium bluecolor" style="padding: 5px 0 10px;">محصولات و خدمات:</div>
                 <div class="row">
                     <div class="col-md-3 col-xs-6" ng-repeat="x in productsandservices">
-                        <img src="{{x.img}}" class="coompanyservice">
-                        <p>{{x.name}}</p>
+                        <img src="{{x.image_path}}" class="coompanyservice">
+                        <p>{{x.title}}</p>
 
                         </div>
                     </div>
@@ -274,13 +272,13 @@
 				<div class="clearfix"></div>
 
                 <div class="">
-                    <img ng-repeat="x in ourbrands" class="brand-img" src="{{x.img}}">
+                    <img ng-repeat="x in ourbrands" class="brand-img" src="{{x.image_path}}">
                 </div>
 </div>	
 
 <div class="clearfix"></div>
 
-<div class="clearfix"></div>
+<div class="clearfix"></div><!-- 
 <div class="col-md-12 upstreamcompany" ng-repeat="x in companychart" >
                 <div class="row">
                     <div class="col-md-2">
@@ -306,7 +304,7 @@
                     </div>
                 </div>
 </div>	
-
+ -->
 
 <div class="clearfix"></div>
 <div class="clearfix"></div>
@@ -315,54 +313,8 @@
 </div>
 
   <div class="ourjobpositions">
-              <div class="container">
-<div class="col-md-12 col-xs-12 h2title bluecolor fontmedium">موقعیت های شغلی ما:</div>
-<div class="col-md-4 col-xs-12 jobdetailsbox graycolor" ng-repeat="item in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
-			<div class="jobdetails fontlight">
-						<div class="h6title jobdate graycolor">{{item.jobdate}}</div>
-
-			<div class="pinjob addjob" ng-click="add(item)"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 9.6 9.6" style="enable-background:new 0 0 9.6 9.6;" xml:space="preserve"><path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z M8.9,4.1"/></svg></div>
-		<div class="row rowonejob">
-		<div class="col-md-4 col-xs-12 centerjobrespon">
-		<div class="companylogo col-md-12 col-xs-12">
-<img src="{{item.companylogo}}" ><md-tooltip
-              md-direction="top">
-              {{item.companyname}}
-            </md-tooltip>
-</div>
-<div class="jobrateuser col-md-12 col-xs-12">
-        <rate-yo class="mstarbb" on-set="set" on-change="showpagestarjobchange" ng-model="showpagestarjobrating" read-only="showpagestarjoboptions.readOnly" options="showpagestarjoboptions"></rate-yo></div>
-<div class="jobratesystem col-md-12 col-xs-12">
-        <rate-yo on-set="set" on-change="showpagerectanjobchange" ng-model="showpagerectanjobrating" read-only="showpagerectanjoboptions.readOnly" options="showpagerectanjoboptions"></rate-yo>
-</div>
-</div>
-<div class="col-md-8 col-xs-12 paddingjobrespon">
-			<div class="h2title bluecolor jobname fontmedium">{{item.jobname}}</div>
-			<div class="h5title graycolor joblocations fontlight"><i class="fa fa-map-marker" aria-hidden="true"></i>{{item.joblocations}}</div>
-			<div class="h4title bluecolor jobfield">{{item.jobfield}}</div>
-			<div class="col-md-2 h6title typeofcooperation fontlight graycolor {{item.activeclass}}" ng-repeat="item in item.typeofcooperation">
-			<div class="fontlight">
-			{{item.textbtn}}
-			</div>
-
-</div>
-
-			
-</div>
-			</div>
-			
-					<div class="row rowtwojob">
-		<div class="col-md-6 requestforcooperationjob">
-		<button type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>
-</div>
-<div class="col-md-6 readmorejob">
-<button type="button" class="btn greenbtnreverse algnbtnmd fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
-</div>
-
-			
-</div>
-			</div>
-			</div>
+              <div class="container"><div class="col-md-12 col-xs-12 h2title bluecolor fontmedium">موقعیت های شغلی ما:</div>
+  <div class="col-md-4 col-xs-12 jobdetailsbox graycolor" ng-repeat="item in jobsdata.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">         <div class="jobdetails fontlight">            <div class="h6title jobdate graycolor">{{item.created_at | jalaliDate:'jDD / jMMMM / jYY' }}</div>  <div ng-show="pindedplusshow[$index] || item.bookmarked == null  || item.bookmarked == false" ng-hide="pindedplus[$index] || item.bookmarked == true" class="pinjob addjob" ng-click="add(item,$index)">               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 9.6 9.6" style="enable-background:new 0 0 9.6 9.6;" xml:space="preserve">                  <path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z M8.9,4.1"/>               </svg>            </div> 							<div ng-show="pindedcheck[$index] || item.bookmarked == true" class="pinjob removejob" ng-hide="pindedcheckhide[$index] || item.bookmarked == null  || item.bookmarked == false" ng-click="remove(item,$index)"><i class="fa fa-times" aria-hidden="true"></i></div>                       <div class="row rowonejob">               <div class="col-md-4 col-xs-12 centerjobrespon">                  <div class="companylogo col-md-12 col-xs-12">                     <img src="{{item.employer.avatar}}" >                     <md-tooltip                        md-direction="top">                        {{item.employer.fa_name}}                     </md-tooltip>                  </div>                  <div class="jobrateuser col-md-12 col-xs-12">                     <rate-yo class="mstarbb" on-set="set" on-change="showpagestarchange" ng-model="showpagestarrating" read-only="showpagestaroptions.readOnly" options="showpagestaroptions"></rate-yo>                  </div>                  <div class="jobratesystem col-md-12 col-xs-12">                     <rate-yo on-set="set" on-change="showpagerectanchange" ng-model="showpagerectanrating" read-only="showpagerectanoptions.readOnly" options="showpagerectanoptions"></rate-yo>                  </div>               </div>               <div class="col-md-8 col-xs-12 paddingjobrespon">                  <div class="h2title bluecolor jobname fontmedium">{{item.title}}</div>                  <div class="h5title graycolor joblocations fontlight"><i class="fa fa-map-marker" aria-hidden="true"></i>{{item.city}}</div>                  <div class="h4title bluecolor jobfield">{{item.education}}</div>                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='FULL_TIME'}">                     <div class="fontlight">                        تمام وقت                     </div>                  </div>                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='PART_TIME'}">                     <div class="fontlight">                        پاره وقت                     </div>                  </div>                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='KAR_AMUZI'}">                     <div class="fontlight">                        کارآموزی			                     </div>                  </div>                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='KARVARZI'}">                     <div class="fontlight">                        کاروندی                     </div>                  </div>               </div>            </div>            <div class="row rowtwojob">               <div class="col-md-6 requestforcooperationjob">                  <button ng-click="requestjob(item,$index)" ng-show="requestshow[$index] || item.requested == null  || item.requested == false" ng-hide="requestshowshow[$index] || item.requested == true"  type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>                  <button  ng-click="derequestjob(item,$index)" ng-show="derequestshow[$index] || item.requested == true" ng-hide="derequestshowhide[$index] || item.requested == null  || item.requested == false" type="button" class="btn greenbtn dereq fontmedium"><span>لغو درخواست</span></button>                             </div>               <div class="col-md-6 readmorejob">                  <button  ng-click="showajob(item)" type="button" class="btn greenbtnreverse algnbtnmd fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>               </div>            </div>         </div>      </div>	 
 			
 								<div class="col-md-12">
     <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"  items-per-page="itemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
