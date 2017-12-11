@@ -129,7 +129,7 @@ else {
   	$scope.geymatkargozarmaharat = "0" ;
 	$scope.selectedmaharat = ""; 
 	$scope.timekargozarmaharat = "0"; */
-                var data = {					"jsId" : $localStorage.UserId,					"FullName" : $localStorage.UserFaName,					"TestType" : getnametest				};                var config = {                        headers: {                            'Content-Type': 'application/json',                        }                 }                $http.post('www.ishaygan.ir/Account/login' , JSON.stringify(data), config).then(function(response) {						var tokenddd = response.token;									    window.open('www.ishaygan.ir/ExamApi/MbtiExam?' + tokenddd., '_blank', '');  				    }); 					
+                var data = {					"jsId" : $localStorage.UserId,					"FullName" : $localStorage.UserFaName,					"TestType" : getnametest				};                var config = {                        headers: {                            'Content-Type': 'application/json',                        }                 }                $http.post('www.ishaygan.ir/Account/login' , JSON.stringify(data), config).then(function(response) {						var tokenddd = response.token;												var examurl = "www.ishaygan.ir/ExamApi/MbtiExam?";												var urlforgotosite = tokenddd + examurl;									    window.open(urlforgotosite, '_blank', '');  				    }); 					
   
     }
     }

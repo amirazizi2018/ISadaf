@@ -495,7 +495,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
             $("#ShowPopuplogin").modal('hide');
             $("#ShowPopupactivecode").modal('show');
 					$localStorage.UserId =  response.data.id;
-					$localStorage.UserFaName =  response.data.fa_name;
+					$localStorage.UserFaName =  response.data.fullname;
 					
             $scope.activecode = function(Activecodeph) {
                 var data2 = {
