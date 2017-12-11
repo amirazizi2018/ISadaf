@@ -1,6 +1,6 @@
 console.clear();
 
-app.controller('createapostpage', function($compile, $sce, $scope, $window, $http) {
+app.controller('createapostpage', function($compile, $sce, $scope, $window, $http , ShareData, $location ,  $localStorage , $sessionStorage) {
     var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 $scope.activeTab = "tab1";
 		  var counter = 0;
