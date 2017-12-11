@@ -494,6 +494,9 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
             $("#ShowPopuplogin").modal('hide');
             $("#ShowPopupactivecode").modal('show');
+					$localStorage.UserId =  response.data.id;
+					$localStorage.UserFaName =  response.data.fa_name;
+					
             $scope.activecode = function(Activecodeph) {
                 var data2 = {
                     username: UserName,
@@ -511,6 +514,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
                 $http.post(mustafasite + '/job_seeker/activate', JSON.stringify(data2), config).then(function(response) {
 					$localStorage.TokenKey =  response.data;
 					$localStorage.UserType =  "JS";
+
 					
                     var config2 = {
                         headers: {

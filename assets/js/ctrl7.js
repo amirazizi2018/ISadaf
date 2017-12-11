@@ -102,18 +102,18 @@ else {
 	   $scope.showgeymatkargozarmaharat = function(kargozarmaharat) {
 		$scope.selectedmaharat = kargozarmaharat; 
         var getnamekargozar = kargozarmaharat.kargozarname;
-        var getgeymatkargozar = kargozarmaharat.kargozargeymat;
-        var gettimekargozar = kargozarmaharat.kargozartime;
-        var geticonkargozar = kargozarmaharat.kargozaricon;
+        // var getgeymatkargozar = kargozarmaharat.price;
+        var gettimekargozar = kargozarmaharat.time;		        var geturlkargozar = kargozarmaharat.url;				
+        // var geticonkargozar = kargozarmaharat.kargozaricon;
 		$scope.geymatkargozarmaharat = getgeymatkargozar;
 		$scope.timekargozarmaharat = gettimekargozar;
-	$scope.addtestvakargomaharat = function(x) {
+	$scope.addtestvakargomaharat = function(x) {		        var getnametest = x.name;
 
 if ( $scope.geymatkargozarmaharat == "0" ) {
 alert("لطفا اول کارگزار را انتخاب کنید")
 }
 else {
-		var nametest = x.nametest;
+/* 		var nametest = x.nametest;
 		var getid = x.id;
 		var getsathmahart = x.sath;
      $scope.testentekhabmaharat.push(x);
@@ -128,8 +128,8 @@ else {
     });	
   	$scope.geymatkargozarmaharat = "0" ;
 	$scope.selectedmaharat = ""; 
-	$scope.timekargozarmaharat = "0";
-
+	$scope.timekargozarmaharat = "0"; */
+                var data = {					"jsId" : $localStorage.UserId,					"FullName" : $localStorage.UserFaName,					"TestType" : getnametest				};                var config = {                        headers: {                            'Content-Type': 'application/json',                        }                 }                $http.post('www.ishaygan.ir/Account/login' , JSON.stringify(data), config).then(function(response) {						var tokenddd = response.token;									    window.open('www.ishaygan.ir/ExamApi/MbtiExam?' + tokenddd., '_blank', '');  				    }); 					
   
     }
     }
