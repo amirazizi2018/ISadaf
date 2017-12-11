@@ -1,24 +1,13 @@
 console.clear();
 
-app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $http) {
-
+app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $http, Upload, $timeout, ShareData , $location ,  $localStorage , $sessionStorage) {
+	    var mustafasite = "https://sadaf.systmngr.ir/api/v1";
         $scope.activeTab = "tab1";
 
 		  var counter = 0;
 
 
-	$scope.azmonshaksiyat = [ 
-	{ name : "تست شخصیت" , "test" : [
-        {id : "1" , nametest : "تست شایستگی 1", desctest : "شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فو", morelink : "#" , "kargozarha":[ {kargozarname : "کارگزار۱" , kargozargeymat : "310000", kargozaricon : "assets/images/lk1.png" } , {kargozarname : "کارگزار2" , kargozargeymat : "320000", kargozaricon : "assets/images/lk2.png" } ,{kargozarname : "کارگزار3" , kargozargeymat : "330000", kargozaricon : "assets/images/lk3.png" } ,{kargozarname : "کارگزار4" , kargozargeymat : "340000", kargozaricon : "assets/images/lk5.png" } ,{kargozarname : "کارگزار5" , kargozargeymat : "350000", kargozaricon : "assets/images/lk5.png" } ,{kargozarname : "کارگزار6" , kargozargeymat : "360000", kargozaricon : "assets/images/lk1.png" } ,{kargozarname : "کارگزار7" , kargozargeymat : "370000", kargozaricon : "assets/images/lk2.png" } ,{kargozarname : "کارگزار 8" , kargozargeymat : "380000", kargozaricon : "assets/images/lk3.png" } ,]},
-        {id : "2" , nametest : "تست شایستگی 2", desctest : "شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فو", morelink : "#" , "kargozarha":[ {kargozarname : "کارگزار 234" , kargozargeymat : "430000", kargozaricon : "assets/images/lk3.png" } ]},
-        {id : "7" , nametest : "تست شایستگی 3", desctest : "شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فو", morelink : "#" , "kargozarha":[ {kargozarname : "کارگزار 234" , kargozargeymat : "430000", kargozaricon : "assets/images/lk3.png" } ]},
-		{id : "3" , nametest : "تست شایستگی 4", desctest : "شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فو", morelink : "#" , "kargozarha":[ {kargozarname : "کارگزار۱" , kargozargeymat : "310000", kargozaricon : "assets/images/lk1.png" } , {kargozarname : "کارگزار2" , kargozargeymat : "320000", kargozaricon : "assets/images/lk2.png" } ,{kargozarname : "کارگزار3" , kargozargeymat : "330000", kargozaricon : "assets/images/lk3.png" } ,{kargozarname : "کارگزار4" , kargozargeymat : "340000", kargozaricon : "assets/images/lk5.png" } ,{kargozarname : "کارگزار5" , kargozargeymat : "350000", kargozaricon : "assets/images/lk5.png" } ,{kargozarname : "کارگزار6" , kargozargeymat : "360000", kargozaricon : "assets/images/lk1.png" } ,{kargozarname : "کارگزار7" , kargozargeymat : "370000", kargozaricon : "assets/images/lk2.png" } ,{kargozarname : "کارگزار 8" , kargozargeymat : "380000", kargozaricon : "assets/images/lk3.png" } ,]},
-        {id : "4" , nametest : "تست شایستگی 5", desctest : "شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فو", morelink : "#" , "kargozarha":[ {kargozarname : "کارگزار 33" , kargozargeymat : "180000", kargozaricon : "assets/images/lk5.png" } ]},
-        {id : "5" , nametest : "تست شایستگی 6", desctest : "شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فو", morelink : "#" , "kargozarha":[ {kargozarname : "کارگزار 33" , kargozargeymat : "180000", kargozaricon : "assets/images/lk5.png" } ]},
-        {id : "6" , nametest : "تست شایستگی 7", desctest : "شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فو", morelink : "#" , "kargozarha":[ {kargozarname : "کارگزار 33" , kargozargeymat : "180000", kargozaricon : "assets/images/lk5.png" } ]},
-   ]
-	},
-	];	
+		$http.get(mustafasite +'/exam').then(function (response) {		    $scope.allexam = response.data.exams;    }); 
 	
 	$scope.azmonmaharat = [ 
 	{ name : "تست مهارت" , "test" : [
