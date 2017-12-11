@@ -82,9 +82,9 @@
 <div class="kargozarentkhabazimg"  ng-repeat="kargozarmaharat in x.exam_service_provider">
 <md-tooltip
               md-direction="top">
-              {{kargozarmaharat.kargozarname}}
+              {{kargozarmaharat.service_provider.fa_name}}
             </md-tooltip>
-<img class="img" ng-class="{active: kargozarmaharat == selectedmaharat}" src="{{kargozarmaharat.kargozaricon}}" ng-click="showgeymatkargozarmaharat(kargozarmaharat)">
+<img class="img" ng-class="{active: kargozarmaharat == selectedmaharat}" src="{{kargozarmaharat.service_provider.avatar}}" ng-click="showgeymatkargozarmaharat(kargozarmaharat)">
 </div>	
 								</div>
 	</div>
@@ -160,9 +160,9 @@
 <div class="kargozarentkhabazimg"  ng-repeat="kargozarmaharat in x.exam_service_provider">
 <md-tooltip
               md-direction="top">
-              {{kargozarmaharat.kargozarname}}
+              {{kargozarmaharat.service_provider.fa_name}}
             </md-tooltip>
-<img class="img" ng-class="{active: kargozarmaharat == selectedmaharat2}" src="{{kargozarmaharat.kargozaricon}}" ng-click="showgeymatkargozarmaharat2(kargozarmaharat)">
+<img class="img" ng-class="{active: kargozarmaharat == selectedmaharat2}" src="{{kargozarmaharat.service_provider.avatar}}" ng-click="showgeymatkargozarmaharat2(kargozarmaharat)">
 </div>	
 								</div>
 	</div>

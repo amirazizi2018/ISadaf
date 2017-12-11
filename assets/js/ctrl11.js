@@ -3,7 +3,7 @@ console.clear();
 app.controller('createapostpage', function($compile, $sce, $scope, $window, $http , ShareData, $location ,  $localStorage , $sessionStorage) {
     var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 $scope.activeTab = "tab1";
-		  var counter = 0;
+		  var counter = 0;		$http.get(mustafasite +'/exam').then(function (response) {		    $scope.allexam = response.data.exams;    }); 
 
 	$scope.sanatmarbote = [
         {nameper : "شیمیایی", nameeng : "shimiaii"},
@@ -46,8 +46,8 @@ $scope.activeTab = "tab1";
     ];
 
 	$scope.mogeatdarjayghah = [
-        {nameper : "مدیر مبانی", nameeng : "modirmabani"},
-		{nameper : "مدیر فنی", nameeng : "modirfani"},
+        {nameper : "کارمند", nameeng : "KARMAND"},
+		{nameper : "مدیر ارشد", nameeng : "MODIR_ARSHAD"},		{nameper : "مشاور", nameeng : "MOSHAVER"},
     ];	
 	
 	$scope.vahedsazmani = [
@@ -68,8 +68,8 @@ $scope.activeTab = "tab1";
     ];	
 
 	$scope.noemahalfaliat = [
-        {nameper : "اداری", nameeng : "edari"},
-		{nameper : "غیر اداری", nameeng : "geiredari"},
+        {nameper : "اداری", nameeng : "EDARI"},
+		{nameper : "مدیریت", nameeng : "MODIRIAT"},		{nameper : "مالی", nameeng : "MALI"},
     ];	
 	
 	$scope.hoghogpayeh = [
@@ -83,8 +83,8 @@ $scope.activeTab = "tab1";
     ];	
 
 	$scope.jensiat = [
-        {nameper : "مرد", nameeng : "mard"},
-		{nameper : "زن", nameeng : "zan"},
+        {nameper : "مرد / زن", nameeng : "both"},				{nameper : "مرد", nameeng : "male"},
+		{nameper : "زن", nameeng : "female"},
     ];
 	
 	$scope.vaziatnezamvazife = [
@@ -526,14 +526,14 @@ $scope.totalazmonravan = function() {
         $scope.orders.prods.prod = {};
         $scope.totalkhaskardanagahi = function () {
             return $scope.prodList.filter(function (prod) {
-                return $scope.orders.prods.prod[prod.title];
+                return $scope.orders.prods.prod[prod.id];
             }).reduce(function (subtotal, selectedProd) {
                 return subtotal + parseInt(selectedProd.gift_count);
             }, 0);
         };
       
     }
-				            $scope.addjobfil = function() {													if($scope.tamamvaght == true ){				var sfulltime = "FULL_TIME";			}			else {				var sfulltime = " ";			}				if($scope.parevaght == true ){				var sparttime = "PART_TIME";			}			else {				var sparttime = " ";			}				if($scope.karamozi == true ){				var skaramuzi = "KAR_AMUZI";			}			else {				var skaramuzi = " ";			}			if($scope.karvandi == true ){				var sKARVARZI = "KARVARZI";			}			else {				var sKARVARZI = " ";			}			var coop_timev = sparttime +" "+ sfulltime;			var coop_typev = skaramuzi +" "+ sKARVARZI;						// var getexperienceft = $scope.formData.sabeghekari;			// var experienceft = (getexperienceft.toString().split('-'));;				// var getpayments = $scope.formData.hoghogpayeh;			// var payments = (getpayments.toString().split('-'))			// ;					// var getagesel = $scope.formData.sen;			// var agesel = (getagesel.toString().split('-'));			var data = {                    advantage: $scope.formData.mazaya,                    /* advertisement_types: item.id, */                    assurance: $scope.formData.bimetakmili,                    city: $scope.formData.shahr,                    coop_time: coop_timev,                    coop_type: coop_typev,                    department: $scope.formData.noemahalfaliat,                    description: $scope.formData.tozihat,                    education: $scope.formData.teahsilat,                    exams: $scope.formData.testentekhab,                    // experience_from: experienceft[0],                    // experience_to: experienceft[1],                    experience_type: $scope.formData.hozedaraysabeghe,                    marriage_status: $scope.formData.vaziattahol,                    // max_payment: payments[1],                    military_status: $scope.formData.vaziatnezamvazife,                    // min_payment: payments[0],                    moavenat_type: $scope.formData.vahedsazmani,                    // old_from: getagesel[0],                    // old_to: getagesel[1],                    position: $scope.formData.mogeatdarjayghah,                    requested: $scope.formData.vaziateghamati,                    requirements: $scope.formData.maharatkilidi,                    // resume_sp_id: item.id,                    sanavat: $scope.formData.sanavat,                    sex: $scope.formData.jensiat,                    skills: $scope.formData.sharhevazayef,                    // suitabilities: item.id,                    title: $scope.onvanjayghahshoghl,                    type: $scope.selectedsanatmarbote,                    work_hour_from: $scope.formData.sataval,                    work_hour_to: $scope.formData.satdovom,                    work_hour_type: $scope.formData.roz,                    work_location: $scope.formData.mahalfaliat,                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }				 				 console.log(data);				 console.log(JSON.stringify(data));				 console.log($scope.orders);				 console.log($scope.orders.prods);				 console.log($scope.orders.prods.prod);                $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {										alert("آگهی شما با موفقیت درج شد. شما به طور اتوماتیک به پروفایل خودتان ارجا داده میشوید.");					$location.path("acompanypage");									    }); 				}	       
+				            $scope.addjobfil = function() {													if($scope.tamamvaght == true ){				var sfulltime = "FULL_TIME";			}			else {				var sfulltime = " ";			}				if($scope.parevaght == true ){				var sparttime = "PART_TIME";			}			else {				var sparttime = " ";			}				if($scope.karamozi == true ){				var skaramuzi = "KAR_AMUZI";			}			else {				var skaramuzi = " ";			}			if($scope.karvandi == true ){				var sKARVARZI = "KARVARZI";			}			else {				var sKARVARZI = " ";			}			var coop_timev = sparttime +" "+ sfulltime;			var coop_typev = skaramuzi +" "+ sKARVARZI;						// var getexperienceft = $scope.formData.sabeghekari;			// var experienceft = (getexperienceft.toString().split('-'));;				// var getpayments = $scope.formData.hoghogpayeh;			// var payments = (getpayments.toString().split('-'))			// ;					// var getagesel = $scope.formData.sen;			// var agesel = (getagesel.toString().split('-'));						$scope.advertisementtypes = [];						angular.forEach($scope.orders.prods.prod,            function(value, key) {               $scope.advertisementtypes.push(key);            });			    $scope.examarray = [];    for (i = 0; i < $scope.formData.testentekhab.length; i++) {                $scope.examarray.push($scope.formData.testentekhab[i]["id"]);    }	    for (i = 0; i < $scope.formData.testentekhabmaharat.length; i++) {                $scope.examarray.push($scope.formData.testentekhabmaharat[i]["id"]);    }					var data = {                    advantage: $scope.formData.mazaya,                    advertisement_types: $scope.advertisementtypes,                    assurance: $scope.formData.bimetakmili,                    city: $scope.formData.shahr,                    coop_time: coop_timev,                    coop_type: coop_typev,                    department: $scope.formData.noemahalfaliat,                    description: $scope.formData.tozihat,                    education: $scope.formData.teahsilat,                    exams: $scope.examarray,                    // experience_from: experienceft[0],                    // experience_to: experienceft[1],                    experience_type: $scope.formData.hozedaraysabeghe,                    marriage_status: $scope.formData.vaziattahol,                    // max_payment: payments[1],                    military_status: $scope.formData.vaziatnezamvazife,                    // min_payment: payments[0],                    moavenat_type: $scope.formData.vahedsazmani,                    // old_from: getagesel[0],                    // old_to: getagesel[1],                    position: $scope.formData.mogeatdarjayghah,                    requested: $scope.formData.vaziateghamati,                    requirements: $scope.formData.maharatkilidi,                    // resume_sp_id: item.id,                    sanavat: $scope.formData.sanavat,                    sex: $scope.formData.jensiat,                    skills: $scope.formData.sharhevazayef,                    // suitabilities: item.id,                    title: $scope.onvanjayghahshoghl,                    type: $scope.selectedsanatmarbote,                    work_hour_from: $scope.formData.sataval,                    work_hour_to: $scope.formData.satdovom,                    work_hour_type: $scope.formData.roz,                    work_location: $scope.formData.mahalfaliat,                };                var config = {                        headers: {                            'Content-Type': 'application/json',                            'Access-Token': $localStorage.TokenKey.access,                        }                 }				 				 console.log(data);				 console.log(JSON.stringify(data));				 console.log($scope.orders);		                $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {										alert("آگهی شما با موفقیت درج شد. شما به طور اتوماتیک به پروفایل خودتان ارجا داده میشوید.");					$location.path("acompanypage");									    }); 				}	       
     
 
 });
