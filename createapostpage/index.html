@@ -31,7 +31,7 @@
 								</div>
 
 							<div class="col-md-8 col-xs-12  exfildsearcthe" style="padding-right: 10px;">
-								                            <input class="form-control" id="profileshoghl" type="text" size="100"  ng-model="formData.onvanjayghahshoghl"></input>
+								                            <input class="form-control" id="profileshoghl" type="text" size="100"  ng-model="onvanjayghahshoghl"></input>
 
 								</div>
 
@@ -45,7 +45,7 @@
 								</div>
 
 							<div class="col-md-7 col-xs-12">
-		  <select class="h5title fontlight" ng-model="formData.selectedsanatmarbote">
+		  <select class="h5title fontlight" ng-model="selectedsanatmarbote">
 <option ng-repeat="x in sanatmarbote" value="{{x.nameper}}">{{x.nameper}}</option>
 </select>
 								</div>
@@ -85,7 +85,7 @@
 
 
 </div>
-{{noehamkari[nohamkar.nameper]}}
+<!-- {{noehamkari[nohamkar.nameper]}} -->
 		       <div class="searchdatabaser">
 											<div class="col-md-2 col-xs-12">
 																		    <span class="titlefildsear h5title fontmedium">نوع همکاری</span>
@@ -153,7 +153,7 @@
 								</div>
 								<div class="col-md-8 col-xs-12 exfildsearcthe" style="padding-right: 10px;">
 							  <select ng-model="formData.sabeghekari">
-<option ng-repeat="x in sabeghekari" value="{{x.nameper}}">{{x.nameper}}</option>
+<option ng-repeat="x in sabeghekari" value="{{x.nameeng}}">{{x.nameper}}</option>
 </select>
 					
 
@@ -272,7 +272,7 @@
 							<div class="col-md-10 col-xs-12">
 
 				  <select ng-model="formData.hoghogpayeh">
-<option ng-repeat="x in hoghogpayeh" value="{{x.nameper}}">{{x.nameper}}</option>
+<option ng-repeat="x in hoghogpayeh" value="{{x.nameeng}}">{{x.nameper}}</option>
 </select>
 								</div>
 
@@ -288,7 +288,7 @@
 							<div class="col-md-10 col-xs-12">
 
 				  <select ng-model="formData.bimetakmili">
-<option ng-repeat="x in daradyanadarad" value="{{x.nameper}}">{{x.nameper}}</option>
+<option ng-repeat="x in daradyanadarad" value="{{x.nameeng}}">{{x.nameper}}</option>
 </select>
 
 								</div>
@@ -306,7 +306,7 @@
 							<div class="col-md-10 col-xs-12">
 
 				  <select ng-model="formData.mazaya">
-<option ng-repeat="x in daradyanadarad" value="{{x.nameper}}">{{x.nameper}}</option>
+<option ng-repeat="x in daradyanadarad" value="{{x.nameeng}}">{{x.nameper}}</option>
 </select>
 
 								</div>
@@ -323,7 +323,7 @@
 							<div class="col-md-10 col-xs-12">
 							
 				  <select ng-model="formData.sanavat">
-<option ng-repeat="x in daradyanadarad" value="{{x.nameper}}">{{x.nameper}}</option>
+<option ng-repeat="x in daradyanadarad" value="{{x.nameeng}}">{{x.nameper}}</option>
 </select>
 
 								</div>
@@ -451,7 +451,7 @@
 
 							<div class="col-md-8 col-xs-12 exfildsearcthe" style="padding-right: 10px;">
 					  <select class="h5title fontlight" ng-model="formData.jensiat">
-<option ng-repeat="x in jensiat" value="{{x.nameper}}">{{x.nameper}}</option>
+<option ng-repeat="x in jensiat" value="{{x.nameeng}}">{{x.nameper}}</option>
 </select>
 								</div>
 
@@ -1463,7 +1463,7 @@
 		</div>
 <div class="col-md-2 col-xs-2" style="padding: 0;">
 
-<a  href="#"  class="nextgam btn h5title fontmedium">پرداخت و ثبت</a>
+<a  href="#" ng-click="addjobfil()" class="nextgam btn h5title fontmedium">پرداخت و ثبت</a>
 
 			</div>
 						</div>
