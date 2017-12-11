@@ -101,8 +101,8 @@ else {
 	
 	   $scope.showgeymatkargozarmaharat = function(kargozarmaharat) {
 		$scope.selectedmaharat = kargozarmaharat; 
-        var getnamekargozar = kargozarmaharat.kargozarname;
-        // var getgeymatkargozar = kargozarmaharat.price;
+        // var getnamekargozar = kargozarmaharat.kargozarname;
+         var getgeymatkargozar = kargozarmaharat.price;
         var gettimekargozar = kargozarmaharat.time;		        var geturlkargozar = kargozarmaharat.url;				
         // var geticonkargozar = kargozarmaharat.kargozaricon;
 		$scope.geymatkargozarmaharat = getgeymatkargozar;
