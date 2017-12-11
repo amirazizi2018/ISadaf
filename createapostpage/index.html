@@ -118,15 +118,15 @@
 								</div>
 
 							<div class="col-md-10 col-xs-12">
-  <select class="selecttahsilat saatkari-roz" ng-model="formData.saatkari.roz">
+  <select class="selecttahsilat saatkari-roz" ng-model="formData.roz">
 <option ng-repeat="x in satkari" value="{{x.nameper}}">{{x.nameper}}</option>
 </select>
 
-		 <select class="selecttahsilat saatkari-sat"  ng-model="formData.saatkari.sataval">
+		 <select class="selecttahsilat saatkari-sat"  ng-model="formData.sataval">
 <option ng-repeat="x in times" value="{{x.time}}">{{x.time}}</option>
 </select>
 		  <span class="h5title fontmedium">الی</span>
-		  												  <select  class="selecttahsilat saatkari-sat" ng-model="formData.saatkari.satdovom">
+		  												  <select  class="selecttahsilat saatkari-sat" ng-model="formData.satdovom">
 <option ng-repeat="x in times" value="{{x.time}}">{{x.time}}</option>
 </select>
 								</div>
