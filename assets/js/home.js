@@ -253,7 +253,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
   });
 	 }	
 	 if($localStorage.UserType == "EMP"){
-                    $http.get(mustafasite + "/employer", config).then(function(response) {
+                    $http.get(mustafasite + "/employer/me", config).then(function(response) {
 						$scope.isHideafterlogin = false;
 						$scope.isActiveafterlogin = true;
 						$scope.profiledetaflogin = response.data;
