@@ -1,7 +1,7 @@
 console.clear();
 
 app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $http, Upload, $timeout, ShareData , $location ,  $localStorage , $sessionStorage) {
-
+	    var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 $scope.activeTabF = "tab1";
 
         $scope.showpagestarjobrating = 4;
