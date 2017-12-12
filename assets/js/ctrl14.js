@@ -482,15 +482,15 @@ app.controller('companydashboardpage', function($compile, $sce, $scope, $window,
     ];
 		   
 	$scope.jobseekers = [ 
-      {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},      
-	  {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
+      {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},      
+	  {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
  ];	
 	
   
@@ -513,23 +513,23 @@ $scope.setItemsPerPage = function(num) {
 
    
 	$scope.jobseekersaved = [ 
-      {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},      
-	  {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+      {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},      
+	  {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
  ];	
  
 			$scope.sendsearchinjobse  = function() {
 $scope.jobseekersaved = [ 
-      {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-       {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://x1.xingassets.comassets/frontend_minified/img/users/nobody_m.original.jpg" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+      {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+       {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
  ];	
      }
   
