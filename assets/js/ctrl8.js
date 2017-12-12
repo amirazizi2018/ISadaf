@@ -51,11 +51,11 @@ app.controller('companymainpage', function($compile, $sce, $scope, $window, $htt
 	];	
 	
 	$scope.companystatistics = [
-	{img : 'assets/images/statistics1.svg' , number : '۲۰۱۵۵۳' , title : 'نیروی کارجو' ,},
-	{img : 'assets/images/statistics2.svg' , number : '۸۷۸۵' , title : 'شرکت/سازمان' ,},
-	{img : 'assets/images/statistics3.svg' , number : '۱۲۰۸' , title : 'موقعیت شغلی' ,},
-	{img : 'assets/images/statistics4.svg' , number : '۱۷۹' , title : 'کارگزار خدمات' ,},
-	{img : 'assets/images/statistics5.svg' , number : '36' , title : 'فرصت پژوهشی' ,},
+	{img : 'assets/images/statistics1.svg' , number : '11' , title : 'نیروی کارجو' ,},
+	{img : 'assets/images/statistics2.svg' , number : '21' , title : 'شرکت/سازمان' ,},
+	{img : 'assets/images/statistics3.svg' , number : '1' , title : 'موقعیت شغلی' ,},
+	{img : 'assets/images/statistics4.svg' , number : '1' , title : 'کارگزار خدمات' ,},
+	{img : 'assets/images/statistics5.svg' , number : '0' , title : 'فرصت پژوهشی' ,},
 	];	
 
 

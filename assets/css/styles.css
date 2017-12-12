@@ -1,46 +1,46 @@
 ﻿@font-face {
     font-family: "IRANSansFaNum";
-    src: url("assets/fonts/eot/IRANSansWeb(FaNum).eot");
-    src: url("assets/fonts/woff/IRANSansWeb(FaNum).woff") format("woff"),url("assets/fonts/woff2/IRANSansWeb(FaNum).woff2") format("woff2");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/eot/IRANSansWeb(FaNum).eot");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/woff/IRANSansWeb(FaNum).woff") format("woff"),url("https://a20group.github.io/ISadaf/assets/fonts/woff2/IRANSansWeb(FaNum).woff2") format("woff2");
     font-weight: normal;
 }
 
 @font-face {
     font-family: "IRANSans";
-    src: url("assets/fonts/eot/IRANSansWeb_Light.eot");
-    src: url("assets/fonts/woff/IRANSansWeb_Light.woff") format("woff"),url("assets/fonts/woff2/IRANSansWeb_Light.woff2") format("woff2");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/eot/IRANSansWeb_Light.eot");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/woff/IRANSansWeb_Light.woff") format("woff"),url("https://a20group.github.io/ISadaf/assets/fonts/woff2/IRANSansWeb_Light.woff2") format("woff2");
     font-style: normal;
     font-weight: 300;
 }
 
 @font-face {
     font-family: "IRANSans";
-    src: url("assets/fonts/eot/IRANSansWeb_Medium.eot");
-    src: url("assets/fonts/woff/IRANSansWeb_Medium.woff") format("woff"),url("assets/fonts/woff2/IRANSansWeb_Medium.woff2") format("woff2");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/eot/IRANSansWeb_Medium.eot");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/woff/IRANSansWeb_Medium.woff") format("woff"),url("https://a20group.github.io/ISadaf/assets/fonts/woff2/IRANSansWeb_Medium.woff2") format("woff2");
     font-style: normal;
     font-weight: 500;
 }
 
 @font-face {
     font-family: "IRANSans";
-    src: url("assets/fonts/eot/IRANSansWeb_Bold.eot");
-    src: url("assets/fonts/woff/IRANSansWeb_Bold.woff") format("woff"),url("assets/fonts/woff2/IRANSansWeb_Bold.woff2") format("woff2");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/eot/IRANSansWeb_Bold.eot");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/woff/IRANSansWeb_Bold.woff") format("woff"),url("https://a20group.github.io/ISadaf/assets/fonts/woff2/IRANSansWeb_Bold.woff2") format("woff2");
     font-style: normal;
     font-weight: bold;
 	}
 
 @font-face {
     font-family: "IRANSans";
-    src: url("assets/fonts/eot/IRANSansWeb_UltraLight.eot");
-    src: url("assets/fonts/woff/IRANSansWeb_UltraLight.woff") format("woff"),url("assets/fonts/woff2/IRANSansWeb_UltraLight.woff2") format("woff2");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/eot/IRANSansWeb_UltraLight.eot");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/woff/IRANSansWeb_UltraLight.woff") format("woff"),url("https://a20group.github.io/ISadaf/assets/fonts/woff2/IRANSansWeb_UltraLight.woff2") format("woff2");
     font-style: normal;
     font-weight: 200;
 	}
 
 @font-face {
     font-family: "IRANSans";
-    src: url("assets/fonts/eot/IRANSansWeb.eot");
-    src: url("assets/fonts/woff/IRANSansWeb.woff") format("woff"),url("assets/fonts/woff2/IRANSansWeb.woff2") format("woff2");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/eot/IRANSansWeb.eot");
+    src: url("https://a20group.github.io/ISadaf/assets/fonts/woff/IRANSansWeb.woff") format("woff"),url("https://a20group.github.io/ISadaf/assets/fonts/woff2/IRANSansWeb.woff2") format("woff2");
     font-style: normal;
     font-weight: normal;
 	}
@@ -3167,7 +3167,7 @@ For Page Company Page 8
 ============================*/
 
 .bg-co-img {
-    background: rgba(0, 0, 0, 0) url(../..assets/images/bg-co-main.png) no-repeat scroll 0 0 / cover;
+    background: rgba(0, 0, 0, 0) url(../images/bg-co-main.png) no-repeat scroll 0 0 / cover;
 }
 
 .slide-banner-home {
