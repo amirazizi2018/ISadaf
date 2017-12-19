@@ -1,6 +1,6 @@
 console.clear();
 
-var app = angular.module('sadaf-reg-ads', ['ngAnimate', 'ngRoute', 'ngStorage', 'ui.router', 'angular-svg-round-progressbar', 'ngMaterial', 'ui.bootstrap', 'ngFileUpload', 'ngImgCrop', 'angular-typed', 'rateYo', 'ui.select', 'ngSanitize', ])
+var app = angular.module('sadaf-reg-ads', ['ngAnimate' ,'ngRoute', 'ngStorage', 'ui.router', 'angular-svg-round-progressbar', 'ngMaterial', 'ui.bootstrap', 'ngFileUpload', 'ngImgCrop', 'angular-typed', 'rateYo', 'ui.select', 'ngSanitize', ])
 
 
 app.config(function($routeProvider,$locationProvider) {
@@ -38,7 +38,7 @@ app.config(function($routeProvider,$locationProvider) {
 	$routeProvider.when("/chooseatestpage", {
         controller: "chooseatestpage",
         templateUrl: "chooseatestpage/index.html"
-    });	
+    });
 
 	$routeProvider.when("/companymainpage", {
         controller: "companymainpage",
@@ -48,17 +48,17 @@ app.config(function($routeProvider,$locationProvider) {
 	$routeProvider.when("/searchscenarios", {
         controller: "searchscenarios",
         templateUrl: "searchscenarios/index.html"
-    });	
+    });
 
 	$routeProvider.when("/postajobscenarios", {
         controller: "postajobscenarios",
         templateUrl: "postajobscenarios/index.html"
-    });	
+    });
 
 	$routeProvider.when("/createapostpage", {
         controller: "createapostpage",
         templateUrl: "createapostpage/index.html"
-    });	
+    });
 
 	$routeProvider.when("/searchdatabasepage", {
         controller: "searchdatabasepage",
@@ -88,12 +88,12 @@ app.config(function($routeProvider,$locationProvider) {
 	$routeProvider.when("/spdashboardpage", {
         controller: "spdashboardpage",
         templateUrl: "spdashboardpage/index.html"
-    });	
+    });
 
 	$routeProvider.when("/jobsalbum", {
         controller: "jobsalbum",
         templateUrl: "jobsalbum/index.html"
-    });	
+    });
 
 	$routeProvider.when("/aresearchpage", {
         controller: "aresearchpage",
@@ -104,7 +104,7 @@ app.config(function($routeProvider,$locationProvider) {
         controller: "researchposts",
         templateUrl: "researchposts/index.html"
     });
-	
+
 	$routeProvider.when("/createaresearchpage", {
         controller: "createaresearchpage",
         templateUrl: "createaresearchpage/index.html"
@@ -118,7 +118,7 @@ app.config(function($routeProvider,$locationProvider) {
  $locationProvider.html5Mode({
   enabled: true,
   requireBase: false
-}); 
+});
 });
 
 app.directive('compileHtml', ['$sce', '$parse', '$compile',
@@ -172,7 +172,7 @@ app.service('ShareData', function() {
         },
         setPropertyempid: function(value) {
             empid = value;
-        },   
+        },
 		getPropertyspid: function() {
             return spid;
         },
@@ -213,9 +213,9 @@ app.filter('jalaliDatewill', function() {
 
 app.controller('home', function($compile, $sce, $scope, $window, $http, ShareData , $location ,  $localStorage,$sessionStorage) {
     var mustafasite = "https://sadaf.systmngr.ir/api/v1";
-        moment.locale('fa');  
+        moment.locale('fa');
 
-	
+
 	 $scope.checkauth = function() {
 		 if ($localStorage.TokenKey == null || $localStorage.UserType == null){
 		 		$scope.isHideafterlogin = true;
@@ -226,7 +226,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 						$localStorage.UserType = " ";
 						$localStorage.LocationUser = " ";
 						$localStorage.TokenKey = " ";
-	
+
 	 }
 	 else {
 		       var config = {
@@ -235,7 +235,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
                             'Access-Token': $localStorage.TokenKey.access,
                         }
                     }
-					
+
 					if($localStorage.UserType == "JS"){
                     $http.get(mustafasite + "/job_seeker", config).then(function(response) {
 						$scope.isHideafterlogin = false;
@@ -251,7 +251,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 						$scope.isActivelogin = false;
 						$location.path("mainpage");
   });
-	 }	
+	 }
 	 if($localStorage.UserType == "EMP"){
                     $http.get(mustafasite + "/employer/me", config).then(function(response) {
 						$scope.isHideafterlogin = false;
@@ -267,7 +267,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 						$scope.isActivelogin = false;
 						$location.path("mainpage");
   });
-	 }	
+	 }
 	 if($localStorage.UserType == "SP"){
                     $http.get(mustafasite + "/service_provider/me", config).then(function(response) {
 						$scope.isHideafterlogin = false;
@@ -285,10 +285,10 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
   });
 	 }
 	 }
-	
+
 	}
 
-	$scope.checkauth(); 
+	$scope.checkauth();
 
 
 		$scope.ShowForJS = function() {
@@ -298,7 +298,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
    else {
 	   return  false
    }
-	}	
+	}
 	$scope.ShowForEMP = function() {
    if($localStorage.UserType == 'EMP'){
 	   return true
@@ -317,13 +317,13 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 	}
 
 
-		
+
 
 
     $scope.gotoprofilepagejs = function() {
 		$location.path("jobseekerprofilepage");
 		$localStorage.LocationUser =  "jobseekerprofilepage";
-	} 
+	}
 	$scope.gotojobalbum = function() {
 		$location.path("jobsalbum");
 		$localStorage.LocationUser =  "jobsalbum";
@@ -331,15 +331,15 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     $scope.gotosppage = function() {
 		$location.path("spmainpage");
 		$localStorage.LocationUser =  "spmainpage";
-	}  
+	}
 	$scope.gotojobpage = function() {
 		$location.path("jobpostspage");
 		$localStorage.LocationUser =  "jobpostspage";
-	} 
+	}
 	$scope.gotoadsjob = function() {
 		$location.path("postajobscenarios");
 		$localStorage.LocationUser =  "postajobscenarios";
-	} 
+	}
 	$scope.gotosearchdat = function() {
 		$location.path("searchscenarios");
 		$localStorage.LocationUser =  "searchscenarios";
@@ -347,41 +347,41 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     $scope.gotocrearesarch = function() {
 		$location.path("createaresearchpage");
 		$localStorage.LocationUser =  "createaresearchpage";
-	}  
-		
+	}
+
 		$scope.gotoprofilepage = function() {
 					if($localStorage.UserType == "JS"){
 								$location.path("jobseekerprofilepage");
 		$localStorage.LocationUser =  "jobseekerprofilepage";
 
-					}	
+					}
 					if($localStorage.UserType == "EMP"){
 						$location.path("acompanypage");
 						$localStorage.LocationUser =  "acompanypage";
-					}	
+					}
 					if($localStorage.UserType == "SP"){
 								$location.path("spprofilepage");
 		$localStorage.LocationUser =  "spprofilepage";
 					}
 
-	}  
+	}
 
 	$scope.gotodashboard = function() {
 				if($localStorage.UserType == "JS"){
 								$location.path("jobseekerdashboardpage");
 		$localStorage.LocationUser =  "jobseekerdashboardpage";
 
-					}	
+					}
 					if($localStorage.UserType == "EMP"){
 						$location.path("companydashboardpage");
 						$localStorage.LocationUser =  "companydashboardpage";
-					}	
+					}
 					if($localStorage.UserType == "SP"){
 								$location.path("spdashboardpage");
 		$localStorage.LocationUser =  "spdashboardpage";
 					}
-	}  
- 
+	}
+
 
 	$scope.gotoemppage = function() {
 		$location.path("companymainpage");
@@ -408,17 +408,45 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 			alert("برای ثبت نام باید وارد صفحه هوم پیج شوید");
 		}
 	}
-	 
-	
 
-    $scope.RegisteryJS = function(UserNameJS,PhoneJS,PassJS,FullNameJS,EmailJS) {
-		 
+
+
+
+  $scope.valichengemelicode = function () {
+         function checkCodeMeli(code) {
+             var L = code.length;
+
+             if (L < 8 || parseInt(code, 10) == 0) return false;
+             code = ('0000' + code).substr(L + 4 - 10);
+             if (parseInt(code.substr(3, 6), 10) == 0) return false;
+             var c = parseInt(code.substr(9, 1), 10);
+             var s = 0;
+             for (var i = 0; i < 9; i++)
+                 s += parseInt(code.substr(i, 1), 10) * (10 - i);
+             s = s % 11;
+             return (s < 2 && c == s) || (s >= 2 && c == (11 - s));
+         }
+
+         if (checkCodeMeli($scope.MeliCodeJS)) {
+             $scope.MeliCodeReq = false;
+         }
+         else {
+             $scope.MeliCodeReq = true;
+         }
+     }
+
+
+
+
+    $scope.RegisteryJS = function(UserNameJS,PhoneJS,PassJS,FullNameJS,EmailJS,MeliCodeJS) {
+
         var data = {
             username: UserNameJS,
             phone: PhoneJS,
             password: PassJS,
             fullname: FullNameJS,
             email: EmailJS,
+            code: MeliCodeJS,
         };
 
         var config = {
@@ -435,18 +463,19 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 						$scope.PassJS= null;
 						$scope.EmailJS= null;
 						$scope.FullNameJS= null;
+            $scope.MeliCodeJS= null;
 
         });
-		
-		
-		
+
+
+
     };
 
-	
-		
+
+
 
     $scope.RegisteryEMP = function(UserNameEMP,PhoneEMP,PassEMP,FullNameEMP,EmailEMP) {
-		 
+
         var data = {
             username: UserNameEMP,
             phone: PhoneEMP,
@@ -471,12 +500,12 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 						$scope.FullNameEMP= null;
 
         });
-		
-		
-		
+
+
+
     };
 
-	
+
     $scope.Loginsc = function(UserName, Pass) {
 
         var data = {
@@ -496,7 +525,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
             $("#ShowPopupactivecode").modal('show');
 					$localStorage.UserId =  response.data.id;
 					$localStorage.UserFaName =  response.data.fullname;
-					
+
             $scope.activecode = function(Activecodeph) {
                 var data2 = {
                     username: UserName,
@@ -508,14 +537,14 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
                         'Content-Type': 'application/json'
                     }
                 }
-				
-				
+
+
 				if(response.data.type == "JS"){
                 $http.post(mustafasite + '/job_seeker/activate', JSON.stringify(data2), config).then(function(response) {
 					$localStorage.TokenKey =  response.data;
 					$localStorage.UserType =  "JS";
 
-					
+
                     var config2 = {
                         headers: {
                             'Content-Type': 'application/json',
@@ -531,7 +560,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 						$scope.isHidelogin = true;
                     });
                 });
-			}		
+			}
 
 			if(response.data.type == "EMP"){
                 $http.post(mustafasite + '/employer/activate', JSON.stringify(data2), config).then(function(response) {
@@ -552,8 +581,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 						$scope.isHidelogin = true;
                     });
                 });
-			}			
-			
+			}
+
 			if(response.data.type == "SP"){
                 $http.post(mustafasite + '/service_provider/activate', JSON.stringify(data2), config).then(function(response) {
 					$localStorage.TokenKey =  response.data;
@@ -575,7 +604,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
                     });
                 });
 			}
-				
+
             };
 
 
@@ -601,23 +630,23 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
             $scope.isHidelogin = false;
 			$localStorage.LocationUser =  null;
         });
-	 }	
+	 }
 	 if($localStorage.UserType == "EMP"){
         $http.delete(mustafasite + "/employer/revoke", config).then(function(response) {
 		    $location.path("mainpage");
             $scope.isHideafterlogin = true;
             $scope.isActiveafterlogin = false;
-            $scope.isHidelogin = false;		
+            $scope.isHidelogin = false;
 			$localStorage.LocationUser =  null;
 
         });
-	 }	
+	 }
 	 if($localStorage.UserType == "SP"){
         $http.delete(mustafasite + "/service_provider/revoke", config).then(function(response) {
 		    $location.path("mainpage");
             $scope.isHideafterlogin = true;
             $scope.isActiveafterlogin = false;
-            $scope.isHidelogin = false;			
+            $scope.isHidelogin = false;
 			$localStorage.LocationUser =  null;
 
         });

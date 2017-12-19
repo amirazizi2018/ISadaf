@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="assets/plugins/angular-material/angular-material.min.css"/>
       <link href="assets/plugins/bootstrap/css/bootstrap-rtl.css" rel="stylesheet" />
       <link href="assets/plugins/ng-img-crop/ng-img-crop.css" rel="stylesheet" />
-	  <link href="assets/plugins/ui-select/select.css" rel="stylesheet" />	 
+	  <link href="assets/plugins/ui-select/select.css" rel="stylesheet" />
       <link href="assets/plugins/angular-typed/angular-typed.css" rel="stylesheet" />
       <link href="assets/plugins/angular-rateyo/jquery.rateyo.min.css" rel="stylesheet" />
       <link href="assets/css/styles.css?ver=1" rel="stylesheet" />
@@ -82,13 +82,13 @@
                            <li><a class="cursorpointer" ng-click="gotojobalbum()">آلبوم مشاغل</a></li>
                            <li><a class="cursorpointer" ng-click="gotojobpage()" >آگهی های شغلی</a></li>
                            <li><a class="cursorpointer" ng-click="gotosppage()" >کارگزاران صدف</a></li>
-                        </ul> 
+                        </ul>
 						<ul class="nav navbar-nav" ng-if="ShowForEMP()">
                            <li><a class="cursorpointer"  ng-click="gotoadsjob()" >آگهی یک شغل</a></li>
                            <li><a class="cursorpointer"  ng-click="gotosearchdat()">جستجوی دیتابیس</a></li>
                            <li><a class="cursorpointer"  ng-click="gotocrearesarch()" >ثبت یک پژوهش</a></li>
                            <li><a class="cursorpointer"  ng-click="gotosppage()" >کارگزاران صدف</a></li>
-                        </ul>	
+                        </ul>
 						<ul class="nav navbar-nav" ng-if="ShowForSP()">
                            <li><a class="cursorpointer" ng-click="gotojobpage()" >آگهی های شغلی</a></li>
                            <li><a class="cursorpointer" ng-click="gotoemppage()" >کارفرمایان برتر</a></li>
@@ -104,7 +104,7 @@
                                  <li><a class="cursorpointer" ng-click="gotoprofilepage()">پروفایل</a></li>
                                  <li><a class="cursorpointer"  ng-click="logoutuser()">خروج</a></li>
                               </ul>
-                           </li>        
+                           </li>
 						   <li  ng-if="ShowForEMP()" class="dropdown user-login-menu"  ng-class="{ active  : isActiveafterlogin , hide : isHideafterlogin}">
                               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span> {{profiledetaflogin.fa_name}} <img src="{{profiledetaflogin.avatar}}" title="{{profiledetaflogin.fa_name}}" alt="{{profiledetaflogin.fa_name}}"/></a>
                               <ul class="dropdown-menu">
@@ -112,7 +112,7 @@
                                  <li><a class="cursorpointer" ng-click="gotoprofilepage()">پروفایل</a></li>
                                  <li><a class="cursorpointer"  ng-click="logoutuser()">خروج</a></li>
                               </ul>
-                           </li>        
+                           </li>
 						   <li  ng-if="ShowForSP()" class="dropdown user-login-menu"  ng-class="{ active  : isActiveafterlogin , hide : isHideafterlogin}">
                               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span> {{profiledetaflogin.fa_name}} <img src="http://up.vbiran.ir/uploads/28248151305181032448_shaygan%20tree.png" title="{{profiledetaflogin.fa_name}}" alt="{{profiledetaflogin.fa_name}}"/></a>
                               <ul class="dropdown-menu">
@@ -172,15 +172,18 @@
                                     margin: 0 60px;
                                     ">
                                     <div class="col-md-12 col-xs-12 h2title bluecolor fontmedium" style="margin: 15px 0;">عضویت</div>
-                                    <form name="personFormjs" novalidate ng-submit="personFormjs.$valid &&RegisteryJS(UserNameJS,PhoneJS,PassJS,FullNameJS,EmailJS)">
-                                       <!-- <div style="color:Red" ng-show="personForm.UserName.$dirty&&personForm.UserName.$error.pattern">Please Enter Valid Email</div>
-                                          <div style="color:Red" ng-show="personForm.FullName.$dirty&&personForm.FullName.$error.pattern">Please Enter Valid Email</div>
-                                          <div style="color:Red" ng-show="personForm.Email.$dirty&&personForm.Email.$error.pattern">Please Enter Valid Email</div>
-                                          <div style="color:Red" ng-show="personForm.Phone.$dirty&&personForm.Phone.$error.pattern">Please Enter Valid Email</div>
-                                          <div style="color:Red" ng-show="personForm.Pass.$dirty&&personForm.Pass.$error.pattern">Please Enter Valid Email</div> -->
+                                    <form name="personFormjs" novalidate ng-submit="personFormjs.$valid &&RegisteryJS(UserNameJS,PhoneJS,PassJS,FullNameJS,EmailJS,MeliCodeJS)">
+                                      <div style="color:Red" ng-show="personFormjs.UserNameJS.$dirty&&personFormjs.UserNameJS.$error.pattern">Please Enter Valid Email</div>
+                                        <div style="color:Red" ng-show="personFormjs.FullNameJS.$dirty&&personFormjs.FullNameJS.$error.pattern">Please Enter Valid Email</div>
+                                        <div style="color:Red" ng-show="personFormjs.EmailJS.$dirty&&personFormjs.EmailJS.$error.pattern">Please Enter Valid Email</div>
+                                        <div style="color:Red" ng-show="personFormjs.PhoneJS.$dirty&&personFormjs.PhoneJS.$error.pattern">Please Enter Valid Email</div>
+                                        <div style="color:Red" ng-show="personFormjs.PassJS.$dirty&&personFormjs.PassJS.$error.pattern">Please Enter Valid Email</div>
+                                        <div style="color:Red" ng-show="MeliCodeReq">sdlkcmskdmkd Enter Valid Email</div>
+
                                        <div class="col-md-12 col-xs-12">
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="UserNameJS" ng-model="UserNameJS" placeholder="نام کاربری" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="FullNameJS" ng-model="FullNameJS" placeholder="نام و نام خانوادگی" required><br>
+                                          <input class="inputloginreg fontmedium greencolor" type="text" name="MeliCodeJS" ng-model="MeliCodeJS" placeholder="کد ملی" ng-chenge="valichengemelicode()" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="EmailJS" ng-model="EmailJS" placeholder="ایمیل"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="PhoneJS" ng-model="PhoneJS" placeholder="شماره موبایل" ng-pattern="/^989[0-9]{9}$/" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="PassJS"  ng-model="PassJS" placeholder="رمز عبور" ng-pattern="/^.{6,}$/"  required><br>
@@ -235,7 +238,7 @@
                            </div>
                         </div>
                      </div>
-                                      
+
 					<div id="ShowPopupForgetPass" class="modal modal-md loginpopup textcenter" role="dialog">
                         <div class="modal-dialog">
                            <div class="modal-content " style="float: right;width: 100%;background: none;-webkit-box-shadow: 0 0px 0px rgba(0,0,0,0);box-shadow: 0 0px 0px rgba(0,0,0,0);border: 0;">
@@ -293,9 +296,9 @@
             </div>
          </div>
       </header>
-   
-      <div data-ng-view=""></div>     
-	  
+
+      <div data-ng-view=""></div>
+
       <footer>
          <div class="footer" id="footer">
             <div class="container">
