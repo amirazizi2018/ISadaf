@@ -427,13 +427,15 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
              return (s < 2 && c == s) || (s >= 2 && c == (11 - s));
          }
 
+         console.log("checkmelicode");
+
          if (checkCodeMeli($scope.MeliCodeJS)) {
              $scope.MeliCodeReq = false;
-             console.log("true")
+             console.log("true");
          }
          else {
              $scope.MeliCodeReq = true;
-             console.log("false")
+             console.log("false");
          }
 
      }
