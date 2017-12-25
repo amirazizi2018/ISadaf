@@ -429,10 +429,13 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
          if (checkCodeMeli($scope.MeliCodeJS)) {
              $scope.MeliCodeReq = false;
+             console.log("true")
          }
          else {
              $scope.MeliCodeReq = true;
+             console.log("false")
          }
+
      }
 
 
@@ -446,7 +449,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
             password: PassJS,
             fullname: FullNameJS,
             email: EmailJS,
-            code: MeliCodeJS,
+            national_code: MeliCodeJS,
+            register_type:"SADAF",
         };
 
         var config = {
@@ -464,7 +468,6 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 						$scope.EmailJS= null;
 						$scope.FullNameJS= null;
             $scope.MeliCodeJS= null;
-
         });
 
 
