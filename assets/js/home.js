@@ -413,6 +413,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
 
   $scope.valichengemelicode = function () {
+    
          function checkCodeMeli(code) {
              var L = code.length;
 
