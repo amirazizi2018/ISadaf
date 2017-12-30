@@ -516,7 +516,21 @@ $scope.totalazmonravan = function() {
         };
       
     }
-	
+
+
+	$scope.pishniyaz = [
+		{title : 'Computer Codes'},
+		{title : 'ICDL'},
+		{title : 'ICDL+'},
+	];
+
+	$scope.soon = [
+		{title : 'HTML5' , img : 'assets/images/lk1.svg'},
+		{title : 'HTML5' , img : 'assets/images/lk1.svg'},
+		{title : 'CSS 3' , img : 'assets/images/lk2.svg'},
+		{title : 'Microsoft Excel' , img : 'assets/images/lk1.svg'},
+		{title : 'ICDL' , img : 'assets/images/lk1.svg'},
+	];
     
 
 });
