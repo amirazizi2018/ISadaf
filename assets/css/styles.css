@@ -4895,17 +4895,20 @@ For Page 19
     background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.81) 81%, rgba(223,226,230,0.77) 100%);
     background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.81) 81%, rgba(223,226,230,0.77) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dfe2e6', GradientType=0 );
-    padding-bottom: 40px;
+    padding: 20px 0 60px;
+
 }
 
 .certificate_pishniaz h2 {
 color: #232222;
 font-size: 20px
+    padding-bottom: 15px;
 }
 
 .certificate_soon h2 {
 color: #232222;
 font-size: 20px
+    padding-bottom: 15px;
 }
 
 .certificate_pishniaz .pishniyazbtn {
@@ -4917,4 +4920,9 @@ font-size: 20px
   margin: 7px 2px 0 5px;
   display: inline-block;
   padding: 0;
+}
+
+.certificate_soon {
+    padding: 20px 0 60px;
+    background: #EAEDF1;
 }
