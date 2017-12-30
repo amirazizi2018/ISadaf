@@ -4767,6 +4767,7 @@ background: #FBB03B;
       padding: 12px 20px 5px;
       font-size: 30px;
       margin-bottom: 5px;
+      margin-top: 10%;
 }
 
 
@@ -4787,4 +4788,24 @@ background: #FBB03B;
 
 .certificate_l3 {
   color: #29ABE2;
+}
+
+.certificate_sp {
+  display: inline-block;
+width: 47px;
+margin: 0 0 5px 5px;
+}
+
+.certificate_sp img {
+  width: 100%;
+border: 1px solid #939292;
+border-radius: 3px;
+height: 47px;
+background: #fff;
+padding: 5px;
+    cursor: pointer;
+}
+
+.certificate_reg {
+  margin-bottom: 15px;
 }
