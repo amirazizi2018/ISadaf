@@ -4883,6 +4883,7 @@ For Page 19
   border-top: 1px solid #fff;
   padding: 10px 0;
   margin-top: 3%;
+  color: #fff;
 }
 
 .certificate_pishniaz {
@@ -4905,4 +4906,8 @@ font-size: 20px
 .certificate_soon h2 {
 color: #232222;
 font-size: 20px
+}
+
+.certificate_pishniaz .pishniyazbtn {
+    padding-bottom: 10px;
 }

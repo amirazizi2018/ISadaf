@@ -525,11 +525,11 @@ $scope.totalazmonravan = function() {
 	];
 
 	$scope.soon = [
-		{title : 'HTML5' , img : 'assets/images/lk1.svg'},
-		{title : 'HTML5' , img : 'assets/images/lk1.svg'},
-		{title : 'CSS 3' , img : 'assets/images/lk2.svg'},
-		{title : 'Microsoft Excel' , img : 'assets/images/lk1.svg'},
-		{title : 'ICDL' , img : 'assets/images/lk1.svg'},
+		{title : 'HTML5' , img : 'assets/images/lk1.png'},
+		{title : 'HTML5' , img : 'assets/images/lk1.png'},
+		{title : 'CSS 3' , img : 'assets/images/lk2.png'},
+		{title : 'Microsoft Excel' , img : 'assets/images/lk1.png'},
+		{title : 'ICDL' , img : 'assets/images/lk1.png'},
 	];
     
 

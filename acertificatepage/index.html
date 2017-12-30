@@ -83,18 +83,20 @@
     <div class="container">
 
       <h2 class="fontbold">دوره های پیش نیاز دوره HTML :</h2>
+      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 flexclassazmon">
 
       <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in pishniyaz">
-        <div class="btn testbotto finalbotdetres ">
+        <div class="btn testbotto finalbotdetres pishniyazbtn">
           <md-tooltip md-direction="top">
             {{x.title}}
           </md-tooltip>
           <div class="finalbotdetrestext">
-            <span class="fontlight h6title"><span>{{x.title | limitTo: 20 }}</span></span>
+            <span class="fontlight h5title"><span>{{x.title | limitTo: 20 }}</span></span>
           </div>
         </div>
 
       </div>
+    </div>
 
     </div>
 
@@ -105,6 +107,7 @@
     <div class="container">
 
       <h2 class="fontbold">دوره های پیشنهادی نزدیک: </h2>
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 flexclassazmon">
 
       <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in soon">
         <div class="btn testbotto finalbotdetres ">
@@ -112,11 +115,12 @@
             {{x.title}}
           </md-tooltip>
           <div class="finalbotdetrestext">
-            <span class="fontlight h6title"><span>{{x.title | limitTo: 20 }}</span></span>
+            <span class="fontlight h5title"><span>{{x.title | limitTo: 20 }}</span></span>
           </div>
           <div  class="finalbotdetresimg"><img class="img" src="{{x.img}}"></div>
         </div>
       </div>
+    </div>
 
     </div>
 
