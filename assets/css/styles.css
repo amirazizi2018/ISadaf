@@ -4809,3 +4809,14 @@ padding: 5px;
 .certificate_reg {
   margin-bottom: 15px;
 }
+
+.certificate_des {
+  overflow: hidden;
+height: 0px;
+position: relative;
+}
+
+.show_certificate_des {
+  overflow: visible;
+height: auto;
+}

@@ -9,24 +9,24 @@
       </div>
       <div class="clearfix"></div>
 
-      <div class="col-lg-1 col-md-1 col-sm-2 col-xs-12 fontbold  h4title nopaddinglr certificate_l1">
+      <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2 fontbold  h4title nopaddinglr certificate_l1">
         زمان:
       </div>
-      <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 fontlight h4title certificate_l2">
+      <div class="col-lg-3 col-md-3 col-sm-5 col-xs-3 fontlight h4title certificate_l2">
         از 36 ساعت تا 200 ساعت
       </div>
-      <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 fontmedium h5title certificate_l3">
+      <div class="col-lg-3 col-md-3 col-sm-5 col-xs-5 fontmedium h5title certificate_l3">
         (کارگزار خود را انتخاب کنید)
       </div>
       <div class="clearfix"></div>
 
-      <div class="col-lg-1 col-md-1 col-sm-2 col-xs-12 fontbold  h4title nopaddinglr certificate_l1">
-        زمان:
+      <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2 fontbold  h4title nopaddinglr certificate_l1">
+        مبلغ دوره:
       </div>
-      <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 fontlight h4title certificate_l2">
-        از 36 ساعت تا 200 ساعت
+      <div class="col-lg-3 col-md-3 col-sm-5 col-xs-3 fontlight h4title certificate_l2">
+        از 1,500,000 تا 3,000,000 ریال
       </div>
-      <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 fontmedium h5title  certificate_l3">
+      <div class="col-lg-3 col-md-3 col-sm-5 col-xs-5 fontmedium h5title  certificate_l3">
         (کارگزار خود را انتخاب کنید)
       </div>
       <div class="clearfix"></div>
@@ -39,18 +39,34 @@
 
         <div class="certificate_sp">
 
-        <md-tooltip md-direction="top">کارگزار تست</md-tooltip>
+          <md-tooltip md-direction="top">کارگزار تست</md-tooltip>
 
-        <img class="img" ng-class="{active: kargozarmaharat == selectedmaharat2}" src="http://up.vbiran.ir/uploads/28248151305181032448_shaygan%20tree.png" ng-click="showgeymatkargozarmaharat2(kargozarmaharat)">
+          <img class="img" ng-class="{active: kargozarmaharat == selectedmaharat2}" src="http://up.vbiran.ir/uploads/28248151305181032448_shaygan%20tree.png" ng-click="showgeymatkargozarmaharat2(kargozarmaharat)">
 
         </div>
 
       </div>
     </div>
 
-<div class="certificate_line_benner">
+    <div class="certificate_line_benner">
+      <span ng-click="show_certificate_des = !show_certificate_des">
 
-</div>
+        <span class="graycolor" ng-show="!show_certificate_des">درباره HTML بیشتر بدانید <i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
+
+        <span class="graycolor" ng-show="show_certificate_des">کمتر بخوانید <i class="fa fa-angle-double-up" aria-hidden="true"></i></span>
+
+      </span>
+
+    </div>
+    <div class="certificate_des"  ng-class="{show_certificate_des: show_certificate_des}">
+      <div class="container">
+        <h1 class="fontbold h2title">HTML چیست؟</h1>
+        <p>شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد. معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌ها. شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد. معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌هاشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.</p>
+      </div>
+      <span class="graycolor" ng-click="show_certificate_des = !show_certificate_des" ng-show="show_certificate_des"><i class="fa fa-angle-double-up" aria-hidden="true"></i></span>
+    </div>
+
+
   </section>
 
   <div class="container">
@@ -481,15 +497,15 @@
 
 
 
-<div class="clearfix">
+    <div class="clearfix">
 
-</div>
-
-
+    </div>
 
 
 
-    <div class="services" ng-class="{showallservices: showallservices}">
+
+
+    <div class="services" ng-class="{show_certificate_des: show_certificate_des}">
 
       <div class="col-md-12 col-xs-12 h2title bluecolor fontmedium servicesh1title" style="padding: 0 0 15px;">خدمات ما روی سامانه صدف</div>
 
@@ -521,15 +537,8 @@
 
       </div>
 
-      <div class="col-md-12 col-xs-12 showallservicesbtn">
+      <div class="col-md-12 col-xs-12 show_certificate_desbtn">
 
-        <span ng-click="showallservices = !showallservices">
-
-<span class="graycolor" ng-show="!showallservices">بیشتر بخوانید <i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
-
-        <span class="graycolor" ng-show="showallservices">کمتر بخوانید <i class="fa fa-angle-double-up" aria-hidden="true"></i></span>
-
-        </span>
 
       </div>
 
