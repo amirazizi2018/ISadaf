@@ -4745,3 +4745,16 @@ background: #FBB03B;
     border-right: 1px solid #0A415B;
     pointer-events: auto;
 }
+
+.certificate_banner {
+    background: url(../images/certificate-banner.svg);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    width: 100%;
+    padding: 15px 0;
+}
+
+.certificate_name {
+
+}
