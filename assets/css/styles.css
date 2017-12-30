@@ -4752,8 +4752,8 @@ background: #FBB03B;
       background-repeat: no-repeat;
       background-size: 50%;
       width: 100%;
-      padding: 15px 0;
-}
+    padding: 15px 0 45px 0;
+  }
 
 .certificate_name {
       border-style: Solid;
@@ -4766,6 +4766,7 @@ background: #FBB03B;
       color: #fff;
       padding: 12px 20px 5px;
       font-size: 30px;
+      margin-bottom: 5px;
 }
 
 
@@ -4774,6 +4775,14 @@ background: #FBB03B;
     color: #ffffff;
     padding: 10px 40px;
     border: 1px solid #ffffff;
+}
+
+.certificate_l1 {
+  color: #fff;
+}
+
+.certificate_l2 {
+  color: #fff;
 }
 
 .certificate_l3 {
