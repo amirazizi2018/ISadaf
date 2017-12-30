@@ -4747,14 +4747,35 @@ background: #FBB03B;
 }
 
 .certificate_banner {
-    background: url(../images/certificate-banner.svg);
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: 50% 100%;
-    width: 100%;
-    padding: 15px 0;
+      background: url(../images/certificate-banner.svg) #0B222B;
+      background-position: left;
+      background-repeat: no-repeat;
+      background-size: 50%;
+      width: 100%;
+      padding: 15px 0;
 }
 
 .certificate_name {
+      border-style: Solid;
+      border-color: #E6ECEF;
+      border-color: rgba(230, 236, 239, 1);
+      border-width: 3px;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      color: #fff;
+      padding: 12px 20px 5px;
+      font-size: 30px;
+}
 
+
+.certificate_reg_btn {
+    background: #57C9E9;
+    color: #ffffff;
+    padding: 10px 40px;
+    border: 1px solid #ffffff;
+}
+
+.certificate_l3 {
+  color: #29ABE2;
 }
