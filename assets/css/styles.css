@@ -4936,38 +4936,38 @@ font-size: 20px;
   margin-left: 5px;
 }
 
-.socialprofile  a:last-child {
+.socialprofile:last-child  a {
   margin-left: 0px;
 }
 
 .socialprofile.meuser .telegram:hover {
-  background-image: url(https://a20group.github.io/ISadaf/assets/images/telegram-remove.svg) !important;
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/telegram_remove.svg) !important;
 }
 
 .socialprofile.notuser .telegram:hover {
-  background-image: url(https://a20group.github.io/ISadaf/assets/images/telegram-hover.svg) !important;
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/telegram_hover.svg) !important;
 }
 
 .socialprofile.meuser .instagram:hover {
-  background-image: url(https://a20group.github.io/ISadaf/assets/images/instagram-remove.svg) !important;
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/instagram_remove.svg) !important;
 }
 
 .socialprofile.notuser .instagram:hover {
-  background-image: url(https://a20group.github.io/ISadaf/assets/images/instagram-hover.svg) !important;
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/instagram_hover.svg) !important;
 }
 
 .socialprofile.meuser .linkedin:hover {
-  background-image: url(https://a20group.github.io/ISadaf/assets/images/linkedin-remove.svg) !important;
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/linkedin_remove.svg) !important;
 }
 
 .socialprofile.notuser .linkedin:hover {
-  background-image: url(https://a20group.github.io/ISadaf/assets/images/linkedin-hover.svg) !important;
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/linkedin_hover.svg) !important;
 }
 
 .socialprofile.meuser .googleplus:hover {
-  background-image: url(https://a20group.github.io/ISadaf/assets/images/googleplus-remove.svg) !important;
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/googleplus_remove.svg) !important;
 }
 
 .socialprofile.notuser .googleplus:hover {
-  background-image: url(https://a20group.github.io/ISadaf/assets/images/googleplus-hover.svg) !important;
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/googleplus_hover.svg) !important;
 }
