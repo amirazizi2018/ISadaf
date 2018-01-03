@@ -4928,7 +4928,7 @@ font-size: 20px;
 }
 
 
-.socialprofile  div {
+.socialprofile  a {
   float: right;
   height: 37px;
   cursor: pointer;
@@ -4936,7 +4936,7 @@ font-size: 20px;
   margin-left: 5px;
 }
 
-.socialprofile  div:last-child {
+.socialprofile  a:last-child {
   margin-left: 0px;
 }
 
