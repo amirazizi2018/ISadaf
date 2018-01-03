@@ -4926,3 +4926,48 @@ font-size: 20px;
     padding: 20px 0 60px;
     background: #EAEDF1;
 }
+
+
+.socialprofile  div {
+  float: right;
+  height: 37px;
+  cursor: pointer;
+  width: 38px;
+  margin-left: 5px;
+}
+
+.socialprofile  div:last-child {
+  margin-left: 0px;
+}
+
+.socialprofile.meuser .telegram:hover {
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/telegram-remove.svg) !important;
+}
+
+.socialprofile.notuser .telegram:hover {
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/telegram-hover.svg) !important;
+}
+
+.socialprofile.meuser .instagram:hover {
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/instagram-remove.svg) !important;
+}
+
+.socialprofile.notuser .instagram:hover {
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/instagram-hover.svg) !important;
+}
+
+.socialprofile.meuser .linkedin:hover {
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/linkedin-remove.svg) !important;
+}
+
+.socialprofile.notuser .linkedin:hover {
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/linkedin-hover.svg) !important;
+}
+
+.socialprofile.meuser .googleplus:hover {
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/googleplus-remove.svg) !important;
+}
+
+.socialprofile.notuser .googleplus:hover {
+  background-image: url(https://a20group.github.io/ISadaf/assets/images/googleplus-hover.svg) !important;
+}

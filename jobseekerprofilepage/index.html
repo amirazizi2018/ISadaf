@@ -29,7 +29,7 @@
 
           <div ng-if="ShowForJS()" class="socialprofile notuser" ng-repeat="x in socials">
 
-            <a href="{{x.url}}" ng-class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+            <a href="{{x.url}}" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
               <md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
             </a>
 
@@ -37,7 +37,7 @@
 
           <div ng-if="NotShowForJS()" class="socialprofile meuser" ng-repeat="x in socials">
 
-            <a ng-click="removesocial(x)" ng-class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+            <a ng-click="removesocial(x)" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
               <md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
             </a>
 
