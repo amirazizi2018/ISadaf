@@ -524,15 +524,67 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     }
 
     $http.post(mustafasite + '/login', JSON.stringify(data), config).then(function(response) {
-      console.log(response);
+
       if (response.data.type == null) {
-        $localStorage.TokenKey = response.data;
-        $localStorage.UserType = response.data.data.type;
-        console.log("go to no type");
+        if (response.data.data.type == "JS") {
+          $localStorage.TokenKey = response.data;
+          $localStorage.UserType = "JS";
+
+          var config2 = {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Token': $localStorage.TokenKey.access,
+            }
+          }
+          $http.get(mustafasite + "/job_seeker", config2).then(function(response) {
+            $location.path("jobseekermainpage");
+            $scope.profiledetaflogin = response.data;
+            $("#ShowPopupactivecode").modal('hide');
+            $scope.isHideafterlogin = false;
+            $scope.isActiveafterlogin = true;
+            $scope.isHidelogin = true;
+          });
+        }
+        if (response.data.data.type == "EMP") {
+          $localStorage.TokenKey = response.data;
+          $localStorage.UserType = "EMP";
+          var config2 = {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Token': $localStorage.TokenKey.access,
+            }
+          }
+          $http.get(mustafasite + "/employer/me", config2).then(function(response) {
+            $location.path("companymainpage");
+            $scope.profiledetaflogin = response.data;
+            $("#ShowPopupactivecode").modal('hide');
+            $scope.isHideafterlogin = false;
+            $scope.isActiveafterlogin = true;
+            $scope.isHidelogin = true;
+          });
+        }
+        if (response.data.data.type == "SP") {
+          $localStorage.TokenKey = response.data;
+          $localStorage.UserType = "SP";
+
+          var config2 = {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Token': $localStorage.TokenKey.access,
+            }
+          }
+          $http.get(mustafasite + "/service_provider/me", config2).then(function(response) {
+            $location.path("spmainpage");
+            $scope.profiledetaflogin = response.data;
+            $("#ShowPopupactivecode").modal('hide');
+            $scope.isHideafterlogin = false;
+            $scope.isActiveafterlogin = true;
+            $scope.isHidelogin = true;
+          });
+        }
+
 
       } else {
-
-        console.log("go to type");
 
         $("#ShowPopuplogin").modal('hide');
         $("#ShowPopupactivecode").modal('show');
@@ -550,7 +602,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
               'Content-Type': 'application/json'
             }
           }
-            if (response.data.type == "JS") {
+          if (response.data.type == "JS") {
             $http.post(mustafasite + '/job_seeker/activate', JSON.stringify(data2), config).then(function(response) {
               $localStorage.TokenKey = response.data;
               $localStorage.UserType = "JS";
