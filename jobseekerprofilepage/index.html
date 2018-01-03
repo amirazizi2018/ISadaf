@@ -27,13 +27,19 @@
 
           <div class="h2title bluecolor companyslogan fontlight">{{email}}</div>
 
-          <div class="socialprofile">
+          <div ng-if="ShowForJS()" class="socialprofile notuser" ng-repeat="x in socials">
 
-            <a class="linkedin" href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            <a href="{{x.url}}" ng-class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+              <md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
+            </a>
 
-            <a class="telegram" href=""><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+          </div>
 
-            <a class="googleplus" href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+          <div ng-if="NotShowForJS()" class="socialprofile meuser" ng-repeat="x in socials">
+
+            <a ng-click="removesocial(x)" ng-class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+              <md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
+            </a>
 
           </div>
 

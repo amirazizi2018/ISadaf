@@ -673,6 +673,23 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     });
   };
 
+  $scope.SendMessToAdmin = function(titlemesadmin,bodymesadmin) {
+    var data = {
+      title: titlemesadmin,
+      body: bodymesadmin
+    };
+
+    var config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    $http.post(mustafasite + '/suggestion', JSON.stringify(data), config).then(function(response) {
+      console.log(data);
+    });
+  };
+
 
 
 

@@ -347,11 +347,13 @@
                   <div class="col-lg-4  col-md-3 col-sm-12 col-xs-12">
                      <ul>
                         <li>
+                          <form name="messageform" novalidate ng-submit="messageform.$valid &&SendMessToAdmin(titlemesadmin,bodymesadmin)">
                            <div class="input-append newsletter-box form-group">
-                              <input type="text" class="full form-control" placeholder="موضوع پیام">
-                              <textarea class="form-control" rows="5" id="comment" placeholder="متن پیام "></textarea>
-                              <button class="btn" type="button"> ارسال </button>
+                              <input type="text" class="full form-control" ng-model="titlemesadmin" placeholder="موضوع پیام">
+                              <textarea class="form-control" rows="5" id="comment" ng-model="bodymesadmin"  placeholder="متن پیام "></textarea>
+                              <button class="btn" type="submit"> ارسال </button>
                            </div>
+                          </form>
                         </li>
                      </ul>
                   </div>
