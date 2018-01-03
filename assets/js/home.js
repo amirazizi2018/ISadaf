@@ -524,12 +524,15 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     }
 
     $http.post(mustafasite + '/login', JSON.stringify(data), config).then(function(response) {
-
+      console.log(response);
       if (response.data.type == null) {
         $localStorage.TokenKey = response.data;
         $localStorage.UserType = response.data.data.type;
+        console.log("go to no type");
+
       } else {
 
+        console.log("go to type");
 
         $("#ShowPopuplogin").modal('hide');
         $("#ShowPopupactivecode").modal('show');
