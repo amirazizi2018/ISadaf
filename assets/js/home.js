@@ -539,7 +539,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
           $http.get(mustafasite + "/job_seeker", config2).then(function(response) {
             $location.path("jobseekermainpage");
             $scope.profiledetaflogin = response.data;
-            $("#ShowPopupactivecode").modal('hide');
+            $("#ShowPopuplogin").modal('hide');
             $scope.isHideafterlogin = false;
             $scope.isActiveafterlogin = true;
             $scope.isHidelogin = true;
@@ -557,7 +557,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
           $http.get(mustafasite + "/employer/me", config2).then(function(response) {
             $location.path("companymainpage");
             $scope.profiledetaflogin = response.data;
-            $("#ShowPopupactivecode").modal('hide');
+            $("#ShowPopuplogin").modal('hide');
             $scope.isHideafterlogin = false;
             $scope.isActiveafterlogin = true;
             $scope.isHidelogin = true;
@@ -576,7 +576,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
           $http.get(mustafasite + "/service_provider/me", config2).then(function(response) {
             $location.path("spmainpage");
             $scope.profiledetaflogin = response.data;
-            $("#ShowPopupactivecode").modal('hide');
+            $("#ShowPopuplogin").modal('hide');
             $scope.isHideafterlogin = false;
             $scope.isActiveafterlogin = true;
             $scope.isHidelogin = true;
