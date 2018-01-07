@@ -944,14 +944,35 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
   }
 
+  $scope.socialnameid = [
+
+    {
+      key: "تلگرام",
+      value: "1"
+    },
+    {
+      key: "ایسنتاگرام",
+      value: "2"
+    },
+    {
+      key: "لینکدین",
+      value: "3"
+    },
+    {
+      key: "گوگل پلاس	",
+      value: "4"
+    },
+
+  ];
+
 
   $scope.SocialAddEdit = function() {
 
     var data = {
 
-      fixed_phone: $scope.phonefix,
+      social_id: parseInt($scope.idsocial),
 
-      address: $scope.address,
+      url: $scope.socialgetlink,
 
     };
 
@@ -969,13 +990,25 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
     }
 
-    $http.put(mustafasite + "/job_seeker", JSON.stringify(data), config).then(function(response) {
+    $http.post(mustafasite + "/job_seeker/social", JSON.stringify(data), config).then(function(response) {
 
-      $scope.phonefix = $scope.phonefix;
+      $http.get(mustafasite + '/job_seeker', {
 
-      $scope.address = $scope.address;
+        headers: {
 
-      $('#ShowPopupEditTamas').modal('hide');
+          "Content-Type": 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }).then(function(response) {
+
+    		$scope.socials = response.data.socials;
+
+      });
+
+      $('#ShowPopupEditSocial').modal('hide');
 
     });
 
