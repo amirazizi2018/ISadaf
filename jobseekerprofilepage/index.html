@@ -43,6 +43,59 @@
 
           </div>
 
+          <div ng-if="NotShowForJS()" class="socialprofile meuser">
+
+            <a data-toggle="modal" data-target="#ShowPopupEditSocial" class="addsocialbtn">
+              <md-tooltip md-direction="top">ویرایش / اضافه</md-tooltip>
+            </a>
+
+          </div>
+
+          <div id="ShowPopupEditSocial" class="modal modal-md" role="dialog">
+
+            <div class="modal-dialog">
+
+              <div class="modal-content ">
+
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                  <h3>ویرایش / اضافه شبکه های اجتماعی</h3>
+
+                </div>
+
+                <div class="modal-body">
+                  <form name="editsocialform" novalidate ng-submit="editsocialform.$valid &&SocialAddEdit()">
+                    <div class="col-lg-12 col-md-12" ng-repeat="x in socials">
+                      <strong>{{x.social.fa_name}}:</strong><input type="text" name="{{x.social.name}}model" ng-model="{{x.social.name}}model" ng-init="{{x.name}}model='{{x.social.url}}'" value="{{x.social.url}}"/> <br/>
+                    </div>
+
+                    <strong>اینستاگرام:</strong><input type="text" name="instagrammodel" ng-model="instagrammodel"> <br/>
+
+                    <strong>لینکدین:</strong><input type="text" name="linkedinmodel" ng-model="linkedinmodel"> <br/>
+
+                    <strong>گوگل پلاس:</strong><input type="text" name="googleplusmodel" ng-model="googleplusmodel"> <br/>
+
+                    <button type="submit" class="btn bluebtn">ذخیره</button>
+
+                  </form>
+
+
+
+                </div>
+
+
+
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+
         </div>
 
         <div class="col-md-2  col-xs-12 profilestatus">

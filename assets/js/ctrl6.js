@@ -897,6 +897,94 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
 
 
+  $scope.removesocial = function(x) {
+
+    var data = x.id;
+
+
+
+    var config = {
+
+      headers: {
+        'Content-Type': "application/json",
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+
+
+    $http.delete(mustafasite + '/job_seeker/social/' + data, config).then(function(response) {
+
+
+      $http.get(mustafasite + '/job_seeker', {
+
+        headers: {
+
+          "Content-Type": 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }).then(function(response) {
+
+    		$scope.socials = response.data.socials;
+
+      });
+
+
+
+
+    });
+
+
+
+  }
+
+
+  $scope.SocialAddEdit = function() {
+
+    var data = {
+
+      fixed_phone: $scope.phonefix,
+
+      address: $scope.address,
+
+    };
+
+
+
+    var config = {
+
+      headers: {
+
+        'Content-Type': 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+    $http.put(mustafasite + "/job_seeker", JSON.stringify(data), config).then(function(response) {
+
+      $scope.phonefix = $scope.phonefix;
+
+      $scope.address = $scope.address;
+
+      $('#ShowPopupEditTamas').modal('hide');
+
+    });
+
+
+
+  };
+
+
+
 
 
 });
