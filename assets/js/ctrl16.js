@@ -2,7 +2,8 @@ console.clear();
 
 app.controller('spprofilepage' ,function($compile, $sce, $scope, $window, $http, Upload, $timeout, ShareData , $location ,  $localStorage , $sessionStorage) {
 
-
+	var mustafasite = "https://sadaf.systmngr.ir/api/v1";
+
 		
         $scope.commestarrating = 4;
         $scope.commestaroptions = {
