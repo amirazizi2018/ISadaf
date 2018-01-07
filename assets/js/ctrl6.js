@@ -899,7 +899,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
   $scope.removesocial = function(x) {
 
-    var data = x.id;
+    var data = x.social.id;
 
 
 

@@ -65,17 +65,17 @@
                 </div>
 
                 <div class="modal-body">
-                  <form name="editsocialform" novalidate ng-submit="editsocialform.$valid &&SocialAddEdit()">
-                    <label for="singleSelect"> Single select: </label><br>
-                    <select class="h5title fontlight" ng-model="idsocial">
-                        <option ng-repeat="x in socialnameid" value="{{x.value}}">{{x.key}}</option>
-                    </select>
-                    <br>
+                  <form name="editsocialform" novalidate ng-submit="editsocialform.$valid &&SocialAddEdit()" class="jobpostpfilterbox">
+                      <strong>لینک صفحه:</strong>
+                      <select class="h5title fontlight" ng-model="idsocial">
+                          <option ng-repeat="x in socialnameid" value="{{x.value}}">{{x.key}}</option>
+                      </select>
+                      <br>
+                      <br>
 
-                    <strong>لینک صفحه:</strong><input type="text" name="socialgetlink" ng-model="socialgetlink"> <br/>
+                      <strong>لینک صفحه:</strong><input type="text" name="socialgetlink" ng-model="socialgetlink"> <br/>
 
-                    <button type="submit" class="btn bluebtn">ذخیره</button>
-
+                      <button type="submit" class="btn bluebtn">ذخیره</button>
                   </form>
 
 
