@@ -393,7 +393,7 @@ app.controller('spprofilepage' ,function($compile, $sce, $scope, $window, $http,
 
 
 
-	    $scope.enableEditorbtype = function() {
+	    $scope.enableEditorbusiness_type = function() {
 
 	      $scope.editorEnabledbusiness_type = true;
 
@@ -426,7 +426,7 @@ app.controller('spprofilepage' ,function($compile, $sce, $scope, $window, $http,
 
 	      var data = {
 
-	        position: $scope.editableTitlebusiness_type,
+	        business_type: $scope.editableTitlebusiness_type,
 
 	      };
 
@@ -484,7 +484,7 @@ app.controller('spprofilepage' ,function($compile, $sce, $scope, $window, $http,
 
 	      var data = {
 
-	        bio: $scope.editableTitlemotto,
+	        motto: $scope.editableTitlemotto,
 
 	      };
 
