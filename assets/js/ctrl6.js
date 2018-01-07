@@ -6,7 +6,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
   var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 
-// bar akse in not o show
+  // bar akse in not o show
   $scope.ShowForJS = function() {
     if ($localStorage.UserType == 'JS') {
       return false
@@ -128,7 +128,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
     $scope.mybio = response.data.bio;
 
-		$scope.socials = response.data.socials;
+    $scope.socials = response.data.socials;
 
 
 
@@ -931,7 +931,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
       }).then(function(response) {
 
-    		$scope.socials = response.data.socials;
+        $scope.socials = response.data.socials;
 
       });
 
@@ -1004,7 +1004,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
       }).then(function(response) {
 
-    		$scope.socials = response.data.socials;
+        $scope.socials = response.data.socials;
 
       });
 
