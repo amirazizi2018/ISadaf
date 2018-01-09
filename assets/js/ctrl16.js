@@ -995,98 +995,98 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
   ];
 
 
-
-  $scope.ourteam = [
-
-    {
-      id: '1',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      name: 'نادر فتحی سرایداری بالا تپه',
-      place: 'مدیر فنی',
-      inlink: ' ',
-    },
-
-    {
-      id: '2',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      name: '2نادر فتحی سرایداری بالا تپه',
-      place: 'مدیر فنی',
-      inlink: ' ',
-    },
-
-    {
-      id: '3',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      name: '3نادر فتحی سرایداری بالا تپه',
-      place: 'مدیر فنی',
-      inlink: ' ',
-    },
-
-    {
-      id: '4',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      name: '3نادر فتحی سرایداری بالا تپه',
-      place: 'مدیر فنی',
-      inlink: ' ',
-    },
-
-    {
-      id: '5',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      name: '3نادر فتحی سرایداری بالا تپه',
-      place: 'مدیر فنی',
-      inlink: ' ',
-    },
-
-    {
-      id: '6',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      name: '3نادر فتحی سرایداری بالا تپه',
-      place: 'مدیر فنی',
-      inlink: ' ',
-    },
-
-    {
-      id: '7',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      name: '3نادر فتحی سرایداری بالا تپه',
-      place: 'مدیر فنی',
-      inlink: ' ',
-    },
-
-    {
-      id: '8',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      name: '3نادر فتحی سرایداری بالا تپه',
-      place: 'مدیر فنی',
-      inlink: ' ',
-    },
-
-    {
-      id: '9',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      name: '3نادر فتحی سرایداری بالا تپه',
-      place: 'مدیر فنی',
-      inlink: ' ',
-    },
-
-    {
-      id: '10',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      name: '3نادر فتحی سرایداری بالا تپه',
-      place: 'مدیر فنی',
-      inlink: ' ',
-    },
-
-    {
-      id: '11',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      name: '3نادر فتحی سرایداری بالا تپه',
-      place: 'مدیر فنی',
-      inlink: ' ',
-    },
-
-  ];
+  //
+  // $scope.ourteam = [
+  //
+  //   {
+  //     id: '1',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     name: 'نادر فتحی سرایداری بالا تپه',
+  //     place: 'مدیر فنی',
+  //     inlink: ' ',
+  //   },
+  //
+  //   {
+  //     id: '2',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     name: '2نادر فتحی سرایداری بالا تپه',
+  //     place: 'مدیر فنی',
+  //     inlink: ' ',
+  //   },
+  //
+  //   {
+  //     id: '3',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     name: '3نادر فتحی سرایداری بالا تپه',
+  //     place: 'مدیر فنی',
+  //     inlink: ' ',
+  //   },
+  //
+  //   {
+  //     id: '4',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     name: '3نادر فتحی سرایداری بالا تپه',
+  //     place: 'مدیر فنی',
+  //     inlink: ' ',
+  //   },
+  //
+  //   {
+  //     id: '5',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     name: '3نادر فتحی سرایداری بالا تپه',
+  //     place: 'مدیر فنی',
+  //     inlink: ' ',
+  //   },
+  //
+  //   {
+  //     id: '6',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     name: '3نادر فتحی سرایداری بالا تپه',
+  //     place: 'مدیر فنی',
+  //     inlink: ' ',
+  //   },
+  //
+  //   {
+  //     id: '7',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     name: '3نادر فتحی سرایداری بالا تپه',
+  //     place: 'مدیر فنی',
+  //     inlink: ' ',
+  //   },
+  //
+  //   {
+  //     id: '8',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     name: '3نادر فتحی سرایداری بالا تپه',
+  //     place: 'مدیر فنی',
+  //     inlink: ' ',
+  //   },
+  //
+  //   {
+  //     id: '9',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     name: '3نادر فتحی سرایداری بالا تپه',
+  //     place: 'مدیر فنی',
+  //     inlink: ' ',
+  //   },
+  //
+  //   {
+  //     id: '10',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     name: '3نادر فتحی سرایداری بالا تپه',
+  //     place: 'مدیر فنی',
+  //     inlink: ' ',
+  //   },
+  //
+  //   {
+  //     id: '11',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     name: '3نادر فتحی سرایداری بالا تپه',
+  //     place: 'مدیر فنی',
+  //     inlink: ' ',
+  //   },
+  //
+  // ];
 
 
 
@@ -1121,8 +1121,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
     }
 
     $http.get(mustafasite + "/service_provider/my_teams", config).then(function(response) {
-
-
+			$scope.ourteam = response.data.services;
     });
   }
 
@@ -1212,7 +1211,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
 		$http.post(mustafasite + '/service_provider/team', JSON.stringify(data), config).then(function(response) {
 
-
+				$scope.getmyteams();
 				$('#ShowPopupEditperson').modal('hide');
 				$scope.teampersonlink = null;
 				$scope.teampersonname = null;
@@ -1256,7 +1255,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
     $http.delete(mustafasite + '/service_provider/team/' + data, config).then(function(response) {
 
-
+			$scope.getmyteams();
 
     });
 
