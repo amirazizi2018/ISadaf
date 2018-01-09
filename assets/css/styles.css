@@ -2512,6 +2512,7 @@ ul {
   border-radius: 5px;
   display: inline-block;
   margin-top: 20px;
+  width: 100%;
 }
 
 .btnsnexbacre {
@@ -4985,5 +4986,9 @@ font-size: 20px;
 }
 
 .chengepasswordform div {
-    padding: 2px 0;
+    padding: 2px 15px;
+}
+
+.chengepasswordform button {
+    margin-top: 10px;
 }

@@ -120,17 +120,17 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     {
       nameper: "1 تا 3 سال",
-      nameeng: "1-3sal"
+      nameeng: "1-3"
     },
 
     {
       nameper: "3 تا 6 سال",
-      nameeng: "3-6sal"
+      nameeng: "3-6"
     },
 
     {
       nameper: "6 تا 9 سال",
-      nameeng: "6-9sal"
+      nameeng: "6-9"
     },
 
   ];
@@ -1710,21 +1710,6 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
       $scope.prodList = response.data.advertisement_types;
     });
-
-    /*         $scope.prodList = [
-
-          {id : '1' , title:'فوری/امن/محرمانه', descr:'شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید', 'price':'2500000',    selected: 'YES'},
-
-          {id : '2' , title:'فوری', descr:'شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید', 'price':'2500000'},
-
-          {id : '3' , title:'امن', descr:'شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید', 'price':'2500000'},
-
-          {id : '4' , title:'محرمانه', descr:'شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید', 'price':'2500000'},
-
-         {id : '5' , title:'فوری 2', descr:'شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید', 'price':'2500000'},
-
-        ]; */
-
     $scope.orders = {};
 
     $scope.orders.prods = {};
@@ -1799,14 +1784,13 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     var coop_timev = sparttime + " " + sfulltime;
     var coop_typev = skaramuzi + " " + sKARVARZI;
 
-    // var getexperienceft = $scope.formData.sabeghekari;
-    // var experienceft = (getexperienceft.toString().split('-'));;
+    var getexperienceft = $scope.formData.sabeghekari;
+    var experienceft = (getexperienceft.toString().split('-'));
 
-    // var getpayments = $scope.formData.hoghogpayeh;
-    // var payments = (getpayments.toString().split('-'))
-    // ;
-    // var getagesel = $scope.formData.sen;
-    // var agesel = (getagesel.toString().split('-'));
+    var getpayments = $scope.formData.hoghogpayeh;
+    var payments = (getpayments.toString().split('-'));
+    var getagesel = $scope.formData.sen;
+    var agesel = (getagesel.toString().split('-'));
 
     $scope.advertisementtypes = [];
 
@@ -1836,16 +1820,16 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
       description: $scope.formData.tozihat,
       education: $scope.formData.teahsilat,
       exams: $scope.examarray,
-      // experience_from: experienceft[0],
-      // experience_to: experienceft[1],
+      experience_from: experienceft[0],
+      experience_to: experienceft[1],
       experience_type: $scope.formData.hozedaraysabeghe,
       marriage_status: $scope.formData.vaziattahol,
-      // max_payment: payments[1],
+      max_payment: payments[1],
       military_status: $scope.formData.vaziatnezamvazife,
-      // min_payment: payments[0],
+      min_payment: payments[0],
       moavenat_type: $scope.formData.vahedsazmani,
-      // old_from: getagesel[0],
-      // old_to: getagesel[1],
+      old_from: getagesel[0],
+      old_to: getagesel[1],
       position: $scope.formData.mogeatdarjayghah,
       requested: $scope.formData.vaziateghamati,
       requirements: $scope.formData.maharatkilidi,
