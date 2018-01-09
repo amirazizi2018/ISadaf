@@ -618,7 +618,7 @@
 
       <div class="pinjob removejob delicon" ng-click="removeperson(person)" style="display: inline-block;position: initial;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
 
-      <div class="pinjob removejob" data-toggle="modal" data-target="#ShowPopupEditperson" ng-click="editperson($index)" style="display: inline-block;position: initial;"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+      <!-- <div class="pinjob removejob" data-toggle="modal" data-target="#ShowPopupEditperson" ng-click="editperson($index)" style="display: inline-block;position: initial;"><i class="fa fa-pencil" aria-hidden="true"></i></div> -->
 
       <div class="personimg">
 
@@ -636,7 +636,7 @@
 
     <div class="col-md-2 col-xs-6 ourteam addpersonbtn" style="margin-top: 31px;">
 
-      <div class="personimg" data-toggle="modal" data-target="#ShowPopupEditperson" ng-click="addperson()" role="button" tabindex="0" style="
+      <div class="personimg" ng-click="addperson()" role="button" tabindex="0" style="
 
     margin-top: -3px;
 
@@ -668,7 +668,7 @@
 
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
-          <h3>ویرایش شخص</h3>
+          <h3>اضافه کردن</h3>
 
         </div>
 
@@ -692,15 +692,15 @@
 
           <br />
 
-          <strong>نام و نام خانوادگی:</strong><input type="text" ng-model="editpersonf.name" required>
+          <strong>نام و نام خانوادگی:</strong><input type="text" ng-model="teampersonname" required>
 
-          <i ng-show="editpersonf.name.$error.required">*required</i>
+
 
           <br />
 
-          <strong>لینک شبکه اجتماعی:</strong><input type="text" ng-model="editpersonf.inlink" required><br />
+          <strong>لینک شبکه اجتماعی:</strong><input type="text" ng-model="teampersonlink" required><br />
 
-          <strong>سمت:</strong><input type="text" ng-model="editpersonf.place" required><br />
+          <strong>سمت:</strong><input type="text" ng-model="teampersonposition" required><br />
 
         </div>
 
