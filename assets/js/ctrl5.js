@@ -8,7 +8,21 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
   var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 
+  $scope.NotShowForEMP = function() {
+    if ($localStorage.UserType == 'EMP') {
+      return false
+    } else {
+      return true
+    }
+  }
 
+  $scope.ShowForEMP = function() {
+    if ($localStorage.UserType == 'EMP') {
+      return true
+    } else {
+      return false
+    }
+  }
 
   $scope.showpagestarjobrating = 4;
 
@@ -1309,6 +1323,16 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
     });
 
+  }
+
+
+  $scope.GalleryEmpClick = function () {
+    if ($localStorage.UserType == 'EMP') {
+      $('#ShowPopupCrateGallery').modal('show');
+    }
+    else {
+
+    }
   }
 
 

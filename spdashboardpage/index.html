@@ -27,39 +27,8 @@
 <div class="col-md-2 col-xs-12 profileimg primppg14tone">
 <div class="profileimgcl">
 <img src="{{logopic}}" >
-<!-- <a data-toggle="modal" data-target="#ShowPopupUploadLogo" class="titleandicon"> 
-<div class="editlogohover"> 
-<div class="titleandicon"> 
-<i class="fa fa-picture-o" aria-hidden="true"></i> <br> تغییر لوگو
 </div>
-</div>
- </a>  -->
-</div><!-- 
-<div id="ShowPopupUploadLogo" class="modal modal-md" role="dialog">
-        <div class="modal-dialog">
-        <div class="modal-content ">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>ویرایش لوگو</h3>
-        </div>
-        <div class="modal-body">
-            <strong>آپلود پروفایل:</strong>
-        <button ngf-select ng-model="logopicfile" accept="image/*">
-           انتخاب عکس</button>
-        <div ngf-drop ng-model="logopicfile" ngf-pattern="image/*"
-             class="cropArea">
-            <img-crop area-type="square"  image="logopicfile | ngfDataUrl"                 
-            result-image="croppedDataUrl"  ng-init="croppedDataUrl=''">
-            </img-crop>
-        </div>			
-        </div>
-        <div class="modal-footer">
-            <a class="btn btn-primary" ng-click="savelogo(croppedDataUrl, logopicfile.name)">ذخیره</a>
-            <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">بستن</a>
-        </div>
-    </div>
-    </div>
-    </div> -->
+
 <a data-toggle="modal" data-target="#ShowPopupcharticonuserstatus" >
 <div class="charticonuserstatus col-md-12 col-xs-3">
 <i class="fa fa-align-right" aria-hidden="true"></i>
@@ -213,14 +182,16 @@
     </div>
 <div class="col-md-8  col-xs-12 userinfor">
 <div class="h2title bluecolor companyname fontmedium">{{fa_name}}</div>
-<div class="h3title bluecolor companyslogan fontlight">{{motto}}<!--   <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a> --></div>
+<div class="h3title bluecolor companyslogan fontlight">{{motto}}</div>
 <div class="editprofile" ng-click="gotoprofilepage()"><button type="button" class="btn bluebtn fontmedium"><span>ویرایش پروفایل</span></button></div>
-<div class="socialprofile">
-<a class="linkedin" href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-<a class="telegram" href=""><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-<a class="googleplus" href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-<!-- <a class="addsocialprofile" href=""><i class="fa fa-plus" aria-hidden="true"></i></a> -->
-</div></div>
+<div class="socialprofile notuser" ng-repeat="x in socials">
+
+	<a href="{{x.url}}" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+		<md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
+	</a>
+
+</div>
+</div>
 <div class="col-md-2  col-xs-12 profilestatus">
 <div class="profilestatusprogress">{{ preciseCurrent || current }}%</div>
 <round-progress
@@ -264,8 +235,10 @@
 <div class="col-md-12 packagesstatus">
 <span>{{package.packagename}}</span> | 
 <span ng-class="{'greencolor': package.packagestatus == 'فعال'}">{{package.packagestatus}}</span> | 
-<span>{{package.packageremaining}}</span>
-<a href="" class="fontbold h5title" style="float: left;" data-toggle="modal" data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
+<span>{{package.timee | jalaliDatewill}}</span>
+<!-- <a href="" class="fontbold h5title" style="float: left;" data-toggle="modal"
+data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
+ -->
 </div>
 </div>
 </div>
@@ -302,7 +275,7 @@
 <div class="clearfix"></div>
 
 <div class="clearfix"></div>
-
+<!-- 
 <div class="col-md-8 col-xs-8 h4title graycolor onsmsdiv linehigh40 fontmedium">درخواست گزارشات تحلیلی<span class="onsmsprice">500,000 تومان </span></div>
 <div class="col-md-4 col-xs-4 h5title"><button type="button" class="btn increasecredit greenbtnreverse fontmedium" style="padding: 8px 26px;"><span>درخواست فعال سازی</span></button>
 </div>
@@ -314,7 +287,7 @@
 ">500,000 تومان </span></div>
 <div class="col-md-4 col-xs-4 h5title"><button type="button" class="btn increasecredit greenbtnreverse fontmedium"><span>درخواست تبلیغات</span></button>
 </div>
-
+ -->
 <div class="clearfix"></div>
 
 <div class="col-md-12 col-xs-12 profilebanner"><span>.:محــــل تبلیـــــغات:.</span></div>
@@ -375,7 +348,7 @@
 </div> 
 
 <div class="col-md-6 col-xs-12 addservicesmanagement">
-					<button type="button" class="btn greenbtn fontmedium cursorpointer" data-toggle="modal" data-target="#ShowPopupaddexam"><span>اضافه نمودن خدمت جدید</span></button> 
+					<button type="button" class="btn greenbtn fontmedium cursorpointer" data-toggle="modal" data-target="#ShowPopupaddexam"><span>اضافه نمودن خدمت جدید</span></button>
 </div>
 
 </div>

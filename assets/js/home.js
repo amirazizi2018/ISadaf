@@ -1,6 +1,6 @@
 console.clear();
 
-var app = angular.module('sadaf-reg-ads', ['ngAnimate', 'ngRoute', 'ngStorage', 'ui.router', 'angular-svg-round-progressbar', 'ngMaterial', 'ui.bootstrap', 'ngFileUpload', 'ngImgCrop', 'angular-typed', 'rateYo', 'ui.select', 'ngSanitize', ])
+var app = angular.module('sadaf-reg-ads', ['angular-flexslider','ngAnimate', 'ngRoute', 'ngStorage', 'ui.router', 'angular-svg-round-progressbar', 'ngMaterial', 'ui.bootstrap', 'ngFileUpload', 'ngImgCrop', 'angular-typed', 'rateYo', 'ui.select', 'ngSanitize', ])
 
 
 app.config(function($routeProvider, $locationProvider) {

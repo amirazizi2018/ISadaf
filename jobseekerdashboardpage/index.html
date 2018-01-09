@@ -63,11 +63,11 @@
 <div class="h2title bluecolor fontmedium">{{fullname}}</div>
 <div class="h4title graycolor">{{position}}</div>
 <div class="h3title bluecolor fontlight">{{email}}</div>
-<div class="socialprofile">
-<a class="linkedin" href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-<a class="telegram" href=""><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-<a class="googleplus" href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-</div>
+<div class="socialprofile notuser" ng-repeat="x in socials">
+	<a href="{{x.url}}" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+		<md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
+	</a>
+</div>
 </div>
 <div class="col-md-2  col-xs-12 profilestatus">
 <div class="profilestatusprogress">{{ preciseCurrent || current }}%</div>
@@ -485,6 +485,26 @@
 
 </div>
 <div ng-show="activeTabF=='tab8'"  class="mysetting">
+
+	<div class="col-md-12 col-xs-12 h3title bluecolor">
+		 تغییر رمز عبور
+	</div>
+	<form name="chengepasswordform" novalidate ng-submit="chengepasswordform.$valid &&ChengePassWord(currentpassword,newpassword)">
+	<div class="col-md-3 col-xs-12 h4title graycolor">
+		رمز فعلی
+	</div>
+	<div class="col-md-12 col-xs-12 h4title graycolor">
+		<input type="text" name="currentpassword" ng-model="currentpassword">
+	</div>
+
+	<div class="col-md-3 col-xs-12 h4title graycolor">
+		رمز جدید
+	</div>
+	<div class="col-md-12 col-xs-12 h4title graycolor">
+		<input type="text" name="newpassword" ng-model="newpassword">
+	</div>
+</form>
+
             <div class="clearfix"></div>
             <div class="col-md-12 h4title graycolor">      
 			<md-checkbox ng-model="data.custom111" aria-label="Checkbox 1">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>

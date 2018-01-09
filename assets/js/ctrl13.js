@@ -44,10 +44,12 @@ app.controller('jobseekerdashboardpage',
 
       $scope.phone = response.data.phone;
 
-
       $scope.phonefix = response.data.fixed_phone;
 
       $scope.address = response.data.address;
+
+      $scope.socials = response.data.socials;
+
 
     });
 
@@ -1132,6 +1134,41 @@ app.controller('jobseekerdashboardpage',
 
 
 
+
+    $scope.ChengePassWord = function(currentpassword, newpassword) {
+
+      var data = {
+
+        old_password: currentpassword,
+        new_password: newpassword
+
+      };
+
+
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+
+
+      $http.put(mustafasite + '/job_seeker/password', JSON.stringify(data), config).then(function(response) {
+        $scope.newpassword = null;
+        $scope.currentpassword = null;
+        alert("پسورد با موفیقت ویرایش شد.")
+      });
+
+
+
+    }
 
 
 
