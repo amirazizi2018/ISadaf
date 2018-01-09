@@ -4979,3 +4979,11 @@ font-size: 20px;
 .addsocialbtn:hover  {
   background-image: url(https://a20group.github.io/ISadaf/assets/images/socialplus_hover.svg) !important;
 }
+
+.mysetting {
+      padding: 15px 0;
+}
+
+.chengepasswordform div {
+    padding: 2px 0;
+}

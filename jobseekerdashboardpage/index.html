@@ -489,19 +489,22 @@
 	<div class="col-md-12 col-xs-12 h3title bluecolor">
 		 تغییر رمز عبور
 	</div>
-	<form name="chengepasswordform" novalidate ng-submit="chengepasswordform.$valid &&ChengePassWord(currentpassword,newpassword)">
-	<div class="col-md-3 col-xs-12 h4title graycolor">
+	<form name="chengepasswordform" novalidate class="chengepasswordform" ng-submit="chengepasswordform.$valid &&ChengePassWord(currentpassword,newpassword)">
+	<div class="col-md-12 col-xs-12 h4title graycolor">
 		رمز فعلی
 	</div>
 	<div class="col-md-12 col-xs-12 h4title graycolor">
 		<input type="text" name="currentpassword" ng-model="currentpassword">
 	</div>
 
-	<div class="col-md-3 col-xs-12 h4title graycolor">
+	<div class="col-md-12 col-xs-12 h4title graycolor">
 		رمز جدید
 	</div>
 	<div class="col-md-12 col-xs-12 h4title graycolor">
 		<input type="text" name="newpassword" ng-model="newpassword">
+	</div>
+	<div class="col-md-12 col-xs-12">
+		 <button type="submit" class="btn bluebtn">تغییر رمز</button>
 	</div>
 </form>
 
