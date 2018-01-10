@@ -590,6 +590,8 @@
 
     <div class="container">
 
+      <div class="textaddcomment" ng-if="ShowTextNewComment">نظرات مثبت مشتریان درباره خود را در این بخش اضافه کنید. &gt; &gt; &gt;</div>
+
       <div class="col-md-4 spcomment" ng-repeat="comment in comments">
 
         <div ng-if="ShowForSP()" class="pinjob removejob delicon" ng-click="removecomment(comment)" style="display: inline-block;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
@@ -608,7 +610,7 @@
 
       </div>
 
-      <div class="col-md-2 col-xs-6 ourteam addpersonbtn addcommentbtn" ng-if="ShowForSP()" style="margin-top: 31px;">
+      <div class="col-md-2 col-xs-6 ourteam addpersonbtn addcommentbtn" ng-if="ShowForSP()">
 
         <div class="personimg" ng-click="addcomment()" role="button" tabindex="0" style="margin-top: -3px;padding: 5px;"><i class="fa fa-plus" aria-hidden="true"></i>
 

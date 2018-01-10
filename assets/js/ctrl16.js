@@ -972,27 +972,27 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
 
 
-  $scope.comments = [
-
-    {
-      id: '1',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
-    },
-
-    {
-      id: '1',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
-    },
-
-    {
-      id: '1',
-      profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-      commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
-    },
-
-  ];
+  // $scope.comments = [
+  //
+  //   {
+  //     id: '1',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
+  //   },
+  //
+  //   {
+  //     id: '1',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
+  //   },
+  //
+  //   {
+  //     id: '1',
+  //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+  //     commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
+  //   },
+  //
+  // ];
 
 
   //
@@ -1122,6 +1122,9 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
     $http.get(mustafasite + "/service_provider/my_teams", config).then(function(response) {
 			$scope.ourteam = response.data.services;
+			if (response.data.services == null) {
+				$scope.ShowTextNewComment = true
+			}
     });
   }
 

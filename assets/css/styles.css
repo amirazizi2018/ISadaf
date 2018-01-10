@@ -4998,6 +4998,7 @@ font-size: 20px;
   position: absolute;
 left: 0;
 top: 0;
+        margin-top: 0;
 }
 
 .addcommentbtn i {
@@ -5008,4 +5009,10 @@ top: 0;
 
 .addcommentbtn i:hover {
     background: #ffffff;
+}
+
+.textaddcomment {
+  text-align:  center;
+  color:  #fff;
+  font-size: 30px;
 }
