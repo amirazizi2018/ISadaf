@@ -1122,9 +1122,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
     $http.get(mustafasite + "/service_provider/my_teams", config).then(function(response) {
 			$scope.ourteam = response.data.services;
-			if (response.data.services == null) {
-				$scope.ShowTextNewComment = true
-			}
+
     });
   }
 
@@ -1281,6 +1279,9 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
     $http.get(mustafasite + "/service_provider/my_testimonials", config).then(function(response) {
 			$scope.comments = response.data.testimonials;
+			if (response.data.testimonials == null) {
+				$scope.ShowTextNewComment = true
+			}
     });
   }
 
