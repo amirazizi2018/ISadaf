@@ -1771,7 +1771,8 @@ q:after {
 
 .spcomments {
   background: #888A8C;
-  padding: 45px 0;
+      padding: 45px 0;
+      position: relative;
 }
 
 .ourteam .personimg img {
@@ -4991,4 +4992,20 @@ font-size: 20px;
 
 .chengepasswordform button {
     margin-top: 10px;
+}
+
+.addcommentbtn {
+  position: absolute;
+left: 0;
+top: 0;
+}
+
+.addcommentbtn i {
+    background: rgb(197, 198, 197);
+    border: 1px dashed #0A415B;
+    color: #0A415B;
+}
+
+.addcommentbtn:hover i {
+    background: #ffffff;
 }

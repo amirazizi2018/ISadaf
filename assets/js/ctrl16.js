@@ -10,7 +10,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
 
 
-  $scope.commestarrating = 4;
+
 
   $scope.commestaroptions = {
 
@@ -28,7 +28,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
     spacing: "5px",
 
-        starWidth: "16px"
+    starWidth: "16px"
 
   };
 
@@ -1256,6 +1256,113 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
     $http.delete(mustafasite + '/service_provider/team/' + data, config).then(function(response) {
 
 			$scope.getmyteams();
+
+    });
+
+
+  }
+
+	$scope.getmycomment = function() {
+
+    var config = {
+
+      headers: {
+
+        'Content-Type': 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+    $http.get(mustafasite + "/service_provider/my_testimonials", config).then(function(response) {
+			$scope.comments = response.data.testimonials;
+    });
+  }
+
+	$scope.getmycomment();
+
+
+  $scope.savecomment = function(dataUrl, name) {
+
+		dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
+
+		var data = {
+
+			"image": dataUrl2,
+			"title": $scope.namecommentmodal,
+			"description": $scope.commenttextmodal,
+			"rate": parseInt($scope.ratecommentmodal),
+
+
+		}
+
+
+
+		var config = {
+
+			headers: {
+
+				'Content-Type': 'application/json',
+
+				'Access-Token': $localStorage.TokenKey.access,
+
+			}
+
+		}
+
+
+
+
+
+		$http.post(mustafasite + '/service_provider/testimonial', JSON.stringify(data), config).then(function(response) {
+
+				$scope.getmycomment();
+				$('#ShowPopupAddComment').modal('hide');
+				$scope.namecommentmodal = null;
+				$scope.commenttextmodal = null;
+			  $scope.ratecommentmodal = null;
+
+		});
+
+  }
+
+
+
+  $scope.addcomment = function() {
+
+   $('#ShowPopupAddComment').modal('show');
+
+  };
+
+
+
+
+
+  $scope.removecomment = function(comment) {
+
+
+    var data = comment.id;
+
+
+
+    var config = {
+
+      headers: {
+
+        'Content-Type': "application/json",
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+
+
+    $http.delete(mustafasite + '/service_provider/testimonial/' + data, config).then(function(response) {
+
+			$scope.getmycomment();
 
     });
 

@@ -592,13 +592,86 @@
 
       <div class="col-md-4 spcomment" ng-repeat="comment in comments">
 
-        <div class="commentimg"><img src="{{comment.profileimg}}"></div>
+        <div ng-if="ShowForSP()" class="pinjob removejob delicon" ng-click="removecomment(comment)" style="display: inline-block;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
 
-        <div class="commenttext"><q>{{comment.commenttext}}</q></div>
+        <div class="commentimg"><img src="{{comment.image_path}}">
+            <md-tooltip md-direction="top">{{x.title}}</md-tooltip>
+        </div>
+
+        <div class="commenttext"><q>{{comment.description}}</q></div>
 
         <div class="commentstar" style="text-align: center;">
 
-          <rate-yo class="mstarbb" on-set="set" on-change="commestarchange" ng-model="commestarrating" read-only="commestaroptions.readOnly" options="commestaroptions"></rate-yo>
+          <rate-yo class="mstarbb" on-set="set" ng-model="x.rate" read-only="commestaroptions.readOnly" options="commestaroptions"></rate-yo>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-2 col-xs-6 ourteam addpersonbtn addcommentbtn" ng-if="ShowForSP()" style="margin-top: 31px;">
+
+        <div class="personimg" ng-click="addcomment()" role="button" tabindex="0" style="margin-top: -3px;padding: 5px;"><i class="fa fa-plus" aria-hidden="true"></i>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div id="ShowPopupAddComment" class="modal modal-md" role="dialog">
+
+    <div class="modal-dialog">
+
+      <div class="modal-content ">
+
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+          <h3>اضافه کردن</h3>
+
+        </div>
+
+        <div class="modal-body">
+
+          <strong>آپلود عکس:</strong>
+
+          <button ngf-select ng-model="personpicFile" accept="image/*">
+
+           انتخاب عکس</button>
+
+          <div ngf-drop ng-model="personpicFile" ngf-pattern="image/*" class="cropArea">
+
+            <img-crop area-type="square" image="personpicFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+
+            </img-crop>
+
+          </div>
+
+
+
+          <br />
+
+          <strong>نام نظر دهنده:</strong><input type="text" ng-model="namecommentmodal" required>
+
+
+
+          <br />
+
+          <strong>متن نظر:</strong><textarea type="text" ng-model="commenttextmodal" required><br />
+
+          <strong>امتیاز  از 5:</strong><input type="text" ng-model="ratecommentmodal" rows="5" cols="50" required><br />
+
+        </div>
+
+        <div class="modal-footer">
+
+          <a class="btn btn-primary" ng-click="savecomment(croppedDataUrl, personpicFile.name)">ذخیره</a>
+
+          <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">بستن</a>
 
         </div>
 
@@ -610,13 +683,16 @@
 
 
 
+
+
+
   <div class="container" style="padding-bottom: 30px;">
 
     <div class="col-md-12 col-xs-12 h1title  bluecolor fontmedium textcenter" style="padding-top: 30px;">تیم تخصصی ما</div>
 
     <div class="col-md-2 col-xs-6 ourteam" ng-repeat="person in ourteam">
 
-      <div class="pinjob removejob delicon" ng-click="removeperson(person)" style="display: inline-block;position: initial;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+      <div ng-if="ShowForSP()" class="pinjob removejob delicon" ng-click="removeperson(person)" style="display: inline-block;position: initial;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
 
       <!-- <div class="pinjob removejob" data-toggle="modal" data-target="#ShowPopupEditperson" ng-click="editperson($index)" style="display: inline-block;position: initial;"><i class="fa fa-pencil" aria-hidden="true"></i></div> -->
 
@@ -634,15 +710,9 @@
 
     </div>
 
-    <div class="col-md-2 col-xs-6 ourteam addpersonbtn" style="margin-top: 31px;">
+    <div class="col-md-2 col-xs-6 ourteam addpersonbtn" ng-if="ShowForSP()" style="margin-top: 31px;">
 
-      <div class="personimg" ng-click="addperson()" role="button" tabindex="0" style="
-
-    margin-top: -3px;
-
-    padding: 5px;
-
-"><i class="fa fa-plus" aria-hidden="true"></i>
+      <div class="personimg" ng-click="addperson()" role="button" tabindex="0" style="margin-top: -3px;padding: 5px;"><i class="fa fa-plus" aria-hidden="true"></i>
 
       </div>
 
