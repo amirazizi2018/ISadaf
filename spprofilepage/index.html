@@ -594,15 +594,15 @@
 
         <div ng-if="ShowForSP()" class="pinjob removejob delicon" ng-click="removecomment(comment)" style="display: inline-block;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
 
-        <div class="commentimg"><img src="{{comment.image_path}}">
-            <md-tooltip md-direction="top">{{x.title}}</md-tooltip>
+        <div class="commentimg">
+          <img src="{{comment.image_path}}" title="{{comment.title}}" alt="{{comment.title}}"/>
         </div>
 
         <div class="commenttext"><q>{{comment.description}}</q></div>
 
         <div class="commentstar" style="text-align: center;">
 
-          <rate-yo class="mstarbb" on-set="set" ng-model="x.rate" read-only="commestaroptions.readOnly" options="commestaroptions"></rate-yo>
+          <rate-yo class="mstarbb" ng-model="comment.rate" read-only="commestaroptions.readOnly" options="commestaroptions"></rate-yo>
 
         </div>
 

@@ -5006,6 +5006,6 @@ top: 0;
     color: #0A415B;
 }
 
-.addcommentbtn:hover i {
+.addcommentbtn i:hover {
     background: #ffffff;
 }
