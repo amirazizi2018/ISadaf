@@ -1279,9 +1279,9 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
     $http.get(mustafasite + "/service_provider/my_testimonials", config).then(function(response) {
 			$scope.comments = response.data.testimonials;
-			if (response.data.testimonials == null) {
-				$scope.ShowTextNewComment = true
-			}
+				if (response.data.testimonials.length == 0) {
+					$scope.ShowTextNewComment = true
+				}
     });
   }
 
