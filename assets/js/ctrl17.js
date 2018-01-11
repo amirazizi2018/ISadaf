@@ -877,12 +877,30 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
    */
 
+   $scope.CategoryExam = ["رزومه","روانشناختی","مهارتی","شایستگی"];
+   $scope.getvahedzaman = [
+     {
+          "faname": "دقیقه",
+          "enname": "min",
+      },
+      {
+           "faname": "ساعت",
+           "enname": "hur",
+       },
+       {
+            "faname": "روز",
+            "enname": "day",
+        },
+   ];
 
 
   $http.get(mustafasite + '/exam').then(function(response) {
     $scope.getexamnameid = response.data.exams;
   });
 
+  $http.get(mustafasite + '/suitability/package').then(function(response) {
+    $scope.getsuitabilitynameid = response.data.packages;
+  });
 
 
 

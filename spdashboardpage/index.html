@@ -1,570 +1,1428 @@
-﻿				   <div ng-controller="spdashboardpage">
-
-	<div class="dashboard">
-						        <div class="container">
-
-						<h1 class="h1title bluecolor">
-        <span class="fontmedium">داشبورد مدیریتی</span>
-    </h1>
-	         <div class=" col-md-3 col-xs-3 dashboardmenu nopaddingright">
-                        <ul class="rmenu nopaddingright">
-                            <li><a class="topborderradius" ng-class="{active: activeTabF == 'tab1'}" ng-click="activeTabF='tab1'">وضعیت فعلی</a></li>
-                            <li><a  ng-class="{active: activeTabF == 'tab2'}" ng-click="activeTabF='tab2'">اعلانات</a></li>                            <li><a  ng-class="{active: activeTabF == 'tab2.5'}" ng-click="activeTabF='tab2.5'">مدیریت مشتریان</a></li>
-                            <li><a  ng-class="{active: activeTabF == 'tab3'}" ng-click="activeTabF='tab3'">مدیریت خدمات</a></li>
-                            <li><a  ng-class="{active: activeTabF == 'tab4'}" ng-click="activeTabF='tab4'">صندوق پیام من</a></li>
-                            <li><a  ng-class="{active: activeTabF == 'tab5'}" ng-click="activeTabF='tab5'" class="botborderradius">تراکنش های مالی من</a></li>
-                        </ul>
-						  <ul class="setting nopaddingright">
-                            <li><a  ng-class="{active: activeTabF == 'tab6'}" ng-click="activeTabF='tab6'" class="borderradius"><i class="fa fa-cog" aria-hidden="true" style="padding-left: 10px;"></i>تنظیمات</a></li>
-                        </ul>
-             </div>
-
-						        <div class="col-md-9 col-xs-9 boxcontent">
-		<div class="profilestatuscurrent" ng-show="activeTabF=='tab1'">
-<div class="col-md-12  col-xs-12">
-<div class="col-md-12  col-xs-12 userinforbox">
-
-<div class="col-md-2 col-xs-12 profileimg primppg14tone">
-<div class="profileimgcl">
-<img src="{{logopic}}" >
-</div>
+<div ng-controller="spdashboardpage">
 
-<a data-toggle="modal" data-target="#ShowPopupcharticonuserstatus" >
-<div class="charticonuserstatus col-md-12 col-xs-3">
-<i class="fa fa-align-right" aria-hidden="true"></i>
-<span>مشاهده جزئیات</span>
-</div>
-</a>
-<div  data-toggle="modal" data-target="#ShowPopupcharticonuserstatus" class="jobrateuser col-md-12 col-xs-12">
-        <rate-yo class="mstarbb" on-set="set" on-change="showpagestarchange" ng-model="showpagestarrating" read-only="showpagestaroptions.readOnly" options="showpagestaroptions"></rate-yo>
-</div>
-<div  data-toggle="modal" data-target="#ShowPopupcharticonuserstatus" class="jobratesystem col-md-12 col-xs-12">
-        <rate-yo on-set="set" on-change="showpagerectanchange" ng-model="showpagerectanrating" read-only="showpagerectanoptions.readOnly" options="showpagerectanoptions"></rate-yo>
-</div>
-</div>
-
-<div id="ShowPopupcharticonuserstatus" class="modal modal-md" role="dialog">
-        <div class="modal-dialog lgdlogmodal">
-<div class="modal-content " style="
-    float: right;
-    width: 100%;
-">       
-<div class="modal-header" style="
-    border: 0;
-    padding-bottom: 0;
-">            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <span class="h2title bluecolor fontmedium">آمار و اطلاعات تفکیکی شایگان</span>
-        </div>
-        <div class="modal-body">
-        <div class="backgrounde6">
-<div class="clearfix" style="
-    padding: 9px 0;
-"></div>
-    <div class="col-md-6 col-xs-12">
-    <div class="row">
-	<span class="col-md-7 h5title">میانگین امتیازات کاربران:</span>
-	<span class="col-md-3 h5title">4.2 از 5</span>
-	<span class="col-md-2 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange1" ng-model="showonestarrating1" read-only="showonestaroptions1.readOnly" options="showonestaroptions1"></rate-yo></span>
-			</div>
-			</div>   
-			<div class="col-md-6 col-xs-12">
-    <div class="row">
-<span class="col-md-4 h5title">میانگین امتیازات شما:</span>
-	<span class="col-md-3 h5title">4.2 از 5</span>
-	<span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange1" ng-model="showmulstarrating1" read-only="showmulstaroptions1.readOnly" options="showmulstaroptions1"></rate-yo></span>
-					</div>
-			</div>  
-			<div class="clearfix"></div>
-			<div class="col-md-6 col-xs-12">
-    <div class="row">
-	<span class="col-md-12 h5title">میانگین امتیازات کارفرمایان:</span>
-			</div>
-			</div>   
-			<div class="col-md-6 col-xs-12">
-    <div class="row">
-<span class="col-md-4 h5title"></span>
-	<span class="col-md-3 h5title">7.2 از 10 </span>
-	<span class="col-md-5 h5title">  
-        <rate-yo on-set="set" on-change="showmulrectanchange1" ng-model="showmulrectanrating1" read-only="showmulrectanoptions1.readOnly" options="showmulrectanoptions1"></rate-yo>
-	</span>
-					</div>
-			</div>
-			
-						<div class="clearfix"></div>
-
-        </div>
-		<div class="col-md-6 col-xs-12 backgroundf2">
-<div class="h5title fontbold darkgraycolor" style="padding: 15px 0;">امتیاز سیستمی</div>
-<div class="row" style="margin-bottom: 15px;">
-<span class="col-md-4 h5title">محیط کاری</span>
-	<span class="col-md-3 h5title">7.2 از 10 </span>
-	<span class="col-md-5 h5title">  
-        <rate-yo on-set="set" on-change="showmulrectanchange2" ng-model="showmulrectanrating2" read-only="showmulrectanoptions2.readOnly" options="showmulrectanoptions2"></rate-yo>
-	</span>
-					</div>
-					<div class="row" style="margin-bottom: 15px;">
-<span class="col-md-4 h5title">مدیریت</span>
-	<span class="col-md-3 h5title">7.2 از 10 </span>
-	<span class="col-md-5 h5title">  
-        <rate-yo on-set="set" on-change="showmulrectanchange3" ng-model="showmulrectanrating3" read-only="showmulrectanoptions3.readOnly" options="showmulrectanoptions3"></rate-yo>
-	</span>
-					</div>		
-					<div class="row" style="margin-bottom: 15px;">
-<span class="col-md-4 h5title">حقوق و مزایا</span>
-	<span class="col-md-3 h5title">7.2 از 10 </span>
-	<span class="col-md-5 h5title">  
-        <rate-yo on-set="set" on-change="showmulrectanchange4" ng-model="showmulrectanrating4" read-only="showmulrectanoptions4.readOnly" options="showmulrectanoptions4"></rate-yo>
-	</span>
-					</div>		
-					<div class="row" style="margin-bottom: 15px;">
-<span class="col-md-4 h5title">امکان رشد</span>
-	<span class="col-md-3 h5title">7.2 از 10 </span>
-	<span class="col-md-5 h5title">  
-        <rate-yo on-set="set" on-change="showmulrectanchange5" ng-model="showmulrectanrating5" read-only="showmulrectanoptions5.readOnly" options="showmulrectanoptions5"></rate-yo>
-	</span>
-					</div>		
-					<div class="row" style="margin-bottom: 15px;">
-<span class="col-md-4 h5title">محیط کاری</span>
-	<span class="col-md-3 h5title">7.2 از 10 </span>
-	<span class="col-md-5 h5title">  
-        <rate-yo on-set="set" on-change="showmulrectanchange6" ng-model="showmulrectanrating6" read-only="showmulrectanoptions6.readOnly" options="showmulrectanoptions6"></rate-yo>
-	</span>
-					</div>
-					
-        </div>
-        
-				<div class="col-md-6 col-xs-12">
-<div class="h5title fontbold darkgraycolor" style="padding: 15px 0;">امتیاز کارجویان</div>
-<div class="h5title fontlight darkgraycolor" style="position: absolute;left: 45px;top: 20px;border-bottom: 1px solid #56ace0;">امتیازات شما</div>
-<div class="row" style="margin-bottom: 15px;">
-<span class="col-md-3 h5title linehigh15">محیط کاری</span>
-	<span class="col-md-3 h5title linehigh15">4.2 از 5</span>
-	<span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange2" ng-model="showonestarrating2" read-only="showonestaroptions2.readOnly" options="showonestaroptions2"></rate-yo></span>
-	<span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange2" ng-model="showmulstarrating2" read-only="showmulstaroptions2.readOnly" options="showmulstaroptions2"></rate-yo></span>
-
-					</div>
-	<div class="row" style="margin-bottom: 15px;">
-<span class="col-md-3 h5title linehigh15">مدیریت</span>
-	<span class="col-md-3 h5title linehigh15">4.2 از 5</span>
-	<span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange3" ng-model="showonestarrating3" read-only="showonestaroptions3.readOnly" options="showonestaroptions3"></rate-yo></span>
-	<span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange3" ng-model="showmulstarrating3" read-only="showmulstaroptions3.readOnly" options="showmulstaroptions3"></rate-yo></span>
-
-					</div>	
-	<div class="row" style="margin-bottom: 15px;">
-<span class="col-md-3 h5title linehigh15">حقوق و مزایا</span>
-	<span class="col-md-3 h5title linehigh15">4.2 از 5</span>
-	<span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange4" ng-model="showonestarrating4" read-only="showonestaroptions4.readOnly" options="showonestaroptions4"></rate-yo></span>
-	<span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange4" ng-model="showmulstarrating4" read-only="showmulstaroptions4.readOnly" options="showmulstaroptions4"></rate-yo></span>
-
-					</div>		
-			<div class="row" style="margin-bottom: 15px;">
-<span class="col-md-3 h5title linehigh15">امکان رشد</span>
-	<span class="col-md-3 h5title linehigh15">4.2 از 5</span>
-	<span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange5" ng-model="showonestarrating5" read-only="showonestaroptions5.readOnly" options="showonestaroptions5"></rate-yo></span>
-	<span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange5" ng-model="showmulstarrating5" read-only="showmulstaroptions5.readOnly" options="showmulstaroptions5"></rate-yo></span>
-
-					</div>	
-		<div class="row" style="margin-bottom: 15px;">
-<span class="col-md-3 h5title linehigh15">محیط کاری</span>
-	<span class="col-md-3 h5title linehigh15">4.2 از 5</span>
-	<span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange6" ng-model="showonestarrating6" read-only="showonestaroptions6.readOnly" options="showonestaroptions6"></rate-yo></span>
-	<span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange6" ng-model="showmulstarrating6" read-only="showmulstaroptions6.readOnly" options="showmulstaroptions6"></rate-yo></span>
-
-					</div>
-					
-        </div>
-		
-        </div>
-			<div class="clearfix"></div>
-
-    </div>
-    </div>
-    </div>
-<div class="col-md-8  col-xs-12 userinfor">
-<div class="h2title bluecolor companyname fontmedium">{{fa_name}}</div>
-<div class="h3title bluecolor companyslogan fontlight">{{motto}}</div>
-<div class="editprofile" ng-click="gotoprofilepage()"><button type="button" class="btn bluebtn fontmedium"><span>ویرایش پروفایل</span></button></div>
-<div class="socialprofile notuser" ng-repeat="x in socials">
 
-	<a href="{{x.url}}" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
-		<md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
-	</a>
 
-</div>
-</div>
-<div class="col-md-2  col-xs-12 profilestatus">
-<div class="profilestatusprogress">{{ preciseCurrent || current }}%</div>
-<round-progress
-    max="max"
-    current="current"
-    color="url(#gradient)"
-    bgcolor="#999999"
-    radius="100"
-    stroke="30"
-    rounded="false"
-    clockwise="true"
-    responsive="true"
-    duration="2000"
-    animation="easeInOutQuart"
-    animation-delay="0"
-	on-render="showPreciseCurrent">		
-    <svg>
-      <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="5%"  stop-color="#005B97"/>
-      <stop offset="95%" stop-color="#29B473"/>
-      </linearGradient>
-    </svg></round-progress>
-	<div class="profilestatustext h4title bluecolor fontmedium">وضعیت پروفایل</div>
-
-</div>
-</div>
-</div>
-
-<div class="clearfix"></div>
-
-<div class="col-md-2 col-xs-4 h4title graycolor fontmedium">وضعیت کاربری</div>
-<div ng-if="activestatus == true" class="col-md-10 col-xs-8 h4title fontmedium greencolor">فعال</div><div ng-if="activestatus == false" class="col-md-10 col-xs-8 h4title fontmedium redcolor">غیر فعال</div>
-
-<div class="clearfix"></div>
-
-
-<div class="col-md-2 h4title graycolor fontmedium" style="line-height: 38px;">وضعیت عضویت</div>
-<div ng-repeat="package in packagesstatus">
-<div class="col-md-2"></div>
-<div class="col-md-10 h5title graycolor fontbold">
-<div class="col-md-12 packagesstatus">
-<span>{{package.packagename}}</span> | 
-<span ng-class="{'greencolor': package.packagestatus == 'فعال'}">{{package.packagestatus}}</span> | 
-<span>{{package.timee | jalaliDatewill}}</span>
-<!-- <a href="" class="fontbold h5title" style="float: left;" data-toggle="modal"
+  <div class="dashboard">
+
+    <div class="container">
+
+
+
+      <h1 class="h1title bluecolor">
+
+        <span class="fontmedium">داشبورد مدیریتی</span>
+
+    </h1>
+
+      <div class=" col-md-3 col-xs-3 dashboardmenu nopaddingright">
+
+        <ul class="rmenu nopaddingright">
+
+          <li><a class="topborderradius" ng-class="{active: activeTabF == 'tab1'}" ng-click="activeTabF='tab1'">وضعیت فعلی</a></li>
+
+          <li><a ng-class="{active: activeTabF == 'tab2'}" ng-click="activeTabF='tab2'">اعلانات</a></li>
+          <li><a ng-class="{active: activeTabF == 'tab2.5'}" ng-click="activeTabF='tab2.5'">مدیریت مشتریان</a></li>
+
+          <li><a ng-class="{active: activeTabF == 'tab3'}" ng-click="activeTabF='tab3'">مدیریت خدمات</a></li>
+
+          <li><a ng-class="{active: activeTabF == 'tab4'}" ng-click="activeTabF='tab4'">صندوق پیام من</a></li>
+
+          <li><a ng-class="{active: activeTabF == 'tab5'}" ng-click="activeTabF='tab5'" class="botborderradius">تراکنش های مالی من</a></li>
+
+        </ul>
+
+        <ul class="setting nopaddingright">
+
+          <li><a ng-class="{active: activeTabF == 'tab6'}" ng-click="activeTabF='tab6'" class="borderradius"><i class="fa fa-cog" aria-hidden="true" style="padding-left: 10px;"></i>تنظیمات</a></li>
+
+        </ul>
+
+      </div>
+
+
+
+      <div class="col-md-9 col-xs-9 boxcontent">
+
+        <div class="profilestatuscurrent" ng-show="activeTabF=='tab1'">
+
+          <div class="col-md-12  col-xs-12">
+
+            <div class="col-md-12  col-xs-12 userinforbox">
+
+
+
+              <div class="col-md-2 col-xs-12 profileimg primppg14tone">
+
+                <div class="profileimgcl">
+
+                  <img src="{{logopic}}">
+
+                </div>
+
+
+                <a data-toggle="modal" data-target="#ShowPopupcharticonuserstatus">
+
+                  <div class="charticonuserstatus col-md-12 col-xs-3">
+
+                    <i class="fa fa-align-right" aria-hidden="true"></i>
+
+                    <span>مشاهده جزئیات</span>
+
+                  </div>
+
+                </a>
+
+                <div data-toggle="modal" data-target="#ShowPopupcharticonuserstatus" class="jobrateuser col-md-12 col-xs-12">
+
+                  <rate-yo class="mstarbb" on-set="set" on-change="showpagestarchange" ng-model="showpagestarrating" read-only="showpagestaroptions.readOnly" options="showpagestaroptions"></rate-yo>
+
+                </div>
+
+                <div data-toggle="modal" data-target="#ShowPopupcharticonuserstatus" class="jobratesystem col-md-12 col-xs-12">
+
+                  <rate-yo on-set="set" on-change="showpagerectanchange" ng-model="showpagerectanrating" read-only="showpagerectanoptions.readOnly" options="showpagerectanoptions"></rate-yo>
+
+                </div>
+
+              </div>
+
+
+
+              <div id="ShowPopupcharticonuserstatus" class="modal modal-md" role="dialog">
+
+                <div class="modal-dialog lgdlogmodal">
+
+                  <div class="modal-content " style="
+
+    float: right;
+
+    width: 100%;
+
+">
+
+                    <div class="modal-header" style="
+
+    border: 0;
+
+    padding-bottom: 0;
+
+"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                      <span class="h2title bluecolor fontmedium">آمار و اطلاعات تفکیکی شایگان</span>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                      <div class="backgrounde6">
+
+                        <div class="clearfix" style="
+
+    padding: 9px 0;
+
+"></div>
+
+                        <div class="col-md-6 col-xs-12">
+
+                          <div class="row">
+
+                            <span class="col-md-7 h5title">میانگین امتیازات کاربران:</span>
+
+                            <span class="col-md-3 h5title">4.2 از 5</span>
+
+                            <span class="col-md-2 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange1" ng-model="showonestarrating1" read-only="showonestaroptions1.readOnly" options="showonestaroptions1"></rate-yo></span>
+
+                          </div>
+
+                        </div>
+
+                        <div class="col-md-6 col-xs-12">
+
+                          <div class="row">
+
+                            <span class="col-md-4 h5title">میانگین امتیازات شما:</span>
+
+                            <span class="col-md-3 h5title">4.2 از 5</span>
+
+                            <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange1" ng-model="showmulstarrating1" read-only="showmulstaroptions1.readOnly" options="showmulstaroptions1"></rate-yo></span>
+
+                          </div>
+
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-6 col-xs-12">
+
+                          <div class="row">
+
+                            <span class="col-md-12 h5title">میانگین امتیازات کارفرمایان:</span>
+
+                          </div>
+
+                        </div>
+
+                        <div class="col-md-6 col-xs-12">
+
+                          <div class="row">
+
+                            <span class="col-md-4 h5title"></span>
+
+                            <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                            <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange1" ng-model="showmulrectanrating1" read-only="showmulrectanoptions1.readOnly" options="showmulrectanoptions1"></rate-yo>
+
+	</span>
+
+                          </div>
+
+                        </div>
+
+
+
+                        <div class="clearfix"></div>
+
+
+
+                      </div>
+
+                      <div class="col-md-6 col-xs-12 backgroundf2">
+
+                        <div class="h5title fontbold darkgraycolor" style="padding: 15px 0;">امتیاز سیستمی</div>
+
+                        <div class="row" style="margin-bottom: 15px;">
+
+                          <span class="col-md-4 h5title">محیط کاری</span>
+
+                          <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                          <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange2" ng-model="showmulrectanrating2" read-only="showmulrectanoptions2.readOnly" options="showmulrectanoptions2"></rate-yo>
+
+	</span>
+
+                        </div>
+
+                        <div class="row" style="margin-bottom: 15px;">
+
+                          <span class="col-md-4 h5title">مدیریت</span>
+
+                          <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                          <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange3" ng-model="showmulrectanrating3" read-only="showmulrectanoptions3.readOnly" options="showmulrectanoptions3"></rate-yo>
+
+	</span>
+
+                        </div>
+
+                        <div class="row" style="margin-bottom: 15px;">
+
+                          <span class="col-md-4 h5title">حقوق و مزایا</span>
+
+                          <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                          <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange4" ng-model="showmulrectanrating4" read-only="showmulrectanoptions4.readOnly" options="showmulrectanoptions4"></rate-yo>
+
+	</span>
+
+                        </div>
+
+                        <div class="row" style="margin-bottom: 15px;">
+
+                          <span class="col-md-4 h5title">امکان رشد</span>
+
+                          <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                          <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange5" ng-model="showmulrectanrating5" read-only="showmulrectanoptions5.readOnly" options="showmulrectanoptions5"></rate-yo>
+
+	</span>
+
+                        </div>
+
+                        <div class="row" style="margin-bottom: 15px;">
+
+                          <span class="col-md-4 h5title">محیط کاری</span>
+
+                          <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                          <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange6" ng-model="showmulrectanrating6" read-only="showmulrectanoptions6.readOnly" options="showmulrectanoptions6"></rate-yo>
+
+	</span>
+
+                        </div>
+
+
+
+                      </div>
+
+
+
+                      <div class="col-md-6 col-xs-12">
+
+                        <div class="h5title fontbold darkgraycolor" style="padding: 15px 0;">امتیاز کارجویان</div>
+
+                        <div class="h5title fontlight darkgraycolor" style="position: absolute;left: 45px;top: 20px;border-bottom: 1px solid #56ace0;">امتیازات شما</div>
+
+                        <div class="row" style="margin-bottom: 15px;">
+
+                          <span class="col-md-3 h5title linehigh15">محیط کاری</span>
+
+                          <span class="col-md-3 h5title linehigh15">4.2 از 5</span>
+
+                          <span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange2" ng-model="showonestarrating2" read-only="showonestaroptions2.readOnly" options="showonestaroptions2"></rate-yo></span>
+
+                          <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange2" ng-model="showmulstarrating2" read-only="showmulstaroptions2.readOnly" options="showmulstaroptions2"></rate-yo></span>
+
+
+
+                        </div>
+
+                        <div class="row" style="margin-bottom: 15px;">
+
+                          <span class="col-md-3 h5title linehigh15">مدیریت</span>
+
+                          <span class="col-md-3 h5title linehigh15">4.2 از 5</span>
+
+                          <span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange3" ng-model="showonestarrating3" read-only="showonestaroptions3.readOnly" options="showonestaroptions3"></rate-yo></span>
+
+                          <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange3" ng-model="showmulstarrating3" read-only="showmulstaroptions3.readOnly" options="showmulstaroptions3"></rate-yo></span>
+
+
+
+                        </div>
+
+                        <div class="row" style="margin-bottom: 15px;">
+
+                          <span class="col-md-3 h5title linehigh15">حقوق و مزایا</span>
+
+                          <span class="col-md-3 h5title linehigh15">4.2 از 5</span>
+
+                          <span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange4" ng-model="showonestarrating4" read-only="showonestaroptions4.readOnly" options="showonestaroptions4"></rate-yo></span>
+
+                          <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange4" ng-model="showmulstarrating4" read-only="showmulstaroptions4.readOnly" options="showmulstaroptions4"></rate-yo></span>
+
+
+
+                        </div>
+
+                        <div class="row" style="margin-bottom: 15px;">
+
+                          <span class="col-md-3 h5title linehigh15">امکان رشد</span>
+
+                          <span class="col-md-3 h5title linehigh15">4.2 از 5</span>
+
+                          <span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange5" ng-model="showonestarrating5" read-only="showonestaroptions5.readOnly" options="showonestaroptions5"></rate-yo></span>
+
+                          <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange5" ng-model="showmulstarrating5" read-only="showmulstaroptions5.readOnly" options="showmulstaroptions5"></rate-yo></span>
+
+
+
+                        </div>
+
+                        <div class="row" style="margin-bottom: 15px;">
+
+                          <span class="col-md-3 h5title linehigh15">محیط کاری</span>
+
+                          <span class="col-md-3 h5title linehigh15">4.2 از 5</span>
+
+                          <span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange6" ng-model="showonestarrating6" read-only="showonestaroptions6.readOnly" options="showonestaroptions6"></rate-yo></span>
+
+                          <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange6" ng-model="showmulstarrating6" read-only="showmulstaroptions6.readOnly" options="showmulstaroptions6"></rate-yo></span>
+
+
+
+                        </div>
+
+
+
+                      </div>
+
+
+
+                    </div>
+
+                    <div class="clearfix"></div>
+
+
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-8  col-xs-12 userinfor">
+
+                <div class="h2title bluecolor companyname fontmedium">{{fa_name}}</div>
+
+                <div class="h3title bluecolor companyslogan fontlight">{{motto}}</div>
+
+                <div class="editprofile" ng-click="gotoprofilepage()"><button type="button" class="btn bluebtn fontmedium"><span>ویرایش پروفایل</span></button></div>
+
+                <div class="socialprofile notuser" ng-repeat="x in socials">
+
+                  <a href="{{x.url}}" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+                    <md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
+                  </a>
+
+                </div>
+              </div>
+              <div class="col-md-2  col-xs-12 profilestatus">
+
+                <div class="profilestatusprogress">{{ preciseCurrent || current }}%</div>
+
+                <round-progress max="max" current="current" color="url(#gradient)" bgcolor="#999999" radius="100" stroke="30" rounded="false" clockwise="true" responsive="true" duration="2000" animation="easeInOutQuart" animation-delay="0" on-render="showPreciseCurrent">
+
+                  <svg>
+
+      <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+
+      <stop offset="5%"  stop-color="#005B97"/>
+
+      <stop offset="95%" stop-color="#29B473"/>
+
+      </linearGradient>
+
+    </svg></round-progress>
+
+                <div class="profilestatustext h4title bluecolor fontmedium">وضعیت پروفایل</div>
+
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="clearfix"></div>
+
+
+
+          <div class="col-md-2 col-xs-4 h4title graycolor fontmedium">وضعیت کاربری</div>
+
+
+          <div ng-if="activestatus == true" class="col-md-10 col-xs-8 h4title fontmedium greencolor">فعال</div>
+          <div ng-if="activestatus == false" class="col-md-10 col-xs-8 h4title fontmedium redcolor">غیر فعال</div>
+
+
+
+          <div class="clearfix"></div>
+
+
+
+
+
+          <div class="col-md-2 h4title graycolor fontmedium" style="line-height: 38px;">وضعیت عضویت</div>
+
+          <div ng-repeat="package in packagesstatus">
+
+            <div class="col-md-2"></div>
+
+            <div class="col-md-10 h5title graycolor fontbold">
+
+              <div class="col-md-12 packagesstatus">
+
+                <span>{{package.packagename}}</span> |
+
+                <span ng-class="{'greencolor': package.packagestatus == 'فعال'}">{{package.packagestatus}}</span> |
+
+                <span>{{package.timee | jalaliDatewill}}</span>
+
+                <!-- <a href="" class="fontbold h5title" style="float: left;" data-toggle="modal"
 data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
  -->
-</div>
-</div>
-</div>
-<div id="ShowPopupMembershipPackages" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-        <div class="modal-header">
-            <span class="h1title bluecolor fontmedium">بسته های عضویت در سامانه </span>
-        </div>
-        <div class="modal-body">
-<div class="col-md-4" ng-repeat="package in membershippackages">
-<div class="col-md-12 membershippackage h4title graycolor">
-<div class="row one whitecolor textcenter" ng-class="{'active': package.status == 'active'}">
-<span class="fontbold h3title">{{package.name}}</span> <br><br>
-<span class="fontmedium">{{package.price}}</span> <span class="darkgraycolor fontmedium">/ هر ماه</span>
-</div>
-<div class="row two">
-<span class="darkgraycolor fontmedium">ارائه خدمات تا</span> <span class="gentlegraycolor fontmedium">{{package.serve1}}</span> <br><br>
-<span class="darkgraycolor fontmedium">دسترسی به</span> <span class="gentlegraycolor fontmedium">{{package.serve2}}</span> <br><br>
-<span class="darkgraycolor fontmedium">ارائه خدمات کارگذاری</span> <span class="gentlegraycolor fontmedium">{{package.serve3}}</span> <br><br>
-<span class="darkgraycolor fontmedium">ارائه خدمات تا</span> <span class="gentlegraycolor fontmedium">{{package.serve4}}</span> <br>
-</div>
-<div class="clearfix"></div>
-<button href="{{package.btnlink}}" type="button" class="btn darkgraybtn fontmedium" ng-class="{'greenbtn': package.status == 'active'}"><span>خرید این بسته</span></button>
-<div class="clearfix"></div>
-</div>
-
-
-</div>			
-        </div>
-    </div>
-    </div>
-    </div>
-<div class="clearfix"></div>
-
-<div class="clearfix"></div>
-<!-- 
-<div class="col-md-8 col-xs-8 h4title graycolor onsmsdiv linehigh40 fontmedium">درخواست گزارشات تحلیلی<span class="onsmsprice">500,000 تومان </span></div>
-<div class="col-md-4 col-xs-4 h5title"><button type="button" class="btn increasecredit greenbtnreverse fontmedium" style="padding: 8px 26px;"><span>درخواست فعال سازی</span></button>
-</div>
-
-<div class="clearfix"></div>
-
-<div class="col-md-8 col-xs-8  h4title graycolor onsmsdiv linehigh40 fontmedium">تبلیغات مابین آگهی ها<span class="onsmsprice" style="
-    padding-right: 70px;
-">500,000 تومان </span></div>
-<div class="col-md-4 col-xs-4 h5title"><button type="button" class="btn increasecredit greenbtnreverse fontmedium"><span>درخواست تبلیغات</span></button>
-</div>
- -->
-<div class="clearfix"></div>
-
-<div class="col-md-12 col-xs-12 profilebanner"><span>.:محــــل تبلیـــــغات:.</span></div>
-<div class="clearfix"></div>
-
-</div>
-   <div ng-show="activeTabF=='tab2'">
-			<div class="notificationrow graycolor {{item.newnotificationclass}}" ng-repeat="item in notificationdata.slice(((notificationcurrentPage-1)*notificationitemsPerPage), ((notificationcurrentPage)*notificationitemsPerPage))">
-		<div class="col-md-1 notificationicon">
-		<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-</div>
-<div class="col-md-11 nopaddingright notificationcontent">
-			<div ng-bind-html="item.description|trustAsHtml"></div>
-			</div>
-		</div>
-		<div class="col-md-12 col-xs-12 paginationcenter" style="background: #E1E2E5;">
-    <ul uib-pagination boundary-links="true" total-items="notificationtotalItems" ng-model="notificationcurrentPage" ng-change="notificationpageChanged()"  items-per-page="notificationitemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
-</div>
-</div> <div ng-show="activeTabF=='tab2.5'">     <div class="col-md-12"><div class="col-md-12 managingjobadsbox" style="    margin-top: 15px;">		      <div class="row"><div class="col-md-2 h5title graycolor" style="line-height: 28px;" >	 دسته بندی بر اساس         </div>	 <div class="col-md-3"><select style="    width: 100%;    border-color: #eaedf1;    border-radius: 2px;    background: #eaedf1;"  ng-model="managingjobadsorderby" ><option  ng-repeat="x in data"  value="-date">زمان درخواست</option></select>    </div>    </div>	<div class="clearfix" style="padding: 10px 0;"></div>    <div class="row">	<div class="managingjobadsboxhead textcenter bluecolor">			<div class="col-md-4 col-xs-4 fontmedium">افراد درخواست داده</div>			<div class="col-md-2 col-xs-2 fontmedium">نوع درخواست</div>						<div class="col-md-2 col-xs-2 fontmedium">وضعیت</div>			<div class="col-md-4 col-xs-4 fontmedium">اقدام</div><div class="clearfix" style="padding: 5px 0;"></div>    </div>    <div class="col-md-12 jobseekerrow" ng-repeat="jobseeker in jobseekers.slice(((jobseekerscurrentPage-1)*jobseekersitemsPerPage), ((jobseekerscurrentPage)*jobseekersitemsPerPage)) | filter : {tag: managingjobadsfilter}: false | orderBy:managingjobadsorderby"">	<div class="row"> 	<div class="col-md-4 col-xs-4 "> 			<span class="jobseekerpicture col-md-3"><img src="{{jobseeker.picture}}"/></span>			<span class="jobseekername bluecolor col-md-7 fontmedium">{{jobseeker.name}}</span>			<span class="jobseekertag graycolor h5title col-md-7">{{jobseeker.tag}}</span>	</div>		<div class="col-md-2 col-xs-2 textcenter">         <span class="jobseekerstatus bluecolor h5title col-md-12 fontmedium"> {{ jobseeker.reqtype }}</span>        <span class="jobseekerdate graycolor h6title col-md-12"> {{ jobseeker.testtype }}</span>	</div>			<div class="col-md-2 col-xs-2 textcenter">         <span  ng-class="{'greencolor': jobseeker.status == 'پیام داده شد'}" class="jobseekerstatus bluecolor h5title col-md-12 fontmedium"> {{ jobseeker.status }}</span>        <span class="jobseekerdate graycolor h6title col-md-12"> {{ jobseeker.date }}</span>	</div><div class="col-md-4 col-xs-4 textcenter" style="padding-top: 7px;">         <span class="jobseekersendmass graycolor h6title col-md-3 col-xs-3" ng-click="gotomailpage(jobseeker)"> <i class="fa fa-envelope-o" aria-hidden="true"></i><br>هماهنگی</span>        <span ng-if="jobseeker.reqtype == 'درخواست دوره'" class="jobseekerviewprofile graycolor h6title col-md-3 col-xs-3" ng-click="downloadattach(jobseeker)"><i class="fa fa-paperclip" aria-hidden="true"></i> <br>مشاهده ضمیمه</span>        <span ng-if="jobseeker.reqtype != 'درخواست دوره'" class="jobseekerviewprofile graycolor h6title col-md-3 col-xs-3" ng-click="sendfactor(jobseeker)"><i class="fa fa-usd" aria-hidden="true"></i> <br>ارسال فاکتور</span>        <span class="jobseekerdownloadprofile graycolor h6title col-md-3 col-xs-3" ng-click="taiid(jobseeker)"><i class="fa fa-check" aria-hidden="true"></i> <br>تایید</span>        		<span class="jobseekerdownloadprofile graycolor h6title col-md-3 col-xs-3" ng-click="adamtaiid(jobseeker)"><i class="fa fa-times" aria-hidden="true"></i> <br>عدم تایید</span>		</div>	</div>	</div>		</div>	</div>				<div class="col-md-12" style="    padding: 0;">    <ul uib-pagination boundary-links="true" total-items="jobseekerstotalItems" ng-model="jobseekerscurrentPage" ng-change="jobseekerspageChanged()"  items-per-page="jobseekersitemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul></div></div>
-<div id="ShowPopupTaiid" class="modal modal-md" role="dialog">        <div class="modal-dialog">        <div class="modal-content ">        <div class="modal-header">            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>            <h3>تایید کارجو</h3>        </div>        <div class="modal-body">            <strong>آپلود عکس:</strong>        <button ngf-select ng-model="personpicFile" accept="image/*">           انتخاب عکس</button>        <div ngf-drop ng-model="personpicFile" ngf-pattern="image/*"             class="cropArea">            <img-crop area-type="square"  image="personpicFile  | ngfDataUrl"                             result-image="croppedDataUrl"  ng-init="croppedDataUrl=''">            </img-crop>        </div>				        </div>        <div class="modal-footer">            <a class="btn btn-primary" ng-click="saveperson(croppedDataUrl, personpicFile.name)">ذخیره</a>            <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">بستن</a>        </div>    </div>    </div>    </div>    </div>	
- <div ng-show="activeTabF=='tab3'">  <div id="ShowPopupaddexam" class="modal modal-md" role="dialog">        <div class="modal-dialog">        <div class="modal-content ">        <div class="modal-header">            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>            <h3>اضافه کردن خدمت</h3>        </div>        <div class="modal-body">						<div class="col-md-2 col-xs-12">																		    <span class="titlefildsear h5title fontmedium">نام خدمت</span>	</div>							<div class="col-md-4 col-xs-12">		  <select class="h5title fontlight" ng-model="namekhedmatselected"><option ng-repeat="x in getexamnameid" value="{{x.id}}">{{x.name}}</option></select>								</div>										<div class="col-md-2 col-xs-12">																		    <span class="titlefildsear h5title fontmedium">قیمت خدمت</span>	</div>						<div class="col-md-4 col-xs-12  exfildsearcthe" style="padding-right: 10px;">							<input class="form-control" type="text" size="100"  ng-model="pricekhedmatselected"></input>								</div>			        </div><div class="clearfix            "></div>        <div class="modal-footer">            <a class="btn btn-primary" ng-click="savekhdmat()">اضافه کردن خدمت</a>            <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">بستن</a>        </div>    </div>    </div>    </div>  
-    <div class="col-md-12 servicesmanagementheader textcenter bluecolor">
-        <div class="col-md-3 textright">  
-		<a ng-click="orderByField='name'; reverseSort = !reverseSort">
-           نام خدمت <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'marketshare'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'name'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
-          </a>
-		</div>
-        <div class="col-md-2 bluecolor">  
-          <a ng-click="orderByField='marketshare'; reverseSort = !reverseSort">
-            سهم بازار <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span>  <span ng-show="orderByField == 'name'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'marketshare'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
-          </a>
-        </div>
-        <div class="col-md-2">کارفرمایان</div>
-        <div class="col-md-1">کارجویان</div>
-        <div class="col-md-4 ">اقدام</div>
-    </div> 
-      <div class="col-md-12 textcenter bluecolor"  ng-repeat="servicesmanagement in servicesmanagements.slice(((servicesmanagementscurrentPage-1)*servicesmanagementsitemsPerPage), ((servicesmanagementscurrentPage)*servicesmanagementsitemsPerPage))|orderBy:orderByField:reverseSort">
-        <div class="col-md-12 servicesmanagementrow">
-        <div class="col-md-3 textright" style="line-height: 35px;"><i  ng-class="{'circlebtngreen': servicesmanagement.condition == 'صعودی',
-           'circlebtnred': servicesmanagement.condition == 'نزولی'}" aria-hidden="true"></i>{{servicesmanagement.exam.name}}</div>      
-		<div class="col-md-2"  style="line-height: 35px;">0 % <i  ng-class="{'fa-sort-asc greencolor': servicesmanagement.condition == 'صعودی',
-           'fa-sort-desc redcolor': servicesmanagement.condition == 'نزولی'}" class="fa " aria-hidden="true"></i></div>
-        <div class="col-md-2"  style="line-height: 35px;">0</div>
-        <div class="col-md-1"  style="line-height: 35px;">0</div>
-        <div class="col-md-4">
-        <div class="servicesmanagementaction">
-		<a  style="display: none; href="{{servicesmanagement.recivefactorlink}}"><i class="fa fa-pencil h2title" aria-hidden="true"></i></a>
-		<a href="{{servicesmanagement.recivefactorlink}}"><i class="fa fa-usd h2title" aria-hidden="true"></i></a>
-		<a ng-click="expand(servicesmanagement)"><i class="fa h2title"  ng-class="{'fa-eye': !servicesmanagement.show_variables, 'fa-eye-slash': servicesmanagement.show_variables}" aria-hidden="true"></i></a>
-		<a  style="display: none; href="{{servicesmanagement.recivefactorlink}}"><i class="fa fa-cogs h2title" aria-hidden="true"></i></a>
-		<a ng-click="removeservicesmanagement(servicesmanagement)"><i class="fa fa-trash h2title" aria-hidden="true"></i></a>
-		</div>
-      </div>
-      </div>
-      </div>
- <div class="col-md-6 col-xs-12 textright">
-    <ul uib-pagination boundary-links="true" total-items="servicesmanagementstotalItems" ng-model="servicesmanagementscurrentPage" ng-change="servicesmanagementspageChanged()"  items-per-page="servicesmanagementsitemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
-</div> 
-
-<div class="col-md-6 col-xs-12 addservicesmanagement">
-					<button type="button" class="btn greenbtn fontmedium cursorpointer" data-toggle="modal" data-target="#ShowPopupaddexam"><span>اضافه نمودن خدمت جدید</span></button>
-</div>
-
-</div>
-
-
-
-<div ng-show="activeTabF=='tab4'" class="mymessagebox">
-            <div class="clearfix"></div>
-
-    <ul class="nav nav-tabs">
-        <li ng-class="{active: activeTab == 'inbox'}">
-            <a class="mymessageboxtab" ng-click="activeTab='inbox'">صندوق دریافت</a>
-        </li>
-        <li ng-class="{active: activeTab == 'sent'}">
-            <a class="mymessageboxtab" ng-click="activeTab='sent'">پیام های ارسال شده</a>
-        </li>     
-		<li ng-class="{active: activeTab == 'compose'}">
-            <a class="mymessageboxtab" ng-click="activeTab='compose'">ایجاد پیام</a>
-        </li>
-    </ul>    
-    <div class="mymessageboxdet col-md-12 col-xs-12">
-    <div ng-show="activeTab=='inbox'" class="">
-        <div ng-hide="isreceiveVisible">
-            <div class="emailrow" ng-repeat="email in emails" ng-click="showreceivemail(email)">
-                <span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
-                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ email.subject }}<br><span class="h6title fontlight">{{ email.from }}</span></span>
-                <span class="col-md-2 col-xs-2 emaildate textleft">{{ email.time }}<br>{{ email.date }}</span>
-            </div>
-        </div>
-		<div ng-show="isreceiveVisible">
-        <div class="modal-header">
-               <span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
-                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ selectedreceiveEmail.subject }}<br><span class="h6title fontlight">{{ selectedreceiveEmail.from }}</span></span>
-                <span class="col-md-2 col-xs-2 emaildate textleft">{{ selectedreceiveEmail.time }}<br>{{ selectedreceiveEmail.date }}</span>
-        </div>
-        <div class="modal-body">
-            {{selectedreceiveEmail.body}}
-        </div>
-        <div class="modal-footer">
-            <a class="btn removeemail darkgraybtn"  ng-click="removereceiveemail(selectedreceiveEmail)" ><i class="fa fa-trash-o" aria-hidden="true"></i> حذف</a>
-            <a class="btn replayemail greenbtn" ng-click="replayereceivemail(selectedreceiveEmail)">پاسخ به پیام</a>
-            <a class="btn backtomail bluebtn" ng-click="backtoreceivemail()">بازگشت    <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-        </div>
-    </div>
-    </div>
-
-    <div ng-show="activeTab=='sent'">
-	        <div ng-hide="issentVisible">
-	        <div class="emailrow" ng-repeat="email in sentEmails" ng-click="showsentmail(email)">
-                <span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
-                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ email.subject }}<br><span class="h6title fontlight">{{ email.to }}</span></span>
-                <span class="col-md-2 col-xs-2 emaildate textleft">{{ email.time }}<br>{{ email.date }}</span>
-            </div>
-    </div>
-			<div ng-show="issentVisible">
-        <div class="modal-header">
-               <span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
-                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ selectedsentEmail.subject }}<br><span class="h6title fontlight">{{ selectedsentEmail.to }}</span></span>
-                <span class="col-md-2 col-xs-2 emaildate textleft">{{ selectedsentEmail.time }}<br>{{ selectedsentEmail.date }}</span>
-        </div>
-        <div class="modal-body">
-            {{selectedsentEmail.body}}
-        </div>
-        <div class="attachfilereceive" >  
-        <a href="https://www.a.com" >  
-		<i class="fa fa-paperclip"></i>                    
-        <div class="filename"> 
-		TEXT.txt    
-		</div>
-		</a>
-				</div>
-
-        <div class="modal-footer">
-            <a class="btn removeemail darkgraybtn fontmedium"  ng-click="removesentmail(selectedsentEmail)" ><i class="fa fa-trash-o" aria-hidden="true"></i> حذف</a>
-            <a class="btn replayemail greenbtn fontmedium" ng-click="replayesentmail(selectedsentEmail)">پاسخ به پیام</a>
-            <a class="btn backtomail bluebtn fontmedium" ng-click="backtosentmail()">بازگشت    <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-		</div>
-    </div>
-    </div>
-    
-    
-    <div ng-show="activeTab=='compose'">
-        <div class="modal-header">
-		<span class="col-md-1 col-xs-3 composetitle graycolor h5title">
-  پیام به 
-		</span>	
-		<span class="col-md-11 col-xs-9 composeval">
-                <input type="text"
-                    ng-model="composeEmail.to"><br />
-		</span>
-			<span class="col-md-1 col-xs-3 composetitle graycolor h5title">
-  موضوع 
-		</span>	
-		<span class="col-md-11 col-xs-9 composeval">
-                <input type="text" 
-                    ng-model="composeEmail.subject"><br />
-		</span>
-
-		</div>
-<div class="modal-body" style="padding: 0;">       
-         <textarea class="composeEmailbody" rows="10" 
-                    ng-model="composeEmail.body"></textarea>
-        </div>
-<div class="modal-footer" style="margin: 0; text-align: right;">      
-      <a class="btn greenbtn" ng-click="sendEmail(attachmailfile)">ارسال</a>
-      <span ngf-select ng-model="attachmailfile" accept="image/*" ngf-max-size="5MB" class="attachmail"><i class="fa fa-paperclip" aria-hidden="true"></i></span> 
-	  <span style="padding-right: 45px;">{{attachmailfile.name}}</span>
-        </div>
-    </div>
-  </div>
-              <div class="clearfix"></div>
-
-</div>
-
-
-
-
-<div ng-show="activeTabF=='tab5'" class="myfinancialtransactions">
-            
-  <table class="table table-bordered transactionstable">
-    <thead>
-      <tr>
-        <th>  
-		<a ng-click="orderByField='transactionhistory'; reverseSort = !reverseSort">
-           تاریخ تراکنش <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactiontype'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactionhistory'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
-          </a></th>
-        <th>
-          <a ng-click="orderByField='transactiontype'; reverseSort = !reverseSort">
-            نوع تراکنش <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span>  <span ng-show="orderByField == 'transactionhistory'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactiontype'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
-          </a>
-        </th>
-        <th>شماره پیگیری</th>
-        <th>مبلغ (تومان)</th>
-        <th>موجودی (تومان)</th>
-        <th>دریافت فاکتور</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="transaction in mytransactions.slice(((mytransactionscurrentPage-1)*mytransactionsitemsPerPage), ((mytransactionscurrentPage)*mytransactionsitemsPerPage))|orderBy:orderByField:reverseSort">
-        <td>{{transaction.transactionhistory}}</td>
-        <td>{{transaction.transactiontype}}</td>
-        <td>{{transaction.issuetracking}}</td>
-        <td ng-class="{'greencolor': transaction.transactiontype == 'واریز',
-           'graycolor': transaction.transactiontype == 'واریز ناموفق',
-           'redcolor': transaction.transactiontype == 'پرداخت'}">{{transaction.transactionprice}}</td>
-        <td ng-class="{'greencolor': transaction.transactiontype == 'واریز',
-           'graycolor': transaction.transactiontype == 'واریز ناموفق'}">{{transaction.transactioncredit}}</td>
-        <td class="recivefactorlink"><a href="{{transaction.recivefactorlink}}"><i class="fa fa-download h2title" aria-hidden="true"></i></a></td>
-      </tr>
-    </tbody>
-  </table>
- <div class="col-md-6 col-xs-12 textright">
-    <ul uib-pagination boundary-links="true" total-items="mytransactionstotalItems" ng-model="mytransactionscurrentPage" ng-change="mytransactionspageChanged()"  items-per-page="mytransactionsitemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
-</div> 
-
-<div class="col-md-6 col-xs-12 mysetincreasecredit">
-					<button type="button" class="btn greenbtn fontmedium"><span>افزایش اعتبار</span></button>
-</div>
-
-</div>
-
-
-
-
-<div ng-show="activeTabF=='tab6'" class="mysetting">
-            <div class="clearfix"></div>
-            <div class="col-md-12 h4title graycolor">      
-			<md-checkbox ng-model="data.custom111" aria-label="Checkbox 1">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
-			</div>
-       <div class="clearfix"></div>
-            <div class="col-md-12 h4title graycolor">      
-			<md-checkbox ng-model="data.custom222" aria-label="Checkbox 1">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
-			</div>
-			       <div class="clearfix"></div>
-            <div class="col-md-12 h4title graycolor">      
-			<md-checkbox ng-model="data.custom333" aria-label="Checkbox 1">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
-			</div>
-						       <div class="clearfix"></div>
-							               <div class="col-md-10 h4title graycolor">      
-    شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی 
-</div>
-  							               <div class="col-md-2 mysettingswitch">      
- <md-switch md-invert ng-model="data.sw111" aria-label="Switch 1">
-  </md-switch>
-  </div>
-			       <div class="clearfix"></div>    
-				   <div class="col-md-10 h4title graycolor">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح </div>
-
-  							               <div class="col-md-2 mysettingswitch">      
- <md-switch md-invert ng-model="data.sw222" aria-label="Switch 2">
-  </md-switch>
-  </div>
-			       <div class="clearfix"></div>		
-				   <div class="col-md-10 h4title graycolor">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح </div>
-  							               <div class="col-md-2 mysettingswitch">      
- <md-switch md-invert ng-model="data.sw333" aria-label="Switch 3">
-  </md-switch>
-  </div>
-			       <div class="clearfix"></div>
-			       <div class="clearfix"></div>
-
-</div>
-
-
-        </div>
-
-
-									</div>
-									</div>
-
-		
-			
-			
-			
-			
-			
-			
-			
+              </div>
+
+            </div>
+
+          </div>
+
+          <div id="ShowPopupMembershipPackages" class="modal fade" role="dialog">
+
+            <div class="modal-dialog modal-lg">
+
+              <div class="modal-content">
+
+                <div class="modal-header">
+
+                  <span class="h1title bluecolor fontmedium">بسته های عضویت در سامانه </span>
+
+                </div>
+
+                <div class="modal-body">
+
+                  <div class="col-md-4" ng-repeat="package in membershippackages">
+
+                    <div class="col-md-12 membershippackage h4title graycolor">
+
+                      <div class="row one whitecolor textcenter" ng-class="{'active': package.status == 'active'}">
+
+                        <span class="fontbold h3title">{{package.name}}</span> <br><br>
+
+                        <span class="fontmedium">{{package.price}}</span> <span class="darkgraycolor fontmedium">/ هر ماه</span>
+
+                      </div>
+
+                      <div class="row two">
+
+                        <span class="darkgraycolor fontmedium">ارائه خدمات تا</span> <span class="gentlegraycolor fontmedium">{{package.serve1}}</span> <br><br>
+
+                        <span class="darkgraycolor fontmedium">دسترسی به</span> <span class="gentlegraycolor fontmedium">{{package.serve2}}</span> <br><br>
+
+                        <span class="darkgraycolor fontmedium">ارائه خدمات کارگذاری</span> <span class="gentlegraycolor fontmedium">{{package.serve3}}</span> <br><br>
+
+                        <span class="darkgraycolor fontmedium">ارائه خدمات تا</span> <span class="gentlegraycolor fontmedium">{{package.serve4}}</span> <br>
+
+                      </div>
+
+                      <div class="clearfix"></div>
+
+                      <button href="{{package.btnlink}}" type="button" class="btn darkgraybtn fontmedium" ng-class="{'greenbtn': package.status == 'active'}"><span>خرید این بسته</span></button>
+
+                      <div class="clearfix"></div>
+
+                    </div>
+
+
+
+
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="clearfix"></div>
+
+
+
+          <div class="clearfix"></div>
+
+
+          <!--
+<div class="col-md-8 col-xs-8 h4title graycolor onsmsdiv linehigh40 fontmedium">درخواست گزارشات تحلیلی<span class="onsmsprice">500,000 تومان </span></div>
+
+<div class="col-md-4 col-xs-4 h5title"><button type="button" class="btn increasecredit greenbtnreverse fontmedium" style="padding: 8px 26px;"><span>درخواست فعال سازی</span></button>
+
+</div>
+
+
+
+<div class="clearfix"></div>
+
+
+
+<div class="col-md-8 col-xs-8  h4title graycolor onsmsdiv linehigh40 fontmedium">تبلیغات مابین آگهی ها<span class="onsmsprice" style="
+
+    padding-right: 70px;
+
+">500,000 تومان </span></div>
+
+<div class="col-md-4 col-xs-4 h5title"><button type="button" class="btn increasecredit greenbtnreverse fontmedium"><span>درخواست تبلیغات</span></button>
+
+</div>
+
+
+ -->
+          <div class="clearfix"></div>
+
+
+
+          <div class="col-md-12 col-xs-12 profilebanner"><span>.:محــــل تبلیـــــغات:.</span></div>
+
+          <div class="clearfix"></div>
+
+
+
+        </div>
+
+        <div ng-show="activeTabF=='tab2'">
+
+          <div class="notificationrow graycolor {{item.newnotificationclass}}" ng-repeat="item in notificationdata.slice(((notificationcurrentPage-1)*notificationitemsPerPage), ((notificationcurrentPage)*notificationitemsPerPage))">
+
+            <div class="col-md-1 notificationicon">
+
+              <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+
+            </div>
+
+            <div class="col-md-11 nopaddingright notificationcontent">
+
+              <div ng-bind-html="item.description|trustAsHtml"></div>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-12 col-xs-12 paginationcenter" style="background: #E1E2E5;">
+
+            <ul uib-pagination boundary-links="true" total-items="notificationtotalItems" ng-model="notificationcurrentPage" ng-change="notificationpageChanged()" items-per-page="notificationitemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+              first-text="&laquo;" last-text="&raquo;"></ul>
+
+          </div>
+
+        </div>
+
+
+
+        <div ng-show="activeTabF=='tab2.5'">
+
+
+
+
+
+          <div class="col-md-12">
+
+            <div class="col-md-12 managingjobadsbox" style="
+    margin-top: 15px;
+">
+              <div class="row">
+
+
+
+                <div class="col-md-2 h5title graycolor" style="line-height: 28px;">
+
+                  دسته بندی بر اساس
+
+                </div>
+
+
+
+                <div class="col-md-3">
+
+                  <select style="    width: 100%;
+
+    border-color: #eaedf1;
+
+    border-radius: 2px;
+
+    background: #eaedf1;" ng-model="managingjobadsorderby">
+
+<option  ng-repeat="x in data"  value="-date">زمان درخواست</option>
+
+</select>
+
+                </div>
+
+              </div>
+
+              <div class="clearfix" style="padding: 10px 0;"></div>
+
+
+
+              <div class="row">
+
+                <div class="managingjobadsboxhead textcenter bluecolor">
+
+                  <div class="col-md-4 col-xs-4 fontmedium">افراد درخواست داده</div>
+
+                  <div class="col-md-2 col-xs-2 fontmedium">نوع درخواست</div>
+
+                  <div class="col-md-2 col-xs-2 fontmedium">وضعیت</div>
+
+                  <div class="col-md-4 col-xs-4 fontmedium">اقدام</div>
+
+                  <div class="clearfix" style="padding: 5px 0;"></div>
+
+                </div>
+
+
+
+                <div class="col-md-12 jobseekerrow" ng-repeat="jobseeker in jobseekers.slice(((jobseekerscurrentPage-1)*jobseekersitemsPerPage), ((jobseekerscurrentPage)*jobseekersitemsPerPage)) | filter : {tag: managingjobadsfilter}: false | orderBy:managingjobadsorderby" ">
+
+	<div class="row ">
+
+	<div class="col-md-4 col-xs-4 ">
+			<span class="jobseekerpicture col-md-3 "><img src="{{jobseeker.picture}} "/></span>
+
+			<span class="jobseekername bluecolor col-md-7 fontmedium ">{{jobseeker.name}}</span>
+
+			<span class="jobseekertag graycolor h5title col-md-7 ">{{jobseeker.tag}}</span>
+
+	</div>
+
+	<div class="col-md-2 col-xs-2 textcenter ">
+
+        <span class="jobseekerstatus bluecolor h5title col-md-12 fontmedium "> {{ jobseeker.reqtype }}</span>
+
+        <span class="jobseekerdate graycolor h6title col-md-12 "> {{ jobseeker.testtype }}</span>
+
+	</div>
+
+	<div class="col-md-2 col-xs-2 textcenter ">
+
+        <span  ng-class="{ 'greencolor': jobseeker.status=='پیام داده شد' } " class="jobseekerstatus bluecolor h5title col-md-12 fontmedium "> {{ jobseeker.status }}</span>
+
+        <span class="jobseekerdate graycolor h6title col-md-12 "> {{ jobseeker.date }}</span>
+
+	</div>
+
+<div class="col-md-4 col-xs-4 textcenter " style="padding-top: 7px; ">
+
+        <span class="jobseekersendmass graycolor h6title col-md-3 col-xs-3 " ng-click="gotomailpage(jobseeker) "> <i class="fa fa-envelope-o " aria-hidden="true "></i><br>هماهنگی</span>
+
+        <span ng-if="jobseeker.reqtype=='درخواست دوره' " class="jobseekerviewprofile graycolor h6title col-md-3 col-xs-3 " ng-click="downloadattach(jobseeker) "><i class="fa fa-paperclip " aria-hidden="true "></i> <br>مشاهده ضمیمه</span>
+        <span ng-if="jobseeker.reqtype !='درخواست دوره' " class="jobseekerviewprofile graycolor h6title col-md-3 col-xs-3 " ng-click="sendfactor(jobseeker) "><i class="fa fa-usd " aria-hidden="true "></i> <br>ارسال فاکتور</span>
+
+        <span class="jobseekerdownloadprofile graycolor h6title col-md-3 col-xs-3 " ng-click="taiid(jobseeker) "><i class="fa fa-check " aria-hidden="true "></i> <br>تایید</span>
+
+		<span class="jobseekerdownloadprofile graycolor h6title col-md-3 col-xs-3 " ng-click="adamtaiid(jobseeker) "><i class="fa fa-times " aria-hidden="true "></i> <br>عدم تایید</span>
+
+		</div>
+
+	</div>
+
+	</div>
+
+
+
+	</div>
+
+	</div>
+
+
+
+
+
+
+
+<div class="col-md-12 " style=" padding: 0; ">
+    <ul uib-pagination boundary-links="true " total-items="jobseekerstotalItems " ng-model="jobseekerscurrentPage " ng-change="jobseekerspageChanged() "  items-per-page="jobseekersitemsPerPage " class="pagination-sm " previous-text="&lsaquo;
+                  " next-text="&rsaquo; " first-text="&laquo; " last-text="&raquo; "></ul>
+
+</div>
+
+</div>
+
+<div id="ShowPopupTaiid " class="modal modal-md " role="dialog ">
+
+        <div class="modal-dialog ">
+
+        <div class="modal-content ">
+
+        <div class="modal-header ">
+
+            <button type="button " class="close " data-dismiss="modal " aria-hidden="true ">&times;</button>
+
+            <h3>تایید کارجو</h3>
+
+        </div>
+
+        <div class="modal-body ">
+
+            <strong>آپلود عکس:</strong>
+
+        <button ngf-select ng-model="personpicFile " accept="image/* ">
+
+           انتخاب عکس</button>
+
+        <div ngf-drop ng-model="personpicFile " ngf-pattern="image/* "
+
+             class="cropArea ">
+
+            <img-crop area-type="square "  image="personpicFile | ngfDataUrl "
+
+            result-image="croppedDataUrl "  ng-init="croppedDataUrl='' ">
+
+            </img-crop>
+
+        </div>
+
+
+        </div>
+
+        <div class="modal-footer ">
+
+            <a class="btn btn-primary " ng-click="saveperson(croppedDataUrl, personpicFile.name) ">ذخیره</a>
+
+            <a class="btn btn-primary " data-dismiss="modal " aria-hidden="true ">بستن</a>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+
+ <div ng-show="activeTabF=='tab3' ">
+
+
+<div id="ShowPopupaddexam " class="modal modal-md " role="dialog ">
+
+        <div class="modal-dialog ">
+
+        <div class="modal-content ">
+
+        <div class="modal-header ">
+
+            <button type="button " class="close " data-dismiss="modal " aria-hidden="true ">&times;</button>
+
+            <h3>اضافه کردن خدمت</h3>
+
+        </div>
+
+        <div class="modal-body ">
+
+					<div class="col-md-2 col-xs-12 ">
+
+																			<span class="titlefildsear h5title fontmedium "دسته خدمت</span>
+</div>
+						<div class="col-md-4 col-xs-12 ">
+    <select class="h5title fontlight " ng-model="dastekhedmatselected" ng-options="category for category in CategoryExam "></select>
+</div>
+						<div class="col-md-2 col-xs-12 " ng-show="dastekhedmatselected">
+
+																		    <span class="titlefildsear h5title fontmedium ">نام خدمت</span>
+
+	</div>
+
+
+							<div class="col-md-4 col-xs-12 " ng-show="dastekhedmatselected">
+
+		  <select class="h5title fontlight " ng-model="namekhedmatselected">
+
+<option ng-repeat="x in getexamnameid | filter: dastekhedmatselected" value="{{x.id}} ">{{x.name}}</option>
+<option ng-repeat="x in getsuitabilitynameid | filter: dastekhedmatselected" value="{{x.id}} ">{{x.name}}</option>
+
+
+</select>
+
+								</div>
+
+								<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+
+																						<span class="titlefildsear h5title fontmedium ">آپلود عکس</span>
+
+			</div>
+
+
+									<div class="col-md-4 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+
+
+										</div>
+
+
+								<div class="col-md-2 col-xs-12 ">
+
+																		    <span class="titlefildsear h5title fontmedium ">قیمت خدمت</span>
+
+	</div>
+
+
+						<div class="col-md-4 col-xs-12 exfildsearcthe " style="padding-right: 10px; ">
+							<input class="form-control " type="text " size="100 "  ng-model="pricekhedmatselected "></input>
+								</div>
+
+
+								<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+																						<span class="titlefildsear h5title fontmedium ">واحد زمان</span>
+								</div>
+
+
+									<div class="col-md-4 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+										<select class="h5title fontlight " ng-model="vahedzaman">
+
+							<option ng-repeat="x in getvahedzaman" value="{{x.enname}} ">{{x.faname}}</option>
+
+							</select>
+										</div>
+
+
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+
+																						<span class="titlefildsear h5title fontmedium ">مدت زمان</span>
+
+			</div>
+
+
+								<div class="col-md-4 col-xs-12 exfildsearcthe " style="padding-right: 10px; " ng-hide="dastekhedmatselected == 'شایستگی' ">
+									<input class="form-control " type="text " size="100 "  ng-model="modatzaman "></input>
+										</div>
+
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+
+																						<span class="titlefildsear h5title fontmedium ">آپلود نمونه</span>
+
+			</div>
+
+
+								<div class="col-md-4 col-xs-12 exfildsearcthe " style="padding-right: 10px; " ng-hide="dastekhedmatselected == 'شایستگی' ">
+									<input class="form-control " type="text " size="100 "  ng-model="modatzaman "></input>
+										</div>
+
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+
+																						<span class="titlefildsear h5title fontmedium ">لینک اتصال</span>
+
+			</div>
+
+
+								<div class="col-md-4 col-xs-12 exfildsearcthe " style="padding-right: 10px; " ng-hide="dastekhedmatselected == 'شایستگی' ">
+									<input class="form-control " type="text " size="100 "  ng-model="linketesal "></input>
+										</div>
+
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+
+																						<span class="titlefildsear h5title fontmedium ">توضیحات</span>
+
+			</div>
+
+
+								<div class="col-md-4 col-xs-12 exfildsearcthe " style="padding-right: 10px; " ng-hide="dastekhedmatselected == 'شایستگی' ">
+									<textarea class="form-control " type="text " rows="5" cols="50" ng-model="tozihat "></textarea>
+										</div>
+
+
+        </div>
+<div class="clearfix "></div>
+        <div class="modal-footer ">
+
+            <a class="btn btn-primary " ng-click="savekhdmat() ">اضافه کردن خدمت</a>
+
+            <a class="btn btn-primary " data-dismiss="modal " aria-hidden="true ">بستن</a>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    </div>
+
+
+
+    <div class="col-md-12 servicesmanagementheader textcenter bluecolor ">
+
+        <div class="col-md-3 textright ">
+
+		<a ng-click="orderByField='name' ; reverseSort=! reverseSort ">
+
+           نام خدمت <span ng-if="!orderByField "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='marketshare' "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='name'
+                  "><span ng-show="!reverseSort "><i class="fa fa-caret-up " aria-hidden="true "></i></span><span ng-show="reverseSort "><i class="fa fa-caret-down " aria-hidden="true "></i></span></span>
+
+          </a>
+
+		</div>
+
+        <div class="col-md-2 bluecolor ">
+
+          <a ng-click="orderByField='marketshare' ; reverseSort=! reverseSort ">
+
+            سهم بازار <span ng-if="!orderByField "><i class="fa fa-sort " aria-hidden="true "></i></span>  <span ng-show="orderByField=='name' "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='marketshare'
+                  "><span ng-show="!reverseSort "><i class="fa fa-caret-up " aria-hidden="true "></i></span><span ng-show="reverseSort "><i class="fa fa-caret-down " aria-hidden="true "></i></span></span>
+
+          </a>
+
+        </div>
+
+        <div class="col-md-2 ">کارفرمایان</div>
+
+        <div class="col-md-1 ">کارجویان</div>
+
+        <div class="col-md-4 ">اقدام</div>
+
+    </div>
+
+      <div class="col-md-12 textcenter bluecolor "  ng-repeat="servicesmanagement in servicesmanagements.slice(((servicesmanagementscurrentPage-1)*servicesmanagementsitemsPerPage), ((servicesmanagementscurrentPage)*servicesmanagementsitemsPerPage))|orderBy:orderByField:reverseSort ">
+
+        <div class="col-md-12 servicesmanagementrow ">
+
+        <div class="col-md-3 textright " style="line-height: 35px; "><i  ng-class="{ 'circlebtngreen': servicesmanagement.condition=='صعودی' , 'circlebtnred': servicesmanagement.condition=='نزولی' } " aria-hidden="true "></i>{{servicesmanagement.exam.name}}</div>
+
+		<div class="col-md-2 "  style="line-height: 35px; ">0 % <i  ng-class="{ 'fa-sort-asc greencolor': servicesmanagement.condition=='صعودی' , 'fa-sort-desc redcolor': servicesmanagement.condition=='نزولی' } " class="fa " aria-hidden="true "></i></div>
+
+        <div class="col-md-2 "  style="line-height: 35px; ">0</div>
+
+        <div class="col-md-1 "  style="line-height: 35px; ">0</div>
+
+        <div class="col-md-4 ">
+
+        <div class="servicesmanagementaction ">
+
+		<a  style="display: none; href="{{servicesmanagement.recivefactorlink}}"><i class="fa fa-pencil h2title" aria-hidden="true"></i></a>
+
+                  <a href="{{servicesmanagement.recivefactorlink}}"><i class="fa fa-usd h2title" aria-hidden="true"></i></a>
+
+                  <a ng-click="expand(servicesmanagement)"><i class="fa h2title"  ng-class="{'fa-eye': !servicesmanagement.show_variables, 'fa-eye-slash': servicesmanagement.show_variables}" aria-hidden="true"></i></a>
+
+                  <a style="display: none; href=" {{servicesmanagement.recivefactorlink}} "><i class="fa fa-cogs h2title " aria-hidden="true "></i></a>
+
+		<a ng-click="removeservicesmanagement(servicesmanagement) "><i class="fa fa-trash h2title " aria-hidden="true "></i></a>
+
+		</div>
+
+      </div>
+
+      </div>
+
+      </div>
+
+ <div class="col-md-6 col-xs-12 textright ">
+
+    <ul uib-pagination boundary-links="true " total-items="servicesmanagementstotalItems " ng-model="servicesmanagementscurrentPage " ng-change="servicesmanagementspageChanged() "  items-per-page="servicesmanagementsitemsPerPage " class="pagination-sm
+                    " previous-text="&lsaquo; " next-text="&rsaquo; " first-text="&laquo; " last-text="&raquo; "></ul>
+
+</div>
+
+
+
+<div class="col-md-6 col-xs-12 addservicesmanagement ">
+
+					<button type="button " class="btn greenbtn fontmedium cursorpointer " data-toggle="modal " data-target="#ShowPopupaddexam "><span>اضافه نمودن خدمت جدید</span></button>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div ng-show="activeTabF=='tab4' " class="mymessagebox ">
+
+            <div class="clearfix "></div>
+
+
+
+    <ul class="nav nav-tabs ">
+
+        <li ng-class="{active: activeTab=='inbox' } ">
+
+            <a class="mymessageboxtab " ng-click="activeTab='inbox' ">صندوق دریافت</a>
+
+        </li>
+
+        <li ng-class="{active: activeTab=='sent' } ">
+
+            <a class="mymessageboxtab " ng-click="activeTab='sent' ">پیام های ارسال شده</a>
+
+        </li>
+
+		<li ng-class="{active: activeTab=='compose' } ">
+
+            <a class="mymessageboxtab " ng-click="activeTab='compose' ">ایجاد پیام</a>
+
+        </li>
+
+    </ul>
+
+    <div class="mymessageboxdet col-md-12 col-xs-12 ">
+
+    <div ng-show="activeTab=='inbox' " class=" ">
+
+        <div ng-hide="isreceiveVisible ">
+
+            <div class="emailrow " ng-repeat="email in emails " ng-click="showreceivemail(email) ">
+
+                <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
+
+                <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ email.subject }}<br><span class="h6title fontlight ">{{ email.from }}</span></span>
+
+                <span class="col-md-2 col-xs-2 emaildate textleft ">{{ email.time }}<br>{{ email.date }}</span>
+
+            </div>
+
+        </div>
+
+		<div ng-show="isreceiveVisible ">
+
+        <div class="modal-header ">
+
+               <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
+
+                <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ selectedreceiveEmail.subject }}<br><span class="h6title fontlight ">{{ selectedreceiveEmail.from }}</span></span>
+
+                <span class="col-md-2 col-xs-2 emaildate textleft ">{{ selectedreceiveEmail.time }}<br>{{ selectedreceiveEmail.date }}</span>
+
+        </div>
+
+        <div class="modal-body ">
+
+            {{selectedreceiveEmail.body}}
+
+        </div>
+
+        <div class="modal-footer ">
+
+            <a class="btn removeemail darkgraybtn "  ng-click="removereceiveemail(selectedreceiveEmail) " ><i class="fa fa-trash-o " aria-hidden="true "></i> حذف</a>
+
+            <a class="btn replayemail greenbtn " ng-click="replayereceivemail(selectedreceiveEmail) ">پاسخ به پیام</a>
+
+            <a class="btn backtomail bluebtn " ng-click="backtoreceivemail() ">بازگشت    <i class="fa fa-angle-double-left " aria-hidden="true "></i></a>
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+    <div ng-show="activeTab=='sent' ">
+
+	        <div ng-hide="issentVisible ">
+
+	        <div class="emailrow " ng-repeat="email in sentEmails " ng-click="showsentmail(email) ">
+
+                <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
+
+                <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ email.subject }}<br><span class="h6title fontlight ">{{ email.to }}</span></span>
+
+                <span class="col-md-2 col-xs-2 emaildate textleft ">{{ email.time }}<br>{{ email.date }}</span>
+
+            </div>
+
+    </div>
+
+			<div ng-show="issentVisible ">
+
+        <div class="modal-header ">
+
+               <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
+
+                <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ selectedsentEmail.subject }}<br><span class="h6title fontlight ">{{ selectedsentEmail.to }}</span></span>
+
+                <span class="col-md-2 col-xs-2 emaildate textleft ">{{ selectedsentEmail.time }}<br>{{ selectedsentEmail.date }}</span>
+
+        </div>
+
+        <div class="modal-body ">
+
+            {{selectedsentEmail.body}}
+
+        </div>
+
+        <div class="attachfilereceive " >
+
+        <a href="https://www.a.com " >
+
+		<i class="fa fa-paperclip "></i>
+
+        <div class="filename ">
+
+		TEXT.txt
+
+		</div>
+
+		</a>
+
+				</div>
+
+
+
+        <div class="modal-footer ">
+
+            <a class="btn removeemail darkgraybtn fontmedium "  ng-click="removesentmail(selectedsentEmail) " ><i class="fa fa-trash-o " aria-hidden="true "></i> حذف</a>
+
+            <a class="btn replayemail greenbtn fontmedium " ng-click="replayesentmail(selectedsentEmail) ">پاسخ به پیام</a>
+
+            <a class="btn backtomail bluebtn fontmedium " ng-click="backtosentmail() ">بازگشت    <i class="fa fa-angle-double-left " aria-hidden="true "></i></a>
+
+		</div>
+
+    </div>
+
+    </div>
+
+
+
+
+
+    <div ng-show="activeTab=='compose' ">
+
+        <div class="modal-header ">
+
+		<span class="col-md-1 col-xs-3 composetitle graycolor h5title ">
+
+  پیام به
+
+		</span>
+
+		<span class="col-md-11 col-xs-9 composeval ">
+
+                <input type="text "
+
+                    ng-model="composeEmail.to "><br />
+
+		</span>
+
+			<span class="col-md-1 col-xs-3 composetitle graycolor h5title ">
+
+  موضوع
+
+		</span>
+
+		<span class="col-md-11 col-xs-9 composeval ">
+
+                <input type="text "
+
+                    ng-model="composeEmail.subject "><br />
+
+		</span>
+
+
+
+		</div>
+
+<div class="modal-body " style="padding: 0; ">
+
+         <textarea class="composeEmailbody " rows="10 "
+
+                    ng-model="composeEmail.body "></textarea>
+
+        </div>
+
+<div class="modal-footer " style="margin: 0; text-align: right; ">
+
+      <a class="btn greenbtn " ng-click="sendEmail(attachmailfile) ">ارسال</a>
+
+      <span ngf-select ng-model="attachmailfile " accept="image/* " ngf-max-size="5MB " class="attachmail "><i class="fa fa-paperclip " aria-hidden="true "></i></span>
+
+	  <span style="padding-right: 45px; ">{{attachmailfile.name}}</span>
+
+        </div>
+
+    </div>
+
+  </div>
+
+              <div class="clearfix "></div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div ng-show="activeTabF=='tab5' " class="myfinancialtransactions ">
+
+
+
+  <table class="table table-bordered transactionstable ">
+
+    <thead>
+
+      <tr>
+
+        <th>
+
+		<a ng-click="orderByField='transactionhistory' ; reverseSort=! reverseSort ">
+
+           تاریخ تراکنش <span ng-if="!orderByField "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='transactiontype' "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='transactionhistory'
+                    "><span ng-show="!reverseSort "><i class="fa fa-caret-up " aria-hidden="true "></i></span><span ng-show="reverseSort "><i class="fa fa-caret-down " aria-hidden="true "></i></span></span>
+
+          </a></th>
+
+        <th>
+
+          <a ng-click="orderByField='transactiontype' ; reverseSort=! reverseSort ">
+
+            نوع تراکنش <span ng-if="!orderByField "><i class="fa fa-sort " aria-hidden="true "></i></span>  <span ng-show="orderByField=='transactionhistory' "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='transactiontype'
+                    "><span ng-show="!reverseSort "><i class="fa fa-caret-up " aria-hidden="true "></i></span><span ng-show="reverseSort "><i class="fa fa-caret-down " aria-hidden="true "></i></span></span>
+
+          </a>
+
+        </th>
+
+        <th>شماره پیگیری</th>
+
+        <th>مبلغ (تومان)</th>
+
+        <th>موجودی (تومان)</th>
+
+        <th>دریافت فاکتور</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr ng-repeat="transaction in mytransactions.slice(((mytransactionscurrentPage-1)*mytransactionsitemsPerPage), ((mytransactionscurrentPage)*mytransactionsitemsPerPage))|orderBy:orderByField:reverseSort ">
+
+        <td>{{transaction.transactionhistory}}</td>
+
+        <td>{{transaction.transactiontype}}</td>
+
+        <td>{{transaction.issuetracking}}</td>
+
+        <td ng-class="{ 'greencolor': transaction.transactiontype=='واریز' , 'graycolor': transaction.transactiontype=='واریز ناموفق' , 'redcolor': transaction.transactiontype=='پرداخت' } ">{{transaction.transactionprice}}</td>
+
+        <td ng-class="{ 'greencolor': transaction.transactiontype=='واریز' , 'graycolor': transaction.transactiontype=='واریز ناموفق' } ">{{transaction.transactioncredit}}</td>
+
+        <td class="recivefactorlink "><a href="{{transaction.recivefactorlink}} "><i class="fa fa-download h2title " aria-hidden="true "></i></a></td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+ <div class="col-md-6 col-xs-12 textright ">
+
+    <ul uib-pagination boundary-links="true " total-items="mytransactionstotalItems " ng-model="mytransactionscurrentPage " ng-change="mytransactionspageChanged() "  items-per-page="mytransactionsitemsPerPage " class="pagination-sm " previous-text="&lsaquo;
+                    " next-text="&rsaquo; " first-text="&laquo; " last-text="&raquo; "></ul>
+
+</div>
+
+
+
+<div class="col-md-6 col-xs-12 mysetincreasecredit ">
+
+					<button type="button " class="btn greenbtn fontmedium "><span>افزایش اعتبار</span></button>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div ng-show="activeTabF=='tab6' " class="mysetting ">
+
+            <div class="clearfix "></div>
+
+            <div class="col-md-12 h4title graycolor ">
+
+			<md-checkbox ng-model="data.custom111 " aria-label="Checkbox 1 ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
+
+			</div>
+
+       <div class="clearfix "></div>
+
+            <div class="col-md-12 h4title graycolor ">
+
+			<md-checkbox ng-model="data.custom222 " aria-label="Checkbox 1 ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
+
+			</div>
+
+			       <div class="clearfix "></div>
+
+            <div class="col-md-12 h4title graycolor ">
+
+			<md-checkbox ng-model="data.custom333 " aria-label="Checkbox 1 ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
+
+			</div>
+
+						       <div class="clearfix "></div>
+
+							               <div class="col-md-10 h4title graycolor ">
+
+    شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی
+
+</div>
+
+  							               <div class="col-md-2 mysettingswitch ">
+
+ <md-switch md-invert ng-model="data.sw111 " aria-label="Switch 1 ">
+
+  </md-switch>
+
+  </div>
+
+			       <div class="clearfix "></div>
+
+				   <div class="col-md-10 h4title graycolor ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح </div>
+
+
+
+  							               <div class="col-md-2 mysettingswitch ">
+
+ <md-switch md-invert ng-model="data.sw222 " aria-label="Switch 2 ">
+
+  </md-switch>
+
+  </div>
+
+			       <div class="clearfix "></div>
+
+				   <div class="col-md-10 h4title graycolor ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح </div>
+
+  							               <div class="col-md-2 mysettingswitch ">
+
+ <md-switch md-invert ng-model="data.sw333 " aria-label="Switch 3 ">
+
+  </md-switch>
+
+  </div>
+
+			       <div class="clearfix "></div>
+
+			       <div class="clearfix "></div>
+
+
+
+</div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+									</div>
+
+									</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			</div>

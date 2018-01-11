@@ -1282,6 +1282,9 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 				if (response.data.testimonials.length == 0) {
 					$scope.ShowTextNewComment = true
 				}
+				if (response.data.testimonials.length > 0) {
+					$scope.ShowTextNewComment = false
+				}
     });
   }
 
@@ -1327,6 +1330,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 				$scope.namecommentmodal = null;
 				$scope.commenttextmodal = null;
 			  $scope.ratecommentmodal = null;
+				alert("نظر شما با موفیقت ثبت شد.این نظر پس از تایید توسط ادمین نمایش داده میشود.")
 
 		});
 
