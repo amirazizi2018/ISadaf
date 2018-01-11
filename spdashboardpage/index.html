@@ -440,7 +440,7 @@
 
                 <span ng-class="{'greencolor': package.packagestatus == 'فعال'}">{{package.packagestatus}}</span> |
 
-                <span>{{package.timee | jalaliDatewill}}</span>
+                <span>{{package.timee | jalaliDatewill}} روز باقیمانده</span>
 
                 <!-- <a href="" class="fontbold h5title" style="float: left;" data-toggle="modal"
 data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
@@ -811,7 +811,7 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 								</div>
 
-								<div class="col-md-2 col-xs-12 ">
+								<div class="col-md-2 col-xs-12 " >
 
 																	    <span class="titlefildsear h5title fontmedium ">قیمت خدمت</span>
 
@@ -823,12 +823,12 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 								</div>
 
 
-								<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+								<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' || dastekhedmatselected == 'رزومه' ">
 																						<span class="titlefildsear h5title fontmedium ">واحد زمان</span>
 								</div>
 
 
-									<div class="col-md-4 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+									<div class="col-md-4 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' || dastekhedmatselected == 'رزومه' ">
 										<select class="h5title fontlight"   ng-model="vahedzaman">
 
 							<option ng-repeat="x in getvahedzaman" value="{{x.enname}} ">{{x.faname}}</option>
@@ -837,14 +837,14 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 										</div>
 
 
-										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' || dastekhedmatselected == 'رزومه' ">
 
 																						<span class="titlefildsear h5title fontmedium ">مدت زمان</span>
 
 			</div>
 
 
-								<div class="col-md-4 col-xs-12 exfildsearcthe" ng-hide="dastekhedmatselected == 'شایستگی' ">
+								<div class="col-md-4 col-xs-12 exfildsearcthe" ng-hide="dastekhedmatselected == 'شایستگی' || dastekhedmatselected == 'رزومه' ">
 									<input class="form-control " type="text " size="100 " ng-model="modatzaman "></input>
 										</div>
 
