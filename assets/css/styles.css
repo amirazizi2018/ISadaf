@@ -5016,3 +5016,7 @@ top: 0;
   color:  #fff;
   font-size: 30px;
 }
+
+#ShowPopupaddexam select {
+    border-color: #ccc;
+}
