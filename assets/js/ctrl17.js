@@ -877,7 +877,8 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
    */
 
   $scope.CategoryExam = ["رزومه", "روانشناختی", "مهارتی", "شایستگی"];
-  $scope.getvahedzaman = [{
+  $scope.getvahedzaman = [
+    {
       "faname": "دقیقه",
       "enname": "min",
     },
@@ -911,9 +912,9 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
 
   $scope.savekhdmat = function() {
-    var data;
-    var getfileformat = samplekhedmat.name.split('.').pop());
-  var getfilebase64 = Upload.base64DataUrl($scope.samplekhedmat);
+  //   var data;
+  //   var getfileformat = samplekhedmat.name.split('.').pop());
+  // var getfilebase64 = Upload.base64DataUrl($scope.samplekhedmat);
   // getfilebase64.then(function(value) {
   //   var config = {
   //
