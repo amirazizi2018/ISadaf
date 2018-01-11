@@ -930,7 +930,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
     if ($scope.dastekhedmatselected == "رزومه") {
 
       var data = {
-        exam_id: 10,
+        exam_id: "10",
         price: parseInt($scope.pricekhedmatselected),
         file : value.split(',')[1],
         file_format : getfileformat,
@@ -952,7 +952,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
     if ($scope.dastekhedmatselected == "شایستگی") {
 
       var data = {
-        exam_id: parseInt($scope.namekhedmatselected),
+        id: parseInt($scope.namekhedmatselected),
         price: parseInt($scope.pricekhedmatselected),
         };
 
@@ -977,7 +977,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
       }
 
       var data = {
-        exam_id: parseInt($scope.namekhedmatselected),
+        exam_id: $scope.namekhedmatselected,
         price: parseInt($scope.pricekhedmatselected),
         duration : parseInt(finalduration),
         file : value.split(',')[1],
