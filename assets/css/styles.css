@@ -5020,3 +5020,7 @@ top: 0;
 #ShowPopupaddexam select {
     border-color: #ccc;
 }
+
+#ShowPopupaddexam textarea {
+resize: none;
+}
