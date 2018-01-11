@@ -792,14 +792,14 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 						<div class="col-md-4 col-xs-12 ">
     <select class="h5title fontlight " ng-model="dastekhedmatselected" ng-options="category for category in CategoryExam "></select>
 </div>
-						<div class="col-md-2 col-xs-12 " ng-show="dastekhedmatselected">
+						<div class="col-md-2 col-xs-12 " ng-show="dastekhedmatselected" ng-hide="dastekhedmatselected == 'رزومه' ">
 
 																		    <span class="titlefildsear h5title fontmedium">نوع خدمت</span>
 
 	</div>
 
 
-							<div class="col-md-4 col-xs-12 " ng-show="dastekhedmatselected">
+							<div class="col-md-4 col-xs-12 " ng-show="dastekhedmatselected" ng-hide="dastekhedmatselected == 'رزومه' ">
 
 		  <select class="h5title fontlight " ng-model="namekhedmatselected">
 
@@ -813,20 +813,7 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 								<div class="col-md-2 col-xs-12 ">
 
-																						<span ng-hide="dastekhedmatselected == 'شایستگی' " class="titlefildsear h5title fontmedium ">آپلود عکس</span>
-
-			</div>
-
-
-									<div class="col-md-4 col-xs-12 ">
-
-
-										</div>
-
-
-								<div class="col-md-2 col-xs-12 ">
-
-																		    <span class="titlefildsear h5title fontmedium ">قیمت خدمت</span>
+																	    <span class="titlefildsear h5title fontmedium ">قیمت خدمت</span>
 
 	</div>
 
@@ -836,13 +823,13 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 								</div>
 
 
-								<div class="col-md-2 col-xs-12 ">
-																						<span ng-hide="dastekhedmatselected == 'شایستگی' " class="titlefildsear h5title fontmedium ">واحد زمان</span>
+								<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+																						<span class="titlefildsear h5title fontmedium ">واحد زمان</span>
 								</div>
 
 
-									<div class="col-md-4 col-xs-12 ">
-										<select class="h5title fontlight " ng-hide="dastekhedmatselected == 'شایستگی' "  ng-model="vahedzaman">
+									<div class="col-md-4 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+										<select class="h5title fontlight"   ng-model="vahedzaman">
 
 							<option ng-repeat="x in getvahedzaman" value="{{x.enname}} ">{{x.faname}}</option>
 
@@ -850,47 +837,47 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 										</div>
 
 
-										<div class="col-md-2 col-xs-12 ">
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
 
-																						<span ng-hide="dastekhedmatselected == 'شایستگی' " class="titlefildsear h5title fontmedium ">مدت زمان</span>
+																						<span class="titlefildsear h5title fontmedium ">مدت زمان</span>
 
 			</div>
 
 
-								<div class="col-md-4 col-xs-12 exfildsearcthe">
-									<input class="form-control " type="text " size="100 " ng-hide="dastekhedmatselected == 'شایستگی' " ng-model="modatzaman "></input>
+								<div class="col-md-4 col-xs-12 exfildsearcthe" ng-hide="dastekhedmatselected == 'شایستگی' ">
+									<input class="form-control " type="text " size="100 " ng-model="modatzaman "></input>
 										</div>
 
-										<div class="col-md-2 col-xs-12 ">
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' " >
 
-																						<span ng-hide="dastekhedmatselected == 'شایستگی' " class="titlefildsear h5title fontmedium ">آپلود نمونه</span>
+																						<span class="titlefildsear h5title fontmedium ">آپلود نمونه</span>
 
 			</div>
 
 
-								<div class="col-md-4 col-xs-12 exfildsearcthe ">
+								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected == 'شایستگی' ">
 										</div>
 
-										<div class="col-md-2 col-xs-12 ">
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
 
-																						<span ng-hide="dastekhedmatselected == 'شایستگی' " class="titlefildsear h5title fontmedium ">لینک اتصال</span>
+																						<span class="titlefildsear h5title fontmedium ">لینک اتصال</span>
 
 			</div>
 
 
-								<div class="col-md-4 col-xs-12 exfildsearcthe ">
-									<input class="form-control " type="text " size="100 " ng-hide="dastekhedmatselected == 'شایستگی' " ng-model="linketesal "></input>
+								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected == 'شایستگی' ">
+									<input class="form-control " type="text " size="100 " ng-model="linketesal "></input>
 										</div>
 
-										<div class="col-md-2 col-xs-12 ">
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
 
-																						<span ng-hide="dastekhedmatselected == 'شایستگی' " class="titlefildsear h5title fontmedium ">توضیحات</span>
+																						<span  class="titlefildsear h5title fontmedium ">توضیحات</span>
 
 			</div>
 
 
-								<div class="col-md-4 col-xs-12 exfildsearcthe ">
-									<textarea ng-hide="dastekhedmatselected == 'شایستگی' " class="form-control " type="text " rows="5" cols="50" ng-model="tozihat "></textarea>
+								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected == 'شایستگی' ">
+									<textarea class="form-control " type="text " rows="5" cols="50" ng-model="tozihat "></textarea>
 										</div>
 
 

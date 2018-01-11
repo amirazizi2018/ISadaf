@@ -716,13 +716,12 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
   $scope.packagesstatus = [
 
     {
-      packagename: 'بسته یکماهه ارائه خدمات کارگزاری سامانه صدف',
+      packagename: 'بسته شیش ماهه ارائه خدمات کارگزاری سامانه صدف',
       packagestatus: 'فعال',
-      timee: 'Thu, 11 Jan 2018 12:43:03 GMT',
+      timee: 'Wed, 11 Jul 2018 12:43:03 GMT',
     },
 
   ];
-
 
 
 
