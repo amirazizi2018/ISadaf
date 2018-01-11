@@ -876,30 +876,29 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
    */
 
-  $scope.CategoryExam = ["رزومه", "روانشناختی", "مهارتی", "شایستگی"];
-  $scope.getvahedzaman = [
-    {
-      "faname": "دقیقه",
-      "enname": "min",
-    },
-    {
-      "faname": "ساعت",
-      "enname": "hur",
-    },
-  ];
-
-  $scope.dastekhedmatselected = "رزومه";
-
-
-  $http.get(mustafasite + '/exam').then(function(response) {
-    $scope.getexamnameid = response.data.exams;
-  });
-
-  $http.get(mustafasite + '/suitability/package').then(function(response) {
-    $scope.getsuitabilitynameid = response.data.packages;
-  });
-
-
+  // $scope.CategoryExam = ["رزومه", "روانشناختی", "مهارتی", "شایستگی"];
+  // $scope.getvahedzaman = [{
+  //     "faname": "دقیقه",
+  //     "enname": "min",
+  //   },
+  //   {
+  //     "faname": "ساعت",
+  //     "enname": "hur",
+  //   },
+  // ];
+  //
+  // $scope.dastekhedmatselected = "رزومه";
+  //
+  //
+  // $http.get(mustafasite + '/exam').then(function(response) {
+  //   $scope.getexamnameid = response.data.exams;
+  // });
+  //
+  // $http.get(mustafasite + '/suitability/package').then(function(response) {
+  //   $scope.getsuitabilitynameid = response.data.packages;
+  // });
+  //
+  //
   // $scope.chengedastekhedmat = function() {
   //   if ($scope.dastekhedmatselected == "مهارتی") {
   //     $scope.vahedzaman = "hur";
@@ -912,95 +911,95 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
 
   $scope.savekhdmat = function() {
-  //   var data;
-  //   var getfileformat = samplekhedmat.name.split('.').pop());
-  // var getfilebase64 = Upload.base64DataUrl($scope.samplekhedmat);
-  // getfilebase64.then(function(value) {
-  //   var config = {
-  //
-  //     headers: {
-  //
-  //       'Content-Type': 'application/json',
-  //
-  //       'Access-Token': $localStorage.TokenKey.access,
-  //
-  //     }
-  //
-  //   }
-  //
-  //   if ($scope.dastekhedmatselected == "رزومه") {
-  //
-  //     var data = {
-  //       exam_id: 10,
-  //       price: parseInt($scope.pricekhedmatselected),
-  //       file : value,
-  //       file_format : getfileformat,
-  //       url : $scope.linketesal,
-  //       description : $scope.tozihat,
-  //       resume_available : true,
-  //     };
-  //
-  //     $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {
-  //
-  //       $scope.linketesal = "";
-  //       $scope.tozihat = "";
-  //       $scope.pricekhedmatselected = "";
-  //       $("#ShowPopupaddexam").modal('hide');
-  //       $scope.getaliispset();
-  //
-  //     });
-  //   }
-  //
-  //   if ($scope.dastekhedmatselected == "شایستگی") {
-  //
-  //     var data = {
-  //       exam_id: parseInt($scope.namekhedmatselected),
-  //       price: parseInt($scope.pricekhedmatselected),
-  //       };
-  //
-  //       $http.post(mustafasite + '/service_provider/package', JSON.stringify(data), config).then(function(response) {
-  //
-  //         $scope.namekhedmatselected = "";
-  //         $scope.pricekhedmatselected = "";
-  //         $("#ShowPopupaddexam").modal('hide');
-  //
-  //       });
-  //
-  //   }
-  //   if ($scope.dastekhedmatselected == "مهارتی" || $scope.dastekhedmatselected == "روانشناختی") {
-  //
-  //     var finalduration;
-  //
-  //     if($scope.vahedzaman == "min"){
-  //       finalduration = $scope.modatzaman;
-  //     }
-  //     if($scope.vahedzaman == "hur"){
-  //       finalduration = $scope.modatzaman*60;
-  //     }
-  //
-  //     var data = {
-  //       exam_id: parseInt($scope.namekhedmatselected),
-  //       price: parseInt($scope.pricekhedmatselected),
-  //       duration : parseInt(finalduration),
-  //       file : value,
-  //       file_format : getfileformat,
-  //       url : $scope.linketesal,
-  //       description : $scope.tozihat,
-  //     };
-  //
-  //     $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {
-  //
-  //       $scope.linketesal = "";
-  //       $scope.tozihat = "";
-  //       $scope.namekhedmatselected = "";
-  //       $scope.pricekhedmatselected = "";
-  //       $("#ShowPopupaddexam").modal('hide');
-  //       $scope.getaliispset();
-  //
-  //     });
-  //   }
-  //
-  // });
+    var data;
+    var getfileformat = samplekhedmat.name.split('.').pop());
+  var getfilebase64 = Upload.base64DataUrl($scope.samplekhedmat);
+  getfilebase64.then(function(value) {
+    var config = {
+
+      headers: {
+
+        'Content-Type': 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+    if ($scope.dastekhedmatselected == "رزومه") {
+
+      var data = {
+        exam_id: 10,
+        price: parseInt($scope.pricekhedmatselected),
+        file : value,
+        file_format : getfileformat,
+        url : $scope.linketesal,
+        description : $scope.tozihat,
+        resume_available : true,
+      };
+
+      $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {
+
+        $scope.linketesal = "";
+        $scope.tozihat = "";
+        $scope.pricekhedmatselected = "";
+        $("#ShowPopupaddexam").modal('hide');
+        $scope.getaliispset();
+
+      });
+    }
+
+    if ($scope.dastekhedmatselected == "شایستگی") {
+
+      var data = {
+        exam_id: parseInt($scope.namekhedmatselected),
+        price: parseInt($scope.pricekhedmatselected),
+        };
+
+        $http.post(mustafasite + '/service_provider/package', JSON.stringify(data), config).then(function(response) {
+
+          $scope.namekhedmatselected = "";
+          $scope.pricekhedmatselected = "";
+          $("#ShowPopupaddexam").modal('hide');
+
+        });
+
+    }
+    if ($scope.dastekhedmatselected == "مهارتی" || $scope.dastekhedmatselected == "روانشناختی") {
+
+      var finalduration;
+
+      if($scope.vahedzaman == "min"){
+        finalduration = $scope.modatzaman;
+      }
+      if($scope.vahedzaman == "hur"){
+        finalduration = $scope.modatzaman*60;
+      }
+
+      var data = {
+        exam_id: parseInt($scope.namekhedmatselected),
+        price: parseInt($scope.pricekhedmatselected),
+        duration : parseInt(finalduration),
+        file : value,
+        file_format : getfileformat,
+        url : $scope.linketesal,
+        description : $scope.tozihat,
+      };
+
+      $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {
+
+        $scope.linketesal = "";
+        $scope.tozihat = "";
+        $scope.namekhedmatselected = "";
+        $scope.pricekhedmatselected = "";
+        $("#ShowPopupaddexam").modal('hide');
+        $scope.getaliispset();
+
+      });
+    }
+
+  });
 
     }
 
