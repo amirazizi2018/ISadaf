@@ -912,7 +912,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
   $scope.savekhdmat = function() {
     var data = null;
-    var getfileformat = samplekhedmat.name.split('.').pop();
+    var getfileformat = $scope.samplekhedmat.name.split('.').pop();
   var getfilebase64 = Upload.base64DataUrl($scope.samplekhedmat);
   getfilebase64.then(function(value) {
     var config = {
