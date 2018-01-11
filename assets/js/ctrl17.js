@@ -907,11 +907,30 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
 
   $scope.savekhdmat = function() {
+    var data;
 
-    var data = {
-      exam_id: parseInt($scope.namekhedmatselected),
-      price: parseInt($scope.pricekhedmatselected),
-    };
+    if($scope.dastekhedmatselected == "رزومه"){
+      console.log("rezome");
+      var data = {
+        exam_id: 10,
+        price: parseInt($scope.pricekhedmatselected),
+      };
+    }
+    if($scope.dastekhedmatselected == "شایستگی"){
+      console.log("shayesteghi");
+      var data = {
+        exam_id: 10,
+        price: parseInt($scope.pricekhedmatselected),
+      };
+    }
+    if($scope.dastekhedmatselected == "مهارتی" || $scope.dastekhedmatselected == "روانشناختی"){
+      console.log("maharati");
+      var data = {
+        exam_id: 10,
+        price: parseInt($scope.pricekhedmatselected),
+      };
+    }
+    console.log("data");
 
 
 

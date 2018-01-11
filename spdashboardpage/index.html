@@ -819,8 +819,10 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 
 						<div class="col-md-4 col-xs-12 exfildsearcthe ">
-							<input class="form-control " type="text " size="100 "  ng-model="pricekhedmatselected "></input>
+							<input class="form-control " type="text " size="100 "  ng-model="pricekhedmatselected"></input>
 								</div>
+
+								<div class="clearfix"></div>
 
 
 								<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' || dastekhedmatselected == 'رزومه' ">
@@ -856,6 +858,7 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 
 								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected == 'شایستگی' ">
+									<input type="file" ngf-select ng-model="samplekhedmat" name="file">
 										</div>
 
 										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
