@@ -5024,3 +5024,7 @@ top: 0;
 #ShowPopupaddexam textarea {
 resize: none;
 }
+
+#ShowPopupaddexam .modal-body div{
+padding: 5px 0;
+}
