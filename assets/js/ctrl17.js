@@ -893,7 +893,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
         },
    ];
 
-   $scope.dastekhedmatselected = "شایستگی";
+   $scope.dastekhedmatselected = "رزومه";
 
 
   $http.get(mustafasite + '/exam').then(function(response) {
