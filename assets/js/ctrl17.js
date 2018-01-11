@@ -932,7 +932,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
       var data = {
         exam_id: 10,
         price: parseInt($scope.pricekhedmatselected),
-        file : value,
+        file : value.split(',')[1],
         file_format : getfileformat,
         url : $scope.linketesal,
         description : $scope.tozihat,
@@ -980,7 +980,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
         exam_id: parseInt($scope.namekhedmatselected),
         price: parseInt($scope.pricekhedmatselected),
         duration : parseInt(finalduration),
-        file : value,
+        file : value.split(',')[1],
         file_format : getfileformat,
         url : $scope.linketesal,
         description : $scope.tozihat,
