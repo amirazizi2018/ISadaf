@@ -902,7 +902,8 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
   $scope.chengedastekhedmat = function() {
     if ($scope.dastekhedmatselected == "مهارتی") {
       $scope.vahedzaman = "hur";
-    } else {
+    }
+    if($scope.dastekhedmatselected == "روانشناختی") {
       $scope.vahedzaman = "min";
     }
   }
@@ -947,7 +948,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
         $scope.getaliispset();
 
       });
-  }
+    }
 
     if ($scope.dastekhedmatselected == "شایستگی") {
 
