@@ -696,7 +696,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
       $scope.servicesmanagementstotalItems = $scope.servicesmanagements.length;
 
-			$scope.socials = response.data.socials;
+      $scope.socials = response.data.socials;
 
 
     });
@@ -876,23 +876,18 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
    */
 
-   $scope.CategoryExam = ["رزومه","روانشناختی","مهارتی","شایستگی"];
-   $scope.getvahedzaman = [
-     {
-          "faname": "دقیقه",
-          "enname": "min",
-      },
-      {
-           "faname": "ساعت",
-           "enname": "hur",
-       },
-       {
-            "faname": "روز",
-            "enname": "day",
-        },
-   ];
+  $scope.CategoryExam = ["رزومه", "روانشناختی", "مهارتی", "شایستگی"];
+  $scope.getvahedzaman = [{
+      "faname": "دقیقه",
+      "enname": "min",
+    },
+    {
+      "faname": "ساعت",
+      "enname": "hur",
+    },
+  ];
 
-   $scope.dastekhedmatselected = "رزومه";
+  $scope.dastekhedmatselected = "رزومه";
 
 
   $http.get(mustafasite + '/exam').then(function(response) {
@@ -904,36 +899,21 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
   });
 
 
+  $scope.chengedastekhedmat = function() {
+    if ($scope.dastekhedmatselected == "مهارتی") {
+      $scope.vahedzaman = "hur";
+    } else {
+      $scope.vahedzaman = "min";
+    }
+  }
+
 
 
   $scope.savekhdmat = function() {
     var data;
-
-    if($scope.dastekhedmatselected == "رزومه"){
-      console.log("rezome");
-      var data = {
-        exam_id: 10,
-        price: parseInt($scope.pricekhedmatselected),
-      };
-    }
-    if($scope.dastekhedmatselected == "شایستگی"){
-      console.log("shayesteghi");
-      var data = {
-        exam_id: 10,
-        price: parseInt($scope.pricekhedmatselected),
-      };
-    }
-    if($scope.dastekhedmatselected == "مهارتی" || $scope.dastekhedmatselected == "روانشناختی"){
-      console.log("maharati");
-      var data = {
-        exam_id: 10,
-        price: parseInt($scope.pricekhedmatselected),
-      };
-    }
-    console.log("data");
-
-
-
+    var getfileformat = samplekhedmat.name.split('.').pop());
+  var getfilebase64 = Upload.base64DataUrl($scope.samplekhedmat);
+  getfilebase64.then(function(value) {
     var config = {
 
       headers: {
@@ -946,765 +926,827 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
     }
 
-    $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {
+    if ($scope.dastekhedmatselected == "رزومه") {
 
-      $scope.namekhedmatselected = "";
-      $scope.pricekhedmatselected = "";
-      $("#ShowPopupaddexam").modal('hide');
-      $scope.getaliispset();
+      var data = {
+        exam_id: 10,
+        price: parseInt($scope.pricekhedmatselected),
+        file : value,
+        file_format : getfileformat,
+        url : $scope.linketesal,
+        description : $scope.tozihat,
+        resume_available : true,
+      };
+
+      $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {
+
+        $scope.linketesal = "";
+        $scope.tozihat = "";
+        $scope.pricekhedmatselected = "";
+        $("#ShowPopupaddexam").modal('hide');
+        $scope.getaliispset();
+
+      });
+  }
+
+    if ($scope.dastekhedmatselected == "شایستگی") {
+
+      var data = {
+        exam_id: parseInt($scope.namekhedmatselected),
+        price: parseInt($scope.pricekhedmatselected),
+        };
+
+        $http.post(mustafasite + '/service_provider/package', JSON.stringify(data), config).then(function(response) {
+
+          $scope.namekhedmatselected = "";
+          $scope.pricekhedmatselected = "";
+          $("#ShowPopupaddexam").modal('hide');
+
+        });
+
+    }
+    if ($scope.dastekhedmatselected == "مهارتی" || $scope.dastekhedmatselected == "روانشناختی") {
+
+      var finalduration;
+
+      if($scope.vahedzaman == "min"){
+        finalduration = $scope.modatzaman;
+      }
+      if($scope.vahedzaman == "hur"){
+        finalduration = $scope.modatzaman*60;
+      }
+
+      var data = {
+        exam_id: parseInt($scope.namekhedmatselected),
+        price: parseInt($scope.pricekhedmatselected),
+        duration : parseInt(finalduration),
+        file : value,
+        file_format : getfileformat,
+        url : $scope.linketesal,
+        description : $scope.tozihat,
+      };
+
+      $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {
+
+        $scope.linketesal = "";
+        $scope.tozihat = "";
+        $scope.namekhedmatselected = "";
+        $scope.pricekhedmatselected = "";
+        $("#ShowPopupaddexam").modal('hide');
+        $scope.getaliispset();
+
+      });
+    }
+
+  });
+
+    }
+
+$scope.orderByField = '';
+
+$scope.reverseSort = false;
+
+
+/*   $scope. = [
+
+  {id: '1' , name: 'MBTI', marketshare: '23',employers: '23',jobseeker: '120',condition:'صعودی',},
+
+  {id: '2' , name: 'Neo-Pi', marketshare: '16',employers: '16',jobseeker: '52',condition:'صعودی',},
+
+  {id: '3' , name: 'Microsoft Exell', marketshare: '17',employers: '17',jobseeker: '15',condition:'نزولی',},
+
+  {id: '4' , name: 'Neo-Pi', marketshare: '42',employers: '42',jobseeker: '64',condition:'نزولی',},
+
+  {id: '5' , name: 'Microsoft Exell', marketshare: '12',employers: '12',jobseeker: '48',condition:'صعودی',},
+
+  {id: '6' , name: 'Neo-Pi', marketshare: '16',employers: '16',jobseeker: '52',condition:'صعودی',},
+
+  {id: '7' , name: 'Microsoft Exell', marketshare: '17',employers: '17',jobseeker: '15',condition:'نزولی',},
+
+  {id: '8' , name: 'Neo-Pi', marketshare: '42',employers: '42',jobseeker: '64',condition:'نزولی',},
+
+  ];
+ */
+
+
+
+
+$scope.removeservicesmanagement = function(servicesmanagement) {
+
+  if (confirm('آیا مطمئنی ؟')) {
+
+
+
+    var index = -1;
+
+
+
+    $scope.servicesmanagements.some(function(obj, i) {
+
+      return obj.id == servicesmanagement.id ? index = i : false;
 
     });
 
 
 
+    $scope.servicesmanagements.splice($scope.servicesmanagements.indexOf(servicesmanagement), 1);
+
   }
 
-  $scope.orderByField = '';
+};
 
-  $scope.reverseSort = false;
 
 
+$scope.expand = function(servicesmanagement) {
 
-  /*   $scope. = [
+  if (confirm('آیا مطمئنی ؟')) {
 
-    {id: '1' , name: 'MBTI', marketshare: '23',employers: '23',jobseeker: '120',condition:'صعودی',},
+    servicesmanagement.show_variables = !servicesmanagement.show_variables;
 
-    {id: '2' , name: 'Neo-Pi', marketshare: '16',employers: '16',jobseeker: '52',condition:'صعودی',},
 
-    {id: '3' , name: 'Microsoft Exell', marketshare: '17',employers: '17',jobseeker: '15',condition:'نزولی',},
 
-    {id: '4' , name: 'Neo-Pi', marketshare: '42',employers: '42',jobseeker: '64',condition:'نزولی',},
+  }
 
-    {id: '5' , name: 'Microsoft Exell', marketshare: '12',employers: '12',jobseeker: '48',condition:'صعودی',},
+};
 
-    {id: '6' , name: 'Neo-Pi', marketshare: '16',employers: '16',jobseeker: '52',condition:'صعودی',},
 
-    {id: '7' , name: 'Microsoft Exell', marketshare: '17',employers: '17',jobseeker: '15',condition:'نزولی',},
 
-    {id: '8' , name: 'Neo-Pi', marketshare: '42',employers: '42',jobseeker: '64',condition:'نزولی',},
 
-    ];
-   */
 
+$scope.servicesmanagementsviewby = 6;
 
 
+$scope.servicesmanagementscurrentPage = 1;
 
-  $scope.removeservicesmanagement = function(servicesmanagement) {
+$scope.servicesmanagementsitemsPerPage = $scope.servicesmanagementsviewby;
 
-    if (confirm('آیا مطمئنی ؟')) {
+$scope.servicesmanagementsmaxSize = 5;
 
 
 
-      var index = -1;
+$scope.servicesmanagementssetPage = function(pageNo) {
 
+  $scope.servicesmanagementscurrentPage = pageNo;
 
+};
 
-      $scope.servicesmanagements.some(function(obj, i) {
 
-        return obj.id == servicesmanagement.id ? index = i : false;
 
-      });
+/* $scope.setItemsPerPage = function(num) {
 
+  $scope.itemsPerPage = num;
 
+  $scope.currentPage = 1;
 
-      $scope.servicesmanagements.splice($scope.servicesmanagements.indexOf(servicesmanagement), 1);
+} */
 
-    }
 
-  };
 
+$scope.removeservicesmanagement = function(item) {
 
+  $scope.servicesmanagements.splice(item, 1);
 
-  $scope.expand = function(servicesmanagement) {
+};
 
-    if (confirm('آیا مطمئنی ؟')) {
 
-      servicesmanagement.show_variables = !servicesmanagement.show_variables;
 
 
 
-    }
 
-  };
 
 
 
+$scope.isreceiveVisible = false;
 
+$scope.issentVisible = false;
 
-  $scope.servicesmanagementsviewby = 6;
+$scope.composeEmail = {};
 
+$scope.activeTab = "inbox";
 
-  $scope.servicesmanagementscurrentPage = 1;
+$scope.sentEmails = [
 
-  $scope.servicesmanagementsitemsPerPage = $scope.servicesmanagementsviewby;
+  {
 
-  $scope.servicesmanagementsmaxSize = 5;
+    id: '4',
 
 
 
-  $scope.servicesmanagementssetPage = function(pageNo) {
+    frommail: 'A20Group@yahoo.com',
 
-    $scope.servicesmanagementscurrentPage = pageNo;
+    from: 'شرکت آسان پرداخت',
 
-  };
+    to: 'شزکت فناپ',
 
+    subject: 'دعوت به مصاحبه',
 
+    date: '96/07/24',
 
-  /* $scope.setItemsPerPage = function(num) {
+    time: '2:33 ب.ظ',
 
-    $scope.itemsPerPage = num;
+    body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
 
-    $scope.currentPage = 1;
+  },
 
-  } */
+  {
 
+    id: '5',
 
 
-  $scope.removeservicesmanagement = function(item) {
 
-    $scope.servicesmanagements.splice(item, 1);
+    frommail: 'A20Group@yahoo.com',
 
-  };
+    from: 'شرکت آسان پرداخت',
 
+    to: 'شزکت فناپ',
 
+    subject: 'دعوت به مصاحبه',
 
+    date: '96/07/24',
 
+    time: '2:32 ب.ظ',
 
+    body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
 
+  },
+];
 
 
 
-  $scope.isreceiveVisible = false;
+$scope.sendEmail = function(file) {
 
-  $scope.issentVisible = false;
+  $scope.activeTab = "sent";
+
+  $scope.composeEmail.from = "me";
+
+  $scope.composeEmail.to = $scope.composeEmail.to;
+
+  $scope.composeEmail.subject = $scope.composeEmail.subject;
+
+  $scope.composeEmail.date = "96/07/24";
+
+  $scope.composeEmail.time = "2:30 ب.ظ";
+
+  $scope.sentEmails.push($scope.composeEmail);
 
   $scope.composeEmail = {};
 
-  $scope.activeTab = "inbox";
-
-  $scope.sentEmails = [
-
-    {
-
-      id: '4',
 
 
+  file.upload = Upload.upload({
 
-      frommail: 'A20Group@yahoo.com',
+    url: '/sadafupload/upload.php',
 
-      from: 'شرکت آسان پرداخت',
+    data: {
 
-      to: 'شزکت فناپ',
+      'targetPath': 'images/',
 
-      subject: 'دعوت به مصاحبه',
+      username: $scope.username,
 
-      date: '96/07/24',
-
-      time: '2:33 ب.ظ',
-
-      body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
+      file: file
 
     },
 
-    {
-
-      id: '5',
+  });
 
 
 
-      frommail: 'A20Group@yahoo.com',
+  file.upload.then(function(response) {
 
-      from: 'شرکت آسان پرداخت',
+    $timeout(function() {
 
-      to: 'شزکت فناپ',
+      alert('/sadafupload/' + response.data);
 
-      subject: 'دعوت به مصاحبه',
+      $scope.composeEmail.attachfile = '/sadafupload/' + response.data;
 
-      date: '96/07/24',
+      file.result = response.data;
 
-      time: '2:32 ب.ظ',
-
-      body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
-
-    },
-  ];
+      $scope.attachmailfile = null;
 
 
-
-  $scope.sendEmail = function(file) {
-
-    $scope.activeTab = "sent";
-
-    $scope.composeEmail.from = "me";
-
-    $scope.composeEmail.to = $scope.composeEmail.to;
-
-    $scope.composeEmail.subject = $scope.composeEmail.subject;
-
-    $scope.composeEmail.date = "96/07/24";
-
-    $scope.composeEmail.time = "2:30 ب.ظ";
-
-    $scope.sentEmails.push($scope.composeEmail);
-
-    $scope.composeEmail = {};
-
-
-
-    file.upload = Upload.upload({
-
-      url: '/sadafupload/upload.php',
-
-      data: {
-
-        'targetPath': 'images/',
-
-        username: $scope.username,
-
-        file: file
-
-      },
 
     });
 
+  }, function(response) {
 
+    if (response.status > 0)
 
-    file.upload.then(function(response) {
+      $scope.errorMsg = response.status + ': ' + response.data;
 
-      $timeout(function() {
+  });
 
-        alert('/sadafupload/' + response.data);
 
-        $scope.composeEmail.attachfile = '/sadafupload/' + response.data;
 
-        file.result = response.data;
+};
 
-        $scope.attachmailfile = null;
 
 
 
-      });
 
-    }, function(response) {
 
-      if (response.status > 0)
 
-        $scope.errorMsg = response.status + ': ' + response.data;
+$scope.showreceivemail = function(email) {
 
-    });
+  $scope.isreceiveVisible = true;
 
+  $scope.selectedreceiveEmail = email;
 
+};
 
-  };
 
 
+$scope.backtoreceivemail = function() {
 
+  $scope.isreceiveVisible = false;
 
+};
 
 
 
-  $scope.showreceivemail = function(email) {
+$scope.showsentmail = function(email) {
 
-    $scope.isreceiveVisible = true;
+  $scope.issentVisible = true;
 
-    $scope.selectedreceiveEmail = email;
+  $scope.selectedsentEmail = email;
 
-  };
+};
 
 
 
-  $scope.backtoreceivemail = function() {
+$scope.backtosentmail = function() {
 
-    $scope.isreceiveVisible = false;
+  $scope.issentVisible = false;
 
-  };
+};
 
 
 
-  $scope.showsentmail = function(email) {
+$scope.emails = [
 
-    $scope.issentVisible = true;
+  {
 
-    $scope.selectedsentEmail = email;
+    id: '1',
 
-  };
+    frommail: 'A20Group@yahoo.com',
 
+    from: 'شرکت آسان پرداخت',
 
+    to: 'me',
 
-  $scope.backtosentmail = function() {
+    subject: 'دعوت به مصاحبه',
 
-    $scope.issentVisible = false;
+    date: '96/07/24',
 
-  };
+    time: '2:33 ب.ظ',
 
+    body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
 
+  },
 
-  $scope.emails = [
+  {
 
-    {
+    id: '2',
 
-      id: '1',
+    frommail: 'A20Group@yahoo.com',
 
-      frommail: 'A20Group@yahoo.com',
+    from: 'شرکت آسان پرداخت',
 
-      from: 'شرکت آسان پرداخت',
+    to: 'me',
 
-      to: 'me',
+    subject: 'دعوت به مصاحبه',
 
-      subject: 'دعوت به مصاحبه',
+    date: '96/07/24',
 
-      date: '96/07/24',
+    time: '2:32 ب.ظ',
 
-      time: '2:33 ب.ظ',
+    body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
 
-      body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
+  },
 
-    },
+  {
 
-    {
+    id: '3',
 
-      id: '2',
+    frommail: 'A20Group@yahoo.com',
 
-      frommail: 'A20Group@yahoo.com',
+    from: 'شرکت آسان پرداخت',
 
-      from: 'شرکت آسان پرداخت',
+    to: 'me',
 
-      to: 'me',
+    subject: 'دعوت به مصاحبه',
 
-      subject: 'دعوت به مصاحبه',
+    date: '96/07/24',
 
-      date: '96/07/24',
+    time: '2:31 ب.ظ',
 
-      time: '2:32 ب.ظ',
-
-      body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
-
-    },
-
-    {
-
-      id: '3',
-
-      frommail: 'A20Group@yahoo.com',
-
-      from: 'شرکت آسان پرداخت',
-
-      to: 'me',
-
-      subject: 'دعوت به مصاحبه',
-
-      date: '96/07/24',
-
-      time: '2:31 ب.ظ',
-
-      body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
-
-    }
-
-  ];
-
-
-
-  $scope.replayereceivemail = function(selectedreceiveEmail) {
-
-    $scope.composeEmail = {};
-
-    $scope.activeTab = "compose";
-
-    $scope.composeEmail.to = selectedreceiveEmail.frommail;
-
-    $scope.isreceiveVisible = false;
-
-  };
-
-
-
-  $scope.replayesentmail = function(selectedsentEmail) {
-
-    $scope.composeEmail = {};
-
-    $scope.activeTab = "compose";
-
-    $scope.composeEmail.to = selectedsentEmail.frommail;
-
-    $scope.issentVisible = false;
-
-  };
-
-
-
-
-
-  $scope.removereceiveemail = function(selectedreceiveEmail) {
-
-
-
-
-
-    var index = -1;
-
-
-
-    $scope.emails.some(function(obj, i) {
-
-      return obj.id == selectedreceiveEmail.body ? index = i : false;
-
-    });
-
-
-
-    $scope.emails.splice($scope.emails.indexOf(selectedreceiveEmail), 1);
-
-    $scope.isreceiveVisible = false;
-
-
-
-
-
-  };
-
-
-
-  $scope.removesentmail = function(selectedsentEmail) {
-
-
-
-
-
-    var index = -1;
-
-
-
-    $scope.sentEmails.some(function(obj, i) {
-
-      return obj.id == selectedsentEmail.body ? index = i : false;
-
-    });
-
-
-
-    $scope.sentEmails.splice($scope.sentEmails.indexOf(selectedsentEmail), 1);
-
-    $scope.issentVisible = false;
-
-
-
-
-
-  };
-
-
-
-
-
-
-
-
-
-  $scope.orderByField = '';
-
-  $scope.reverseSort = false;
-
-
-
-  $scope.mytransactions = [
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'واریز',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000+',
-      transactioncredit: '420,000',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'پرداخت',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000-',
-      transactioncredit: '0',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'واریز ناموفق',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000',
-      transactioncredit: '420,000',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'واریز',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000+',
-      transactioncredit: '420,000',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'پرداخت',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000-',
-      transactioncredit: '0',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'واریز ناموفق',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000',
-      transactioncredit: '420,000',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'واریز',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000+',
-      transactioncredit: '420,000',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'پرداخت',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000-',
-      transactioncredit: '0',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'واریز ناموفق',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000',
-      transactioncredit: '420,000',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'واریز',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000+',
-      transactioncredit: '420,000',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'پرداخت',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000-',
-      transactioncredit: '0',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'واریز ناموفق',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000',
-      transactioncredit: '420,000',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'واریز',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000+',
-      transactioncredit: '420,000',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'پرداخت',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000-',
-      transactioncredit: '0',
-      recivefactorlink: '',
-    },
-
-    {
-      transactionhistory: '96/7/24',
-      transactiontype: 'واریز ناموفق',
-      issuetracking: '45613216511632151',
-      transactionprice: '420,000',
-      transactioncredit: '420,000',
-      recivefactorlink: '',
-    },
-
-
-
-  ];
-
-
-
-  $scope.mytransactionsviewby = 7;
-
-  $scope.mytransactionstotalItems = $scope.mytransactions.length;
-
-  $scope.mytransactionscurrentPage = 1;
-
-  $scope.mytransactionsitemsPerPage = $scope.mytransactionsviewby;
-
-  $scope.mytransactionsmaxSize = 5;
-
-
-
-  $scope.mytransactionssetPage = function(pageNo) {
-
-    $scope.mytransactionscurrentPage = pageNo;
-
-  };
-
-
-
-  /* $scope.setItemsPerPage = function(num) {
-
-    $scope.itemsPerPage = num;
-
-    $scope.currentPage = 1;
-
-  } */
-
-
-
-  $scope.jobseekers = [
-
-    {
-      id: "1",
-      picture: "https://myevent.com/assets/myevent/common/img/user.png",
-      name: "حمید محمدی",
-      tag: "کارشناس",
-      status: "پیام داده شد",
-      date: "امروز",
-      sendmass: "",
-      viewprofile: "",
-      downloadprofile: "",
-      reqtype: "ارزیابی شایستگی",
-      testtype: "بسته شایستگی عمومی",
-    },
-
-    {
-      id: "2",
-      picture: "https://myevent.com/assets/myevent/common/img/user.png",
-      name: "اصغر صفی علیشاه",
-      tag: "کارشناس",
-      status: "جدید",
-      date: "امروز",
-      sendmass: "",
-      viewprofile: "",
-      downloadprofile: "",
-      reqtype: "گواهینامه",
-      testtype: "زبان انگلیسی",
-    },
-
-    {
-      id: "3",
-      picture: "https://myevent.com/assets/myevent/common/img/user.png",
-      name: "محمدرضا تقی زاد مژگان",
-      tag: "کارشناس",
-      status: "جدید",
-      date: "امروز",
-      sendmass: "",
-      viewprofile: "",
-      downloadprofile: "",
-      reqtype: "درخواست دوره",
-      testtype: "ویژال استودیو",
-    },
-
-    {
-      id: "4",
-      picture: "https://myevent.com/assets/myevent/common/img/user.png",
-      name: "رئیس علی نادر کلابادی",
-      tag: "کارشناس",
-      status: "جدید",
-      date: "امروز",
-      sendmass: "",
-      viewprofile: "",
-      downloadprofile: "",
-      reqtype: "درخواست تعﯿﯿن سطح",
-      testtype: "زبان انگلیسی",
-    },
-
-  ];
-
-
-
-
-
-  $scope.jobseekersviewby = 8;
-
-  $scope.jobseekerstotalItems = $scope.jobseekers.length;
-
-  $scope.jobseekerscurrentPage = 1;
-
-  $scope.jobseekersitemsPerPage = $scope.jobseekersviewby;
-
-  $scope.jobseekersmaxSize = 5;
-
-
-
-  $scope.gotomailpage = function(jobseeker) {
-
-    $scope.composeEmail = {};
-
-    $scope.activeTab = "compose";
-    $scope.activeTabF = "tab4";
-
-    $scope.composeEmail.to = jobseeker.id;
-
-    $scope.isreceiveVisible = false;
-  };
-
-  $scope.downloadattach = function(jobseeker) {
-    window.open(jobseeker, '_blank', '');
-  };
-
-
-  $scope.taiid = function(jobseeker) {
-    $("#ShowPopupTaiid").modal('show');
-  };
-
-  $scope.sendfactor = function(jobseeker) {
-    if (confirm("ایا اطمینان دارید؟")) {
-      alert("فاکتور ارسال شد");
-    }
-  };
-
-
-  $scope.adamtaiid = function(jobseeker) {
-    if (confirm("ایا اطمینان دارید؟")) {
-      alert("کاربر رد شد");
-    }
-  };
-
-  $scope.jobseekerssetPage = function(pageNo) {
-
-    $scope.jobseekerscurrentPage = pageNo;
-
-  };
-
-
-
-  $scope.setItemsPerPage = function(num) {
-
-    $scope.itemsPerPage = num;
-
-    $scope.currentPage = 1;
+    body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
 
   }
+
+];
+
+
+
+$scope.replayereceivemail = function(selectedreceiveEmail) {
+
+  $scope.composeEmail = {};
+
+  $scope.activeTab = "compose";
+
+  $scope.composeEmail.to = selectedreceiveEmail.frommail;
+
+  $scope.isreceiveVisible = false;
+
+};
+
+
+
+$scope.replayesentmail = function(selectedsentEmail) {
+
+  $scope.composeEmail = {};
+
+  $scope.activeTab = "compose";
+
+  $scope.composeEmail.to = selectedsentEmail.frommail;
+
+  $scope.issentVisible = false;
+
+};
+
+
+
+
+
+$scope.removereceiveemail = function(selectedreceiveEmail) {
+
+
+
+
+
+  var index = -1;
+
+
+
+  $scope.emails.some(function(obj, i) {
+
+    return obj.id == selectedreceiveEmail.body ? index = i : false;
+
+  });
+
+
+
+  $scope.emails.splice($scope.emails.indexOf(selectedreceiveEmail), 1);
+
+  $scope.isreceiveVisible = false;
+
+
+
+
+
+};
+
+
+
+$scope.removesentmail = function(selectedsentEmail) {
+
+
+
+
+
+  var index = -1;
+
+
+
+  $scope.sentEmails.some(function(obj, i) {
+
+    return obj.id == selectedsentEmail.body ? index = i : false;
+
+  });
+
+
+
+  $scope.sentEmails.splice($scope.sentEmails.indexOf(selectedsentEmail), 1);
+
+  $scope.issentVisible = false;
+
+
+
+
+
+};
+
+
+
+
+
+
+
+
+
+$scope.orderByField = '';
+
+$scope.reverseSort = false;
+
+
+
+$scope.mytransactions = [
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'واریز',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000+',
+    transactioncredit: '420,000',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'پرداخت',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000-',
+    transactioncredit: '0',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'واریز ناموفق',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000',
+    transactioncredit: '420,000',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'واریز',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000+',
+    transactioncredit: '420,000',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'پرداخت',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000-',
+    transactioncredit: '0',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'واریز ناموفق',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000',
+    transactioncredit: '420,000',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'واریز',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000+',
+    transactioncredit: '420,000',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'پرداخت',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000-',
+    transactioncredit: '0',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'واریز ناموفق',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000',
+    transactioncredit: '420,000',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'واریز',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000+',
+    transactioncredit: '420,000',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'پرداخت',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000-',
+    transactioncredit: '0',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'واریز ناموفق',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000',
+    transactioncredit: '420,000',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'واریز',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000+',
+    transactioncredit: '420,000',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'پرداخت',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000-',
+    transactioncredit: '0',
+    recivefactorlink: '',
+  },
+
+  {
+    transactionhistory: '96/7/24',
+    transactiontype: 'واریز ناموفق',
+    issuetracking: '45613216511632151',
+    transactionprice: '420,000',
+    transactioncredit: '420,000',
+    recivefactorlink: '',
+  },
+
+
+
+];
+
+
+
+$scope.mytransactionsviewby = 7;
+
+$scope.mytransactionstotalItems = $scope.mytransactions.length;
+
+$scope.mytransactionscurrentPage = 1;
+
+$scope.mytransactionsitemsPerPage = $scope.mytransactionsviewby;
+
+$scope.mytransactionsmaxSize = 5;
+
+
+
+$scope.mytransactionssetPage = function(pageNo) {
+
+  $scope.mytransactionscurrentPage = pageNo;
+
+};
+
+
+
+/* $scope.setItemsPerPage = function(num) {
+
+  $scope.itemsPerPage = num;
+
+  $scope.currentPage = 1;
+
+} */
+
+
+
+$scope.jobseekers = [
+
+  {
+    id: "1",
+    picture: "https://myevent.com/assets/myevent/common/img/user.png",
+    name: "حمید محمدی",
+    tag: "کارشناس",
+    status: "پیام داده شد",
+    date: "امروز",
+    sendmass: "",
+    viewprofile: "",
+    downloadprofile: "",
+    reqtype: "ارزیابی شایستگی",
+    testtype: "بسته شایستگی عمومی",
+  },
+
+  {
+    id: "2",
+    picture: "https://myevent.com/assets/myevent/common/img/user.png",
+    name: "اصغر صفی علیشاه",
+    tag: "کارشناس",
+    status: "جدید",
+    date: "امروز",
+    sendmass: "",
+    viewprofile: "",
+    downloadprofile: "",
+    reqtype: "گواهینامه",
+    testtype: "زبان انگلیسی",
+  },
+
+  {
+    id: "3",
+    picture: "https://myevent.com/assets/myevent/common/img/user.png",
+    name: "محمدرضا تقی زاد مژگان",
+    tag: "کارشناس",
+    status: "جدید",
+    date: "امروز",
+    sendmass: "",
+    viewprofile: "",
+    downloadprofile: "",
+    reqtype: "درخواست دوره",
+    testtype: "ویژال استودیو",
+  },
+
+  {
+    id: "4",
+    picture: "https://myevent.com/assets/myevent/common/img/user.png",
+    name: "رئیس علی نادر کلابادی",
+    tag: "کارشناس",
+    status: "جدید",
+    date: "امروز",
+    sendmass: "",
+    viewprofile: "",
+    downloadprofile: "",
+    reqtype: "درخواست تعﯿﯿن سطح",
+    testtype: "زبان انگلیسی",
+  },
+
+];
+
+
+
+
+
+$scope.jobseekersviewby = 8;
+
+$scope.jobseekerstotalItems = $scope.jobseekers.length;
+
+$scope.jobseekerscurrentPage = 1;
+
+$scope.jobseekersitemsPerPage = $scope.jobseekersviewby;
+
+$scope.jobseekersmaxSize = 5;
+
+
+
+$scope.gotomailpage = function(jobseeker) {
+
+  $scope.composeEmail = {};
+
+  $scope.activeTab = "compose";
+  $scope.activeTabF = "tab4";
+
+  $scope.composeEmail.to = jobseeker.id;
+
+  $scope.isreceiveVisible = false;
+};
+
+$scope.downloadattach = function(jobseeker) {
+  window.open(jobseeker, '_blank', '');
+};
+
+
+$scope.taiid = function(jobseeker) {
+  $("#ShowPopupTaiid").modal('show');
+};
+
+$scope.sendfactor = function(jobseeker) {
+  if (confirm("ایا اطمینان دارید؟")) {
+    alert("فاکتور ارسال شد");
+  }
+};
+
+
+$scope.adamtaiid = function(jobseeker) {
+  if (confirm("ایا اطمینان دارید؟")) {
+    alert("کاربر رد شد");
+  }
+};
+
+$scope.jobseekerssetPage = function(pageNo) {
+
+  $scope.jobseekerscurrentPage = pageNo;
+
+};
+
+
+
+$scope.setItemsPerPage = function(num) {
+
+  $scope.itemsPerPage = num;
+
+  $scope.currentPage = 1;
+
+}
 
 
 

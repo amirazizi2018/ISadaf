@@ -790,7 +790,7 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 																			<span class="titlefildsear h5title fontmedium">دسته خدمت</span>
 </div>
 						<div class="col-md-4 col-xs-12 ">
-    <select class="h5title fontlight " ng-model="dastekhedmatselected" ng-options="category for category in CategoryExam "></select>
+    <select class="h5title fontlight " ng-change="chengedastekhedmat()" ng-model="dastekhedmatselected" ng-options="category for category in CategoryExam "></select>
 </div>
 						<div class="col-md-2 col-xs-12 " ng-show="dastekhedmatselected" ng-hide="dastekhedmatselected == 'رزومه' ">
 
@@ -831,7 +831,7 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 
 									<div class="col-md-4 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' || dastekhedmatselected == 'رزومه' ">
-										<select class="h5title fontlight"   ng-model="vahedzaman">
+										<select class="h5title fontlight"  ng-disabled="disabled"  ng-model="vahedzaman">
 
 							<option ng-repeat="x in getvahedzaman" value="{{x.enname}} ">{{x.faname}}</option>
 
@@ -858,7 +858,7 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 
 								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected == 'شایستگی' ">
-									<input type="file" ngf-select ng-model="samplekhedmat" name="file">
+									<input type="file" ngf-select accept="application/pdf, image/*"  ng-model="samplekhedmat" name="file">
 										</div>
 
 										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
