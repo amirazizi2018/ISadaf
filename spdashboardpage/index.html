@@ -938,10 +938,9 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
         <div class="col-md-12 servicesmanagementrow ">
 
-        <div class="col-md-3 textright " style="line-height: 35px; "><i  ng-class="{ 'circlebtngreen': servicesmanagement.growth_rate=='one' , 'circlebtnred': servicesmanagement.growth_rate=='zero' } " aria-hidden="true "></i>{{servicesmanagement.exam.name}}</div>
+        <div class="col-md-3 textright " style="line-height: 35px; "><i  ng-class="{ 'circlebtngray': servicesmanagement.growth_rate=='zero' , 'circlebtngreen': servicesmanagement.growth_rate=='positive' , 'circlebtnred': servicesmanagement.growth_rate=='negative' } " aria-hidden="true "></i>{{servicesmanagement.exam.name}}</div>
 
-		<div class="col-md-2 "  style="line-height: 35px; ">{{servicesmanagement.bazaar_percent}} % <i  ng-class="{ 'fa-sort-asc greencolor': servicesmanagement.growth_rate=='one' , 'fa-sort-desc redcolor': servicesmanagement.growth_rate=='zero' }
-                  " class="fa " aria-hidden="true "></i></div>
+		<div class="col-md-2 "  style="line-height: 35px; ">{{servicesmanagement.bazaar_percent}} % <i  ng-class="{ 'fa-sort-asc greencolor': servicesmanagement.growth_rate=='positive' , 'fa-sort-desc redcolor': servicesmanagement.growth_rate=='negative' }  " class="fa " aria-hidden="true "></i></div>
 
         <div class="col-md-2 "  style="line-height: 35px; ">{{servicesmanagement.employer_requests}}</div>
 
@@ -949,11 +948,15 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
         <div class="col-md-4 ">
 
-        <div class="servicesmanagementaction " ng-if="servicesmanagement.enable=='true' ">
+        <div class="servicesmanagementaction " ng-if="servicesmanagement.enable =='true' ">
 
-									<!-- <a href="{{servicesmanagement.recivefactorlink}}"><i class="fa fa-pencil h2title" aria-hidden="true"></i></a> -->
+									<!--
+										<a href="{{servicesmanagement.recivefactorlink}}">
+											<i class="fa fa-pencil h2title" aria-hidden="true"></i>
+										</a> 
+									-->
 
-                  <!-- <a ng-click="expand(servicesmanagement)><i class="fa fa-usd h2title" aria-hidden="true"></i></a> -->
+                  <!-- <a ng-click="expand(servicesmanagement)"><i class="fa fa-usd h2title" aria-hidden="true"></i></a> -->
 
                   <a ng-click="expand(servicesmanagement)"><i class="fa h2title"  ng-class="{'fa-eye': servicesmanagement.active == true , 'fa-eye-slash': servicesmanagement.active == false}" aria-hidden="true"></i></a>
 
@@ -963,7 +966,7 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 		</div>
 
-		<div class="servicesmanagementaction_barresi" ng-if="servicesmanagement.enable=='false'>
+		<div class="servicesmanagementaction_barresi" ng-if="servicesmanagement.enable =='false'>
 			در حال بررسی
                 </div>
 
