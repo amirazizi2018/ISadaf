@@ -1072,6 +1072,121 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
 
 
+    $scope.socialnameid = [
+
+      {
+        key: "تلگرام",
+        value: "1"
+      },
+      {
+        key: "ایسنتاگرام",
+        value: "2"
+      },
+      {
+        key: "لینکدین",
+        value: "3"
+      },
+      {
+        key: "گوگل پلاس	",
+        value: "4"
+      },
+
+    ];
+
+
+    $scope.SocialAddEdit = function() {
+
+      var data = {
+
+        social_id: parseInt($scope.idsocial),
+
+        url: $scope.socialgetlink,
+
+      };
+
+
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+      $http.post(mustafasite + "/employer/social", JSON.stringify(data), config).then(function(response) {
+
+        $http.get(mustafasite + '/employer/me', {
+
+          headers: {
+
+            "Content-Type": 'application/json',
+
+            'Access-Token': $localStorage.TokenKey.access,
+
+          }
+
+        }).then(function(response) {
+
+          $scope.socials = response.data.socials;
+
+        });
+
+        $('#ShowPopupEditSocial').modal('hide');
+
+      });
+
+
+
+    };
+
+    $scope.removesocial = function(x) {
+
+      var data = x.social.id;
+
+
+
+      var config = {
+
+        headers: {
+          'Content-Type': "application/json",
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+
+
+      $http.delete(mustafasite + '/employer/social/' + data, config).then(function(response) {
+
+
+        $http.get(mustafasite + '/employer/me', {
+
+          headers: {
+
+            "Content-Type": 'application/json',
+
+            'Access-Token': $localStorage.TokenKey.access,
+
+          }
+
+        }).then(function(response) {
+
+          $scope.socials = response.data.socials;
+
+        });
+
+
+
+
+      });
+
 
   $scope.getservice = function() {
 
@@ -1240,7 +1355,7 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
   }
 
 
-  $scope.deleteservice = function(x) {
+  $scope.deletebrand = function(x) {
 
 
     var data = x.id;

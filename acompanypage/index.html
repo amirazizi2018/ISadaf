@@ -482,9 +482,9 @@
 
         <div class="col-md-3 col-xs-12 companygl">
 
-          <button type="button" ng-if="ShowForEMP()"class="btn upgradeprofile greenbtn fontmedium"><span>افزدون به علاقه مندی</span></button>
+          <!-- <button type="button" ng-if="ShowForEMP()"class="btn upgradeprofile greenbtn fontmedium"><span>افزدون به علاقه مندی</span></button>
 
-          <button type="button" ng-click="GalleryEmpClick()" class="btn increasecredit greenbtnreverse fontmedium"><i class="fa fa-picture-o" aria-hidden="true"></i><span>گالری تصاویر</span></button>
+          <button type="button" ng-click="GalleryEmpClick()" class="btn increasecredit greenbtnreverse fontmedium"><i class="fa fa-picture-o" aria-hidden="true"></i><span>گالری تصاویر</span></button> -->
 
           <div id="ShowPopupCrateGallery" class="modal modal-md" role="dialog">
 
@@ -613,7 +613,7 @@
           </div>
 
           <div class="modal-body">
-            <form name="edittamasform" novalidate ng-submit="edittamasform.$valid &&TamasFormSP()" class="jobpostpfilterbox">
+            <form name="edittamasform" novalidate ng-submit="edittamasform.$valid &&TamasFormEMP()" class="jobpostpfilterbox">
               <strong>شماره تماس:</strong><input type="text" name="editphone" ng-model="editphone"> <br/>
               <br>
               <br>
@@ -880,11 +880,13 @@
             </div>
 
             <br />
-
+            <br>
+            <br>
             <strong>نام محصول:</strong><input type="text" ng-model="servicename" required>
 
             <br />
-
+            <br>
+            <br>
             <strong>نام محصول:</strong><input type="text" ng-model="servicedisc" required>
 
           </div>
