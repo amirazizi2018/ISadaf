@@ -896,7 +896,7 @@ if ($localStorage.UserType == "SP") {
       var data = {
 
         phone: $scope.editphone,
-        faxnumber: $scope.editfaxnumber,
+        fax: $scope.editfaxnumber,
         address: $scope.editaddress,
         second_address: $scope.editsecond_address,
         email: $scope.editemail,
@@ -976,7 +976,7 @@ if ($localStorage.UserType == "SP") {
 
 
 
-      });
+      },1000);
 
     });
 
