@@ -692,10 +692,6 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
       $scope.address = response.data.address;
 
-      $scope.servicesmanagements = response.data.exams;
-
-      $scope.servicesmanagementstotalItems = $scope.servicesmanagements.length;
-
       $scope.socials = response.data.socials;
 
 
@@ -876,6 +872,29 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
    */
 
+
+   $scope.GetMyExam = function() {
+   $http.get(mustafasite + '/exam/my_exams', {
+
+     headers: {
+
+       "Content-Type": 'application/json',
+
+       'Access-Token': $localStorage.TokenKey.access,
+
+     }
+
+   }).then(function(response) {
+
+     $scope.servicesmanagements = response.data.exams;
+
+     $scope.servicesmanagementstotalItems = $scope.servicesmanagements.length;
+
+   });
+ }
+
+ $scope.GetMyExam();
+
   $scope.CategoryExam = ["رزومه", "روانشناختی", "مهارتی", "شایستگی"];
   $scope.getvahedzaman = [{
       "faname": "دقیقه",
@@ -930,7 +949,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
     if ($scope.dastekhedmatselected == "رزومه") {
 
       var data = {
-        exam_id: "10",
+        exam_id: 10,
         price: parseInt($scope.pricekhedmatselected),
         file : value.split(',')[1],
         file_format : getfileformat,
@@ -944,7 +963,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
         $scope.tozihat = "";
         $scope.pricekhedmatselected = "";
         $("#ShowPopupaddexam").modal('hide');
-        $scope.getaliispset();
+        $scope.GetMyExam();
 
       });
     }
@@ -977,7 +996,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
       }
 
       var data = {
-        exam_id: $scope.namekhedmatselected,
+        exam_id: parseInt($scope.namekhedmatselected),
         price: parseInt($scope.pricekhedmatselected),
         duration : parseInt(finalduration),
         file : value.split(',')[1],
@@ -993,7 +1012,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
         $scope.namekhedmatselected = "";
         $scope.pricekhedmatselected = "";
         $("#ShowPopupaddexam").modal('hide');
-        $scope.getaliispset();
+        $scope.GetMyExam();
 
       });
     }
@@ -1059,13 +1078,51 @@ $scope.removeservicesmanagement = function(servicesmanagement) {
 
 $scope.expand = function(servicesmanagement) {
 
-  if (confirm('آیا مطمئنی ؟')) {
+  if (servicesmanagement.exam.group == "رزومه") {
 
-    servicesmanagement.show_variables = !servicesmanagement.show_variables;
+    var trueflaseactive;
 
+    if(servicesmanagement.active == true){
+      trueflaseactive = false;
+    }
+    if(servicesmanagement.active == false){
+      trueflaseactive = true;
+    }
 
+    var data = {
+      exam_id: 10,
+      active: trueflaseactive,
+      resume_available : trueflaseactive,
+    };
+
+    $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {
+      $scope.GetMyExam();
+    });
 
   }
+
+  if (servicesmanagement.exam.group == "مهارتی" || servicesmanagement.exam.group == "روانشناختی") {
+
+    var trueflaseactive;
+
+    if(servicesmanagement.active == true){
+      trueflaseactive = false;
+    }
+    if(servicesmanagement.active == false){
+      trueflaseactive = true;
+    }
+
+    var data = {
+      exam_id: servicesmanagement.exam.id,
+      active: trueflaseactive,
+    };
+
+    $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {
+      $scope.GetMyExam();
+    });
+
+  }
+
 
 };
 

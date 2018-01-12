@@ -769,7 +769,7 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
  <div ng-show="activeTabF=='tab3' ">
 
 
-<div id="ShowPopupaddexam" class="modal modal-md " role="dialog ">
+<div id="ShowPopupaddexam " class="modal modal-md " role="dialog ">
 
         <div class="modal-dialog ">
 
@@ -787,24 +787,24 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 					<div class="col-md-2 col-xs-12 ">
 
-																			<span class="titlefildsear h5title fontmedium">دسته خدمت</span>
+																			<span class="titlefildsear h5title fontmedium ">دسته خدمت</span>
 </div>
 						<div class="col-md-4 col-xs-12 ">
-    <select class="h5title fontlight " ng-change="chengedastekhedmat()" ng-model="dastekhedmatselected" ng-options="category for category in CategoryExam "></select>
+    <select class="h5title fontlight " ng-change="chengedastekhedmat() " ng-model="dastekhedmatselected " ng-options="category for category in CategoryExam "></select>
 </div>
-						<div class="col-md-2 col-xs-12 " ng-show="dastekhedmatselected" ng-hide="dastekhedmatselected == 'رزومه' ">
+						<div class="col-md-2 col-xs-12 " ng-show="dastekhedmatselected " ng-hide="dastekhedmatselected=='رزومه' ">
 
-																		    <span class="titlefildsear h5title fontmedium">نوع خدمت</span>
+																		    <span class="titlefildsear h5title fontmedium ">نوع خدمت</span>
 
 	</div>
 
 
-							<div class="col-md-4 col-xs-12 " ng-show="dastekhedmatselected" ng-hide="dastekhedmatselected == 'رزومه' ">
+							<div class="col-md-4 col-xs-12 " ng-show="dastekhedmatselected " ng-hide="dastekhedmatselected=='رزومه' ">
 
-		  <select class="h5title fontlight " ng-model="namekhedmatselected">
+		  <select class="h5title fontlight " ng-model="namekhedmatselected ">
 
-<option ng-repeat="x in getexamnameid | filter: dastekhedmatselected" value="{{x.id}} ">{{x.name}}</option>
-<option ng-repeat="x in getsuitabilitynameid | filter: dastekhedmatselected" value="{{x.id}} ">{{x.name}}</option>
+<option ng-repeat="x in getexamnameid | filter: dastekhedmatselected " value="{{x.id}} ">{{x.name}}</option>
+<option ng-repeat="x in getsuitabilitynameid | filter: dastekhedmatselected " value="{{x.id}} ">{{x.name}}</option>
 
 
 </select>
@@ -819,68 +819,68 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 
 						<div class="col-md-4 col-xs-12 exfildsearcthe ">
-							<input class="form-control " type="text " size="100 "  ng-model="pricekhedmatselected"></input>
+							<input class="form-control " type="text " size="100 "  ng-model="pricekhedmatselected "></input>
 								</div>
 
-								<div class="clearfix"></div>
+								<div class="clearfix "></div>
 
 
-								<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' || dastekhedmatselected == 'رزومه' ">
+								<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected=='شایستگی' || dastekhedmatselected=='رزومه' ">
 																						<span class="titlefildsear h5title fontmedium ">واحد زمان</span>
 								</div>
 
 
-									<div class="col-md-4 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' || dastekhedmatselected == 'رزومه' ">
-										<select class="h5title fontlight"  ng-disabled="disabled"  ng-model="vahedzaman">
+									<div class="col-md-4 col-xs-12 " ng-hide="dastekhedmatselected=='شایستگی' || dastekhedmatselected=='رزومه' ">
+										<select class="h5title fontlight "  ng-disabled="disabled "  ng-model="vahedzaman ">
 
-							<option ng-repeat="x in getvahedzaman" value="{{x.enname}} ">{{x.faname}}</option>
+							<option ng-repeat="x in getvahedzaman " value="{{x.enname}} ">{{x.faname}}</option>
 
 							</select>
 										</div>
 
 
-										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' || dastekhedmatselected == 'رزومه' ">
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected=='شایستگی' || dastekhedmatselected=='رزومه' ">
 
 																						<span class="titlefildsear h5title fontmedium ">مدت زمان</span>
 
 			</div>
 
 
-								<div class="col-md-4 col-xs-12 exfildsearcthe" ng-hide="dastekhedmatselected == 'شایستگی' || dastekhedmatselected == 'رزومه' ">
+								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected=='شایستگی' || dastekhedmatselected=='رزومه' ">
 									<input class="form-control " type="text " size="100 " ng-model="modatzaman "></input>
 										</div>
 
-										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' " >
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected=='شایستگی' " >
 
 																						<span class="titlefildsear h5title fontmedium ">آپلود نمونه</span>
 
 			</div>
 
 
-								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected == 'شایستگی' ">
-									<input type="file" ngf-select accept="application/pdf, image/*"  ng-model="samplekhedmat" name="file">
+								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected=='شایستگی' ">
+									<input type="file " ngf-select accept="application/pdf, image/* "  ng-model="samplekhedmat " name="file ">
 										</div>
 
-										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected=='شایستگی' ">
 
 																						<span class="titlefildsear h5title fontmedium ">لینک اتصال</span>
 
 			</div>
 
 
-								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected == 'شایستگی' ">
+								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected=='شایستگی' ">
 									<input class="form-control " type="text " size="100 " ng-model="linketesal "></input>
 										</div>
 
-										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected == 'شایستگی' ">
+										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected=='شایستگی' ">
 
 																						<span  class="titlefildsear h5title fontmedium ">توضیحات</span>
 
 			</div>
 
 
-								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected == 'شایستگی' ">
-									<textarea class="form-control " type="text " rows="5" cols="50" ng-model="tozihat "></textarea>
+								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected=='شایستگی' ">
+									<textarea class="form-control " type="text " rows="5 " cols="50 " ng-model="tozihat "></textarea>
 										</div>
 
 
@@ -908,7 +908,7 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 		<a ng-click="orderByField='name' ; reverseSort=! reverseSort ">
 
-           نام خدمت <span ng-if="!orderByField "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='marketshare' "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='name'
+           نام خدمت <span ng-if="!orderByField "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='bazaar_percent' "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='name'
                   "><span ng-show="!reverseSort "><i class="fa fa-caret-up " aria-hidden="true "></i></span><span ng-show="reverseSort "><i class="fa fa-caret-down " aria-hidden="true "></i></span></span>
 
           </a>
@@ -917,9 +917,9 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
         <div class="col-md-2 bluecolor ">
 
-          <a ng-click="orderByField='marketshare' ; reverseSort=! reverseSort ">
+          <a ng-click="orderByField='bazaar_percent' ; reverseSort=! reverseSort ">
 
-            سهم بازار <span ng-if="!orderByField "><i class="fa fa-sort " aria-hidden="true "></i></span>  <span ng-show="orderByField=='name' "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='marketshare'
+            سهم بازار <span ng-if="!orderByField "><i class="fa fa-sort " aria-hidden="true "></i></span>  <span ng-show="orderByField=='name' "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='bazaar_percent'
                   "><span ng-show="!reverseSort "><i class="fa fa-caret-up " aria-hidden="true "></i></span><span ng-show="reverseSort "><i class="fa fa-caret-down " aria-hidden="true "></i></span></span>
 
           </a>
@@ -934,182 +934,187 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
     </div>
 
-      <div class="col-md-12 textcenter bluecolor "  ng-repeat="servicesmanagement in servicesmanagements.slice(((servicesmanagementscurrentPage-1)*servicesmanagementsitemsPerPage), ((servicesmanagementscurrentPage)*servicesmanagementsitemsPerPage))|orderBy:orderByField:reverseSort ">
+      <div class="col-md-12 textcenter bluecolor " ng-repeat="servicesmanagement in servicesmanagements.slice(((servicesmanagementscurrentPage-1)*servicesmanagementsitemsPerPage), ((servicesmanagementscurrentPage)*servicesmanagementsitemsPerPage))|orderBy:orderByField:reverseSort ">
 
         <div class="col-md-12 servicesmanagementrow ">
 
-        <div class="col-md-3 textright " style="line-height: 35px; "><i  ng-class="{ 'circlebtngreen': servicesmanagement.condition=='صعودی' , 'circlebtnred': servicesmanagement.condition=='نزولی' } " aria-hidden="true "></i>{{servicesmanagement.exam.name}}</div>
+        <div class="col-md-3 textright " style="line-height: 35px; "><i  ng-class="{ 'circlebtngreen': servicesmanagement.growth_rate=='one' , 'circlebtnred': servicesmanagement.growth_rate=='zero' } " aria-hidden="true "></i>{{servicesmanagement.exam.name}}</div>
 
-		<div class="col-md-2 "  style="line-height: 35px; ">0 % <i  ng-class="{ 'fa-sort-asc greencolor': servicesmanagement.condition=='صعودی' , 'fa-sort-desc redcolor': servicesmanagement.condition=='نزولی' } " class="fa " aria-hidden="true "></i></div>
+		<div class="col-md-2 "  style="line-height: 35px; ">{{servicesmanagement.bazaar_percent}} % <i  ng-class="{ 'fa-sort-asc greencolor': servicesmanagement.growth_rate=='one' , 'fa-sort-desc redcolor': servicesmanagement.growth_rate=='zero' }
+                  " class="fa " aria-hidden="true "></i></div>
 
-        <div class="col-md-2 "  style="line-height: 35px; ">0</div>
+        <div class="col-md-2 "  style="line-height: 35px; ">{{servicesmanagement.employer_requests}}</div>
 
-        <div class="col-md-1 "  style="line-height: 35px; ">0</div>
+        <div class="col-md-1 "  style="line-height: 35px; ">{{servicesmanagement.job_seekers_requests}}</div>
 
         <div class="col-md-4 ">
 
-        <div class="servicesmanagementaction ">
+        <div class="servicesmanagementaction " ng-if="servicesmanagement.enable=='true' ">
 
-		<a  style="display: none; href="{{servicesmanagement.recivefactorlink}}"><i class="fa fa-pencil h2title" aria-hidden="true"></i></a>
+									<!-- <a href="{{servicesmanagement.recivefactorlink}}"><i class="fa fa-pencil h2title" aria-hidden="true"></i></a> -->
 
-                  <a href="{{servicesmanagement.recivefactorlink}}"><i class="fa fa-usd h2title" aria-hidden="true"></i></a>
+                  <!-- <a ng-click="expand(servicesmanagement)><i class="fa fa-usd h2title" aria-hidden="true"></i></a> -->
 
-                  <a ng-click="expand(servicesmanagement)"><i class="fa h2title"  ng-class="{'fa-eye': !servicesmanagement.show_variables, 'fa-eye-slash': servicesmanagement.show_variables}" aria-hidden="true"></i></a>
+                  <a ng-click="expand(servicesmanagement)"><i class="fa h2title"  ng-class="{'fa-eye': servicesmanagement.active == true , 'fa-eye-slash': servicesmanagement.active == false}" aria-hidden="true"></i></a>
 
-                  <a style="display: none; href=" {{servicesmanagement.recivefactorlink}} "><i class="fa fa-cogs h2title " aria-hidden="true "></i></a>
+                  <!-- <a href=" {{servicesmanagement.recivefactorlink}} "><i class="fa fa-cogs h2title " aria-hidden="true "></i></a> -->
 
-		<a ng-click="removeservicesmanagement(servicesmanagement) "><i class="fa fa-trash h2title " aria-hidden="true "></i></a>
+									<!-- <a ng-click="removeservicesmanagement(servicesmanagement) "><i class="fa fa-trash h2title " aria-hidden="true "></i></a> -->
 
 		</div>
 
-      </div>
+		<div class="servicesmanagementaction_barresi" ng-if="servicesmanagement.enable=='false'>
+			در حال بررسی
+                </div>
 
-      </div>
+              </div>
 
-      </div>
+            </div>
 
- <div class="col-md-6 col-xs-12 textright ">
+          </div>
 
-    <ul uib-pagination boundary-links="true " total-items="servicesmanagementstotalItems " ng-model="servicesmanagementscurrentPage " ng-change="servicesmanagementspageChanged() "  items-per-page="servicesmanagementsitemsPerPage " class="pagination-sm
+          <div class="col-md-6 col-xs-12 textright ">
+
+            <ul uib-pagination boundary-links="true " total-items="servicesmanagementstotalItems " ng-model="servicesmanagementscurrentPage " ng-change="servicesmanagementspageChanged() " items-per-page="servicesmanagementsitemsPerPage " class="pagination-sm
                     " previous-text="&lsaquo; " next-text="&rsaquo; " first-text="&laquo; " last-text="&raquo; "></ul>
 
-</div>
+          </div>
 
 
 
-<div class="col-md-6 col-xs-12 addservicesmanagement ">
+          <div class="col-md-6 col-xs-12 addservicesmanagement ">
 
-					<button type="button " class="btn greenbtn fontmedium cursorpointer " data-toggle="modal" data-target="#ShowPopupaddexam"><span>اضافه نمودن خدمت جدید</span></button>
+            <button type="button " class="btn greenbtn fontmedium cursorpointer " data-toggle="modal" data-target="#ShowPopupaddexam"><span>اضافه نمودن خدمت جدید</span></button>
 
-</div>
-
-
-
-</div>
+          </div>
 
 
+
+        </div>
 
 
 
 
 
-<div ng-show="activeTabF=='tab4' " class="mymessagebox ">
-
-            <div class="clearfix "></div>
 
 
+        <div ng-show="activeTabF=='tab4' " class="mymessagebox ">
 
-    <ul class="nav nav-tabs ">
+          <div class="clearfix "></div>
 
-        <li ng-class="{active: activeTab=='inbox' } ">
 
-            <a class="mymessageboxtab " ng-click="activeTab='inbox' ">صندوق دریافت</a>
 
-        </li>
+          <ul class="nav nav-tabs ">
 
-        <li ng-class="{active: activeTab=='sent' } ">
+            <li ng-class="{active: activeTab=='inbox' } ">
 
-            <a class="mymessageboxtab " ng-click="activeTab='sent' ">پیام های ارسال شده</a>
+              <a class="mymessageboxtab " ng-click="activeTab='inbox' ">صندوق دریافت</a>
 
-        </li>
+            </li>
 
-		<li ng-class="{active: activeTab=='compose' } ">
+            <li ng-class="{active: activeTab=='sent' } ">
 
-            <a class="mymessageboxtab " ng-click="activeTab='compose' ">ایجاد پیام</a>
+              <a class="mymessageboxtab " ng-click="activeTab='sent' ">پیام های ارسال شده</a>
 
-        </li>
+            </li>
 
-    </ul>
+            <li ng-class="{active: activeTab=='compose' } ">
 
-    <div class="mymessageboxdet col-md-12 col-xs-12 ">
+              <a class="mymessageboxtab " ng-click="activeTab='compose' ">ایجاد پیام</a>
 
-    <div ng-show="activeTab=='inbox' " class=" ">
+            </li>
 
-        <div ng-hide="isreceiveVisible ">
+          </ul>
 
-            <div class="emailrow " ng-repeat="email in emails " ng-click="showreceivemail(email) ">
+          <div class="mymessageboxdet col-md-12 col-xs-12 ">
 
-                <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
+            <div ng-show="activeTab=='inbox' " class=" ">
 
-                <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ email.subject }}<br><span class="h6title fontlight ">{{ email.from }}</span></span>
+              <div ng-hide="isreceiveVisible ">
 
-                <span class="col-md-2 col-xs-2 emaildate textleft ">{{ email.time }}<br>{{ email.date }}</span>
+                <div class="emailrow " ng-repeat="email in emails " ng-click="showreceivemail(email) ">
+
+                  <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
+
+                  <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ email.subject }}<br><span class="h6title fontlight ">{{ email.from }}</span></span>
+
+                  <span class="col-md-2 col-xs-2 emaildate textleft ">{{ email.time }}<br>{{ email.date }}</span>
+
+                </div>
+
+              </div>
+
+              <div ng-show="isreceiveVisible ">
+
+                <div class="modal-header ">
+
+                  <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
+
+                  <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ selectedreceiveEmail.subject }}<br><span class="h6title fontlight ">{{ selectedreceiveEmail.from }}</span></span>
+
+                  <span class="col-md-2 col-xs-2 emaildate textleft ">{{ selectedreceiveEmail.time }}<br>{{ selectedreceiveEmail.date }}</span>
+
+                </div>
+
+                <div class="modal-body ">
+
+                  {{selectedreceiveEmail.body}}
+
+                </div>
+
+                <div class="modal-footer ">
+
+                  <a class="btn removeemail darkgraybtn " ng-click="removereceiveemail(selectedreceiveEmail) "><i class="fa fa-trash-o " aria-hidden="true "></i> حذف</a>
+
+                  <a class="btn replayemail greenbtn " ng-click="replayereceivemail(selectedreceiveEmail) ">پاسخ به پیام</a>
+
+                  <a class="btn backtomail bluebtn " ng-click="backtoreceivemail() ">بازگشت    <i class="fa fa-angle-double-left " aria-hidden="true "></i></a>
+
+                </div>
+
+              </div>
 
             </div>
 
-        </div>
-
-		<div ng-show="isreceiveVisible ">
-
-        <div class="modal-header ">
-
-               <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
-
-                <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ selectedreceiveEmail.subject }}<br><span class="h6title fontlight ">{{ selectedreceiveEmail.from }}</span></span>
-
-                <span class="col-md-2 col-xs-2 emaildate textleft ">{{ selectedreceiveEmail.time }}<br>{{ selectedreceiveEmail.date }}</span>
-
-        </div>
-
-        <div class="modal-body ">
-
-            {{selectedreceiveEmail.body}}
-
-        </div>
-
-        <div class="modal-footer ">
-
-            <a class="btn removeemail darkgraybtn "  ng-click="removereceiveemail(selectedreceiveEmail) " ><i class="fa fa-trash-o " aria-hidden="true "></i> حذف</a>
-
-            <a class="btn replayemail greenbtn " ng-click="replayereceivemail(selectedreceiveEmail) ">پاسخ به پیام</a>
-
-            <a class="btn backtomail bluebtn " ng-click="backtoreceivemail() ">بازگشت    <i class="fa fa-angle-double-left " aria-hidden="true "></i></a>
-
-        </div>
-
-    </div>
-
-    </div>
 
 
+            <div ng-show="activeTab=='sent' ">
 
-    <div ng-show="activeTab=='sent' ">
+              <div ng-hide="issentVisible ">
 
-	        <div ng-hide="issentVisible ">
+                <div class="emailrow " ng-repeat="email in sentEmails " ng-click="showsentmail(email) ">
 
-	        <div class="emailrow " ng-repeat="email in sentEmails " ng-click="showsentmail(email) ">
+                  <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
 
-                <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
+                  <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ email.subject }}<br><span class="h6title fontlight ">{{ email.to }}</span></span>
 
-                <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ email.subject }}<br><span class="h6title fontlight ">{{ email.to }}</span></span>
+                  <span class="col-md-2 col-xs-2 emaildate textleft ">{{ email.time }}<br>{{ email.date }}</span>
 
-                <span class="col-md-2 col-xs-2 emaildate textleft ">{{ email.time }}<br>{{ email.date }}</span>
+                </div>
 
-            </div>
+              </div>
 
-    </div>
+              <div ng-show="issentVisible ">
 
-			<div ng-show="issentVisible ">
+                <div class="modal-header ">
 
-        <div class="modal-header ">
+                  <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
 
-               <span class="col-md-1 col-xs-1 emailicon "><i class="fa fa-envelope-open-o " aria-hidden="true "></i></span>
+                  <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ selectedsentEmail.subject }}<br><span class="h6title fontlight ">{{ selectedsentEmail.to }}</span></span>
 
-                <span class="col-md-9 col-xs-9 emailminides fontmedium ">{{ selectedsentEmail.subject }}<br><span class="h6title fontlight ">{{ selectedsentEmail.to }}</span></span>
+                  <span class="col-md-2 col-xs-2 emaildate textleft ">{{ selectedsentEmail.time }}<br>{{ selectedsentEmail.date }}</span>
 
-                <span class="col-md-2 col-xs-2 emaildate textleft ">{{ selectedsentEmail.time }}<br>{{ selectedsentEmail.date }}</span>
+                </div>
 
-        </div>
+                <div class="modal-body ">
 
-        <div class="modal-body ">
+                  {{selectedsentEmail.body}}
 
-            {{selectedsentEmail.body}}
+                </div>
 
-        </div>
+                <div class="attachfilereceive ">
 
-        <div class="attachfilereceive " >
-
-        <a href="https://www.a.com " >
+                  <a href="https://www.a.com ">
 
 		<i class="fa fa-paperclip "></i>
 
@@ -1121,39 +1126,39 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 		</a>
 
-				</div>
+                </div>
 
 
 
-        <div class="modal-footer ">
+                <div class="modal-footer ">
 
-            <a class="btn removeemail darkgraybtn fontmedium "  ng-click="removesentmail(selectedsentEmail) " ><i class="fa fa-trash-o " aria-hidden="true "></i> حذف</a>
+                  <a class="btn removeemail darkgraybtn fontmedium " ng-click="removesentmail(selectedsentEmail) "><i class="fa fa-trash-o " aria-hidden="true "></i> حذف</a>
 
-            <a class="btn replayemail greenbtn fontmedium " ng-click="replayesentmail(selectedsentEmail) ">پاسخ به پیام</a>
+                  <a class="btn replayemail greenbtn fontmedium " ng-click="replayesentmail(selectedsentEmail) ">پاسخ به پیام</a>
 
-            <a class="btn backtomail bluebtn fontmedium " ng-click="backtosentmail() ">بازگشت    <i class="fa fa-angle-double-left " aria-hidden="true "></i></a>
+                  <a class="btn backtomail bluebtn fontmedium " ng-click="backtosentmail() ">بازگشت    <i class="fa fa-angle-double-left " aria-hidden="true "></i></a>
 
-		</div>
+                </div>
 
-    </div>
+              </div>
 
-    </div>
-
-
+            </div>
 
 
 
-    <div ng-show="activeTab=='compose' ">
 
-        <div class="modal-header ">
 
-		<span class="col-md-1 col-xs-3 composetitle graycolor h5title ">
+            <div ng-show="activeTab=='compose' ">
+
+              <div class="modal-header ">
+
+                <span class="col-md-1 col-xs-3 composetitle graycolor h5title ">
 
   پیام به
 
 		</span>
 
-		<span class="col-md-11 col-xs-9 composeval ">
+                <span class="col-md-11 col-xs-9 composeval ">
 
                 <input type="text "
 
@@ -1161,13 +1166,13 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 		</span>
 
-			<span class="col-md-1 col-xs-3 composetitle graycolor h5title ">
+                <span class="col-md-1 col-xs-3 composetitle graycolor h5title ">
 
   موضوع
 
 		</span>
 
-		<span class="col-md-11 col-xs-9 composeval ">
+                <span class="col-md-11 col-xs-9 composeval ">
 
                 <input type="text "
 
@@ -1177,35 +1182,34 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 
 
-		</div>
+              </div>
 
-<div class="modal-body " style="padding: 0; ">
+              <div class="modal-body " style="padding: 0; ">
 
-         <textarea class="composeEmailbody " rows="10 "
+                <textarea class="composeEmailbody " rows="10 " ng-model="composeEmail.body "></textarea>
 
-                    ng-model="composeEmail.body "></textarea>
+              </div>
+
+              <div class="modal-footer " style="margin: 0; text-align: right; ">
+
+                <a class="btn greenbtn " ng-click="sendEmail(attachmailfile) ">ارسال</a>
+
+                <span ngf-select ng-model="attachmailfile " accept="image/* " ngf-max-size="5MB " class="attachmail "><i class="fa fa-paperclip " aria-hidden="true "></i></span>
+
+                <span style="padding-right: 45px; ">{{attachmailfile.name}}</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="clearfix "></div>
+
+
 
         </div>
 
-<div class="modal-footer " style="margin: 0; text-align: right; ">
-
-      <a class="btn greenbtn " ng-click="sendEmail(attachmailfile) ">ارسال</a>
-
-      <span ngf-select ng-model="attachmailfile " accept="image/* " ngf-max-size="5MB " class="attachmail "><i class="fa fa-paperclip " aria-hidden="true "></i></span>
-
-	  <span style="padding-right: 45px; ">{{attachmailfile.name}}</span>
-
-        </div>
-
-    </div>
-
-  </div>
-
-              <div class="clearfix "></div>
-
-
-
-</div>
 
 
 
@@ -1214,175 +1218,84 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 
 
-
-<div ng-show="activeTabF=='tab5' " class="myfinancialtransactions ">
-
+        <div ng-show="activeTabF=='tab5' " class="myfinancialtransactions ">
 
 
-  <table class="table table-bordered transactionstable ">
 
-    <thead>
+          <table class="table table-bordered transactionstable ">
 
-      <tr>
+            <thead>
 
-        <th>
+              <tr>
 
-		<a ng-click="orderByField='transactionhistory' ; reverseSort=! reverseSort ">
+                <th>
+
+                  <a ng-click="orderByField='transactionhistory' ; reverseSort=! reverseSort ">
 
            تاریخ تراکنش <span ng-if="!orderByField "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='transactiontype' "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='transactionhistory'
                     "><span ng-show="!reverseSort "><i class="fa fa-caret-up " aria-hidden="true "></i></span><span ng-show="reverseSort "><i class="fa fa-caret-down " aria-hidden="true "></i></span></span>
 
           </a></th>
 
-        <th>
+                <th>
 
-          <a ng-click="orderByField='transactiontype' ; reverseSort=! reverseSort ">
+                  <a ng-click="orderByField='transactiontype' ; reverseSort=! reverseSort ">
 
             نوع تراکنش <span ng-if="!orderByField "><i class="fa fa-sort " aria-hidden="true "></i></span>  <span ng-show="orderByField=='transactionhistory' "><i class="fa fa-sort " aria-hidden="true "></i></span> <span ng-show="orderByField=='transactiontype'
                     "><span ng-show="!reverseSort "><i class="fa fa-caret-up " aria-hidden="true "></i></span><span ng-show="reverseSort "><i class="fa fa-caret-down " aria-hidden="true "></i></span></span>
 
           </a>
 
-        </th>
+                </th>
 
-        <th>شماره پیگیری</th>
+                <th>شماره پیگیری</th>
 
-        <th>مبلغ (تومان)</th>
+                <th>مبلغ (تومان)</th>
 
-        <th>موجودی (تومان)</th>
+                <th>موجودی (تومان)</th>
 
-        <th>دریافت فاکتور</th>
+                <th>دریافت فاکتور</th>
 
-      </tr>
+              </tr>
 
-    </thead>
+            </thead>
 
-    <tbody>
+            <tbody>
 
-      <tr ng-repeat="transaction in mytransactions.slice(((mytransactionscurrentPage-1)*mytransactionsitemsPerPage), ((mytransactionscurrentPage)*mytransactionsitemsPerPage))|orderBy:orderByField:reverseSort ">
+              <tr ng-repeat="transaction in mytransactions.slice(((mytransactionscurrentPage-1)*mytransactionsitemsPerPage), ((mytransactionscurrentPage)*mytransactionsitemsPerPage))|orderBy:orderByField:reverseSort ">
 
-        <td>{{transaction.transactionhistory}}</td>
+                <td>{{transaction.transactionhistory}}</td>
 
-        <td>{{transaction.transactiontype}}</td>
+                <td>{{transaction.transactiontype}}</td>
 
-        <td>{{transaction.issuetracking}}</td>
+                <td>{{transaction.issuetracking}}</td>
 
-        <td ng-class="{ 'greencolor': transaction.transactiontype=='واریز' , 'graycolor': transaction.transactiontype=='واریز ناموفق' , 'redcolor': transaction.transactiontype=='پرداخت' } ">{{transaction.transactionprice}}</td>
+                <td ng-class="{ 'greencolor': transaction.transactiontype=='واریز' , 'graycolor': transaction.transactiontype=='واریز ناموفق' , 'redcolor': transaction.transactiontype=='پرداخت' } ">{{transaction.transactionprice}}</td>
 
-        <td ng-class="{ 'greencolor': transaction.transactiontype=='واریز' , 'graycolor': transaction.transactiontype=='واریز ناموفق' } ">{{transaction.transactioncredit}}</td>
+                <td ng-class="{ 'greencolor': transaction.transactiontype=='واریز' , 'graycolor': transaction.transactiontype=='واریز ناموفق' } ">{{transaction.transactioncredit}}</td>
 
-        <td class="recivefactorlink "><a href="{{transaction.recivefactorlink}} "><i class="fa fa-download h2title " aria-hidden="true "></i></a></td>
+                <td class="recivefactorlink "><a href="{{transaction.recivefactorlink}} "><i class="fa fa-download h2title " aria-hidden="true "></i></a></td>
 
-      </tr>
+              </tr>
 
-    </tbody>
+            </tbody>
 
-  </table>
+          </table>
 
- <div class="col-md-6 col-xs-12 textright ">
+          <div class="col-md-6 col-xs-12 textright ">
 
-    <ul uib-pagination boundary-links="true " total-items="mytransactionstotalItems " ng-model="mytransactionscurrentPage " ng-change="mytransactionspageChanged() "  items-per-page="mytransactionsitemsPerPage " class="pagination-sm " previous-text="&lsaquo;
+            <ul uib-pagination boundary-links="true " total-items="mytransactionstotalItems " ng-model="mytransactionscurrentPage " ng-change="mytransactionspageChanged() " items-per-page="mytransactionsitemsPerPage " class="pagination-sm " previous-text="&lsaquo;
                     " next-text="&rsaquo; " first-text="&laquo; " last-text="&raquo; "></ul>
 
-</div>
+          </div>
 
 
 
-<div class="col-md-6 col-xs-12 mysetincreasecredit ">
+          <div class="col-md-6 col-xs-12 mysetincreasecredit ">
 
-					<button type="button " class="btn greenbtn fontmedium "><span>افزایش اعتبار</span></button>
+            <button type="button " class="btn greenbtn fontmedium "><span>افزایش اعتبار</span></button>
 
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div ng-show="activeTabF=='tab6' " class="mysetting ">
-
-            <div class="clearfix "></div>
-
-            <div class="col-md-12 h4title graycolor ">
-
-			<md-checkbox ng-model="data.custom111 " aria-label="Checkbox 1 ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
-
-			</div>
-
-       <div class="clearfix "></div>
-
-            <div class="col-md-12 h4title graycolor ">
-
-			<md-checkbox ng-model="data.custom222 " aria-label="Checkbox 1 ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
-
-			</div>
-
-			       <div class="clearfix "></div>
-
-            <div class="col-md-12 h4title graycolor ">
-
-			<md-checkbox ng-model="data.custom333 " aria-label="Checkbox 1 ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
-
-			</div>
-
-						       <div class="clearfix "></div>
-
-							               <div class="col-md-10 h4title graycolor ">
-
-    شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی
-
-</div>
-
-  							               <div class="col-md-2 mysettingswitch ">
-
- <md-switch md-invert ng-model="data.sw111 " aria-label="Switch 1 ">
-
-  </md-switch>
-
-  </div>
-
-			       <div class="clearfix "></div>
-
-				   <div class="col-md-10 h4title graycolor ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح </div>
-
-
-
-  							               <div class="col-md-2 mysettingswitch ">
-
- <md-switch md-invert ng-model="data.sw222 " aria-label="Switch 2 ">
-
-  </md-switch>
-
-  </div>
-
-			       <div class="clearfix "></div>
-
-				   <div class="col-md-10 h4title graycolor ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح </div>
-
-  							               <div class="col-md-2 mysettingswitch ">
-
- <md-switch md-invert ng-model="data.sw333 " aria-label="Switch 3 ">
-
-  </md-switch>
-
-  </div>
-
-			       <div class="clearfix "></div>
-
-			       <div class="clearfix "></div>
-
-
-
-</div>
-
-
+          </div>
 
 
 
@@ -1392,13 +1305,99 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 
 
-									</div>
-
-									</div>
 
 
 
 
+        <div ng-show="activeTabF=='tab6' " class="mysetting ">
+
+          <div class="clearfix "></div>
+
+          <div class="col-md-12 h4title graycolor ">
+
+            <md-checkbox ng-model="data.custom111 " aria-label="Checkbox 1 ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
+
+          </div>
+
+          <div class="clearfix "></div>
+
+          <div class="col-md-12 h4title graycolor ">
+
+            <md-checkbox ng-model="data.custom222 " aria-label="Checkbox 1 ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
+
+          </div>
+
+          <div class="clearfix "></div>
+
+          <div class="col-md-12 h4title graycolor ">
+
+            <md-checkbox ng-model="data.custom333 " aria-label="Checkbox 1 ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
+
+          </div>
+
+          <div class="clearfix "></div>
+
+          <div class="col-md-10 h4title graycolor ">
+
+            شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی
+
+          </div>
+
+          <div class="col-md-2 mysettingswitch ">
+
+            <md-switch md-invert ng-model="data.sw111 " aria-label="Switch 1 ">
+
+            </md-switch>
+
+          </div>
+
+          <div class="clearfix "></div>
+
+          <div class="col-md-10 h4title graycolor ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح </div>
+
+
+
+          <div class="col-md-2 mysettingswitch ">
+
+            <md-switch md-invert ng-model="data.sw222 " aria-label="Switch 2 ">
+
+            </md-switch>
+
+          </div>
+
+          <div class="clearfix "></div>
+
+          <div class="col-md-10 h4title graycolor ">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح </div>
+
+          <div class="col-md-2 mysettingswitch ">
+
+            <md-switch md-invert ng-model="data.sw333 " aria-label="Switch 3 ">
+
+            </md-switch>
+
+          </div>
+
+          <div class="clearfix "></div>
+
+          <div class="clearfix "></div>
+
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+  </div>
 
 
 
@@ -1409,9 +1408,4 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 
 
-
-
-
-
-
-			</div>
+</div>

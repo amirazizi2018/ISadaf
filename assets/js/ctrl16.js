@@ -722,11 +722,13 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
     $scope.business_type = response.data.business_type;
     $scope.motto = response.data.motto;
     $scope.fax = response.data.fax;
+    $scope.phone = response.data.phone;
     $scope.address = response.data.address;
     $scope.second_address = response.data.second_address;
     $scope.email = response.data.email;
     $scope.web_site = response.data.web_site;
     $scope.socials = response.data.socials;
+    $scope.suitabilities = response.data.suitabilities;
 
 
     $scope.editorEnabledbusiness_type = false;
@@ -786,7 +788,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
       $http.put(mustafasite + "/service_provider", JSON.stringify(data), config).then(function(response) {
 
-        $scope.position = $scope.editableTitlebusiness_type;
+        $scope.business_type = $scope.editableTitlebusiness_type;
 
         $scope.disableEditorbusiness_type();
 
@@ -855,16 +857,50 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
     };
 
 
+    $http.get(mustafasite + '/exam/my_exams', {
+
+      headers: {
+
+        "Content-Type": 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }).then(function(response) {
+
+      $scope.services = response.data.exams;
+
+    });
 
 
 
-    $scope.TamasFormJS = function() {
+    $scope.ShowTamasFormSP = function() {
+
+if ($localStorage.UserType == "SP") {
+  $("#ShowPopupEditTamas").modal('hide');
+  $scope.phone = angular.copy($scope.editphone);
+  $scope.fax = angular.copy($scope.editfax);
+  $scope.address = angular.copy($scope.editaddress);
+  $scope.second_address = angular.copy($scope.editsecond_address);
+  $scope.email = angular.copy($scope.editemail);
+  $scope.web_site = angular.copy($scope.editweb_site);
+} else {
+
+}
+
+    }
+
+    $scope.TamasFormSP = function() {
 
       var data = {
 
-        fixed_phone: $scope.phonefix,
-
-        address: $scope.address,
+        phone: $scope.editphone,
+        fax: $scope.editfax,
+        address: $scope.editaddress,
+        second_address: $scope.editsecond_address,
+        email: $scope.editemail,
+        web_site: $scope.editweb_site,
 
       };
 
@@ -882,12 +918,14 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
       }
 
-      $http.put(mustafasite + "/job_seeker", JSON.stringify(data), config).then(function(response) {
+      $http.put(mustafasite + "/service_provider", JSON.stringify(data), config).then(function(response) {
 
-        $scope.phonefix = $scope.phonefix;
-
-        $scope.address = $scope.address;
-
+        $scope.phone = $scope.editphone;
+        $scope.fax = $scope.editfax;
+        $scope.address = $scope.editaddress;
+        $scope.second_address = $scope.editsecond_address;
+        $scope.email = $scope.editemail;
+        $scope.web_site = $scope.editweb_site;
         $('#ShowPopupEditTamas').modal('hide');
 
       });
@@ -904,25 +942,33 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
   $scope.savelogo = function(dataUrl, name) {
 
-    Upload.upload({
+    dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
 
-      url: '/sadafupload/upload.php',
+    var data = {
 
-      data: {
+      "image": dataUrl2,
 
-        'targetPath': 'images/',
+    }
 
-        file: Upload.dataUrltoBlob(dataUrl, name)
+    var config = {
 
-      },
+      headers: {
 
-    }).then(function(response) {
+        'Content-Type': 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+
+
+    $http.put(mustafasite + '/service_provider/avatar64', JSON.stringify(data), config).then(function(response) {
 
       $timeout(function() {
 
-        $scope.logopic = '/sadafupload/' + response.data;
-
-        $scope.result = response.data;
+        $scope.avatar = response.data;
 
         $('#ShowPopupUploadLogo').modal('hide');
 
@@ -932,14 +978,8 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
       });
 
-    }, function(response) {
-
-      if (response.status > 0) $scope.errorMsg = response.status
-
-        +
-        ': ' + response.data;
-
     });
+
 
   }
 
@@ -1377,7 +1417,124 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
   }
 
+  $scope.socialnameid = [
 
+    {
+      key: "تلگرام",
+      value: "1"
+    },
+    {
+      key: "ایسنتاگرام",
+      value: "2"
+    },
+    {
+      key: "لینکدین",
+      value: "3"
+    },
+    {
+      key: "گوگل پلاس	",
+      value: "4"
+    },
+
+  ];
+
+
+$scope.SocialAddEdit = function() {
+
+  var data = {
+
+    social_id: parseInt($scope.idsocial),
+
+    url: $scope.socialgetlink,
+
+  };
+
+
+
+  var config = {
+
+    headers: {
+
+      'Content-Type': 'application/json',
+
+      'Access-Token': $localStorage.TokenKey.access,
+
+    }
+
+  }
+
+  $http.post(mustafasite + "/service_provider/social", JSON.stringify(data), config).then(function(response) {
+
+    $http.get(mustafasite + '/service_provider/me', {
+
+      headers: {
+
+        "Content-Type": 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }).then(function(response) {
+
+      $scope.socials = response.data.socials;
+
+    });
+
+    $('#ShowPopupEditSocial').modal('hide');
+
+  });
+
+
+
+};
+
+$scope.removesocial = function(x) {
+
+  var data = x.social.id;
+
+
+
+  var config = {
+
+    headers: {
+      'Content-Type': "application/json",
+
+      'Access-Token': $localStorage.TokenKey.access,
+
+    }
+
+  }
+
+
+
+  $http.delete(mustafasite + '/service_provider/social' + data, config).then(function(response) {
+
+
+    $http.get(mustafasite + '/service_provider/me', {
+
+      headers: {
+
+        "Content-Type": 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }).then(function(response) {
+
+      $scope.socials = response.data.socials;
+
+    });
+
+
+
+
+  });
+
+
+
+}
 
 
 });

@@ -383,7 +383,7 @@
 
           <div class="h1title bluecolor companyname fontmedium">{{fa_name}}</div>
 
-          <span class="h4title graycolor companysaham fontlight" ng-hide="editorEnabledbusiness_type">{{business_type}}) <a ng-if="ShowForSP()" class="cursorpointer" ng-click="enableEditorbusiness_type(editableTitlebusiness_type)"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+          <span class="h4title graycolor companysaham fontlight" ng-hide="editorEnabledbusiness_type">({{business_type}}) <a ng-if="ShowForSP()" class="cursorpointer" ng-click="enableEditorbusiness_type(editableTitlebusiness_type)"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
 
           <span class="h4title graycolor companysaham fontlight" ng-show="editorEnabledbusiness_type">
 
@@ -446,7 +446,7 @@
 
               <div class="modal-body">
                 <form name="editsocialform" novalidate ng-submit="editsocialform.$valid &&SocialAddEdit()" class="jobpostpfilterbox">
-                  <strong>لینک صفحه:</strong>
+                  <strong>نوع شبکه:</strong>
                   <select class="h5title fontlight" ng-model="idsocial">
                 <option ng-repeat="x in socialnameid" value="{{x.value}}">{{x.key}}</option>
             </select>
@@ -474,37 +474,37 @@
         </div>
 
 
-        <div class="col-md-3 col-xs-3 selectdefaultserver">
+        <div class="col-md-3 col-xs-3 selectdefaultserver" ng-if="NotShowForSP()">
 
           <button type="button" class="btn greenbtn fontmedium"><span>انتخاب به عنوان کارگزار پیشفرض</span></button>
 
         </div>
 
-        <div class="col-md-12 col-xs-12 spcontactdetbox nopaddingleft">
+        <div class="col-md-12 col-xs-12 spcontactdetbox nopaddingleft" ng-click="ShowTamasFormSP()">
 
           <div class="col-md-12 col-xs-12 h5title fontlight graycolor spcontactdet">
 
             <div class="col-md-2">
 
-              <p><i class="fa fa-phone-square" aria-hidden="true"></i> ۰۲۱۳۴۴۳۶۶۴۷</p>
+              <p><i class="fa fa-phone-square" aria-hidden="true"></i> {{phone}}</p>
 
-              <p style="margin: 0;"><i class="fa fa-fax" aria-hidden="true"></i> ۰۲۱۳۴۴۳۶۶۴۷</p>
+              <p style="margin: 0;"><i class="fa fa-fax" aria-hidden="true"></i> {{{{fax}}}}</p>
 
             </div>
 
             <div class="col-md-7">
 
-              <p><i class="fa fa-building" aria-hidden="true"></i> تهران</p>
+              <p><i class="fa fa-building" aria-hidden="true"></i> {{address}}</p>
 
-              <p style="margin: 0;"><i class="fa fa-industry" aria-hidden="true"></i> اهواز</p>
+              <p style="margin: 0;"><i class="fa fa-industry" aria-hidden="true"></i> {{second_address}}</p>
 
             </div>
 
             <div class="col-md-3">
 
-              <p><i class="fa fa-envelope" aria-hidden="true"></i> info@shaygan.com</p>
+              <p><i class="fa fa-envelope" aria-hidden="true"></i> {{email}}</p>
 
-              <p style="margin: 0;"><i class="fa fa-external-link-square" aria-hidden="true"></i> www.shaygan.com</p>
+              <p style="margin: 0;"><i class="fa fa-external-link-square" aria-hidden="true"></i> {{web_site}}</p>
 
             </div>
 
@@ -520,7 +520,56 @@
 
     </div>
 
+    <div id="ShowPopupEditTamas" class="modal modal-md" role="dialog">
 
+      <div class="modal-dialog">
+
+        <div class="modal-content ">
+
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+            <h3>ویرایش اطلاعات تماس با ما</h3>
+
+          </div>
+
+          <div class="modal-body">
+            <form name="edittamasform" novalidate ng-submit="edittamasform.$valid &&TamasFormSP()" class="jobpostpfilterbox">
+              <strong>شماره تماس:</strong><input type="text" name="editphone" ng-model="editphone"> <br/>
+              <br>
+              <br>
+              <strong>شماره فکس:</strong><input type="text" name="editfax" ng-model="editfax"> <br/>
+              <br>
+              <br>
+              <strong>آدرس:</strong><input type="text" name="editaddress" ng-model="editaddress"> <br/>
+              <br>
+              <br>
+              <strong>آدرس دوم:</strong><input type="text" name="editsecond_address" ng-model="editsecond_address"> <br/>
+              <br>
+              <br>
+              <strong>ایمیل سازمانی:</strong><input type="text" name="editemail" ng-model="editemail"> <br/>
+              <br>
+              <br>
+              <strong>آدرس وب سایت:</strong><input type="text" name="editweb_site" ng-model="editweb_site"> <br/>
+              <br>
+              <br>
+              <button type="submit" class="btn bluebtn">ذخیره</button>
+            </form>
+
+
+
+          </div>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
 
 
 
@@ -533,18 +582,45 @@
     <div class="services" ng-class="{showallservices: showallservices}">
 
       <div class="col-md-12 col-xs-12 h2title bluecolor fontmedium servicesh1title" style="padding: 0 0 15px;">خدمات ما روی سامانه صدف</div>
-
-      <div class="serve" ng-repeat="serve in services">
+      <div class="serve" ng-if="suitabilities != null">
 
         <div class="row">
 
-          <div class="col-md-3 col-xs-12 "><img src="{{serve.serveimg}}">
+          <div class="col-md-3 col-xs-12 "><img src="http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg">
 
           </div>
 
           <div class="col-md-9 col-xs-12 servetitle h2title">
 
-            {{serve.servetitle}}
+پکیچ کانون ارزیابی
+          </div>
+
+          <br>
+
+          <br>
+
+          <div class="col-md-9 col-xs-12  servedesc h4title graycolor">
+
+این پکیج کانون ارزیابی است            <!-- <br>
+            <a href="{{serve.sample_result_url}}" target="_blank" class="sampleservicebtn btn greenbtn fontmedium">دانلود نمونه</a> -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="serve" ng-repeat="serve in services">
+
+        <div class="row">
+
+          <div class="col-md-3 col-xs-12 "><img src="{{serve.exam.image_path}}">
+
+          </div>
+
+          <div class="col-md-9 col-xs-12 servetitle h2title">
+
+            {{serve.exam.name}}
 
           </div>
 
@@ -554,7 +630,9 @@
 
           <div class="col-md-9 col-xs-12  servedesc h4title graycolor">
 
-            {{serve.servedesc}}
+            {{serve.description}}
+            <br>
+            <a href="{{serve.sample_result_url}}" target="_blank" class="sampleservicebtn btn greenbtn fontmedium">دانلود نمونه</a>
 
           </div>
 
@@ -663,9 +741,9 @@
 
           <br />
 
-          <strong>متن نظر:</strong><textarea type="text" ng-model="commenttextmodal" required></textarea><br />
+          <strong>متن نظر:</strong><textarea type="text" ng-model="commenttextmodal"  rows="5" cols="50" required></textarea><br />
 
-          <strong>امتیاز  از 5:</strong><input type="text" ng-model="ratecommentmodal" rows="5" cols="50" required><br />
+          <strong>امتیاز  از 5:</strong><input type="text" ng-model="ratecommentmodal" required><br />
 
         </div>
 

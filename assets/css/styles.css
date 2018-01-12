@@ -5028,3 +5028,12 @@ resize: none;
 #ShowPopupaddexam .modal-body div{
     padding: 5px 15px;
   }
+
+.servicesmanagementaction_barresi {
+      text-align: center;
+      padding: 8px 0px 0px;
+}
+
+.sampleservicebtn {
+  padding: 8px 20px;
+}
