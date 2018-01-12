@@ -721,7 +721,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
     $scope.avatar = response.data.avatar;
     $scope.business_type = response.data.business_type;
     $scope.motto = response.data.motto;
-    $scope.faxnumber = response.data.faxnumber;
+    $scope.fax = response.data.fax;
     $scope.phone = response.data.phone;
     $scope.address = response.data.address;
     $scope.second_address = response.data.second_address;
@@ -867,7 +867,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 if ($localStorage.UserType == "SP") {
   $("#ShowPopupEditTamas").modal('show');
   $scope.editphone = angular.copy($scope.phone);
-  $scope.editfaxnumber = angular.copy($scope.faxnumber);
+  $scope.editfax = angular.copy($scope.fax);
   $scope.editaddress = angular.copy($scope.address);
   $scope.editsecond_address = angular.copy($scope.second_address);
   $scope.editemail = angular.copy($scope.email);
@@ -883,7 +883,7 @@ if ($localStorage.UserType == "SP") {
       var data = {
 
         phone: $scope.editphone,
-        fax: $scope.editfaxnumber,
+        fax: $scope.editfax,
         address: $scope.editaddress,
         second_address: $scope.editsecond_address,
         email: $scope.editemail,
@@ -908,7 +908,7 @@ if ($localStorage.UserType == "SP") {
       $http.put(mustafasite + "/service_provider", JSON.stringify(data), config).then(function(response) {
 
         $scope.phone = $scope.editphone;
-        $scope.faxnumber = $scope.editfaxnumber;
+        $scope.fax = $scope.editfax;
         $scope.address = $scope.editaddress;
         $scope.second_address = $scope.editsecond_address;
         $scope.email = $scope.editemail;
@@ -972,30 +972,30 @@ if ($localStorage.UserType == "SP") {
 
 
 
-  $scope.services = [
-
-    {
-      id: '1',
-      servetitle: 'تست MBTI',
-      servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
-      serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
-    },
-
-    {
-      id: '1',
-      servetitle: 'تست ICDL',
-      servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
-      serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
-    },
-
-    {
-      id: '1',
-      servetitle: 'تست مایرز',
-      servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
-      serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
-    },
-
-  ];
+  // $scope.services = [
+  //
+  //   {
+  //     id: '1',
+  //     servetitle: 'تست MBTI',
+  //     servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
+  //     serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
+  //   },
+  //
+  //   {
+  //     id: '1',
+  //     servetitle: 'تست ICDL',
+  //     servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
+  //     serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
+  //   },
+  //
+  //   {
+  //     id: '1',
+  //     servetitle: 'تست مایرز',
+  //     servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
+  //     serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
+  //   },
+  //
+  // ];
 
 
 
@@ -1241,6 +1241,7 @@ if ($localStorage.UserType == "SP") {
 
 				$scope.getmyteams();
 				$('#ShowPopupEditperson').modal('hide');
+        $scope.personpicFile = null;
 				$scope.teampersonlink = null;
 				$scope.teampersonname = null;
 			  $scope.teampersonposition = null;
@@ -1354,7 +1355,8 @@ if ($localStorage.UserType == "SP") {
 
 				$scope.getmycomment();
 				$('#ShowPopupAddComment').modal('hide');
-				$scope.namecommentmodal = null;
+				$scope.personpicFile = null;
+        $scope.namecommentmodal = null;
 				$scope.commenttextmodal = null;
 			  $scope.ratecommentmodal = null;
 				alert("نظر شما با موفیقت ثبت شد.این نظر پس از تایید توسط ادمین نمایش داده میشود.")

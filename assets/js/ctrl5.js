@@ -679,7 +679,7 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
     }
 
-    }).then(function(response) {
+  }).then(function(response) {
 
 
     $scope.fa_name = response.data.fa_name;
@@ -896,7 +896,7 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
       if ($localStorage.UserType == "EMP") {
         $("#ShowPopupEditTamas").modal('show');
         $scope.editphone = angular.copy($scope.phone);
-        $scope.editfaxnumber = angular.copy($scope.faxnumber);
+        $scope.editfax = angular.copy($scope.fax);
         $scope.editaddress = angular.copy($scope.address);
         $scope.editsecond_address = angular.copy($scope.second_address);
         $scope.editemail = angular.copy($scope.email);
@@ -912,7 +912,7 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
       var data = {
 
         phone: $scope.editphone,
-        fax: $scope.editfaxnumber,
+        fax: $scope.editfax,
         address: $scope.editaddress,
         second_address: $scope.editsecond_address,
         email: $scope.editemail,
@@ -937,7 +937,7 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
       $http.put(mustafasite + "/employer", JSON.stringify(data), config).then(function(response) {
 
         $scope.phone = $scope.editphone;
-        $scope.faxnumber = $scope.editfaxnumber;
+        $scope.fax = $scope.editfax;
         $scope.address = $scope.editaddress;
         $scope.second_address = $scope.editsecond_address;
         $scope.email = $scope.editemail;
@@ -952,111 +952,111 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
 
 
-        $scope.ShowCompDetFormEMP = function() {
-          if ($localStorage.UserType == "EMP") {
-            $("#ShowPopupEditCompDet").modal('show');
-            $scope.editnosanat = angular.copy($scope.industry_type);
-            $scope.editcreatedate = angular.copy($scope.foundation_year);
-            $scope.edittedadkarmandan = angular.copy($scope.employee_count);
-            $scope.editmahalfaliat = angular.copy($scope.city);
-          } else {
+    $scope.ShowCompDetFormEMP = function() {
+      if ($localStorage.UserType == "EMP") {
+        $("#ShowPopupEditCompDet").modal('show');
+        $scope.editnosanat = angular.copy($scope.industry_type);
+        $scope.editcreatedate = angular.copy($scope.foundation_year);
+        $scope.edittedadkarmandan = angular.copy($scope.employee_count);
+        $scope.editmahalfaliat = angular.copy($scope.city);
+      } else {
 
-          }
+      }
 
-        }
+    }
 
-        $scope.CompDetFormEMP = function() {
+    $scope.CompDetFormEMP = function() {
 
-          var data = {
+      var data = {
 
-            industry_type: $scope.editnosanat,
-            foundation_year: $scope.editcreatedate,
-            employee_count: $scope.edittedadkarmandan,
-            city: $scope.editmahalfaliat,
+        industry_type: $scope.editnosanat,
+        foundation_year: $scope.editcreatedate,
+        employee_count: $scope.edittedadkarmandan,
+        city: $scope.editmahalfaliat,
 
-          };
-
-
-
-          var config = {
-
-            headers: {
-
-              'Content-Type': 'application/json',
-
-              'Access-Token': $localStorage.TokenKey.access,
-
-            }
-
-          }
-
-          $http.put(mustafasite + "/employer", JSON.stringify(data), config).then(function(response) {
-
-            $scope.phone = $scope.editnosanat;
-            $scope.faxnumber = $scope.editcreatedate;
-            $scope.address = $scope.edittedadkarmandan;
-            $scope.second_address = $scope.editmahalfaliat;
-            $('#ShowPopupEditCompDet').modal('hide');
-
-          });
+      };
 
 
 
-        };
+      var config = {
 
+        headers: {
 
+          'Content-Type': 'application/json',
 
-        $scope.ShowVijeghiFormEMP = function() {
-          if ($localStorage.UserType == "EMP") {
-            $("#ShowPopupEditVijeghi").modal('show');
-            $scope.editpadash = angular.copy($scope.padash);
-            $scope.editadvantage = angular.copy($scope.advantage);
-            $scope.editvaam = angular.copy($scope.vaam);
-            $scope.editassurance = angular.copy($scope.assurance);
-          } else {
-
-          }
+          'Access-Token': $localStorage.TokenKey.access,
 
         }
 
-        $scope.VijeghiFormEMP = function() {
+      }
 
-          var data = {
+      $http.put(mustafasite + "/employer", JSON.stringify(data), config).then(function(response) {
 
-            padash: $scope.editpadash,
-            advantage: $scope.editadvantage,
-            vaam: $scope.editvaam,
-            assurance: $scope.editassurance,
+        $scope.industry_type = $scope.editnosanat;
+        $scope.foundation_year = $scope.editcreatedate;
+        $scope.employee_count = $scope.edittedadkarmandan;
+        $scope.city = $scope.editmahalfaliat;
+        $('#ShowPopupEditCompDet').modal('hide');
 
-          };
-
-
-
-          var config = {
-
-            headers: {
-
-              'Content-Type': 'application/json',
-
-              'Access-Token': $localStorage.TokenKey.access,
-
-            }
-
-          }
-
-          $http.put(mustafasite + "/employer", JSON.stringify(data), config).then(function(response) {
-
-            $scope.padash = $scope.editpadash;
-            $scope.advantage = $scope.editadvantage;
-            $scope.vaam = $scope.editvaam;
-            $scope.assurance = $scope.editassurance;
-            $('#ShowPopupEditVijeghi').modal('hide');
-
-          });
+      });
 
 
 
-        };
+    };
+
+
+
+    $scope.ShowVijeghiFormEMP = function() {
+      if ($localStorage.UserType == "EMP") {
+        $("#ShowPopupEditVijeghi").modal('show');
+        $scope.editpadash = angular.copy($scope.padash);
+        $scope.editadvantage = angular.copy($scope.advantage);
+        $scope.editvaam = angular.copy($scope.vaam);
+        $scope.editassurance = angular.copy($scope.assurance);
+      } else {
+
+      }
+
+    }
+
+    $scope.VijeghiFormEMP = function() {
+
+      var data = {
+
+        padash: $scope.editpadash,
+        advantage: $scope.editadvantage,
+        vaam: $scope.editvaam,
+        assurance: $scope.editassurance,
+
+      };
+
+
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+      $http.put(mustafasite + "/employer", JSON.stringify(data), config).then(function(response) {
+
+        $scope.padash = $scope.editpadash;
+        $scope.advantage = $scope.editadvantage;
+        $scope.vaam = $scope.editvaam;
+        $scope.assurance = $scope.editassurance;
+        $('#ShowPopupEditVijeghi').modal('hide');
+
+      });
+
+
+
+    };
 
 
 
@@ -1069,121 +1069,121 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
 
 
-    $scope.socialnameid = [
+  $scope.socialnameid = [
 
-      {
-        key: "تلگرام",
-        value: "1"
-      },
-      {
-        key: "ایسنتاگرام",
-        value: "2"
-      },
-      {
-        key: "لینکدین",
-        value: "3"
-      },
-      {
-        key: "گوگل پلاس	",
-        value: "4"
-      },
+    {
+      key: "تلگرام",
+      value: "1"
+    },
+    {
+      key: "ایسنتاگرام",
+      value: "2"
+    },
+    {
+      key: "لینکدین",
+      value: "3"
+    },
+    {
+      key: "گوگل پلاس	",
+      value: "4"
+    },
 
-    ];
+  ];
 
 
-  //   $scope.SocialAddEdit = function() {
-  //
-  //     var data = {
-  //
-  //       social_id: parseInt($scope.idsocial),
-  //
-  //       url: $scope.socialgetlink,
-  //
-  //     };
-  //
-  //
-  //
-  //     var config = {
-  //
-  //       headers: {
-  //
-  //         'Content-Type': 'application/json',
-  //
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //     }
-  //
-  //     $http.post(mustafasite + "/employer/social", JSON.stringify(data), config).then(function(response) {
-  //
-  //       $http.get(mustafasite + '/employer/me', {
-  //
-  //         headers: {
-  //
-  //           "Content-Type": 'application/json',
-  //
-  //           'Access-Token': $localStorage.TokenKey.access,
-  //
-  //         }
-  //
-  //       }).then(function(response) {
-  //
-  //         $scope.socials = response.data.socials;
-  //
-  //       });
-  //
-  //       $('#ShowPopupEditSocial').modal('hide');
-  //
-  //     });
-  //
-  //
-  //
-  //   };
-  //
-  //   $scope.removesocial = function(x) {
-  //
-  //     var data = x.social.id;
-  //
-  //
-  //
-  //     var config = {
-  //
-  //       headers: {
-  //         'Content-Type': "application/json",
-  //
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //     }
-  //
-  //
-  //
-  //     $http.delete(mustafasite + '/employer/social/' + data, config).then(function(response) {
-  //
-  //
-  //       $http.get(mustafasite + '/employer/me', {
-  //
-  //         headers: {
-  //
-  //           "Content-Type": 'application/json',
-  //
-  //           'Access-Token': $localStorage.TokenKey.access,
-  //
-  //         }
-  //
-  //       }).then(function(response) {
-  //
-  //         $scope.socials = response.data.socials;
-  //
-  //       });
-  //
-  //
-  //
-  //
-  //     });
+  $scope.SocialAddEdit = function() {
 
+    var data = {
+
+      social_id: parseInt($scope.idsocial),
+
+      url: $scope.socialgetlink,
+
+    };
+
+
+
+    var config = {
+
+      headers: {
+
+        'Content-Type': 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+    $http.post(mustafasite + "/employer/social", JSON.stringify(data), config).then(function(response) {
+
+      $http.get(mustafasite + '/employer/me', {
+
+        headers: {
+
+          "Content-Type": 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }).then(function(response) {
+
+        $scope.socials = response.data.socials;
+
+      });
+
+      $('#ShowPopupEditSocial').modal('hide');
+
+    });
+
+
+  };
+
+  $scope.removesocial = function(x) {
+
+    var data = x.social.id;
+
+
+
+    var config = {
+
+      headers: {
+        'Content-Type': "application/json",
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+
+
+    $http.delete(mustafasite + '/employer/social/' + data, config).then(function(response) {
+
+
+      $http.get(mustafasite + '/employer/me', {
+
+        headers: {
+
+          "Content-Type": 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }).then(function(response) {
+
+        $scope.socials = response.data.socials;
+
+      });
+
+
+
+
+    });
+
+  }
 
   $scope.getservice = function() {
 
