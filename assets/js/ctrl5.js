@@ -664,9 +664,6 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
   };
 
 
-
-  $scope.current = 40;
-
   $scope.max = 100;
 
 
@@ -682,7 +679,7 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
     }
 
-  }).then(function(response) {
+    }).then(function(response) {
 
 
     $scope.fa_name = response.data.fa_name;
@@ -1069,197 +1066,197 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
 
 
-
-
-
-    $scope.socialnameid = [
-
-      {
-        key: "تلگرام",
-        value: "1"
-      },
-      {
-        key: "ایسنتاگرام",
-        value: "2"
-      },
-      {
-        key: "لینکدین",
-        value: "3"
-      },
-      {
-        key: "گوگل پلاس	",
-        value: "4"
-      },
-
-    ];
-
-
-    $scope.SocialAddEdit = function() {
-
-      var data = {
-
-        social_id: parseInt($scope.idsocial),
-
-        url: $scope.socialgetlink,
-
-      };
-
-
-
-      var config = {
-
-        headers: {
-
-          'Content-Type': 'application/json',
-
-          'Access-Token': $localStorage.TokenKey.access,
-
-        }
-
-      }
-
-      $http.post(mustafasite + "/employer/social", JSON.stringify(data), config).then(function(response) {
-
-        $http.get(mustafasite + '/employer/me', {
-
-          headers: {
-
-            "Content-Type": 'application/json',
-
-            'Access-Token': $localStorage.TokenKey.access,
-
-          }
-
-        }).then(function(response) {
-
-          $scope.socials = response.data.socials;
-
-        });
-
-        $('#ShowPopupEditSocial').modal('hide');
-
-      });
-
-
-
-    };
-
-    $scope.removesocial = function(x) {
-
-      var data = x.social.id;
-
-
-
-      var config = {
-
-        headers: {
-          'Content-Type': "application/json",
-
-          'Access-Token': $localStorage.TokenKey.access,
-
-        }
-
-      }
-
-
-
-      $http.delete(mustafasite + '/employer/social/' + data, config).then(function(response) {
-
-
-        $http.get(mustafasite + '/employer/me', {
-
-          headers: {
-
-            "Content-Type": 'application/json',
-
-            'Access-Token': $localStorage.TokenKey.access,
-
-          }
-
-        }).then(function(response) {
-
-          $scope.socials = response.data.socials;
-
-        });
-
-
-
-
-      });
-
-
-  $scope.getservice = function() {
-
-
-    var config = {
-
-      headers: {
-
-        'Content-Type': 'application/json',
-
-        'Access-Token': $localStorage.TokenKey.access,
-
-      }
-
-    }
-
-    $http.get(mustafasite + '/employer/my_services', config).then(function(response) {
-
-      $scope.productsandservices = response.data.services;
-    });
-
-
-
-  }
-
-
-  $scope.getservice();
-
-  $scope.ShowCrateService = function() {
-    $('#ShowPopupCreateService').modal('show');
-  }
-
-  $scope.createservice = function(dataUrl, name) {
-
-    dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
-
-    var data = {
-
-      "image": dataUrl2,
-      "title": $scope.servicename,
-      "description": $scope.servicedisc,
-
-    }
-
-
-    var config = {
-
-      headers: {
-
-        'Content-Type': 'application/json',
-
-        'Access-Token': $localStorage.TokenKey.access,
-
-      }
-
-    }
-
-
-
-
-
-    $http.post(mustafasite + '/employer/service', JSON.stringify(data), config).then(function(response) {
-
-      $scope.getservice();
-      $('#ShowPopupCreateService').modal('hide');
-      $scope.servicename = null;
-      $scope.servicedisc = null;
-      $scope.logopicfile = null;
-
-    });
-
-  }
-
+  //
+  //
+  //
+  //   $scope.socialnameid = [
+  //
+  //     {
+  //       key: "تلگرام",
+  //       value: "1"
+  //     },
+  //     {
+  //       key: "ایسنتاگرام",
+  //       value: "2"
+  //     },
+  //     {
+  //       key: "لینکدین",
+  //       value: "3"
+  //     },
+  //     {
+  //       key: "گوگل پلاس	",
+  //       value: "4"
+  //     },
+  //
+  //   ];
+  //
+  //
+  //   $scope.SocialAddEdit = function() {
+  //
+  //     var data = {
+  //
+  //       social_id: parseInt($scope.idsocial),
+  //
+  //       url: $scope.socialgetlink,
+  //
+  //     };
+  //
+  //
+  //
+  //     var config = {
+  //
+  //       headers: {
+  //
+  //         'Content-Type': 'application/json',
+  //
+  //         'Access-Token': $localStorage.TokenKey.access,
+  //
+  //       }
+  //
+  //     }
+  //
+  //     $http.post(mustafasite + "/employer/social", JSON.stringify(data), config).then(function(response) {
+  //
+  //       $http.get(mustafasite + '/employer/me', {
+  //
+  //         headers: {
+  //
+  //           "Content-Type": 'application/json',
+  //
+  //           'Access-Token': $localStorage.TokenKey.access,
+  //
+  //         }
+  //
+  //       }).then(function(response) {
+  //
+  //         $scope.socials = response.data.socials;
+  //
+  //       });
+  //
+  //       $('#ShowPopupEditSocial').modal('hide');
+  //
+  //     });
+  //
+  //
+  //
+  //   };
+  //
+  //   $scope.removesocial = function(x) {
+  //
+  //     var data = x.social.id;
+  //
+  //
+  //
+  //     var config = {
+  //
+  //       headers: {
+  //         'Content-Type': "application/json",
+  //
+  //         'Access-Token': $localStorage.TokenKey.access,
+  //
+  //       }
+  //
+  //     }
+  //
+  //
+  //
+  //     $http.delete(mustafasite + '/employer/social/' + data, config).then(function(response) {
+  //
+  //
+  //       $http.get(mustafasite + '/employer/me', {
+  //
+  //         headers: {
+  //
+  //           "Content-Type": 'application/json',
+  //
+  //           'Access-Token': $localStorage.TokenKey.access,
+  //
+  //         }
+  //
+  //       }).then(function(response) {
+  //
+  //         $scope.socials = response.data.socials;
+  //
+  //       });
+  //
+  //
+  //
+  //
+  //     });
+  //
+  //
+  // $scope.getservice = function() {
+  //
+  //
+  //   var config = {
+  //
+  //     headers: {
+  //
+  //       'Content-Type': 'application/json',
+  //
+  //       'Access-Token': $localStorage.TokenKey.access,
+  //
+  //     }
+  //
+  //   }
+  //
+  //   $http.get(mustafasite + '/employer/my_services', config).then(function(response) {
+  //
+  //     $scope.productsandservices = response.data.services;
+  //   });
+  //
+  //
+  //
+  // }
+  //
+  //
+  // $scope.getservice();
+  //
+  // $scope.ShowCrateService = function() {
+  //   $('#ShowPopupCreateService').modal('show');
+  // }
+  //
+  // $scope.createservice = function(dataUrl, name) {
+  //
+  //   dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
+  //
+  //   var data = {
+  //
+  //     "image": dataUrl2,
+  //     "title": $scope.servicename,
+  //     "description": $scope.servicedisc,
+  //
+  //   }
+  //
+  //
+  //   var config = {
+  //
+  //     headers: {
+  //
+  //       'Content-Type': 'application/json',
+  //
+  //       'Access-Token': $localStorage.TokenKey.access,
+  //
+  //     }
+  //
+  //   }
+  //
+  //
+  //
+  //
+  //
+  //   $http.post(mustafasite + '/employer/service', JSON.stringify(data), config).then(function(response) {
+  //
+  //     $scope.getservice();
+  //     $('#ShowPopupCreateService').modal('hide');
+  //     $scope.servicename = null;
+  //     $scope.servicedisc = null;
+  //     $scope.logopicfile = null;
+  //
+  //   });
+  //
+  // }
+  //
 
   $scope.deleteservice = function(x) {
 
@@ -1448,88 +1445,88 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
       ];
 
    */
-
-  $scope.companystatistics = [
-
-    {
-      name: 'نوع صنعت:'
-    },
-
-    {
-      name: 'خودرویی'
-    },
-
-    {
-      name: 'سال تاسیس:'
-    },
-
-    {
-      name: '1358'
-    },
-
-    {
-      name: 'تعداد کارمندان:'
-    },
-
-    {
-      name: '2300'
-    },
-
-    {
-      name: 'محل فعالیت:'
-    },
-
-    {
-      name: 'تهران'
-    },
-
-    {
-      name: 'نرخ پذیرش:'
-    },
-
-    {
-      name: '32 درصد'
-    },
-
-  ];
-
-
-
+  //
+  // $scope.companystatistics = [
+  //
+  //   {
+  //     name: 'نوع صنعت:'
+  //   },
+  //
+  //   {
+  //     name: 'خودرویی'
+  //   },
+  //
+  //   {
+  //     name: 'سال تاسیس:'
+  //   },
+  //
+  //   {
+  //     name: '1358'
+  //   },
+  //
+  //   {
+  //     name: 'تعداد کارمندان:'
+  //   },
+  //
+  //   {
+  //     name: '2300'
+  //   },
+  //
+  //   {
+  //     name: 'محل فعالیت:'
+  //   },
+  //
+  //   {
+  //     name: 'تهران'
+  //   },
+  //
+  //   {
+  //     name: 'نرخ پذیرش:'
+  //   },
+  //
+  //   {
+  //     name: '32 درصد'
+  //   },
+  //
+  // ];
+  //
 
 
-  $scope.companychart = [
-
-    {
-      upimg: 'assets/images/u1.jpg',
-      mainimg: 'assets/images/u2.jpg',
-
-      "downimg": [
-
-        {
-          name: 'شرکت ایساکو',
-          img: 'assets/images/isaco.png',
-          link: '',
-        },
-
-        {
-          name: 'شرکت تست',
-          img: 'assets/images/u3.png',
-          link: '',
-        },
-
-        {
-          name: 'شرکت مپنا',
-          img: 'assets/images/u1',
-          link: '',
-        },
-
-      ]
-
-    },
-
-  ];
-
-
+  //
+  //
+  // $scope.companychart = [
+  //
+  //   {
+  //     upimg: 'assets/images/u1.jpg',
+  //     mainimg: 'assets/images/u2.jpg',
+  //
+  //     "downimg": [
+  //
+  //       {
+  //         name: 'شرکت ایساکو',
+  //         img: 'assets/images/isaco.png',
+  //         link: '',
+  //       },
+  //
+  //       {
+  //         name: 'شرکت تست',
+  //         img: 'assets/images/u3.png',
+  //         link: '',
+  //       },
+  //
+  //       {
+  //         name: 'شرکت مپنا',
+  //         img: 'assets/images/u1',
+  //         link: '',
+  //       },
+  //
+  //     ]
+  //
+  //   },
+  //
+  // ];
+  //
+  //
 
 
 
