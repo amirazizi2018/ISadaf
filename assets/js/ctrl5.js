@@ -970,8 +970,8 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
       var data = {
 
         industry_type: $scope.editnosanat,
-        foundation_year: $scope.editcreatedate,
-        employee_count: $scope.edittedadkarmandan,
+        foundation_year: parseInt($scope.editcreatedate),
+        employee_count: parseInt($scope.edittedadkarmandan),
         city: $scope.editmahalfaliat,
 
       };
