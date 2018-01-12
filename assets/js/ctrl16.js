@@ -721,7 +721,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
     $scope.avatar = response.data.avatar;
     $scope.business_type = response.data.business_type;
     $scope.motto = response.data.motto;
-    $scope.fax = response.data.fax;
+    $scope.faxnumber = response.data.faxnumber;
     $scope.phone = response.data.phone;
     $scope.address = response.data.address;
     $scope.second_address = response.data.second_address;
@@ -880,7 +880,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 if ($localStorage.UserType == "SP") {
   $("#ShowPopupEditTamas").modal('hide');
   $scope.phone = angular.copy($scope.editphone);
-  $scope.fax = angular.copy($scope.editfax);
+  $scope.faxnumber = angular.copy($scope.editfaxnumber);
   $scope.address = angular.copy($scope.editaddress);
   $scope.second_address = angular.copy($scope.editsecond_address);
   $scope.email = angular.copy($scope.editemail);
@@ -896,7 +896,7 @@ if ($localStorage.UserType == "SP") {
       var data = {
 
         phone: $scope.editphone,
-        fax: $scope.editfax,
+        faxnumber: $scope.editfaxnumber,
         address: $scope.editaddress,
         second_address: $scope.editsecond_address,
         email: $scope.editemail,
@@ -921,7 +921,7 @@ if ($localStorage.UserType == "SP") {
       $http.put(mustafasite + "/service_provider", JSON.stringify(data), config).then(function(response) {
 
         $scope.phone = $scope.editphone;
-        $scope.fax = $scope.editfax;
+        $scope.faxnumber = $scope.editfaxnumber;
         $scope.address = $scope.editaddress;
         $scope.second_address = $scope.editsecond_address;
         $scope.email = $scope.editemail;
