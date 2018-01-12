@@ -878,13 +878,13 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
     $scope.ShowTamasFormSP = function() {
 
 if ($localStorage.UserType == "SP") {
-  $("#ShowPopupEditTamas").modal('hide');
-  $scope.phone = angular.copy($scope.editphone);
-  $scope.faxnumber = angular.copy($scope.editfaxnumber);
-  $scope.address = angular.copy($scope.editaddress);
-  $scope.second_address = angular.copy($scope.editsecond_address);
-  $scope.email = angular.copy($scope.editemail);
-  $scope.web_site = angular.copy($scope.editweb_site);
+  $("#ShowPopupEditTamas").modal('show');
+  $scope.editphone = angular.copy($scope.phone);
+  $scope.editfaxnumber = angular.copy($scope.faxnumber);
+  $scope.editaddress = angular.copy($scope.address);
+  $scope.editsecond_address = angular.copy($scope.second_address);
+  $scope.editemail = angular.copy($scope.email);
+  $scope.editweb_site = angular.copy($scope.web_site);
 } else {
 
 }
