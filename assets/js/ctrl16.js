@@ -1508,7 +1508,7 @@ $scope.removesocial = function(x) {
 
 
 
-  $http.delete(mustafasite + '/service_provider/social' + data, config).then(function(response) {
+  $http.delete(mustafasite + '/service_provider/social/' + data, config).then(function(response) {
 
 
     $http.get(mustafasite + '/service_provider/me', {
