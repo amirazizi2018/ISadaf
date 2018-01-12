@@ -1670,8 +1670,9 @@ For Page Service Provider Page
 }
 
 .serviceprovider .socialprofile {
-  font-size: 30px;
-  padding: 20px 0 10px !IMPORTANT;
+      font-size: 30px;
+      padding: 20px 0 3px !IMPORTANT;
+      display: inline-block;
 }
 
 .services .serve img {
@@ -3088,6 +3089,7 @@ body .sabtagahishog {
 
 .coompanyservices img.brand-img {
   margin-left: 20px;
+  width: 100%;
 }
 
 .upstream {

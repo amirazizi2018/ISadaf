@@ -696,7 +696,7 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
     $scope.address = response.data.address;
     $scope.email = response.data.email;
     $scope.web_site = response.data.web_site;
-    $scope.mybio = response.data.web_site;
+    $scope.mybio = response.data.description;
     $scope.foundation_year = response.data.foundation_year;
     $scope.industry_type = response.data.industry_type;
     $scope.city = response.data.city;
@@ -736,72 +736,104 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
 
 
-    $scope.editorEnabledposition = false;
+        $scope.editorEnabledbusiness_type = false;
 
 
 
-    $scope.enableEditorposition = function() {
+        $scope.enableEditorbusiness_type = function() {
 
-      $scope.editorEnabledposition = true;
+          $scope.editorEnabledbusiness_type = true;
 
-      $scope.editableTitleposition = $scope.position;
+          $scope.editableTitlebusiness_type = $scope.business_type;
 
-    };
+        };
 
-    $scope.showpupedit = function() {
-      if ($localStorage.UserType == 'JS') {
-        $('#ShowPopupEditTamas').modal('show');
-      } else {
+        $scope.disableEditorbusiness_type = function() {
 
-      }
+          $scope.editorEnabledbusiness_type = false;
 
+        };
 
 
-    };
+        $scope.saveeditbusiness_type = function() {
+
+          var data = {
+
+            business_type: $scope.editableTitlebusiness_type,
+
+          };
+
+          var config = {
+
+            headers: {
+
+              'Content-Type': 'application/json',
+
+              'Access-Token': $localStorage.TokenKey.access,
+
+            }
+
+          }
+
+          $http.put(mustafasite + "/employer", JSON.stringify(data), config).then(function(response) {
+
+            $scope.business_type = $scope.editableTitlebusiness_type;
+
+            $scope.disableEditorbusiness_type();
+
+          });
+
+        };
+
+        $scope.editorEnabledmotto = false;
+
+        $scope.enableEditormotto = function() {
+
+          $scope.editorEnabledmotto = true;
+
+          $scope.editableTitlemotto = $scope.motto;
+
+        };
+
+        $scope.disableEditormotto = function() {
+
+          $scope.editorEnabledmotto = false;
+
+        };
+
+        $scope.saveeditmotto = function() {
+
+          var data = {
+
+            motto: $scope.editableTitlemotto,
+
+          };
 
 
 
-    $scope.disableEditorposition = function() {
+          var config = {
 
-      $scope.editorEnabledposition = false;
+            headers: {
 
-    };
+              'Content-Type': 'application/json',
 
+              'Access-Token': $localStorage.TokenKey.access,
 
+            }
 
-    $scope.saveeditposition = function() {
+          }
 
-      var data = {
+          $http.put(mustafasite + "/employer", JSON.stringify(data), config).then(function(response) {
 
-        position: $scope.editableTitleposition,
+            $scope.motto = $scope.editableTitlemotto;
 
-      };
+            $scope.disableEditormotto();
 
-
-
-      var config = {
-
-        headers: {
-
-          'Content-Type': 'application/json',
-
-          'Access-Token': $localStorage.TokenKey.access,
-
-        }
-
-      }
-
-      $http.put(mustafasite + "/job_seeker", JSON.stringify(data), config).then(function(response) {
-
-        $scope.position = $scope.editableTitleposition;
-
-        $scope.disableEditorposition();
-
-      });
+          });
 
 
 
-    };
+        };
 
     $scope.editorEnabledbio = false;
 
@@ -831,7 +863,7 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
       var data = {
 
-        bio: $scope.editableTitlebio,
+        description: $scope.editableTitlebio,
 
       };
 
@@ -849,7 +881,7 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
       }
 
-      $http.put(mustafasite + "/job_seeker", JSON.stringify(data), config).then(function(response) {
+      $http.put(mustafasite + "/employer", JSON.stringify(data), config).then(function(response) {
 
         $scope.mybio = $scope.editableTitlebio;
 
@@ -862,16 +894,32 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
     };
 
 
+    $scope.ShowTamasFormEMP = function() {
 
+if ($localStorage.UserType == "EMP") {
+  $("#ShowPopupEditTamas").modal('show');
+  $scope.editphone = angular.copy($scope.phone);
+  $scope.editfaxnumber = angular.copy($scope.faxnumber);
+  $scope.editaddress = angular.copy($scope.address);
+  $scope.editsecond_address = angular.copy($scope.second_address);
+  $scope.editemail = angular.copy($scope.email);
+  $scope.editweb_site = angular.copy($scope.web_site);
+} else {
 
+}
 
-    $scope.TamasFormJS = function() {
+    }
+
+    $scope.TamasFormEMP = function() {
 
       var data = {
 
-        fixed_phone: $scope.phonefix,
-
-        address: $scope.address,
+        phone: $scope.editphone,
+        fax: $scope.editfaxnumber,
+        address: $scope.editaddress,
+        second_address: $scope.editsecond_address,
+        email: $scope.editemail,
+        web_site: $scope.editweb_site,
 
       };
 
@@ -889,12 +937,14 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
       }
 
-      $http.put(mustafasite + "/job_seeker", JSON.stringify(data), config).then(function(response) {
+      $http.put(mustafasite + "/employer", JSON.stringify(data), config).then(function(response) {
 
-        $scope.phonefix = $scope.phonefix;
-
-        $scope.address = $scope.address;
-
+        $scope.phone = $scope.editphone;
+        $scope.faxnumber = $scope.editfaxnumber;
+        $scope.address = $scope.editaddress;
+        $scope.second_address = $scope.editsecond_address;
+        $scope.email = $scope.editemail;
+        $scope.web_site = $scope.editweb_site;
         $('#ShowPopupEditTamas').modal('hide');
 
       });
@@ -902,6 +952,9 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
 
     };
+
+
+
 
   });
 
@@ -940,6 +993,82 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
   $scope.getservice();
 
+  $scope.ShowCrateService = function() {
+    $('#ShowPopupCreateService').modal('show');
+}
+
+  $scope.createservice = function(dataUrl, name) {
+
+    dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
+
+    var data = {
+
+      "image": dataUrl2,
+      "title": $scope.servicename,
+      "description": $scope.servicedisc,
+
+    }
+
+
+    var config = {
+
+      headers: {
+
+        'Content-Type': 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+
+
+
+
+    $http.post(mustafasite + '/employer/service', JSON.stringify(data), config).then(function(response) {
+
+        $scope.getservice();
+        $('#ShowPopupCreateService').modal('hide');
+        $scope.servicename = null;
+        $scope.servicedisc = null;
+        $scope.logopicfile = null;
+
+    });
+
+  }
+
+
+    $scope.deleteservice = function(x) {
+
+
+      var data = x.id;
+
+
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': "multipart/form-data",
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+
+
+      $http.delete(mustafasite + '/employer/service/' + data, config).then(function(response) {
+
+  			$scope.getservice();
+
+      });
+
+
+
+    }
+
 
   $scope.getourbrand = function() {
 
@@ -968,48 +1097,107 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
   $scope.getourbrand();
 
-  $scope.savelogo = function(dataUrl, name) {
+  $scope.ShowCrateBrand = function() {
+    $('#ShowPopupCreateBrand').modal('show');
+}
 
-    Upload.upload({
+  $scope.createbrand = function(dataUrl, name) {
 
-      url: '/sadafupload/upload.php',
+    dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
 
-      data: {
+    var data = {
 
-        'targetPath': 'images/',
+      "image": dataUrl2,
+    }
 
-        file: Upload.dataUrltoBlob(dataUrl, name)
+    var config = {
 
-      },
+      headers: {
 
-    }).then(function(response) {
+        'Content-Type': 'application/json',
 
-      $timeout(function() {
+        'Access-Token': $localStorage.TokenKey.access,
 
-        $scope.logopic = '/sadafupload/' + response.data;
+      }
 
-        $scope.result = response.data;
+    }
 
-        $('#ShowPopupUploadLogo').modal('hide');
+    $http.post(mustafasite + '/employer/logo', JSON.stringify(data), config).then(function(response) {
 
+        $scope.getourbrand();
+        $('#ShowPopupCreateBrand').modal('hide');
         $scope.logopicfile = null;
-
-
-
-      });
-
-    }, function(response) {
-
-      if (response.status > 0) $scope.errorMsg = response.status
-
-        +
-        ': ' + response.data;
 
     });
 
   }
 
 
+    $scope.deleteservice = function(x) {
+
+
+      var data = x.id;
+
+
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': "multipart/form-data",
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+
+
+      $http.delete(mustafasite + '/employer/logo/' + data, config).then(function(response) {
+
+        $scope.getourbrand();
+
+      });
+
+    }
+
+  $scope.savelogo = function(dataUrl, name) {
+
+    dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
+
+    var data = {
+
+      "image": dataUrl2,
+
+    }
+
+    var config = {
+
+      headers: {
+
+        'Content-Type': 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+    $http.put(mustafasite + '/employer/avatar64', JSON.stringify(data), config).then(function(response) {
+
+      $timeout(function() {
+
+        $scope.avatar = response.data;
+
+        $('#ShowPopupUploadLogo').modal('hide');
+
+        $scope.logopicfile = null;
+
+      },1000);
+
+    });
+
+}
 
   /* 	$scope.productsandservices = [
 

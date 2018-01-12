@@ -741,20 +741,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
       $scope.editableTitlebusiness_type = $scope.business_type;
 
-    };
-
-    $scope.showpupedit = function() {
-      if ($localStorage.UserType == 'JS') {
-        $('#ShowPopupEditTamas').modal('show');
-      } else {
-
-      }
-
-
-
-    };
-
-
+};
 
     $scope.disableEditorbusiness_type = function() {
 

@@ -387,28 +387,102 @@
 
           <div class="h1title bluecolor companyname fontmedium">{{fa_name}}</div>
 
-          <span class="h4title graycolor companysaham fontlight">({{business_type}}) <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+          <span class="h4title graycolor companysaham fontlight" ng-hide="editorEnabledbusiness_type">({{business_type}}) <a ng-if="ShowForEMP()" class="cursorpointer" ng-click="enableEditorbusiness_type(editableTitlebusiness_type)"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
 
-          <div class="h4title bluecolor companyslogan fontlight">{{motto}} <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+          <span class="h4title graycolor companysaham fontlight" ng-show="editorEnabledbusiness_type">
 
-          <div class="socialprofile">
+  <input ng-model="editableTitlebusiness_type" ng-show="editorEnabledbusiness_type">
 
-            <a class="tumblr" href=""><i class="fa fa-tumblr" aria-hidden="true"></i></a>
+  <a class="cursorpointer" ng-click="saveeditbusiness_type()"><i class="fa fa-check greencolor" aria-hidden="true"></i></a>
 
-            <a class="linkedin" href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+  <a class="cursorpointer" ng-click="disableEditorbusiness_type()"><i class="fa fa-times redcolor" aria-hidden="true"></i></a>
 
-            <a class="telegram" href=""><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+</span>
+          <div class="h4title bluecolor companyslogan fontlight">{{motto}} <a ng-if="ShowForEMP()" class="cursorpointer" ng-click="enableEditormotto(editableTitlemotto)"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
 
-            <a class="googleplus" href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+          <div class="h4title bluecolor companyslogan fontlight" ng-show="editorEnabledmotto">
+
+            <input ng-model="editableTitlemotto" ng-show="editorEnabledmotto">
+
+            <a class="cursorpointer" ng-click="saveeditmotto()"><i class="fa fa-check greencolor" aria-hidden="true"></i></a>
+
+            <a class="cursorpointer" ng-click="disableEditormotto()"><i class="fa fa-times redcolor" aria-hidden="true"></i></a>
+
+          </div>
+          <div ng-if="NotShowForEMP()" class="socialprofile notuser" ng-repeat="x in socials">
+
+            <a href="{{x.url}}" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+              <md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
+            </a>
+
+          </div>
+
+          <div ng-if="ShowForEMP()" class="socialprofile meuser" ng-repeat="x in socials">
+
+            <a ng-click="removesocial(x)" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+              <md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
+            </a>
+
+          </div>
+
+          <div ng-if="ShowForEMP()" class="socialprofile meuser">
+
+            <a data-toggle="modal" data-target="#ShowPopupEditSocial" class="addsocialbtn">
+              <md-tooltip md-direction="top">ویرایش / اضافه</md-tooltip>
+            </a>
+
+          </div>
+        </div>
+
+        <div id="ShowPopupEditSocial" class="modal modal-md" role="dialog">
+
+          <div class="modal-dialog">
+
+            <div class="modal-content ">
+
+              <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                <h3>ویرایش / اضافه شبکه های اجتماعی</h3>
+
+              </div>
+
+              <div class="modal-body">
+                <form name="editsocialform" novalidate ng-submit="editsocialform.$valid &&SocialAddEdit()" class="jobpostpfilterbox">
+                  <strong>نوع شبکه:</strong>
+                  <select class="h5title fontlight" ng-model="idsocial">
+                <option ng-repeat="x in socialnameid" value="{{x.value}}">{{x.key}}</option>
+            </select>
+                  <br>
+                  <br>
+
+                  <strong>لینک صفحه:</strong><input type="text" name="socialgetlink" ng-model="socialgetlink"> <br/>
+                  <br>
+
+                  <button type="submit" class="btn bluebtn">ذخیره</button>
+                </form>
+
+
+
+              </div>
+
+
+
+
+
+            </div>
 
           </div>
 
         </div>
 
 
+
+
         <div class="col-md-3 col-xs-12 companygl">
 
-          <button type="button" class="btn upgradeprofile greenbtn fontmedium"><span>افزدون به علاقه مندی</span></button>
+          <button type="button" ng-if="ShowForEMP()"class="btn upgradeprofile greenbtn fontmedium"><span>افزدون به علاقه مندی</span></button>
 
           <button type="button" ng-click="GalleryEmpClick()" class="btn increasecredit greenbtnreverse fontmedium"><i class="fa fa-picture-o" aria-hidden="true"></i><span>گالری تصاویر</span></button>
 
@@ -475,7 +549,7 @@
 
 <a class="gift" ng-class="{'greencolor': advantage == true ,'graycolor': advantage == false }" ><md-tooltip md-direction="top">مزایا</md-tooltip><i class="fa fa-gift" aria-hidden="true"></i></a>
 
-<a class="life-ring" ng-class="{'greencolor': padash == true ,'graycolor': padash == false }" ><md-tooltip md-direction="top">وام</md-tooltip><i class="fa fa-life-ring" aria-hidden="true"></i></a>
+<a class="life-ring" ng-class="{'greencolor': vaam == true ,'graycolor': vaam == false }" ><md-tooltip md-direction="top">وام</md-tooltip><i class="fa fa-life-ring" aria-hidden="true"></i></a>
 
 <a class="fa-shieldic"  ng-class="{'greencolor': assurance == true ,'graycolor': assurance == false }" ><md-tooltip md-direction="top">بیمه</md-tooltip><i class="fa fa-shield" aria-hidden="true"></i></a>
 
@@ -489,7 +563,7 @@
 
             <div class="col-md-2">
 
-              <p><i class="fa fa-phone-square" aria-hidden="true"></i></p>
+              <p><i class="fa fa-phone-square" aria-hidden="true"></i>{{phone}}</p>
 
               <p style="margin: 0;"><i class="fa fa-fax" aria-hidden="true"></i> {{fax}}</p>
 
@@ -499,7 +573,7 @@
 
               <p><i class="fa fa-building" aria-hidden="true"></i> {{address}}</p>
 
-              <p style="margin: 0;"><i class="fa fa-industry" aria-hidden="true"></i> تهران، کیلومتر 7 جاده مخصوص، بلوار ایران خودرو، پلاک 219</p>
+              <p style="margin: 0;"><i class="fa fa-industry" aria-hidden="true"></i> {{second_address}}</p>
 
             </div>
 
@@ -604,6 +678,9 @@
 
         <div class="col-md-3 col-xs-6" ng-repeat="x in productsandservices">
 
+          <div ng-if="ShowForEMP()" class="pinjob removejob delicon" ng-click="deleteservice(x)" style="display: inline-block;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+
+
           <img src="{{x.image_path}}" class="coompanyservice">
 
           <p>{{x.title}}</p>
@@ -612,13 +689,70 @@
 
         </div>
 
+        <div ng-if="ShowForEMP()" ng-click="ShowCrateService()" class="col-md-3 col-xs-6">
+          <img src="https://cdn.pixabay.com/photo/2014/04/02/10/55/plus-304947_1280.png" class="coompanyservice">
+          <p>اضافه کردن محصول</p>
+        </div>
+
       </div>
 
     </div>
 
 
 
+    <div id="ShowPopupCreateService" class="modal modal-md" role="dialog">
 
+      <div class="modal-dialog">
+
+        <div class="modal-content ">
+
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+            <h3>اضافه کردن محصول</h3>
+
+          </div>
+
+          <div class="modal-body">
+
+            <strong>آپلود پروفایل:</strong>
+
+            <button ngf-select ng-model="logopicfile" accept="image/*">
+
+       انتخاب عکس</button>
+
+            <div ngf-drop ng-model="logopicfile" ngf-pattern="image/*" class="cropArea">
+
+              <img-crop area-type="square" image="logopicfile | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+
+              </img-crop>
+
+            </div>
+
+            <br />
+
+            <strong>نام محصول:</strong><input type="text" ng-model="servicename" required>
+
+            <br />
+
+            <strong>نام محصول:</strong><input type="text" ng-model="servicedisc" required>
+
+          </div>
+
+          <div class="modal-footer">
+
+            <a class="btn btn-primary" ng-click="createservice(croppedDataUrl, logopicfile.name)">ذخیره</a>
+
+            <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">بستن</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
 
 
 
@@ -632,15 +766,62 @@
 
 
 
-      <div class="">
-
+      <div class="col-md-2 mybrandemp" ng-repeat="x in ourbrands">
+        <div ng-if="ShowForEMP()" class="pinjob removejob delicon" ng-click="deletebrand(x)" style="display: inline-block;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
         <img ng-repeat="x in ourbrands" class="brand-img" src="{{x.image_path}}">
+      </div>
 
+      <div ng-if="ShowForEMP()" ng-click="ShowCrateBrand()" class="col-md-2 mybrandemp">
+        <img class="brand-img" src="https://cdn.pixabay.com/photo/2014/04/02/10/55/plus-304947_1280.png">
       </div>
 
     </div>
 
+    <div id="ShowPopupCreateBrand" class="modal modal-md" role="dialog">
 
+      <div class="modal-dialog">
+
+        <div class="modal-content ">
+
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+            <h3>اضافه کردن برند</h3>
+
+          </div>
+
+          <div class="modal-body">
+
+            <strong>آپلود پروفایل:</strong>
+
+            <button ngf-select ng-model="logopicfile" accept="image/*">
+
+       انتخاب عکس</button>
+
+            <div ngf-drop ng-model="logopicfile" ngf-pattern="image/*" class="cropArea">
+
+              <img-crop area-type="square" image="logopicfile | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+
+              </img-crop>
+
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+
+            <a class="btn btn-primary" ng-click="createbrand(croppedDataUrl, logopicfile.name)">ذخیره</a>
+
+            <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">بستن</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
 
     <div class="clearfix"></div>
 
