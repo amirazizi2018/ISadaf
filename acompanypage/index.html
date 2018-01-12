@@ -543,7 +543,7 @@
 
 
 
-          <span class="preminfor">
+          <span class="preminfor" ng-click="ShowVijeghiFormEMP()">
 
 <a class="credit-card" ng-class="{'greencolor': padash == true ,'graycolor': padash == false }"><md-tooltip md-direction="top">پاداش</md-tooltip><i class="fa fa-credit-card" aria-hidden="true"></i></a>
 
@@ -557,7 +557,7 @@
 
         </div>
 
-        <div class="col-md-12 col-xs-12 spcontactdetbox nopaddingleft">
+        <div class="col-md-12 col-xs-12 spcontactdetbox nopaddingleft" ng-click="ShowTamasFormEMP()">
 
           <div class="col-md-12 col-xs-12 h5title fontlight graycolor spcontactdet">
 
@@ -598,6 +598,155 @@
     </div>
 
 
+    <div id="ShowPopupEditTamas" class="modal modal-md" role="dialog">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content ">
+
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+            <h3>ویرایش اطلاعات تماس با ما</h3>
+
+          </div>
+
+          <div class="modal-body">
+            <form name="edittamasform" novalidate ng-submit="edittamasform.$valid &&TamasFormSP()" class="jobpostpfilterbox">
+              <strong>شماره تماس:</strong><input type="text" name="editphone" ng-model="editphone"> <br/>
+              <br>
+              <br>
+              <strong>شماره فکس:</strong><input type="text" name="editfax" ng-model="editfax"> <br/>
+              <br>
+              <br>
+              <strong>آدرس:</strong><input type="text" name="editaddress" ng-model="editaddress"> <br/>
+              <br>
+              <br>
+              <strong>آدرس دوم:</strong><input type="text" name="editsecond_address" ng-model="editsecond_address"> <br/>
+              <br>
+              <br>
+              <strong>ایمیل سازمانی:</strong><input type="text" name="editemail" ng-model="editemail"> <br/>
+              <br>
+              <br>
+              <strong>آدرس وب سایت:</strong><input type="text" name="editweb_site" ng-model="editweb_site"> <br/>
+              <br>
+              <br>
+              <button type="submit" class="btn bluebtn">ذخیره</button>
+            </form>
+
+
+
+          </div>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div id="ShowPopupEditCompDet" class="modal modal-md" role="dialog">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content ">
+
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+            <h3>ویرایش اطلاعات شخصی کمپانی</h3>
+
+          </div>
+
+          <div class="modal-body">
+            <form name="editcompdetform" novalidate ng-submit="editcompdetform.$valid &&CompDetFormEMP()" class="jobpostpfilterbox">
+              <strong>نوع صنعت:</strong><input type="text" name="editnosanat" ng-model="editnosanat"> <br/>
+              <br>
+              <br>
+              <strong>سال تاسیس:</strong><input type="text" name="editcreatedate" ng-model="editcreatedate"> <br/>
+              <br>
+              <br>
+              <strong>تعداد کارمندان:</strong><input type="text" name="edittedadkarmandan" ng-model="edittedadkarmandan"> <br/>
+              <br>
+              <br>
+              <strong>محل فعالیت:</strong><input type="text" name="editmahalfaliat" ng-model="editmahalfaliat"> <br/>
+              <br>
+              <br>
+              <button type="submit" class="btn bluebtn">ذخیره</button>
+            </form>
+
+
+
+          </div>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="ShowPopupEditVijeghi" class="modal modal-md" role="dialog">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content ">
+
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+            <h3>ویرایش ویژگی های شرکت</h3>
+
+          </div>
+
+          <div class="modal-body">
+            <form name="editvijeghiform" novalidate ng-submit="editvijeghiform.$valid &&VijeghiFormEMP()" class="jobpostpfilterbox">
+              <strong>نوع صنعت:</strong>
+              <md-switch md-invert ng-model="editpadash" aria-label="N1"></md-switch>
+              <br/>
+              <br>
+              <br>
+              <strong>سال تاسیس:</strong>
+              <md-switch md-invert ng-model="editadvantage" aria-label="N2"></md-switch>
+              <br/>
+              <br>
+              <br>
+              <strong>تعداد کارمندان:</strong>
+              <md-switch md-invert ng-model="editvaam" aria-label="N3"></md-switch>
+              <br/>
+              <br>
+              <br>
+              <strong>محل فعالیت:</strong>
+              <md-switch md-invert ng-model="editassurance" aria-label="N4"></md-switch>
+              <br/>
+              <br>
+              <br>
+              <button type="submit" class="btn bluebtn">ذخیره</button>
+            </form>
+
+
+
+          </div>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
 
 
 
@@ -637,7 +786,7 @@
 
         <div class="col-md-3 col-xs-12">
 
-          <div class="companystatistics">
+          <div class="companystatistics" ng-click="ShowCompDetFormEMP()">
 
             <p>نوع صنعت:</p>
 
