@@ -1066,31 +1066,31 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
 
 
-  //
-  //
-  //
-  //   $scope.socialnameid = [
-  //
-  //     {
-  //       key: "تلگرام",
-  //       value: "1"
-  //     },
-  //     {
-  //       key: "ایسنتاگرام",
-  //       value: "2"
-  //     },
-  //     {
-  //       key: "لینکدین",
-  //       value: "3"
-  //     },
-  //     {
-  //       key: "گوگل پلاس	",
-  //       value: "4"
-  //     },
-  //
-  //   ];
-  //
-  //
+
+
+
+    $scope.socialnameid = [
+
+      {
+        key: "تلگرام",
+        value: "1"
+      },
+      {
+        key: "ایسنتاگرام",
+        value: "2"
+      },
+      {
+        key: "لینکدین",
+        value: "3"
+      },
+      {
+        key: "گوگل پلاس	",
+        value: "4"
+      },
+
+    ];
+
+
   //   $scope.SocialAddEdit = function() {
   //
   //     var data = {
@@ -1183,80 +1183,80 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
   //
   //
   //     });
-  //
-  //
-  // $scope.getservice = function() {
-  //
-  //
-  //   var config = {
-  //
-  //     headers: {
-  //
-  //       'Content-Type': 'application/json',
-  //
-  //       'Access-Token': $localStorage.TokenKey.access,
-  //
-  //     }
-  //
-  //   }
-  //
-  //   $http.get(mustafasite + '/employer/my_services', config).then(function(response) {
-  //
-  //     $scope.productsandservices = response.data.services;
-  //   });
-  //
-  //
-  //
-  // }
-  //
-  //
-  // $scope.getservice();
-  //
-  // $scope.ShowCrateService = function() {
-  //   $('#ShowPopupCreateService').modal('show');
-  // }
-  //
-  // $scope.createservice = function(dataUrl, name) {
-  //
-  //   dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
-  //
-  //   var data = {
-  //
-  //     "image": dataUrl2,
-  //     "title": $scope.servicename,
-  //     "description": $scope.servicedisc,
-  //
-  //   }
-  //
-  //
-  //   var config = {
-  //
-  //     headers: {
-  //
-  //       'Content-Type': 'application/json',
-  //
-  //       'Access-Token': $localStorage.TokenKey.access,
-  //
-  //     }
-  //
-  //   }
-  //
-  //
-  //
-  //
-  //
-  //   $http.post(mustafasite + '/employer/service', JSON.stringify(data), config).then(function(response) {
-  //
-  //     $scope.getservice();
-  //     $('#ShowPopupCreateService').modal('hide');
-  //     $scope.servicename = null;
-  //     $scope.servicedisc = null;
-  //     $scope.logopicfile = null;
-  //
-  //   });
-  //
-  // }
-  //
+
+
+  $scope.getservice = function() {
+
+
+    var config = {
+
+      headers: {
+
+        'Content-Type': 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+    $http.get(mustafasite + '/employer/my_services', config).then(function(response) {
+
+      $scope.productsandservices = response.data.services;
+    });
+
+
+
+  }
+
+
+  $scope.getservice();
+
+  $scope.ShowCrateService = function() {
+    $('#ShowPopupCreateService').modal('show');
+  }
+
+  $scope.createservice = function(dataUrl, name) {
+
+    dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
+
+    var data = {
+
+      "image": dataUrl2,
+      "title": $scope.servicename,
+      "description": $scope.servicedisc,
+
+    }
+
+
+    var config = {
+
+      headers: {
+
+        'Content-Type': 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+
+
+
+
+    $http.post(mustafasite + '/employer/service', JSON.stringify(data), config).then(function(response) {
+
+      $scope.getservice();
+      $('#ShowPopupCreateService').modal('hide');
+      $scope.servicename = null;
+      $scope.servicedisc = null;
+      $scope.logopicfile = null;
+
+    });
+
+  }
+
 
   $scope.deleteservice = function(x) {
 
