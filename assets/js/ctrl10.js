@@ -1,8 +1,42 @@
 console.clear();
 
 app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $http, ShareData , $location ,  $localStorage , $sessionStorage) {
-	$scope.jobrateuser = '3' ;
-	$scope.jobratesystem = '7';
+
+	$scope.GetJobPack = function() {
+
+    var config = {
+
+      headers: {
+
+        'Content-Type': 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+
+      var data = {
+        exam_id: 10,
+        price: parseInt($scope.pricekhedmatselected),
+        file : value.split(',')[1],
+        file_format : getfileformat,
+        url : $scope.linketesal,
+        description : $scope.tozihat,
+        resume_available : true,
+      };
+
+      $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {
+        $scope.linketesal = "";
+        $scope.tozihat = "";
+        $scope.pricekhedmatselected = "";
+        $("#ShowPopupaddexam").modal('hide');
+
+      });
+		}
+
+
 	
 	$scope.banners = [
 	{title : 'ایجاد پروفایل شغلی' , img : 'assets/images/three-home1.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},

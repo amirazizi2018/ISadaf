@@ -692,6 +692,8 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
     $scope.assurance = response.data.assurance;
     $scope.fax = response.data.fax;
     $scope.address = response.data.address;
+    $scope.second_address = response.data.second_address;
+    $scope.phone = response.data.phone;
     $scope.email = response.data.email;
     $scope.web_site = response.data.web_site;
     $scope.mybio = response.data.description;
@@ -699,6 +701,7 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
     $scope.industry_type = response.data.industry_type;
     $scope.city = response.data.city;
     $scope.employee_count = response.data.employee_count;
+    $scope.socials = response.data.socials;
 
 
 
