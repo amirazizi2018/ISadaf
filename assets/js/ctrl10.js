@@ -4,7 +4,7 @@ console.clear();
 
 app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $http, ShareData, $location, $localStorage, $sessionStorage) {
 
-	var mustafasite = "https://sadaf.systmngr.ir/api/v1";
+  var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 
   $scope.GetJobPack = function() {
 
@@ -23,31 +23,31 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
     });
   }
 
-$scope.GetJobPack();
+  $scope.GetJobPack();
 
-
-  $scope.banners = [
-
-    {
-      title: 'ایجاد پروفایل شغلی',
-      img: 'assets/images/three-home1.svg',
-      text: 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید',
-    },
-
-    {
-      title: 'انجام پژوهش برای صنعت توسط شما',
-      img: 'assets/images/three-home2.svg',
-      text: 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید',
-    },
-
-    {
-      title: 'معرفی شما به عنوان نیروی کار',
-      img: 'assets/images/three-home3.svg',
-      text: 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید',
-    },
-
-  ];
-
+  //
+  // $scope.banners = [
+  //
+  //   {
+  //     title: 'ایجاد پروفایل شغلی',
+  //     img: 'assets/images/three-home1.svg',
+  //     text: 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید',
+  //   },
+  //
+  //   {
+  //     title: 'انجام پژوهش برای صنعت توسط شما',
+  //     img: 'assets/images/three-home2.svg',
+  //     text: 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید',
+  //   },
+  //
+  //   {
+  //     title: 'معرفی شما به عنوان نیروی کار',
+  //     img: 'assets/images/three-home3.svg',
+  //     text: 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید',
+  //   },
+  //
+  // ];
+  //
 
 
   // 	$scope.adspackages = [
@@ -84,7 +84,7 @@ $scope.GetJobPack();
 
   init();
 
-	function init() {
+  function init() {
 
     $http.get(mustafasite + '/job/advertisement_types', {
 
@@ -127,8 +127,8 @@ $scope.GetJobPack();
   //   $location.path("createapostpage");
   // }
 
-	$scope.selectjobpack = function(x) {
-		$scope.selectedjobpack = x;
-	}
+  $scope.selectjobpack = function(x) {
+    $scope.selectedjobpack = x;
+  }
 
 });
