@@ -18,7 +18,7 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 
     }
 
-    $http.get(mustafasite + '/job/advertisements', JSON.stringify(data), config).then(function(response) {
+    $http.get(mustafasite + '/job/advertisements', config).then(function(response) {
       $scope.AddJobPack = response.data.advertisements;
     });
   }
