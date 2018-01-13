@@ -8,8 +8,9 @@
 			        <div class="col-md-3 {{x.classoff}}" ng-repeat="x in AddJobPack">
             <div class="box-price-one" ng-class="active : x.title == 'بسته رایگان'">
                 <div class="h2title fontbold bluecolor">{{x.title}}</div>
-                <p class="graycolor">{{x.desshort}}</p>
-                <p class="detail-2 h2title darkgraycolor">{{x.price}} <span ng-hide="x.price == 'رایگان'">ريال</span></p>
+                <p class="graycolor">
+آگهی {{x.all_count}} روزه {{x.day_duration}}</p>
+                <p ng-if="x.price == '0'" class="detail-2 h2title darkgraycolor">{{x.price}} <span ng-hide="x.price == 'رایگان'">ريال</span></p>
                 <button  ng-click="gotocreatejob()" type="button" class="btn btn-primary btn-lg h4title fontmedium">در خواست این محصول</button>
                 <p class="detail-3 h6title">{{x.desshort2}}</p>
                 <p  ng-repeat="x in x.description"class="detail-4 h5title graycolor">{{x.title}}</p>

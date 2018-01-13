@@ -669,7 +669,7 @@ app.controller('acompanypage', function($compile, $sce, $scope, $window, $http, 
 
 
 if(ShareData.getPropertyempid() != null) {
-  $http.get(mustafasite + '/employer/' + getPropertyempid() , {
+  $http.get(mustafasite + '/employer/' + ShareData.getPropertyempid() , {
 
     headers: {
 
@@ -1202,7 +1202,7 @@ if(ShareData.getPropertyempid() != null) {
 
     }
 
-    $http.get(mustafasite + '/employer/' + getPropertyempid() + '/services', config).then(function(response) {
+    $http.get(mustafasite + '/employer/' + ShareData.getPropertyempid() + '/services', config).then(function(response) {
 
       $scope.productsandservices = response.data.services;
     });
@@ -1306,7 +1306,7 @@ if(ShareData.getPropertyempid() != null) {
 
     }
 
-    $http.get(mustafasite + '/employer/' + getPropertyempid() + '/logos', config).then(function(response) {
+    $http.get(mustafasite + '/employer/' + ShareData.getPropertyempid() + '/logos', config).then(function(response) {
 
       $scope.ourbrands = response.data.logos;
     });
