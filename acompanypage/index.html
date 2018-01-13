@@ -919,7 +919,7 @@
 
       <div class="col-md-2 mybrandemp" ng-repeat="x in ourbrands">
         <div ng-if="ShowForEMP()" class="pinjob removejob delicon" ng-click="deletebrand(x)" style="display: inline-block;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-        <img ng-repeat="x in ourbrands" class="brand-img" src="{{x.image_path}}">
+        <img class="brand-img" src="{{x.image_path}}">
       </div>
 
       <div ng-if="ShowForEMP()" ng-click="ShowCrateBrand()" class="col-md-2 mybrandemp">
