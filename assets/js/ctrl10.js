@@ -4,6 +4,7 @@ console.clear();
 
 app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $http, ShareData, $location, $localStorage, $sessionStorage) {
 
+	var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 
   $scope.GetJobPack = function() {
 
