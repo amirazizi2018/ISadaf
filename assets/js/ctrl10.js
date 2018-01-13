@@ -22,7 +22,7 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
     });
   }
 
-
+$scope.GetJobPack();
 
 
   $scope.banners = [
