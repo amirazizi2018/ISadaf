@@ -8,31 +8,14 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 
       headers: {
 
-        'Content-Type': 'application/json',
-
-        'Access-Token': $localStorage.TokenKey.access,
+        'Content-Type': 'application/json'
 
       }
 
     }
 
-
-      var data = {
-        exam_id: 10,
-        price: parseInt($scope.pricekhedmatselected),
-        file : value.split(',')[1],
-        file_format : getfileformat,
-        url : $scope.linketesal,
-        description : $scope.tozihat,
-        resume_available : true,
-      };
-
-      $http.post(mustafasite + '/exam', JSON.stringify(data), config).then(function(response) {
-        $scope.linketesal = "";
-        $scope.tozihat = "";
-        $scope.pricekhedmatselected = "";
-        $("#ShowPopupaddexam").modal('hide');
-
+      $http.get(mustafasite + '/job/advertisements', JSON.stringify(data), config).then(function(response) {
+        $scope.AddJobPack = response.data.advertisements;
       });
 		}
 
@@ -44,11 +27,11 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 	{title : 'معرفی شما به عنوان نیروی کار' , img : 'assets/images/three-home3.svg' , text : 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید' ,},
 	];	
 
-		$scope.adspackages = [
-	{name : 'بسته حرفه ای 1' , desshort : '10 آگهی + 3 آگهی رایگان' , price : '20000000' , desshort2 : 'امکان حذف یا تغییر بسته در حالت یر بسته در حالت حرفت یم ب یبی سیب' , "description" : [{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,], classoff : 'mavaliboxprice'},
-	{name : 'بسته رایگان' , desshort : 'یک آگهی رایگان یک هفته ای' , price : 'رایگان' , desshort2 : 'امکان حذف یا تغییر بسته در حالت یر بسته در حالت حرفت یم ب یبی سیب' , "description" : [{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,], class : 'active'},
-	{name : 'بسته استارتر' , desshort : 'سه آگهی مدت دار' , price : '10000000' , desshort2 : 'امکان حذف یا تغییر بسته در حالت یر بسته در حالت حرفت یم ب یبی سیب' , "description" : [{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,], class : ''},
-	];	
+	// 	$scope.adspackages = [
+	// {name : 'بسته حرفه ای 1' , desshort : '10 آگهی + 3 آگهی رایگان' , price : '20000000' , desshort2 : 'امکان حذف یا تغییر بسته در حالت یر بسته در حالت حرفت یم ب یبی سیب' , "description" : [{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,], classoff : 'mavaliboxprice'},
+	// {name : 'بسته رایگان' , desshort : 'یک آگهی رایگان یک هفته ای' , price : 'رایگان' , desshort2 : 'امکان حذف یا تغییر بسته در حالت یر بسته در حالت حرفت یم ب یبی سیب' , "description" : [{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,], class : 'active'},
+	// {name : 'بسته استارتر' , desshort : 'سه آگهی مدت دار' , price : '10000000' , desshort2 : 'امکان حذف یا تغییر بسته در حالت یر بسته در حالت حرفت یم ب یبی سیب' , "description" : [{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,{title : 'یبسسبسیبس ینبسکیبنم س',} ,], class : ''},
+	// ];	
 
 	
 		  $scope.data = [
