@@ -87,8 +87,8 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 
 	$scope.orders.prods.prod = {};
 
-	$scope.select = true;
-	
+	$scope.fristview = true;
+
   init();
 
   function init() {
@@ -134,6 +134,7 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
   $scope.botbuypack = [];
 
 	$scope.selectjobpack = function(x, $index) {
+		$scope.fristview = false;
 		if ($scope.selectedjobpack == x) {
 			$scope.selectedjobpack = null;
       $scope.buypack[$index] = false;
@@ -147,12 +148,12 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 		}
   }
 
-	$scope.jobpack = {};
-
-	$scope.ProdChange = function() {
-		var keys = Object.keys($scope.jobpack);
-		var len = keys.length;
-	}
+	// $scope.jobpack = {};
+  //
+	// $scope.ProdChange = function() {
+	// 	var keys = Object.keys($scope.jobpack);
+	// 	var len = keys.length;
+	// }
 
 	$scope.jobpackforsend = [];
 

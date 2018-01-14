@@ -5,7 +5,7 @@
         <div class="col-md-12 col-xs-12 h5title graycolor">به منظور پاسخگوئی به نیاز کارفرمایان بسته های گوناگونی جهت درج آگهی در اختیار کارفرمایان قرار گرفته است. این بسته ها از منظر تعداد آگهی، خدمات ویژه آگهی و مدت زمان ماندگاری آگهی دسته بندی شده و با قیمت های مختلف در اختیار شما قرار می گیرد.
 </div>
 			        <div class="box-price">
-			        <div class="col-md-3" ng-class="{select: x == selectedjobpack , noselect: x != selectedjobpack}" ng-repeat="x in AddJobPack">
+			        <div class="col-md-3" ng-class="{select: x == selectedjobpack , noselect: x != selectedjobpack , select: fristview = true }" ng-repeat="x in AddJobPack">
             <div class="box-price-one" ng-class="{active : x.title == 'بسته رایگان'}">
                 <div class="h2title fontbold bluecolor">{{x.title}}</div>
                 <p class="graycolor">{{x.all_count}} آگهی {{x.day_duration}} روزه</p>
