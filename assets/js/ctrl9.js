@@ -202,7 +202,7 @@ app.controller('searchscenarios', function($compile, $sce, $scope, $window, $htt
           } else if ($scope.selectedsearchpack != x) {
             $scope.selectedsearchpack = x;
             $scope.selectedsearchpackprice = [{
-              price: x.off,
+              price: x.price,
             }];
             $scope.buypack[$index] = true;
             $scope.botbuypack[$index] = true;
@@ -222,37 +222,38 @@ app.controller('searchscenarios', function($compile, $sce, $scope, $window, $htt
           return selectsearchpackprice;
         }
 
-        // $scope.ConfirmBtn = function() {
-        //   if ($scope.selectedjobpack == null) {
-        //     alert("حتما باید یک بسته انتخاب کنید");
-        //   } else if ($scope.selectedjobpack != null) {
-        //
-        //     var data = {
-        //       "id": parseInt($scope.selectedjobpack.id),
-        //     }
-        //
-        //     var config = {
-        //
-        //       headers: {
-        //
-        //         'Content-Type': 'application/json',
-        //
-        //         'Access-Token': $localStorage.TokenKey.access,
-        //
-        //       }
-        //
-        //     }
-        //
-        //
-        //     $http.post(mustafasite + '/employer/pay/search_pack', JSON.stringify(data), config).then(function(response) {
-        //       alert("خرید شما با موفیقت انجام شد.");
-        //       $location.path("acompanypage");
-        //       $localStorage.LocationUser = "companymainpage";
-        //     });
-        //
-        //
-        //   }
-        // }
+        $scope.ConfirmBtn = function() {
+          if ($scope.selectedjobpack == null) {
+            alert("حتما باید یک بسته انتخاب کنید");
+          }
+					else if ($scope.selectedjobpack != null) {
+
+            var data = {
+              "id": parseInt($scope.selectedjobpack.id),
+            }
+
+            var config = {
+
+              headers: {
+
+                'Content-Type': 'application/json',
+
+                'Access-Token': $localStorage.TokenKey.access,
+
+              }
+
+            }
+
+
+            $http.post(mustafasite + '/employer/pay/search_pack', JSON.stringify(data), config).then(function(response) {
+              alert("خرید شما با موفیقت انجام شد.");
+              $location.path("acompanypage");
+              $localStorage.LocationUser = "companymainpage";
+            });
+
+
+          }
+        }
 
 
       });

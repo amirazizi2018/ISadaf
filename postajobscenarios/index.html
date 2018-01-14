@@ -11,8 +11,7 @@
                 <p class="graycolor">{{x.description}}</p>
                 <p ng-if="x.off == '0'" class="detail-2 h2title darkgraycolor">رایگان</p>
                 <p ng-if="x.off != '0'" class="detail-2 h2title darkgraycolor">{{x.off}}</p>
-                <button ng-hide="buypack[$index]" ng-click="selectjobpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">انتخاب بسته</button>
-                <button ng-show="botbuypack[$index]" ng-click="selectjobpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">لغو بسته</button>
+                <button ng-click="selectjobpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium"><span ng-hide="buypack[$index]">انتخاب بسته</span><span ng-show="botbuypack[$index]">لغو بسته</span></button>
                 <p class="detail-3 h6title">هر آگهی به مدت 45 روز</p>
                 <div class="detail-4 h5title graycolor" ng-bind-html="x.content|trustAsHtml"></div>
                 <!-- <a href="" class="fontbold h5title">رزرو این محصول</a> -->
