@@ -87,6 +87,8 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 
 	$scope.orders.prods.prod = {};
 
+	$scope.select = true;
+	
   init();
 
   function init() {
