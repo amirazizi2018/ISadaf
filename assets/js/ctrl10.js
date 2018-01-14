@@ -131,6 +131,7 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
   // }
 
 	$scope.selectedjobpack = null;
+	$scope.selectedjobpackprice = [];
 	$scope.buypack = [];
   $scope.botbuypack = [];
 
@@ -138,6 +139,7 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 		$scope.fristview = false;
 		if ($scope.selectedjobpack == x) {
 			$scope.selectedjobpack = null;
+			$scope.selectedjobpack = [];
 			$scope.fristview = true;
       $scope.buypack[$index] = false;
       $scope.botbuypack[$index] = false;
@@ -145,6 +147,9 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 		else if ($scope.selectedjobpack != x)
 		{
 			$scope.selectedjobpack = x;
+			$scope.selectedjobpackprice =[{
+		      price : x.off,
+ }];
       $scope.buypack[$index] = true;
       $scope.botbuypack[$index] = true;
 		}
@@ -154,9 +159,9 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 
          var selectjobpackprice = 0;
 
-         angular.forEach($scope.selectedjobpack, function(item) {
+         angular.forEach($scope.selectedjobpackprice, function(x) {
 
-            selectjobpackprice += item.off * 1;
+            selectjobpackprice += x.price * 1;
 
          })
 
