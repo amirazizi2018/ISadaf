@@ -154,15 +154,11 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 
 	$scope.jobpackforsend = [];
 
-
-
-
 	$scope.ConfirmBtn = function() {
 		if ($scope.selectedjobpack == null) {
 			alert("حتما باید یک بسته انتخاب کنید");
 		}
 		else{
-
 			angular.forEach($scope.jobpack,
 function(value, key) {
 	if (value == false) {
