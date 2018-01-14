@@ -131,7 +131,6 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
   // }
 
 	$scope.selectedjobpack = null;
-	$scope.selectjobpackprice = 0;
 	$scope.buypack = [];
   $scope.botbuypack = [];
 
@@ -149,12 +148,21 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
       $scope.buypack[$index] = true;
       $scope.botbuypack[$index] = true;
 		}
-		angular.forEach($scope.selectedjobpack, function(item) {
-
-				$scope.selectjobpackprice += item.off * 1;
-
-	 })
   }
+
+	$scope.selectjobpackprice = function() {
+
+         var selectjobpackprice = 0;
+
+         angular.forEach($scope.selectedjobpack, function(item) {
+
+            selectjobpackprice += item.off * 1;
+
+         })
+
+        return selectjobpackprice;
+}
+
 
 	// $scope.jobpack = {};
   //
