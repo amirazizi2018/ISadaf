@@ -5088,3 +5088,8 @@ resize: none;
 .jobpackkhas md-checkbox:last-of-type {
     margin-bottom: 0;
 }
+
+
+.select .box-price-one:after {
+display: none;
+}
