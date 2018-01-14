@@ -134,11 +134,11 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
   $scope.botbuypack = [];
 
 	$scope.selectjobpack = function(x, $index) {
-		$scope.fristview = false;
 		if ($scope.selectedjobpack == x) {
 			$scope.selectedjobpack = null;
       $scope.buypack[$index] = false;
       $scope.botbuypack[$index] = false;
+			$scope.fristview = true;
 		}
 		else if ($scope.selectedjobpack != x)
 		{
