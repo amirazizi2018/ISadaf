@@ -81,7 +81,12 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 
   //
 
+	$scope.orders = {};
 
+	$scope.orders.prods = {};
+
+	$scope.orders.prods.prod = {};
+	
   init();
 
   function init() {
@@ -99,11 +104,6 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 
       $scope.prodList = response.data.advertisement_types;
     });
-    $scope.orders = {};
-
-    $scope.orders.prods = {};
-
-    $scope.orders.prods.prod = {};
 
     $scope.totalkhaskardanagahi = function() {
 
