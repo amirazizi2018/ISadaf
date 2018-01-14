@@ -101,7 +101,7 @@ app.controller('searchscenarios', function($compile, $sce, $scope, $window, $htt
 
     }
 
-    $http.get(mustafasite + '/job/search_pack', config).then(function(response) {
+    $http.get(mustafasite + '/employer/search_pack', config).then(function(response) {
       $scope.SearchPack = response.data.packs;
     });
   }
