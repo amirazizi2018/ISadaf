@@ -87,5 +87,98 @@ app.controller('searchscenarios', function($compile, $sce, $scope, $window, $htt
 
 
 
+  var mustafasite = "https://sadaf.systmngr.ir/api/v1";
+
+  $scope.GetSearchPack = function() {
+
+    var config = {
+
+      headers: {
+
+        'Content-Type': 'application/json'
+
+      }
+
+    }
+
+    $http.get(mustafasite + '/job/search_pack', config).then(function(response) {
+      $scope.SearchPack = response.data.packs;
+    });
+  }
+
+  $scope.GetSearchPack();
+
+$scope.fristview = true;
+
+$scope.selectedsearchpack = null;
+$scope.selectedsearchpackprice = [];
+$scope.buypack = [];
+$scope.botbuypack = [];
+
+$scope.selectsearchpack = function(x, $index) {
+	$scope.fristview = false;
+	if ($scope.selectedsearchpack == x) {
+		$scope.selectedsearchpack = null;
+		$scope.selectedsearchpackprice = [];
+		$scope.fristview = true;
+		$scope.buypack[$index] = false;
+		$scope.botbuypack[$index] = false;
+	}
+	else if ($scope.selectedsearchpack != x)
+	{
+		$scope.selectedsearchpack = x;
+		$scope.selectedsearchpackprice =[{
+				price : x.off,
+}];
+		$scope.buypack[$index] = true;
+		$scope.botbuypack[$index] = true;
+	}
+}
+
+$scope.selectsearchpackprice = function() {
+
+			 var selectsearchpackprice = 0;
+
+			 angular.forEach($scope.selectedsearchpackprice, function(x) {
+
+					selectsearchpackprice += x.price * 1;
+
+			 })
+
+			return selectsearchpackprice;
+}
+
+$scope.ConfirmBtn = function() {
+	if ($scope.selectedjobpack == null) {
+		alert("حتما باید یک بسته انتخاب کنید");
+	}
+	else if ($scope.selectedjobpack != null) {
+
+	    var data = {
+	      "id": parseInt($scope.selectedjobpack.id),
+	    }
+
+	    var config = {
+
+	      headers: {
+
+	        'Content-Type': 'application/json',
+
+	        'Access-Token': $localStorage.TokenKey.access,
+
+	      }
+
+	    }
+
+
+	    $http.post(mustafasite + '/employer/pay/search_pack', JSON.stringify(data), config).then(function(response) {
+				alert("خرید شما با موفیقت انجام شد.");
+				$location.path("acompanypage");
+  			$localStorage.LocationUser = "companymainpage";
+	    });
+
+
+	}
+}
 
 });

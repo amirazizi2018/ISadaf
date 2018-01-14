@@ -3702,8 +3702,8 @@ For Page Company Page 8
 }
 
 .box-price-one p.detail-4 {
-
   padding: 14px 10px;
+  line-height: 0;
 }
 
 .box-price-one a {

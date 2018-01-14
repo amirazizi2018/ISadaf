@@ -139,7 +139,7 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 		$scope.fristview = false;
 		if ($scope.selectedjobpack == x) {
 			$scope.selectedjobpack = null;
-			$scope.selectedjobpack = [];
+			$scope.selectedjobpackprice = [];
 			$scope.fristview = true;
       $scope.buypack[$index] = false;
       $scope.botbuypack[$index] = false;
