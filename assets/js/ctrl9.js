@@ -191,37 +191,37 @@ app.controller('searchscenarios', function($compile, $sce, $scope, $window, $htt
         $scope.buypack = [];
         $scope.botbuypack = [];
 
-        // $scope.selectsearchpack = function(x, $index) {
-        //   $scope.fristview = false;
-        //   if ($scope.selectedsearchpack == x) {
-        //     $scope.selectedsearchpack = null;
-        //     $scope.selectedsearchpackprice = [];
-        //     $scope.fristview = true;
-        //     $scope.buypack[$index] = false;
-        //     $scope.botbuypack[$index] = false;
-        //   } else if ($scope.selectedsearchpack != x) {
-        //     $scope.selectedsearchpack = x;
-        //     $scope.selectedsearchpackprice = [{
-        //       price: x.off,
-        //     }];
-        //     $scope.buypack[$index] = true;
-        //     $scope.botbuypack[$index] = true;
-        //   }
-        // }
-        //
-        // $scope.selectsearchpackprice = function() {
-        //
-        //   var selectsearchpackprice = 0;
-        //
-        //   angular.forEach($scope.selectedsearchpackprice, function(x) {
-        //
-        //     selectsearchpackprice += x.price * 1;
-        //
-        //   })
-        //
-        //   return selectsearchpackprice;
-        // }
-        //
+        $scope.selectsearchpack = function(x, $index) {
+          $scope.fristview = false;
+          if ($scope.selectedsearchpack == x) {
+            $scope.selectedsearchpack = null;
+            $scope.selectedsearchpackprice = [];
+            $scope.fristview = true;
+            $scope.buypack[$index] = false;
+            $scope.botbuypack[$index] = false;
+          } else if ($scope.selectedsearchpack != x) {
+            $scope.selectedsearchpack = x;
+            $scope.selectedsearchpackprice = [{
+              price: x.off,
+            }];
+            $scope.buypack[$index] = true;
+            $scope.botbuypack[$index] = true;
+          }
+        }
+
+        $scope.selectsearchpackprice = function() {
+
+          var selectsearchpackprice = 0;
+
+          angular.forEach($scope.selectedsearchpackprice, function(x) {
+
+            selectsearchpackprice += x.price * 1;
+
+          })
+
+          return selectsearchpackprice;
+        }
+
         // $scope.ConfirmBtn = function() {
         //   if ($scope.selectedjobpack == null) {
         //     alert("حتما باید یک بسته انتخاب کنید");
