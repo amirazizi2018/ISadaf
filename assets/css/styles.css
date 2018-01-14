@@ -5085,8 +5085,17 @@ resize: none;
     border: 1px solid #0a415b;
 }
 
+.noselect .box-price-one.active:hover {
+    border-top: 10px solid #29b473;
+}
+
 .jobpackkhas md-checkbox:last-of-type {
     margin-bottom: 0;
+}
+
+.noselect .box-price-one:hover .btn-primary {
+  background-color: #0a415b;
+  border-color: #0a415b;
 }
 
 

@@ -125,11 +125,13 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 
   }
 
+
   // $scope.gotocreatejob = function() {
   //   $location.path("createapostpage");
   // }
 
 	$scope.selectedjobpack = null;
+	$scope.selectjobpackprice = 0;
 	$scope.buypack = [];
   $scope.botbuypack = [];
 
@@ -147,6 +149,11 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
       $scope.buypack[$index] = true;
       $scope.botbuypack[$index] = true;
 		}
+		angular.forEach($scope.selectedjobpack, function(item) {
+
+				$scope.selectjobpackprice += item.off * 1;
+
+	 })
   }
 
 	// $scope.jobpack = {};

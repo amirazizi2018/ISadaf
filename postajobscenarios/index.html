@@ -8,12 +8,13 @@
 			        <div class="col-md-3" ng-class="{select: x == selectedjobpack , noselect: x != selectedjobpack , select: fristview }" ng-repeat="x in AddJobPack">
             <div class="box-price-one" ng-class="{active : x.title == 'بسته رایگان'}">
                 <div class="h2title fontbold bluecolor">{{x.title}}</div>
-                <p class="graycolor">{{x.all_count}} آگهی {{x.day_duration}} روزه</p>
+                <p class="graycolor">{{x.description}}</p>
                 <p ng-if="x.off == '0'" class="detail-2 h2title darkgraycolor">رایگان</p>
                 <p ng-if="x.off != '0'" class="detail-2 h2title darkgraycolor">{{x.off}}</p>
                 <button ng-hide="buypack[$index]" ng-click="selectjobpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">انتخاب بسته</button>
-                <button ng-show="botbuypack[$index]" ng-click="selectjobpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">انصراف</button>                <p class="detail-3 h6title">{{x.description}}</p>
-                <p class="detail-4 h5title graycolor" ng-bind-html="x.content|trustAsHtml"></p>
+                <button ng-show="botbuypack[$index]" ng-click="selectjobpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">لغو بسته</button>
+                <p class="detail-3 h6title">هر آگهی به مدت 45 روز</p>
+                <div class="detail-4 h5title graycolor" ng-bind-html="x.content|trustAsHtml"></div>
                 <!-- <a href="" class="fontbold h5title">رزرو این محصول</a> -->
             </div>
           </div>
@@ -47,15 +48,12 @@
             
         </div>   
 
-    {{orders.prods.prod}}
-    {{jobpackforsend}}
-
 
         <div class="col-md-12">
             <div class="full-price">
                 <div class="col-md-9 p-l-20">
                     <span>هزینه کل سرمایه گذاری:</span>
-                    <span class="pull-left">{{totalkhaskardanagahi()}} ریال</span>
+                    <span class="pull-left">{{totalkhaskardanagahi() + selectjobpackprice}} ریال</span>
                 </div>
                 <div class="col-md-3">
                     <button type="button" ng-click="ConfirmBtn()" class="btn greenbtn pull-left">تایید و ادامه <i class="fa fa-angle-double-left" aria-hidden="true"></i>
