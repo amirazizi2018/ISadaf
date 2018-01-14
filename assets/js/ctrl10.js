@@ -127,8 +127,29 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
   //   $location.path("createapostpage");
   // }
 
+	$scope.selectedjobpack = null;
+
   $scope.selectjobpack = function(x) {
-    $scope.selectedjobpack = x;
+		if ($scope.selectedjobpack == x) {
+			$scope.selectedjobpack = null;
+			$scope.btntext = "انتخاب بسته"
+		}
+		if($scope.selectedjobpack != x)
+		{
+			$scope.selectedjobpack = x;
+			$scope.btntext = "انصراف"
+		}
   }
+
+	$scope.ConfirmBtn = function() {
+		if ($scope.selectedjobpack = null) {
+			alert("حتما باید یک بسته انتخاب کنید");
+		}
+		else{
+
+		}
+	}
+
+
 
 });

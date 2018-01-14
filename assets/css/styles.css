@@ -3676,6 +3676,7 @@ For Page Company Page 8
   text-align: center;
   padding: 0 28px 10px;
   background: url(../images/bg22.png) no-repeat right top;
+  position: relative;
 }
 
 .box-price-one div {
