@@ -154,20 +154,6 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 
 	$scope.jobpackforsend = [];
 
-		$scope.sendtest = function() {
-
-				angular.forEach($scope.jobpack,
-	function(value, key) {
-		if (value == false) {
-			console.log("false");
-		}
-		else {
-			$scope.jobpackforsend.push(key);
-			console.log("true");
-		}
-	});
-
-		}
 
 
 
@@ -177,10 +163,16 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 		}
 		else{
 
-			angular.forEach($scope.mbti,
-		function(value, key) {
-			 $scope.mbtiforsend.push(value);
-		});
+			angular.forEach($scope.jobpack,
+function(value, key) {
+	if (value == false) {
+		console.log("false");
+	}
+	else {
+		$scope.jobpackforsend.push(key);
+		console.log("true");
+	}
+});
 
 		}
 	}
