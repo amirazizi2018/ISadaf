@@ -159,8 +159,10 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 			alert("حتما باید یک بسته انتخاب کنید");
 		}
 		else{
-			angular.forEach($scope.jobpack,
+			angular.forEach($orders.prods.prod,
 function(value, key) {
+	console.log(key);
+	console.log(value);
 	if (value == false) {
 		console.log("false");
 	}
