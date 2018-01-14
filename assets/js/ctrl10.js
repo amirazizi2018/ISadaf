@@ -161,14 +161,10 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 		else if ($scope.selectedjobpack != null) {
 			angular.forEach($scope.orders.prods.prod,
 function(value, key) {
-	console.log(key);
-	console.log(value);
 	if (value == false) {
-		console.log("false");
 	}
-	else {
+	else if (value == true){
 		$scope.jobpackforsend.push(key);
-		console.log("true");
 	}
 });
 
