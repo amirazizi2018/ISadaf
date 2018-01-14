@@ -86,7 +86,7 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 	$scope.orders.prods = {};
 
 	$scope.orders.prods.prod = {};
-	
+
   init();
 
   function init() {
@@ -159,7 +159,7 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 			alert("حتما باید یک بسته انتخاب کنید");
 		}
 		else if ($scope.selectedjobpack != null) {
-			angular.forEach($orders.prods.prod,
+			angular.forEach($scope.orders.prods.prod,
 function(value, key) {
 	console.log(key);
 	console.log(value);
