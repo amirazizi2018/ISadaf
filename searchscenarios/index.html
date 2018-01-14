@@ -24,8 +24,7 @@
             <p ng-if="x.price == '0'" class="detail-2 h2title darkgraycolor">رایگان</p>
 
             <p ng-if="x.price != '0'" class="detail-2 h2title darkgraycolor">{{x.price}}</p>
-            <button ng-hide="buypack[$index]" ng-click="selectsearchpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">انتخاب بسته</button>
-            <button ng-show="botbuypack[$index]" ng-click="selectsearchpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">لغو بسته</button>
+            <button  ng-click="selectsearchpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium"><span ng-hide="buypack[$index]">انتخاب بسته</span><span ng-show="botbuypack[$index]">لغو بسته</span></button>
             <p class="detail-3 h6title">امکان مشاهده و دانلود کامل پروفایل ها</p>
 
             <div class="detail-4 h5title graycolor" ng-bind-html="x.content|trustAsHtml"></div>
