@@ -13,7 +13,7 @@
 
       <div class="box-price">
 
-        <div class="col-md-3" ng-class="{select: x == selectedjobpack , noselect: x != selectedjobpack , select: fristview , 'mavaliboxprice': $index == 0 }" ng-repeat="x in SearchPack">
+        <div class="col-md-3" ng-class="{select: x == selectedsearchpack , noselect: x != selectedsearchpack , select: fristview , 'mavaliboxprice': $index == 0 }" ng-repeat="x in SearchPack">
 
           <div class="box-price-one" ng-class="{active : x.title == 'بسته رایگان'}">
 
@@ -21,12 +21,12 @@
 
             <p class="graycolor">{{x.description}}</p>
 
-            <p ng-if="x.off == '0'" class="detail-2 h2title darkgraycolor">رایگان</p>
+            <p ng-if="x.price == '0'" class="detail-2 h2title darkgraycolor">رایگان</p>
 
-            <p ng-if="x.off != '0'" class="detail-2 h2title darkgraycolor">{{x.off}}</p>
-            <button ng-hide="buypack[$index]" ng-click="selectjobpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">انتخاب بسته</button>
-            <button ng-show="botbuypack[$index]" ng-click="selectjobpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">لغو بسته</button>
-            <p class="detail-3 h6title">هر آگهی به مدت 45 روز</p>
+            <p ng-if="x.price != '0'" class="detail-2 h2title darkgraycolor">{{x.price}}</p>
+            <button ng-hide="buypack[$index]" ng-click="selectsearchpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">انتخاب بسته</button>
+            <button ng-show="botbuypack[$index]" ng-click="selectsearchpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">لغو بسته</button>
+            <p class="detail-3 h6title">امکان مشاهده و دانلود کامل پروفایل ها</p>
 
             <div class="detail-4 h5title graycolor" ng-bind-html="x.content|trustAsHtml"></div>
 
