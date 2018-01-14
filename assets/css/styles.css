@@ -5071,7 +5071,7 @@ resize: none;
     border-top: 10px solid #20905b;
 } */
 
-.select .box-price-one:after {
+.noselect .box-price-one:after {
   background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
   height: 100%;
   position: absolute;
@@ -5079,6 +5079,10 @@ resize: none;
   width: 100%;
   content: '' !important;
   right: 0;
+}
+
+.noselect .box-price-one:hover {
+    border: 1px solid #0a415b;
 }
 
 .jobpackkhas md-checkbox:last-of-type {

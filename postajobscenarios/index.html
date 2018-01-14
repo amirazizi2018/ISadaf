@@ -9,14 +9,14 @@
             <div class="box-price-one" ng-class="{active : x.title == 'بسته رایگان'}">
                 <div class="h2title fontbold bluecolor">{{x.title}}</div>
                 <p class="graycolor">{{x.all_count}} آگهی {{x.day_duration}} روزه</p>
-                <p ng-if="x.off == '0'" class="detail-2 h2title darkgraycolor">رایگان</span></p>
-                <p ng-if="x.off != '0'" class="detail-2 h2title darkgraycolor">{{x.off}}</span></p>
-                <button  ng-click="selectjobpack(x)" type="button" class="btn btn-primary btn-lg h4title fontmedium">{{btntext}}</button>
-                <p class="detail-3 h6title">{{x.description}}</p>
+                <p ng-if="x.off == '0'" class="detail-2 h2title darkgraycolor">رایگان</p>
+                <p ng-if="x.off != '0'" class="detail-2 h2title darkgraycolor">{{x.off}}</p>
+                <button ng-hide="buypack[$index]" ng-click="selectjobpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">انتخاب بسته</button>
+                <button ng-show="botbuypack[$index]" ng-click="selectjobpack(x,$index)" type="button" class="btn btn-primary btn-lg h4title fontmedium">انصراف</button>                <p class="detail-3 h6title">{{x.description}}</p>
                 <p class="detail-4 h5title graycolor" ng-bind-html="x.content|trustAsHtml"></p>
                 <!-- <a href="" class="fontbold h5title">رزرو این محصول</a> -->
             </div>
-        </div>
+          </div>
         </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
         <div class="khasnemagaghi" ng-repeat="prod in prodList">
 				<div class="col-md-3 col-xs-12">
 							    <span class="khasneagdtitlch">
-													  <md-checkbox ng-model="orders.prods.prod[prod.id]" aria-label="Checkbox {{$index}}">{{prod.title}}</md-checkbox>
+													  <md-checkbox ng-model="orders.prods.prod[prod.id]" ng-change="ProdChange()" aria-label="Checkbox {{$index}}">{{prod.title}}</md-checkbox>
  
 			<i class="fa fa-info-circle" aria-hidden="true"> <md-tooltip
               md-direction="top">
@@ -47,7 +47,8 @@
             
         </div>   
 
-    {{orders.prods.prod}}
+    {{jobpack}}
+    {{jobpackforsend}}
 
 
         <div class="col-md-12">

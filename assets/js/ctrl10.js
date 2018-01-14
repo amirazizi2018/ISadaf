@@ -128,25 +128,59 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
   // }
 
 	$scope.selectedjobpack = null;
-	$scope.btntext = "انتخاب بسته"
+	$scope.buypack = [];
+  $scope.botbuypack = [];
 
-  $scope.selectjobpack = function(x) {
+	$scope.selectjobpack = function(x, $index) {
 		if ($scope.selectedjobpack == x) {
 			$scope.selectedjobpack = null;
-			$scope.btntext = "انتخاب بسته"
+      $scope.buypack[$index] = false;
+      $scope.botbuypack[$index] = false;
 		}
-		if($scope.selectedjobpack != x)
+		else if ($scope.selectedjobpack != x)
 		{
 			$scope.selectedjobpack = x;
-			$scope.btntext = "انصراف"
+      $scope.buypack[$index] = true;
+      $scope.botbuypack[$index] = true;
 		}
   }
 
+	$scope.jobpack = {};
+
+	$scope.ProdChange = function() {
+		var keys = Object.keys($scope.jobpack);
+		var len = keys.length;
+	}
+
+	$scope.jobpackforsend = [];
+
+		$scope.sendtest = function() {
+
+				angular.forEach($scope.jobpack,
+	function(value, key) {
+		if (value == false) {
+			console.log("false");
+		}
+		else {
+			$scope.jobpackforsend.push(key);
+			console.log("true");
+		}
+	});
+
+		}
+
+
+
 	$scope.ConfirmBtn = function() {
-		if ($scope.selectedjobpack = null) {
+		if ($scope.selectedjobpack == null) {
 			alert("حتما باید یک بسته انتخاب کنید");
 		}
 		else{
+
+			angular.forEach($scope.mbti,
+		function(value, key) {
+			 $scope.mbtiforsend.push(value);
+		});
 
 		}
 	}
