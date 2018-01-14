@@ -128,6 +128,7 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
   // }
 
 	$scope.selectedjobpack = null;
+	$scope.btntext = "انتخاب بسته"
 
   $scope.selectjobpack = function(x) {
 		if ($scope.selectedjobpack == x) {

@@ -25,7 +25,7 @@
         <div class="khasnemagaghi" ng-repeat="prod in prodList">
 				<div class="col-md-3 col-xs-12">
 							    <span class="khasneagdtitlch">
-													  <md-checkbox ng-model="orders.prods.prod[prod.title]" aria-label="Checkbox {{$index}}">{{prod.title}}</md-checkbox>
+													  <md-checkbox ng-model="orders.prods.prod[prod.id]" aria-label="Checkbox {{$index}}">{{prod.title}}</md-checkbox>
  
 			<i class="fa fa-info-circle" aria-hidden="true"> <md-tooltip
               md-direction="top">
@@ -47,12 +47,9 @@
             
         </div>   
 
-
-    {{orders}}
-    {{orders.prods}}
     {{orders.prods.prod}}
 
-    
+
         <div class="col-md-12">
             <div class="full-price">
                 <div class="col-md-9 p-l-20">
