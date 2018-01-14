@@ -5073,15 +5073,12 @@ resize: none;
 
 .select .box-price-one:after {
   background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
-  display: block;
   height: 100%;
-  padding: 25px;
   position: absolute;
   top: 0;
   width: 100%;
   content: '' !important;
-margin-left: 5px;
-display: inline-block;
+  right: 0;
 }
 
 .jobpackkhas md-checkbox:last-of-type {
