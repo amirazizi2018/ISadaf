@@ -223,13 +223,13 @@ app.controller('searchscenarios', function($compile, $sce, $scope, $window, $htt
         }
 
         $scope.ConfirmBtn = function() {
-          if ($scope.selectedjobpack == null) {
+          if ($scope.selectedsearchpack == null) {
             alert("حتما باید یک بسته انتخاب کنید");
           }
-					else if ($scope.selectedjobpack != null) {
+					else if ($scope.selectedsearchpack != null) {
 
             var data = {
-              "id": parseInt($scope.selectedjobpack.id),
+              "id": parseInt($scope.selectedsearchpack.id),
             }
 
             var config = {
