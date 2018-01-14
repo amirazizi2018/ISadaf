@@ -5050,3 +5050,26 @@ resize: none;
     display: inline-block;
     margin-bottom: -2px;
 }
+
+
+.box-price .select .box-price-one {
+    border-top: 10px solid #092f42;
+}
+
+.box-price .select .box-price-one .btn-primary {
+    background-color: #092f42;
+    border-color: #092f42;
+}
+
+.box-price .select .box-price-one.active .btn-primary {
+    background-color: #20905b;
+    border-color: #20905b;
+}
+
+.box-price .select .box-price-one.active {
+    border-top: 10px solid #20905b;
+}
+
+.search-scenarios md-checkbox:last-of-type {
+    margin-bottom: 0;
+}

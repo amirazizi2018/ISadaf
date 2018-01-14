@@ -8,13 +8,12 @@
 			        <div class="col-md-3" ng-class="{select: x == selectedjobpack}" ng-repeat="x in AddJobPack">
             <div class="box-price-one" ng-class="{active : x.title == 'بسته رایگان'}">
                 <div class="h2title fontbold bluecolor">{{x.title}}</div>
-                <p class="graycolor">
-آگهی {{x.all_count}} روزه {{x.day_duration}}</p>
+                <p class="graycolor">{{x.all_count}} آگهی {{x.day_duration}} روزه</p>
                 <p ng-if="x.off == '0'" class="detail-2 h2title darkgraycolor">رایگان</span></p>
                 <p ng-if="x.off != '0'" class="detail-2 h2title darkgraycolor">{{x.off}}</span></p>
                 <button  ng-click="selectjobpack(x)" type="button" class="btn btn-primary btn-lg h4title fontmedium">در خواست این محصول</button>
                 <p class="detail-3 h6title">{{x.description}}</p>
-                <p class="detail-4 h5title graycolor">{{x.content}}</p>
+                <p class="detail-4 h5title graycolor" ng-bind-html="x.content|trustAsHtml"></p>
                 <!-- <a href="" class="fontbold h5title">رزرو این محصول</a> -->
             </div>
         </div>
@@ -28,17 +27,16 @@
 							    <span class="khasneagdtitlch">
 													  <md-checkbox ng-model="orders.prods.prod[prod.title]" aria-label="Checkbox {{$index}}">{{prod.title}}</md-checkbox>
  
-			<i ng-if="prod.toltip" class="fa fa-info-circle" aria-hidden="true"> <md-tooltip
+			<i class="fa fa-info-circle" aria-hidden="true"> <md-tooltip
               md-direction="top">
-              {{prod.toltip}}
+              {{prod.description}}
             </md-tooltip></i>
 </span>
           
    						</div>
 
 															<div class="col-md-4 col-xs-8 kasneagdet h5title">
-
-{{prod.descr}}
+(برای تمامی آگهی های خریداری شده)
 </div>
 
 <div class="col-md-4 col-xs-2 textright bluecolor">
