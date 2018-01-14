@@ -3701,7 +3701,7 @@ For Page Company Page 8
 }
 
 .box-price-one p.detail-4 {
-  line-height: 0;
+
   padding: 14px 10px;
 }
 
@@ -5052,7 +5052,7 @@ resize: none;
 }
 
 
-.box-price .select .box-price-one {
+/* .box-price .select .box-price-one {
     border-top: 10px solid #092f42;
 }
 
@@ -5068,8 +5068,21 @@ resize: none;
 
 .box-price .select .box-price-one.active {
     border-top: 10px solid #20905b;
+} */
+
+.select .box-price-one:after {
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+  display: block;
+  height: 100%;
+  padding: 25px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  content: '' !important;
+margin-left: 5px;
+display: inline-block;
 }
 
-.search-scenarios md-checkbox:last-of-type {
+.jobpackkhas md-checkbox:last-of-type {
     margin-bottom: 0;
 }
