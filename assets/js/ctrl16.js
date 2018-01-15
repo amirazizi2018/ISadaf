@@ -747,7 +747,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
       }
 
-      $http.get(mustafasite + "/service_provider/" + ShareData.getPropertyspid()
+      $http.get(mustafasite + "/service_provider/" + ShareData.getPropertyspid() +
         "/teams", config).then(function(response) {
         $scope.ourteam = response.data.teams;
 
@@ -770,7 +770,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
       }
 
-      $http.get(mustafasite + "/service_provider/" + ShareData.getPropertyspid()
+      $http.get(mustafasite + "/service_provider/" + ShareData.getPropertyspid() +
         "/testimonials", config).then(function(response) {
         $scope.comments = response.data.testimonials;
         $scope.ShowTextNewComment = false
