@@ -507,7 +507,7 @@
 
           <div class="col-md-2 h4title graycolor fontmedium" style="line-height: 38px;">وضعیت بسته ها</div>
 
-          <div ng-repeat="package in packagesstatus">
+          <div ng-repeat="package in advertisements">
 
             <div class="col-md-2"></div>
 
@@ -515,13 +515,13 @@
 
               <div class="col-md-12 packagesstatus">
 
-                <span>{{package.packagename}}</span> |
+                <span>{{package.advertisement.title}}</span> |
 
-                <span ng-class="{'greencolor': package.packagestatus == 'فعال'}">{{package.packagestatus}}</span> |
+                <span class="greencolor">فعال </span> |
 
-                <span>{{package.packagedet}}</span> |
+                <span>{{package.advertisement.all_count}}</span> |
 
-                <span>{{package.packageremaining}}</span>
+                <span>{{package.remaining}}</span>
 
               </div>
 

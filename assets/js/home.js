@@ -333,18 +333,58 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     $location.path("spmainpage");
     $localStorage.LocationUser = "spmainpage";
   }
-  $scope.gotojobpage = function() {
-    $location.path("jobpostspage");
-    $localStorage.LocationUser = "jobpostspage";
-  }
+
   $scope.gotoadsjob = function() {
-    $location.path("postajobscenarios");
-    $localStorage.LocationUser = "postajobscenarios";
+
+    $http.get(mustafasite + '/employer/me', {
+
+      headers: {
+
+        "Content-Type": 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+      }).then(function(response) {
+
+      if (response.data.advertisements != null) {
+            $location.path("jobpostspage");
+            $localStorage.LocationUser = "jobpostspage";
+      }
+      else if (response.data.advertisements == null) {
+        $location.path("postajobscenarios");
+        $localStorage.LocationUser = "postajobscenarios";
+      }
+      }
+
   }
+
   $scope.gotosearchdat = function() {
-    $location.path("searchscenarios");
-    $localStorage.LocationUser = "searchscenarios";
+    $http.get(mustafasite + '/employer/me', {
+
+      headers: {
+
+        "Content-Type": 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+      }).then(function(response) {
+
+      if (response.data.search_packs != null) {
+            $location.path("searchdatabasepage");
+            $localStorage.LocationUser = "searchdatabasepage";
+      }
+      else if (response.data.search_packs == null) {
+        $location.path("searchscenarios");
+        $localStorage.LocationUser = "searchscenarios";
+      }
+      }
+
   }
+
   $scope.gotocrearesarch = function() {
     $location.path("createaresearchpage");
     $localStorage.LocationUser = "createaresearchpage";

@@ -5103,3 +5103,12 @@ resize: none;
 .select .box-price-one:after {
 display: none;
 }
+
+.postajob-scenarios .box-price-one {
+    height: 560px;
+}
+
+
+.search-scenarios .box-price-one {
+    height: 290px;
+}

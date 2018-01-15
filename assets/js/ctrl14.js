@@ -362,8 +362,8 @@ app.controller('companydashboardpage', function($compile, $sce, $scope, $window,
 	    $scope.city = response.data.city;
 	    $scope.employee_count = response.data.employee_count;
 	    $scope.socials = response.data.socials;
-
-
+			$scope.advertisements = response.data.advertisements;
+			$scope.search_packs = response.data.search_packs;
 
 	    $scope.jobsaveddata = response.data.jobs;
 
