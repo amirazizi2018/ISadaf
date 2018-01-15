@@ -1,231 +1,533 @@
-﻿<div ng-controller="jobpostspage">
-<section class="progress-home">
-     <div class="container">
-         <h2 class="bluecolor  fontmedium">چطور پیشنهادات کاری خوب دریافت کنید؟</h2>   <div class="stepwizard">         <div class="stepwizard-row">            <div class="stepwizard-step col-md-4">               <button type="button" class="btn btn-default btn-circle">|</button>               <div class="pic-progress1 active"></div>               <h4 class="fontbold">ایجاد پروفایل کاربری</h4>               <p class="h5title fontlight">بعد از عضویت و ورود به حساب کاربری می توانید برای دریافت پیشنهاد شغلی مناسب تر از طریق گزینه تکمیل پروفایل، تخصصی ترین پروفایل شغلی را با هرکدام از کارگزاران مورد علاقه خود ایجاد نمائید.               </p>            </div>            <div class="stepwizard-step col-md-4 waiting">               <button type="button" class="btn btn-default btn-circle">||</button>               <div class="pic-progress2"></div>               <h4 class="fontbold">تکمیل یک رزومه</h4>               <p class="h5title fontlight">برای ایجاد یک پروفایل تخصصی و جامع سطوح مختلف و برای هر سطح کارگزاران مختلفی در اختیار شما قرار گرفته است. شما می توانید با دریافت این خدمات پروفایل خود را برای کارفرمایان جذاب نموده تا بهترین پیشنهادات را دریافت نمائید.               </p>            </div>            <div class="stepwizard-step col-md-4">               <button type="button" class="btn btn-default btn-circle" disabled="disabled">|||</button>               <div class="pic-progress3"></div>               <h4 class="fontbold">ارتقای پروفایل به 30 درصد</h4>               <p class="h5title fontlight">بهترین پشنهادات شغلی همیشه برای کارجویانی است که اطلاعات کاملی از مهارت و تخصص خود در اختیار کارفرمایان قرار می دهند. با ابزارهای در اختیارتان پروفایل حرفه ای خود را به بالاترین کیفیت برسانید.               </p>            </div>         </div>      </div>    </div>
-</section>
-
-  <div class="ourjobpositions">
-              <div class="container">
-<h2 class="col-md-12 col-xs-12 bluecolor fontmedium jobpostph2">موقعیت های شغلی ما:</h2>
-<div class="col-md-12 col-xs-12">
-<div class="col-md-12 col-xs-12 jobpostpfilterbox graycolor">
-<div class="row">
-<div class="searchdatabaser">
-							<div class="col-md-2 col-xs-12">
-							    <span class="titlefildsear-tabazmon  h5title fontmedium">جستجو (عبارت کلیدی)</span>
-								</div>
-<div class="col-md-10 col-xs-12">
-<input class="form-control jostojoazmon ng-pristine ng-valid ng-empty ng-touched" type="text" size="100" ng-model="searchkeyword" aria-invalid="false" style="">
-<i class="form-control-feedback fa fa-search"></i>
-</div>
-
-
-</div>
-<div class="searchdatabaser">
-							<div class="col-md-2 col-xs-12">
-							    <span class="titlefildsear-tabazmon  h5title fontmedium">مهارت ها و تخصص های شما</span>
-								</div>
-<div class="col-md-10 col-xs-12">
-  <ui-select multiple ng-model="yourskillsandexpertise" theme="bootstrap" close-on-select="false" style="width: 100%;" title="مهارت خود را انتخاب کنید">
-    <ui-select-match>{{$item.title}}</ui-select-match>
-    <ui-select-choices repeat="skill in yourskillsandexpertises">
-      {{skill.title}}
-    </ui-select-choices>
-  </ui-select>
-</div>
-
-
-</div>
-
-<div class="searchdatabaser" style="padding: 10px 0 0;">			
-								<div class="col-md-2 col-xs-12">
-																		    <span class="titlefildsear graycolor h5title fontmedium">نوع همکاری</span>
-
-								</div>
-
-<div class="col-md-10 col-xs-12" style="
-    padding: 0;
-    padding-top: 5px;
-">							  <md-checkbox class="h5title fontlight" ng-model="FULL_TIME" aria-label="Checkbox 1">تمام وقت</md-checkbox>
-							  <md-checkbox class="h5title fontlight" ng-model="PART_TIME" aria-label="Checkbox 2">پاره وقت</md-checkbox>
-							  <md-checkbox class="h5title fontlight" ng-model="KAR_AMUZI" aria-label="Checkbox 3">کارآموزی</md-checkbox>
-							  <md-checkbox class="h5title fontlight" ng-model="KARVARZI" aria-label="Checkbox 4">کاروندی</md-checkbox>
-
-								</div>
-</div>
-
-
-
-<div class="searchdatabaser" style="padding: 5px 0;">			
-								<div class="col-md-2 col-xs-12">
-																		    <span class="titlefildsear graycolor h5title fontmedium">سطح ارزیابی</span>
-
-								</div>
-
-<div class="col-md-10 col-xs-12" style="
-    padding: 0;
-    padding-top: 5px;
-">							  <md-checkbox class="h5title fontlight" ng-model="satharzyabi.rezome" aria-label="Checkbox 5">رزومه</md-checkbox>
-							  <md-checkbox class="h5title fontlight" ng-model="satharzyabi.ravan" aria-label="Checkbox 6">ارزیابی روانشناختی</md-checkbox>
-							  <md-checkbox class="h5title fontlight" ng-model="satharzyabi.mahrati" aria-label="Checkbox 7">ارزیابی مهارتی</md-checkbox>
-							  <md-checkbox class="h5title fontlight" ng-model="satharzyabi.shayeteghi" aria-label="Checkbox 8">ارزیابی شایستگی</md-checkbox>
-
-								</div>
-
-</div>
-
-	 	        <div ng-show="showallfilter">
-	        <div class="searchdatabaser">
-											<div class="col-md-2 col-xs-12">
-																		    <span class="titlefildsear graycolor h5title fontmedium">شهر</span>
-
-								</div>
-
-							<div class="col-md-10 col-xs-12">
-
-				  <select ng-model="shahr">
-<option ng-repeat="x in shahr" value="{{x.nameper}}">{{x.nameper}}</option>
-</select>
-
-								</div>
-
-
-</div>
-
-	        <div class="searchdatabaser">
-											<div class="col-md-2 col-xs-12">
-																		    <span class="titlefildsear graycolor h5title fontmedium">زمان آگهی</span>
-
-								</div>
-
-							<div class="col-md-10 col-xs-12">
-
-				  <select ng-model="adstimevalue"  style="width: 25%;">
-<option ng-repeat="x in adstime" value="{{x.nameeng}}">{{x.nameper}}</option>
-</select>
-
-								</div>
-
-
-</div>
-
-	        <div class="searchdatabaser">
-											<div class="col-md-2 col-xs-12">
-																		    <span class="titlefildsear graycolor h5title fontmedium">جنسیت</span>
-
-								</div>
-
-							<div class="col-md-10 col-xs-12">
-
-				  <select ng-model="sexvalue">
-<option ng-repeat="x in sex" value="{{x.nameeng}}">{{x.nameper}}</option>
-</select>
-								</div>
-
-
-</div>	   
-
-     <div class="searchdatabaser">
-											<div class="col-md-2 col-xs-12">
-																		    <span class="titlefildsear graycolor h5title fontmedium">نوع سازمان</span>
-
-								</div>
-
-							<div class="col-md-10 col-xs-12">
-
-				  <select ng-model="sazman">
-<option ng-repeat="x in sazman" value="{{x.nameper}}">{{x.nameper}}</option>
-</select>
-
-								</div>
-
-</div>
-
-   <div class="searchdatabaser">
-											<div class="col-md-2 col-xs-12">
-																		    <span class="titlefildsear graycolor h5title fontmedium">امتیاز کارفرما</span>
-
-								</div>
-
-<div class="jobrateuser col-md-10 col-xs-12" style="padding: 5px 10px;">
-        <rate-yo on-set="set" ng-model="ratesearch" read-only="ratesearchoptions.readOnly" options="ratesearchoptions"></rate-yo></div>
-</div>
-</div>
-
-<div class="clearfix"></div>
-<div class="col-md-6 col-xs-12">
-<button type="button" ng-click="searchbtnjp()" class="btn bluebtn">جستجو</button>
-</div>
-<div class="col-md-6 col-xs-12 textleft" style="margin: 9px 0px;">
-<span  ng-click="showallfilter = !showallfilter" >
-<span class="graycolor" ng-show="!showallfilter"> <i class="fa fa-angle-double-down" aria-hidden="true"></i> فیلترهای پیشرفته</span>
-<span class="graycolor underline" ng-show="showallfilter"> <i class="fa fa-angle-double-up" aria-hidden="true"></i> فیلترهای کمتر </span>
-</span>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="col-md-4 col-xs-12 jobdetailsbox graycolor" ng-repeat="item in jobsdata.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
-       <div class="jobdetails fontlight">
-            <div class="h6title jobdate graycolor">{{item.created_at | jalaliDate:'jDD / jMMMM / jYY' }}</div>           <div ng-show="pindedplusshow[$index] || item.bookmarked == null  || item.bookmarked == false" ng-hide="pindedplus[$index] || item.bookmarked == true" class="pinjob addjob" ng-click="add(item,$index)">               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 9.6 9.6" style="enable-background:new 0 0 9.6 9.6;" xml:space="preserve">                  <path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z M8.9,4.1"/>               </svg>            </div> 							<div ng-show="pindedcheck[$index] || item.bookmarked == true" class="pinjob removejob" ng-hide="pindedcheckhide[$index] || item.bookmarked == null  || item.bookmarked == false" ng-click="remove(item,$index)"><i class="fa fa-times" aria-hidden="true"></i></div>                     
-            <div class="row rowonejob">
-               <div class="col-md-4 col-xs-12 centerjobrespon">
-                  <div class="companylogo col-md-12 col-xs-12">
-                     <img src="{{item.employer.avatar}}" >
-                     <md-tooltip
-                        md-direction="top">
-                        {{item.employer.fa_name}}
-                     </md-tooltip>
-                  </div>
-                  <div class="jobrateuser col-md-12 col-xs-12">
-                     <rate-yo class="mstarbb" on-set="set" on-change="showpagestarchange" ng-model="showpagestarrating" read-only="showpagestaroptions.readOnly" options="showpagestaroptions"></rate-yo>
-                  </div>
-                  <div class="jobratesystem col-md-12 col-xs-12">
-                     <rate-yo on-set="set" on-change="showpagerectanchange" ng-model="showpagerectanrating" read-only="showpagerectanoptions.readOnly" options="showpagerectanoptions"></rate-yo>
-                  </div>
-               </div>
-               <div class="col-md-8 col-xs-12 paddingjobrespon">
-                  <div class="h2title bluecolor jobname fontmedium">{{item.title}}</div>
-                  <div class="h5title graycolor joblocations fontlight"><i class="fa fa-map-marker" aria-hidden="true"></i>{{item.city}}</div>
-                  <div class="h4title bluecolor jobfield">{{item.education}}</div>
-                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='FULL_TIME'}">
-                     <div class="fontlight">
-                        تمام وقت
-                     </div>
-                  </div>
-                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='PART_TIME'}">
-                     <div class="fontlight">
-                        پاره وقت
-                     </div>
-                  </div>
-                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='KAR_AMUZI'}">
-                     <div class="fontlight">
-                        کارآموزی			
-                     </div>
-                  </div>
-                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='KARVARZI'}">
-                     <div class="fontlight">
-                        کاروندی
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="row rowtwojob">
-               <div class="col-md-6 requestforcooperationjob">					<button ng-click="requestjob(item,$index)" ng-show="requestshow[$index] || item.requested == null  || item.requested == false" ng-hide="requestshowshow[$index] || item.requested == true"  type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>                    <button  ng-click="derequestjob(item,$index)" ng-show="derequestshow[$index] || item.requested == true" ng-hide="derequestshowhide[$index] || item.requested == null  || item.requested == false" type="button" class="btn greenbtn dereq fontmedium"><span>لغو درخواست</span></button>              
-               </div>
-               <div class="col-md-6 readmorejob">
-                  <button  ng-click="showajob(item)" type="button" class="btn greenbtnreverse algnbtnmd fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
-               </div>
-            </div>
-         </div>
-			</div>
-					<div class="col-md-12">
-    <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"  items-per-page="itemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
-</div>
-
-</div>
-</div>
-	
+
+<div ng-controller="jobpostspage">
+
+  <section class="progress-home">
+
+    <div class="container">
+
+      <h2 class="bluecolor  fontmedium">چطور پیشنهادات کاری خوب دریافت کنید؟</h2>
+      <div class="stepwizard">
+
+        <div class="stepwizard-row">
+
+          <div class="stepwizard-step col-md-4">
+
+            <button type="button" class="btn btn-default btn-circle">|</button>
+
+            <div class="pic-progress1 active"></div>
+
+            <h4 class="fontbold">ایجاد پروفایل کاربری</h4>
+
+            <p class="h5title fontlight">
+
+              بعد از عضویت و ورود به حساب کاربری می توانید برای دریافت پیشنهاد شغلی مناسب تر از طریق گزینه تکمیل پروفایل، تخصصی ترین پروفایل شغلی را با هرکدام از کارگزاران مورد علاقه خود ایجاد نمائید.
+
+
+            </p>
+
+          </div>
+
+          <div class="stepwizard-step col-md-4 waiting">
+
+            <button type="button" class="btn btn-default btn-circle">||</button>
+
+            <div class="pic-progress2"></div>
+
+            <h4 class="fontbold">تکمیل یک رزومه</h4>
+
+            <p class="h5title fontlight">
+
+              برای ایجاد یک پروفایل تخصصی و جامع سطوح مختلف و برای هر سطح کارگزاران مختلفی در اختیار شما قرار گرفته است. شما می توانید با دریافت این خدمات پروفایل خود را برای کارفرمایان جذاب نموده تا بهترین پیشنهادات را دریافت نمائید.
+
+
+            </p>
+
+          </div>
+
+          <div class="stepwizard-step col-md-4">
+
+            <button type="button" class="btn btn-default btn-circle" disabled="disabled">|||</button>
+
+            <div class="pic-progress3"></div>
+
+            <h4 class="fontbold">ارتقای پروفایل به 30 درصد</h4>
+
+            <p class="h5title fontlight">
+
+              بهترین پشنهادات شغلی همیشه برای کارجویانی است که اطلاعات کاملی از مهارت و تخصص خود در اختیار کارفرمایان قرار می دهند. با ابزارهای در اختیارتان پروفایل حرفه ای خود را به بالاترین کیفیت برسانید.
+
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <div class="ourjobpositions">
+
+    <div class="container">
+
+      <h2 class="col-md-12 col-xs-12 bluecolor fontmedium jobpostph2">موقعیت های شغلی ما:</h2>
+
+      <div class="col-md-12 col-xs-12">
+
+        <div class="col-md-12 col-xs-12 jobpostpfilterbox graycolor">
+
+          <div class="row">
+
+            <div class="searchdatabaser">
+
+              <div class="col-md-2 col-xs-12">
+
+                <span class="titlefildsear-tabazmon  h5title fontmedium">جستجو (عبارت کلیدی)</span>
+
+              </div>
+
+              <div class="col-md-10 col-xs-12">
+
+                <input class="form-control jostojoazmon ng-pristine ng-valid ng-empty ng-touched" type="text" size="100" ng-model="searchkeyword" aria-invalid="false" style="">
+
+                <i class="form-control-feedback fa fa-search"></i>
+
+              </div>
+
+
+
+
+
+            </div>
+
+            <div class="searchdatabaser">
+
+              <div class="col-md-2 col-xs-12">
+
+                <span class="titlefildsear-tabazmon  h5title fontmedium">مهارت ها و تخصص های شما</span>
+
+              </div>
+
+              <div class="col-md-10 col-xs-12">
+
+                <ui-select multiple ng-model="yourskillsandexpertise" theme="bootstrap" close-on-select="false" style="width: 100%;" title="مهارت خود را انتخاب کنید">
+
+                  <ui-select-match>{{$item.title}}</ui-select-match>
+
+                  <ui-select-choices repeat="skill in yourskillsandexpertises">
+
+                    {{skill.title}}
+
+                  </ui-select-choices>
+
+                </ui-select>
+
+              </div>
+
+
+
+
+
+            </div>
+
+
+
+            <div class="searchdatabaser" style="padding: 10px 0 0;">
+
+              <div class="col-md-2 col-xs-12">
+
+                <span class="titlefildsear graycolor h5title fontmedium">نوع همکاری</span>
+
+
+
+              </div>
+
+
+
+              <div class="col-md-10 col-xs-12" style="
+
+    padding: 0;
+
+    padding-top: 5px;
+
+">
+                <md-checkbox class="h5title fontlight" ng-model="FULL_TIME" aria-label="Checkbox 1">تمام وقت</md-checkbox>
+
+                <md-checkbox class="h5title fontlight" ng-model="PART_TIME" aria-label="Checkbox 2">پاره وقت</md-checkbox>
+
+                <md-checkbox class="h5title fontlight" ng-model="KAR_AMUZI" aria-label="Checkbox 3">کارآموزی</md-checkbox>
+
+                <md-checkbox class="h5title fontlight" ng-model="KARVARZI" aria-label="Checkbox 4">کاروندی</md-checkbox>
+
+
+
+              </div>
+
+            </div>
+
+
+
+
+
+
+
+            <div class="searchdatabaser" style="padding: 5px 0;">
+
+              <div class="col-md-2 col-xs-12">
+
+                <span class="titlefildsear graycolor h5title fontmedium">سطح ارزیابی</span>
+
+
+
+              </div>
+
+
+
+              <div class="col-md-10 col-xs-12" style="
+
+    padding: 0;
+
+    padding-top: 5px;
+
+">
+                <md-checkbox class="h5title fontlight" ng-model="Resume" aria-label="Checkbox 5">رزومه</md-checkbox>
+
+                <md-checkbox class="h5title fontlight" ng-model="RavanShanakhti" aria-label="Checkbox 6">ارزیابی روانشناختی</md-checkbox>
+
+                <md-checkbox class="h5title fontlight" ng-model="Maharati" aria-label="Checkbox 7">ارزیابی مهارتی</md-checkbox>
+
+                <md-checkbox class="h5title fontlight" ng-model="Shayesteghi" aria-label="Checkbox 8">ارزیابی شایستگی</md-checkbox>
+
+
+
+              </div>
+
+
+
+            </div>
+
+
+
+            <div ng-show="showallfilter">
+
+              <div class="searchdatabaser">
+
+                <div class="col-md-2 col-xs-12">
+
+                  <span class="titlefildsear graycolor h5title fontmedium">شهر</span>
+
+
+
+                </div>
+
+
+
+                <div class="col-md-10 col-xs-12">
+
+
+
+                  <select ng-model="shahrselect">
+
+<option ng-repeat="x in shahr" value="{{x.nameper}}">{{x.nameper}}</option>
+
+</select>
+
+
+
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+              <div class="searchdatabaser">
+
+                <div class="col-md-2 col-xs-12">
+
+                  <span class="titlefildsear graycolor h5title fontmedium">زمان آگهی</span>
+
+
+
+                </div>
+
+
+
+                <div class="col-md-10 col-xs-12">
+
+
+
+                  <select ng-model="adstimevalue" style="width: 25%;">
+
+<option ng-repeat="x in adstime" value="{{x.nameeng}}">{{x.nameper}}</option>
+
+</select>
+
+
+
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+              <div class="searchdatabaser">
+
+                <div class="col-md-2 col-xs-12">
+
+                  <span class="titlefildsear graycolor h5title fontmedium">جنسیت</span>
+
+
+
+                </div>
+
+
+
+                <div class="col-md-10 col-xs-12">
+
+
+
+                  <select ng-model="sexvalue">
+
+<option ng-repeat="x in sex" value="{{x.nameeng}}">{{x.nameper}}</option>
+
+</select>
+
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+              <div class="searchdatabaser">
+
+                <div class="col-md-2 col-xs-12">
+
+                  <span class="titlefildsear graycolor h5title fontmedium">نوع سازمان</span>
+
+
+
+                </div>
+
+
+
+                <div class="col-md-10 col-xs-12">
+
+
+
+                  <select ng-model="sazman">
+
+<option ng-repeat="x in sazman" value="{{x.nameper}}">{{x.nameper}}</option>
+
+</select>
+
+
+
+                </div>
+
+
+
+              </div>
+
+
+
+              <div class="searchdatabaser">
+
+                <div class="col-md-2 col-xs-12">
+
+                  <span class="titlefildsear graycolor h5title fontmedium">امتیاز کارفرما</span>
+
+
+
+                </div>
+
+
+
+                <div class="jobrateuser col-md-10 col-xs-12" style="padding: 5px 10px;">
+
+                  <rate-yo on-set="set" ng-model="ratesearch" read-only="ratesearchoptions.readOnly" options="ratesearchoptions"></rate-yo>
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="clearfix"></div>
+
+            <div class="col-md-6 col-xs-12">
+
+              <button type="button" ng-click="searchbtnjp()" class="btn bluebtn">جستجو</button>
+
+            </div>
+
+            <div class="col-md-6 col-xs-12 textleft" style="margin: 9px 0px;">
+
+              <span ng-click="showallfilter = !showallfilter">
+
+<span class="graycolor" ng-show="!showallfilter"> <i class="fa fa-angle-double-down" aria-hidden="true"></i> فیلترهای پیشرفته</span>
+
+              <span class="graycolor underline" ng-show="showallfilter"> <i class="fa fa-angle-double-up" aria-hidden="true"></i> فیلترهای کمتر </span>
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+
+
+      <div class="col-md-4 col-xs-12 jobdetailsbox graycolor" ng-repeat="item in jobsdata.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+
+        <div class="jobdetails fontlight">
+
+          <div class="h6title jobdate graycolor">{{item.created_at | jalaliDate:'jDD / jMMMM / jYY' }}</div>
+
+          <div ng-show="pindedplusshow[$index] || item.bookmarked == null  || item.bookmarked == false" ng-hide="pindedplus[$index] || item.bookmarked == true" class="pinjob addjob" ng-click="add(item,$index)">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 9.6 9.6" style="enable-background:new 0 0 9.6 9.6;" xml:space="preserve">
+                  <path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z M8.9,4.1"/>
+               </svg>
+          </div>
+          <div ng-show="pindedcheck[$index] || item.bookmarked == true" class="pinjob removejob" ng-hide="pindedcheckhide[$index] || item.bookmarked == null  || item.bookmarked == false" ng-click="remove(item,$index)"><i class="fa fa-times" aria-hidden="true"></i></div>
+
+
+          <div class="row rowonejob">
+
+            <div class="col-md-4 col-xs-12 centerjobrespon">
+
+              <div class="companylogo col-md-12 col-xs-12">
+
+                <img src="{{item.employer.avatar}}">
+
+                <md-tooltip md-direction="top">
+
+                  {{item.employer.fa_name}}
+
+                </md-tooltip>
+
+              </div>
+
+              <div class="jobrateuser col-md-12 col-xs-12">
+
+                <rate-yo class="mstarbb" on-set="set" on-change="showpagestarchange" ng-model="showpagestarrating" read-only="showpagestaroptions.readOnly" options="showpagestaroptions"></rate-yo>
+
+              </div>
+
+              <div class="jobratesystem col-md-12 col-xs-12">
+
+                <rate-yo on-set="set" on-change="showpagerectanchange" ng-model="showpagerectanrating" read-only="showpagerectanoptions.readOnly" options="showpagerectanoptions"></rate-yo>
+
+              </div>
+
+            </div>
+
+            <div class="col-md-8 col-xs-12 paddingjobrespon">
+
+              <div class="h2title bluecolor jobname fontmedium">{{item.title}}</div>
+
+              <div class="h5title graycolor joblocations fontlight"><i class="fa fa-map-marker" aria-hidden="true"></i>{{item.city}}</div>
+
+              <div class="h4title bluecolor jobfield">{{item.education}}</div>
+
+              <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='FULL_TIME'}">
+
+                <div class="fontlight">
+
+                  تمام وقت
+
+                </div>
+
+              </div>
+
+              <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='PART_TIME'}">
+
+                <div class="fontlight">
+
+                  پاره وقت
+
+                </div>
+
+              </div>
+
+              <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='KAR_AMUZI'}">
+
+                <div class="fontlight">
+
+                  کارآموزی
+
+                </div>
+
+              </div>
+
+              <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='KARVARZI'}">
+
+                <div class="fontlight">
+
+                  کاروندی
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="row rowtwojob">
+
+            <div class="col-md-6 requestforcooperationjob">
+              <button ng-click="requestjob(item,$index)" ng-show="requestshow[$index] || item.requested == null  || item.requested == false" ng-hide="requestshowshow[$index] || item.requested == true" type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>
+              <button ng-click="derequestjob(item,$index)" ng-show="derequestshow[$index] || item.requested == true" ng-hide="derequestshowhide[$index] || item.requested == null  || item.requested == false" type="button" class="btn greenbtn dereq fontmedium"><span>لغو درخواست</span></button>
+
+            </div>
+
+            <div class="col-md-6 readmorejob">
+
+              <button ng-click="showajob(item)" type="button" class="btn greenbtnreverse algnbtnmd fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-12">
+
+        <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" items-per-page="itemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+
+
 </div>

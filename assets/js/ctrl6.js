@@ -146,6 +146,8 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
     $scope.showpupedit = function() {
       if ($localStorage.UserType == 'JS') {
+        $scope.editphonefix = angular.copy($scope.phonefix);
+        $scope.editaddress = angular.copy($scope.address);
         $('#ShowPopupEditTamas').modal('show');
       } else {
 
@@ -265,9 +267,9 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
       var data = {
 
-        fixed_phone: $scope.phonefix,
+        fixed_phone: $scope.editphonefix,
 
-        address: $scope.address,
+        address: $scope.editaddress,
 
       };
 
@@ -287,9 +289,9 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
       $http.put(mustafasite + "/job_seeker", JSON.stringify(data), config).then(function(response) {
 
-        $scope.phonefix = $scope.phonefix;
+        $scope.phonefix = $scope.editphonefix;
 
-        $scope.address = $scope.address;
+        $scope.address = $scope.editaddress;
 
         $('#ShowPopupEditTamas').modal('hide');
 

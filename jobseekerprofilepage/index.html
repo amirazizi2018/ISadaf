@@ -230,9 +230,9 @@
 
                 <form name="edittamasform" novalidate ng-submit="edittamasform.$valid &&TamasFormJS()">
 
-                  <strong>تلفن ثابت:</strong><input type="text" name="phonefix" ng-model="phonefix"> <br/>
+                  <strong>تلفن ثابت:</strong><input type="text" name="editphonefix" ng-model="editphonefix"> <br/>
 
-                  <strong>آدرس:</strong><input type="text" name="address" ng-model="address"> <br/>
+                  <strong>آدرس:</strong><input type="text" name="editaddress" ng-model="editaddress"> <br/>
 
                   <button type="submit" class="btn bluebtn">ذخیره</button>
 
@@ -477,7 +477,7 @@
 
           <div class="col-md-11 notificationcontent">
 
-            <div ng-bind-html="x.description|trustAsHtml"></div>
+            <div ng-bind-html="x.title|trustAsHtml"></div>
 
           </div>
 
