@@ -69,7 +69,7 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
       }
 
       if ($scope.shahrselect != null) {
-        var selectcity = $scope.shahrselect;
+        var selectcity = "city:"+$scope.shahrselect;
       } else {
         var selectcity = " ";
       }
@@ -116,11 +116,56 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
 
       }
 
+      if ($scope.Resume == true) {
 
-      $scope.Resume = false;
-      $scope.RavanShanakhti = false;
-      $scope.Maharati = false;
-      $scope.Shayesteghi = false;
+        var Resume = "accept_user_witout_resume:"+$scope.shahrselect;
+
+      } else {
+
+        var Resume = " ";
+
+      }
+
+      if ($scope.RavanShanakhti == true) {
+
+        var RavanShanakhti = "accept_user_witout_exam:"+$scope.RavanShanakhti;
+
+      } else {
+
+        var RavanShanakhti = " ";
+
+      }
+
+      if ($scope.Maharati == true) {
+
+        var Maharati = "accept_user_witout_skill:"+$scope.Maharati;
+
+      } else {
+
+        var Maharati = " ";
+
+      }
+
+      if ($scope.Shayesteghi == true) {
+
+        var Shayesteghi = "accept_user_witout_suitability:"+$scope.Shayesteghi;
+
+      } else {
+
+        var Shayesteghi = " ";
+
+      }
+
+      if ($scope.searchkeyword != null) {
+
+        var searchkeyword = $scope.searchkeyword;
+
+      } else {
+
+        var searchkeyword = " ";
+
+      }
+
 
 
 
@@ -158,7 +203,7 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
 
 
 
-      $http.get(mustafasite + "/job?and_keywords=" + $scope.searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " + sKARVARZI + " " + $scope.sexvalue + " " +"accept_user_witout_resume:" + $scope.Resume + " " + "accept_user_witout_suitability:" + $scope.Shayesteghi + " " + "accept_user_witout_exam:" + $scope.RavanShanakhti + " " + "accept_user_witout_skill:" + $scope.Maharati + " " + "city:" + selectcity , config).then(function(response) {
+      $http.get(mustafasite + "/job?and_keywords=" + searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " + sKARVARZI + " " + $scope.sexvalue + " " + Resume + " " + Shayesteghi + " "  + RavanShanakhti + " " + Maharati + " " + selectcity , config).then(function(response) {
 
         $scope.jobsdata = response.data.hits;
 
@@ -263,7 +308,7 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
       }
 
       if ($scope.shahrselect != null) {
-        var selectcity = $scope.shahrselect;
+        var selectcity = "city:"+$scope.shahrselect;
       } else {
         var selectcity = " ";
       }
@@ -310,6 +355,56 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
 
       }
 
+      if ($scope.Resume == true) {
+
+        var Resume = "accept_user_witout_resume:"+$scope.shahrselect;
+
+      } else {
+
+        var Resume = " ";
+
+      }
+
+      if ($scope.RavanShanakhti == true) {
+
+        var RavanShanakhti = "accept_user_witout_exam:"+$scope.RavanShanakhti;
+
+      } else {
+
+        var RavanShanakhti = " ";
+
+      }
+
+      if ($scope.Maharati == true) {
+
+        var Maharati = "accept_user_witout_skill:"+$scope.Maharati;
+
+      } else {
+
+        var Maharati = " ";
+
+      }
+
+      if ($scope.Shayesteghi == true) {
+
+        var Shayesteghi = "accept_user_witout_suitability:"+$scope.Shayesteghi;
+
+      } else {
+
+        var Shayesteghi = " ";
+
+      }
+
+      if ($scope.searchkeyword != null) {
+
+        var searchkeyword = $scope.searchkeyword;
+
+      } else {
+
+        var searchkeyword = " ";
+
+      }
+
 
 
 
@@ -348,7 +443,7 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
 
 
 
-      $http.get(mustafasite + "/job?and_keywords=" + $scope.searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " + sKARVARZI + " " + $scope.sexvalue + " " +"accept_user_witout_resume:" + $scope.Resume + " " + "accept_user_witout_suitability:" + $scope.Shayesteghi + " " + "accept_user_witout_exam:" + $scope.RavanShanakhti + " " + "accept_user_witout_skill:" + $scope.Maharati + " " + "city:" + selectcity , config).then(function(response) {
+      $http.get(mustafasite + "/job?and_keywords=" + searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " + sKARVARZI + " " + $scope.sexvalue + " " + Resume + " " + Shayesteghi + " "  + RavanShanakhti + " " + Maharati + " " + selectcity , config).then(function(response) {
 
         $scope.jobsdata = response.data.hits;
 
