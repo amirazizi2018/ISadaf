@@ -183,6 +183,7 @@ app.controller('postajobscenarios', function($compile, $sce, $scope, $window, $h
 			alert("حتما باید یک بسته انتخاب کنید");
 		}
 		else if ($scope.selectedjobpack != null) {
+
 			angular.forEach($scope.orders.prods.prod,
 function(value, key) {
 	if (value == false) {
@@ -191,6 +192,25 @@ function(value, key) {
 		$scope.jobpackforsend.push(key);
 	}
 });
+
+
+      var data = {
+        "advertisement_types":$scope.jobpackforsend,
+      };
+
+      var config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Token': $localStorage.TokenKey.access,
+        }
+      }
+      $http.post(mustafasite + "/employer/pay/pack/" + $scope.selectedjobpack.id + "/advertisement_type", JSON.stringify(data), config).then(function(response) {
+            alert("بسته شما با موفیقت خریداری شد. تا چند لحظه دیگر به صفحه ایجاد شغل انتقال داده خواهیدشد.");
+            $location.path("createapostpage");
+            $localStorage.LocationUser = "createapostpage";
+      });
+
+
 
 		}
 	}

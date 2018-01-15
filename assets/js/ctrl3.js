@@ -18,7 +18,6 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
     }
 
   }).then(function(response) {
-
     $scope.yourskillsandexpertises = response.data.data;
   });
 
