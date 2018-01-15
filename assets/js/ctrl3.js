@@ -8,7 +8,7 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
 
   var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 
-  $http.get(mustafasite + '/items', {
+  $http.post(mustafasite + '/items', {
 
     headers: {
 

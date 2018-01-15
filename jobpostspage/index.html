@@ -117,7 +117,7 @@
 
                 <ui-select multiple ng-model="yourskillsandexpertise" theme="bootstrap" close-on-select="false" style="width: 100%;" title="مهارت خود را انتخاب کنید">
 
-                  <ui-select-match>{{$item.title}}</ui-select-match>
+                  <ui-select-match>{{$item.name}}</ui-select-match>
 
                   <ui-select-choices repeat="skill in yourskillsandexpertises">
 
@@ -233,7 +233,7 @@
 
                   <select ng-model="shahrselect">
 
-<option ng-repeat="x in shahr" value="{{x.nameper}}">{{x.nameper}}</option>
+<option ng-repeat="x in shahr" value="{{x.nameeng}}">{{x.nameper}}</option>
 
 </select>
 
