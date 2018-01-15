@@ -15,7 +15,7 @@
             </div> 
             <div ng-show="pindedcheckonej" class="pinjob removejob companyname" ng-click="removeone()"><i class="fa fa-times" aria-hidden="true"></i></div>
 <div class="h1title bluecolor companyname fontmedium">{{ajob.title}}</div>
-<div class="h2title bluecolor companyslogan fontlight">{{ajob.employer.fa_name}} <span class="h4title graycolor companysaham fontlight">(پروفایل شرکت)</span>
+<div class="h2title bluecolor companyslogan fontlight">{{ajob.employer.fa_name}} <span  ng-click="showaemp()" class="h4title graycolor companysaham fontlight cursorpointer">(پروفایل شرکت)</span>
 </div>
 <div class="h4title graycolor companyslogan fontlight">{{ajob.employer.business_type}}</div>
 

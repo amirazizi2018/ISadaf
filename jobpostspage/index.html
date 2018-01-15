@@ -119,7 +119,7 @@
 
                   <ui-select-match>{{$item.name}}</ui-select-match>
 
-                  <ui-select-choices repeat="skill in yourskillsandexpertises">
+                  <ui-select-choices repeat="skill in yourskillsandexpertises | filter:$select.search">
 
                     {{skill.name}}
 

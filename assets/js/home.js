@@ -325,9 +325,9 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     $location.path("jobseekerprofilepage");
     $localStorage.LocationUser = "jobseekerprofilepage";
   }
-  $scope.gotojobalbum = function() {
-    $location.path("jobsalbum");
-    $localStorage.LocationUser = "jobsalbum";
+  $scope.gotoresearchpage = function() {
+    $location.path("researchposts");
+    $localStorage.LocationUser = "researchposts";
   }
   $scope.gotosppage = function() {
     $location.path("spmainpage");
