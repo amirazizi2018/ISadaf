@@ -703,35 +703,35 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
   if (ShareData.getPropertyspid() != null) {
 
-    $http.get(mustafasite + '/service_provider/' + ShareData.getPropertyspid()), {
-
-      headers: {
-
-        "Content-Type": 'application/json',
-
-        'Access-Token': $localStorage.TokenKey.access,
-
-      }
-
-      }).then(function(response) {
-
-      $scope.current = response.data.null_percent;
-      $scope.fa_name = response.data.fa_name;
-      $scope.avatar = response.data.avatar;
-      $scope.business_type = response.data.business_type;
-      $scope.motto = response.data.motto;
-      $scope.fax = response.data.fax;
-      $scope.phone = response.data.phone;
-      $scope.address = response.data.address;
-      $scope.second_address = response.data.second_address;
-      $scope.email = response.data.email;
-      $scope.web_site = response.data.web_site;
-      $scope.socials = response.data.socials;
-      $scope.suitabilities = response.data.suitabilities;
-      $scope.services = response.data.exams;
-
-    });
-
+    // $http.get(mustafasite + '/service_provider/' + ShareData.getPropertyspid()), {
+    //
+    //   headers: {
+    //
+    //     "Content-Type": 'application/json',
+    //
+    //     'Access-Token': $localStorage.TokenKey.access,
+    //
+    //   }
+    //
+    //   }).then(function(response) {
+    //
+    //   $scope.current = response.data.null_percent;
+    //   $scope.fa_name = response.data.fa_name;
+    //   $scope.avatar = response.data.avatar;
+    //   $scope.business_type = response.data.business_type;
+    //   $scope.motto = response.data.motto;
+    //   $scope.fax = response.data.fax;
+    //   $scope.phone = response.data.phone;
+    //   $scope.address = response.data.address;
+    //   $scope.second_address = response.data.second_address;
+    //   $scope.email = response.data.email;
+    //   $scope.web_site = response.data.web_site;
+    //   $scope.socials = response.data.socials;
+    //   $scope.suitabilities = response.data.suitabilities;
+    //   $scope.services = response.data.exams;
+    //
+    // });
+    //
 
     $scope.getmyteams = function() {
 
