@@ -356,7 +356,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
         $location.path("postajobscenarios");
         $localStorage.LocationUser = "postajobscenarios";
       }
-      }
+    });
 
   }
 
@@ -381,7 +381,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
         $location.path("searchscenarios");
         $localStorage.LocationUser = "searchscenarios";
       }
-      }
+        });
 
   }
 
