@@ -653,6 +653,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 .socialprofile {
   font-size: 30px;
+  display: inline-block;
 }
 
 .socialprofile .linkedin i {

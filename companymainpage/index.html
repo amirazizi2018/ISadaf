@@ -98,14 +98,14 @@
             <div class="col-md-12 company">
                 <img src="{{company.avatar}}" title="" alt="">
    <div class="jobrateuser col-md-12 col-xs-12">
-        <rate-yo class="mstarbb" on-set="set" on-change="showpagestarchange" ng-model="showpagestarrating" read-only="showpagestaroptions.readOnly" options="showpagestaroptions"></rate-yo>
+        <rate-yo class="mstarbb" ng-model="company.rate" read-only="showpagestaroptions.readOnly" options="showpagestaroptions"></rate-yo>
 </div>
 <div class="jobratesystem col-md-12 col-xs-12">
-        <rate-yo on-set="set" on-change="showpagerectanchange" ng-model="showpagerectanrating" read-only="showpagerectanoptions.readOnly" options="showpagerectanoptions"></rate-yo>
+        <rate-yo ng-model="company.admin_average_rate" read-only="showpagerectanoptions.readOnly" options="showpagerectanoptions"></rate-yo>
 </div>
                 <div class="hovercompany">
                     <p class="hover1">{{$index+1}}</p>
-                    <p class="hover2">{{company.rate}}</p>
+                    <p class="hover2">{{company.admin_average_rate}}</p>
                 </div>
             </div>
             </a>
