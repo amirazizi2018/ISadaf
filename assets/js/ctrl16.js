@@ -784,829 +784,829 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
   }
 
 
-  // if (ShareData.getPropertyspid() == null) {
-  //
-  //   $http.get(mustafasite + '/service_provider/me'), {
-  //
-  //     headers: {
-  //
-  //       "Content-Type": 'application/json',
-  //
-  //       'Access-Token': $localStorage.TokenKey.access,
-  //
-  //     }
-  //
-  //     }).then(function(response) {
-  //
-  //     $scope.current = response.data.null_percent;
-  //     $scope.fa_name = response.data.fa_name;
-  //     $scope.avatar = response.data.avatar;
-  //     $scope.business_type = response.data.business_type;
-  //     $scope.motto = response.data.motto;
-  //     $scope.fax = response.data.fax;
-  //     $scope.phone = response.data.phone;
-  //     $scope.address = response.data.address;
-  //     $scope.second_address = response.data.second_address;
-  //     $scope.email = response.data.email;
-  //     $scope.web_site = response.data.web_site;
-  //     $scope.socials = response.data.socials;
-  //     $scope.suitabilities = response.data.suitabilities;
-  //
-  //
-  //     $scope.editorEnabledbusiness_type = false;
-  //
-  //
-  //
-  //     $scope.enableEditorbusiness_type = function() {
-  //
-  //       $scope.editorEnabledbusiness_type = true;
-  //
-  //       $scope.editableTitlebusiness_type = $scope.business_type;
-  //
-  //     };
-  //
-  //     $scope.disableEditorbusiness_type = function() {
-  //
-  //       $scope.editorEnabledbusiness_type = false;
-  //
-  //     };
-  //
-  //
-  //
-  //     $scope.saveeditbusiness_type = function() {
-  //
-  //       var data = {
-  //
-  //         business_type: $scope.editableTitlebusiness_type,
-  //
-  //       };
-  //
-  //
-  //
-  //       var config = {
-  //
-  //         headers: {
-  //
-  //           'Content-Type': 'application/json',
-  //
-  //           'Access-Token': $localStorage.TokenKey.access,
-  //
-  //         }
-  //
-  //       }
-  //
-  //       $http.put(mustafasite + "/service_provider", JSON.stringify(data), config).then(function(response) {
-  //
-  //         $scope.business_type = $scope.editableTitlebusiness_type;
-  //
-  //         $scope.disableEditorbusiness_type();
-  //
-  //       });
-  //
-  //
-  //
-  //     };
-  //
-  //     $scope.editorEnabledmotto = false;
-  //
-  //
-  //
-  //     $scope.enableEditormotto = function() {
-  //
-  //       $scope.editorEnabledmotto = true;
-  //
-  //       $scope.editableTitlemotto = $scope.motto;
-  //
-  //     };
-  //
-  //
-  //
-  //     $scope.disableEditormotto = function() {
-  //
-  //       $scope.editorEnabledmotto = false;
-  //
-  //     };
-  //
-  //
-  //
-  //
-  //
-  //     $scope.saveeditmotto = function() {
-  //
-  //       var data = {
-  //
-  //         motto: $scope.editableTitlemotto,
-  //
-  //       };
-  //
-  //
-  //
-  //       var config = {
-  //
-  //         headers: {
-  //
-  //           'Content-Type': 'application/json',
-  //
-  //           'Access-Token': $localStorage.TokenKey.access,
-  //
-  //         }
-  //
-  //       }
-  //
-  //       $http.put(mustafasite + "/service_provider", JSON.stringify(data), config).then(function(response) {
-  //
-  //         $scope.motto = $scope.editableTitlemotto;
-  //
-  //         $scope.disableEditormotto();
-  //
-  //       });
-  //
-  //
-  //
-  //     };
-  //
-  //
-  //     $http.get(mustafasite + '/exam/my_exams', {
-  //
-  //       headers: {
-  //
-  //         "Content-Type": 'application/json',
-  //
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //       }).then(function(response) {
-  //
-  //       $scope.services = response.data.exams;
-  //
-  //     });
-  //
-  //
-  //
-  //     $scope.ShowTamasFormSP = function() {
-  //
-  //       if ($localStorage.UserType == "SP") {
-  //         $("#ShowPopupEditTamas").modal('show');
-  //         $scope.editphone = angular.copy($scope.phone);
-  //         $scope.editfax = angular.copy($scope.fax);
-  //         $scope.editaddress = angular.copy($scope.address);
-  //         $scope.editsecond_address = angular.copy($scope.second_address);
-  //         $scope.editemail = angular.copy($scope.email);
-  //         $scope.editweb_site = angular.copy($scope.web_site);
-  //       } else {
-  //
-  //       }
-  //
-  //     }
-  //
-  //     $scope.TamasFormSP = function() {
-  //
-  //       var data = {
-  //
-  //         phone: $scope.editphone,
-  //         fax: $scope.editfax,
-  //         address: $scope.editaddress,
-  //         second_address: $scope.editsecond_address,
-  //         email: $scope.editemail,
-  //         web_site: $scope.editweb_site,
-  //
-  //       };
-  //
-  //
-  //
-  //       var config = {
-  //
-  //         headers: {
-  //
-  //           'Content-Type': 'application/json',
-  //
-  //           'Access-Token': $localStorage.TokenKey.access,
-  //
-  //         }
-  //
-  //       }
-  //
-  //       $http.put(mustafasite + "/service_provider", JSON.stringify(data), config).then(function(response) {
-  //
-  //         $scope.phone = $scope.editphone;
-  //         $scope.fax = $scope.editfax;
-  //         $scope.address = $scope.editaddress;
-  //         $scope.second_address = $scope.editsecond_address;
-  //         $scope.email = $scope.editemail;
-  //         $scope.web_site = $scope.editweb_site;
-  //         $('#ShowPopupEditTamas').modal('hide');
-  //
-  //       });
-  //
-  //
-  //
-  //     };
-  //
-  //   });
-  //
-  //
-  //
-  //
-  //
-  //   $scope.savelogo = function(dataUrl, name) {
-  //
-  //     dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
-  //
-  //     var data = {
-  //
-  //       "image": dataUrl2,
-  //
-  //     }
-  //
-  //     var config = {
-  //
-  //       headers: {
-  //
-  //         'Content-Type': 'application/json',
-  //
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //     }
-  //
-  //
-  //
-  //     $http.put(mustafasite + '/service_provider/avatar64', JSON.stringify(data), config).then(function(response) {
-  //
-  //       $timeout(function() {
-  //
-  //         $scope.avatar = response.data;
-  //
-  //         $('#ShowPopupUploadLogo').modal('hide');
-  //
-  //         $scope.logopicfile = null;
-  //
-  //
-  //
-  //       }, 1000);
-  //
-  //     });
-  //
-  //
-  //   }
-  //
-  //
-  //
-  //   // $scope.services = [
-  //   //
-  //   //   {
-  //   //     id: '1',
-  //   //     servetitle: 'تست MBTI',
-  //   //     servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
-  //   //     serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '1',
-  //   //     servetitle: 'تست ICDL',
-  //   //     servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
-  //   //     serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '1',
-  //   //     servetitle: 'تست مایرز',
-  //   //     servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
-  //   //     serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
-  //   //   },
-  //   //
-  //   // ];
-  //
-  //
-  //
-  //   // $scope.comments = [
-  //   //
-  //   //   {
-  //   //     id: '1',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '1',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '1',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
-  //   //   },
-  //   //
-  //   // ];
-  //
-  //
-  //   //
-  //   // $scope.ourteam = [
-  //   //
-  //   //   {
-  //   //     id: '1',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     name: 'نادر فتحی سرایداری بالا تپه',
-  //   //     place: 'مدیر فنی',
-  //   //     inlink: ' ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '2',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     name: '2نادر فتحی سرایداری بالا تپه',
-  //   //     place: 'مدیر فنی',
-  //   //     inlink: ' ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '3',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     name: '3نادر فتحی سرایداری بالا تپه',
-  //   //     place: 'مدیر فنی',
-  //   //     inlink: ' ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '4',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     name: '3نادر فتحی سرایداری بالا تپه',
-  //   //     place: 'مدیر فنی',
-  //   //     inlink: ' ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '5',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     name: '3نادر فتحی سرایداری بالا تپه',
-  //   //     place: 'مدیر فنی',
-  //   //     inlink: ' ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '6',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     name: '3نادر فتحی سرایداری بالا تپه',
-  //   //     place: 'مدیر فنی',
-  //   //     inlink: ' ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '7',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     name: '3نادر فتحی سرایداری بالا تپه',
-  //   //     place: 'مدیر فنی',
-  //   //     inlink: ' ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '8',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     name: '3نادر فتحی سرایداری بالا تپه',
-  //   //     place: 'مدیر فنی',
-  //   //     inlink: ' ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '9',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     name: '3نادر فتحی سرایداری بالا تپه',
-  //   //     place: 'مدیر فنی',
-  //   //     inlink: ' ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '10',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     name: '3نادر فتحی سرایداری بالا تپه',
-  //   //     place: 'مدیر فنی',
-  //   //     inlink: ' ',
-  //   //   },
-  //   //
-  //   //   {
-  //   //     id: '11',
-  //   //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
-  //   //     name: '3نادر فتحی سرایداری بالا تپه',
-  //   //     place: 'مدیر فنی',
-  //   //     inlink: ' ',
-  //   //   },
-  //   //
-  //   // ];
-  //
-  //
-  //
-  //   // $scope.editperson = function(index) {
-  //   //
-  //   //
-  //   //
-  //   //   $scope.editpersonf = angular.copy(
-  //   //
-  //   //     $scope.ourteam[index]
-  //   //
-  //   //   );
-  //   //
-  //   //   $scope.selectededitpersonfIndex = index;
-  //   //
-  //   //
-  //   //
-  //   // }
-  //
-  //   $scope.getmyteams = function() {
-  //
-  //     var config = {
-  //
-  //       headers: {
-  //
-  //         'Content-Type': 'application/json',
-  //
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //     }
-  //
-  //     $http.get(mustafasite + "/service_provider/my_teams", config).then(function(response) {
-  //       $scope.ourteam = response.data.services;
-  //
-  //     });
-  //   }
-  //
-  //   $scope.getmyteams();
-  //
-  //
-  //   $scope.saveperson = function(dataUrl, name) {
-  //
-  //     // Upload.upload({
-  //     //
-  //     //   url: '/sadafupload/upload.php',
-  //     //
-  //     //   data: {
-  //     //
-  //     //     'targetPath': 'images/',
-  //     //
-  //     //     file: Upload.dataUrltoBlob(dataUrl, name)
-  //     //
-  //     //   },
-  //     //
-  //     // }).then(function(response) {
-  //     //
-  //     //   $timeout(function() {
-  //     //
-  //     //     $scope.editpersonf.profileimg = '/sadafupload/' + response.data;
-  //     //
-  //     //     $scope.result = response.data;
-  //     //
-  //     //     if ($scope.selectededitpersonfIndex == -1) {
-  //     //
-  //     //       $scope.ourteam.push(angular.copy($scope.editpersonf));
-  //     //
-  //     //       $scope.$parent.selectededitpersonfIndex = $scope.ourteam.length - 1;
-  //     //
-  //     //     } else {
-  //     //
-  //     //       $scope.ourteam[$scope.selectededitpersonfIndex] = angular.copy($scope.editpersonf);
-  //     //
-  //     //     }
-  //     //
-  //     //     $('#ShowPopupEditperson').modal('hide');
-  //     //
-  //     //     $scope.personpicFile = null;
-  //     //
-  //     //
-  //     //
-  //     //   });
-  //     //
-  //     // }, function(response) {
-  //     //
-  //     //   if (response.status > 0) $scope.errorMsg = response.status
-  //     //
-  //     //     +
-  //     //     ': ' + response.data;
-  //     //
-  //     // });
-  //
-  //     dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
-  //
-  //     var data = {
-  //
-  //       "image": dataUrl2,
-  //       "url": $scope.teampersonlink,
-  //       "name": $scope.teampersonname,
-  //       "position": $scope.teampersonposition,
-  //
-  //
-  //     }
-  //
-  //
-  //
-  //     var config = {
-  //
-  //       headers: {
-  //
-  //         'Content-Type': 'application/json',
-  //
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //     }
-  //
-  //
-  //
-  //
-  //
-  //     $http.post(mustafasite + '/service_provider/team', JSON.stringify(data), config).then(function(response) {
-  //
-  //       $scope.getmyteams();
-  //       $('#ShowPopupEditperson').modal('hide');
-  //       $scope.personpicFile = null;
-  //       $scope.teampersonlink = null;
-  //       $scope.teampersonname = null;
-  //       $scope.teampersonposition = null;
-  //
-  //     });
-  //
-  //   }
-  //
-  //
-  //
-  //   $scope.addperson = function() {
-  //
-  //     $('#ShowPopupEditperson').modal('show');
-  //
-  //   };
-  //
-  //
-  //
-  //
-  //
-  //   $scope.removeperson = function(person) {
-  //
-  //
-  //     var data = person.id;
-  //
-  //
-  //
-  //     var config = {
-  //
-  //       headers: {
-  //
-  //         'Content-Type': "multipart/form-data",
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //     }
-  //
-  //
-  //
-  //     $http.delete(mustafasite + '/service_provider/team/' + data, config).then(function(response) {
-  //
-  //       $scope.getmyteams();
-  //
-  //     });
-  //
-  //
-  //   }
-  //
-  //   $scope.getmycomment = function() {
-  //
-  //     var config = {
-  //
-  //       headers: {
-  //
-  //         'Content-Type': 'application/json',
-  //
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //     }
-  //
-  //     $http.get(mustafasite + "/service_provider/my_testimonials", config).then(function(response) {
-  //       $scope.comments = response.data.testimonials;
-  //       if (response.data.testimonials.length == 0) {
-  //         $scope.ShowTextNewComment = true
-  //       }
-  //       if (response.data.testimonials.length > 0) {
-  //         $scope.ShowTextNewComment = false
-  //       }
-  //     });
-  //   }
-  //
-  //   $scope.getmycomment();
-  //
-  //
-  //   $scope.savecomment = function(dataUrl, name) {
-  //
-  //     dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
-  //
-  //     var data = {
-  //
-  //       "image": dataUrl2,
-  //       "title": $scope.namecommentmodal,
-  //       "description": $scope.commenttextmodal,
-  //       "rate": parseInt($scope.ratecommentmodal),
-  //
-  //
-  //     }
-  //
-  //
-  //
-  //     var config = {
-  //
-  //       headers: {
-  //
-  //         'Content-Type': 'application/json',
-  //
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //     }
-  //
-  //
-  //
-  //
-  //
-  //     $http.post(mustafasite + '/service_provider/testimonial', JSON.stringify(data), config).then(function(response) {
-  //
-  //       $scope.getmycomment();
-  //       $('#ShowPopupAddComment').modal('hide');
-  //       $scope.personpicFile = null;
-  //       $scope.namecommentmodal = null;
-  //       $scope.commenttextmodal = null;
-  //       $scope.ratecommentmodal = null;
-  //       alert("نظر شما با موفیقت ثبت شد.این نظر پس از تایید توسط ادمین نمایش داده میشود.")
-  //
-  //     });
-  //
-  //   }
-  //
-  //
-  //
-  //   $scope.addcomment = function() {
-  //
-  //     $('#ShowPopupAddComment').modal('show');
-  //
-  //   };
-  //
-  //
-  //
-  //
-  //
-  //   $scope.removecomment = function(comment) {
-  //
-  //
-  //     var data = comment.id;
-  //
-  //
-  //
-  //     var config = {
-  //
-  //       headers: {
-  //
-  //         'Content-Type': "application/json",
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //     }
-  //
-  //
-  //
-  //     $http.delete(mustafasite + '/service_provider/testimonial/' + data, config).then(function(response) {
-  //
-  //       $scope.getmycomment();
-  //
-  //     });
-  //
-  //
-  //   }
-  //
-  //   $scope.socialnameid = [
-  //
-  //     {
-  //       key: "تلگرام",
-  //       value: "1"
-  //     },
-  //     {
-  //       key: "ایسنتاگرام",
-  //       value: "2"
-  //     },
-  //     {
-  //       key: "لینکدین",
-  //       value: "3"
-  //     },
-  //     {
-  //       key: "گوگل پلاس	",
-  //       value: "4"
-  //     },
-  //
-  //   ];
-  //
-  //
-  //   $scope.SocialAddEdit = function() {
-  //
-  //     var data = {
-  //
-  //       social_id: parseInt($scope.idsocial),
-  //
-  //       url: $scope.socialgetlink,
-  //
-  //     };
-  //
-  //
-  //
-  //     var config = {
-  //
-  //       headers: {
-  //
-  //         'Content-Type': 'application/json',
-  //
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //     }
-  //
-  //     $http.post(mustafasite + "/service_provider/social", JSON.stringify(data), config).then(function(response) {
-  //
-  //       $http.get(mustafasite + '/service_provider/me', {
-  //
-  //         headers: {
-  //
-  //           "Content-Type": 'application/json',
-  //
-  //           'Access-Token': $localStorage.TokenKey.access,
-  //
-  //         }
-  //
-  //       }).then(function(response) {
-  //
-  //         $scope.socials = response.data.socials;
-  //
-  //       });
-  //
-  //       $('#ShowPopupEditSocial').modal('hide');
-  //
-  //     });
-  //
-  //
-  //
-  //   };
-  //
-  //   $scope.removesocial = function(x) {
-  //
-  //     var data = x.social.id;
-  //
-  //
-  //
-  //     var config = {
-  //
-  //       headers: {
-  //         'Content-Type': "application/json",
-  //
-  //         'Access-Token': $localStorage.TokenKey.access,
-  //
-  //       }
-  //
-  //     }
-  //
-  //
-  //
-  //     $http.delete(mustafasite + '/service_provider/social/' + data, config).then(function(response) {
-  //
-  //
-  //       $http.get(mustafasite + '/service_provider/me', {
-  //
-  //         headers: {
-  //
-  //           "Content-Type": 'application/json',
-  //
-  //           'Access-Token': $localStorage.TokenKey.access,
-  //
-  //         }
-  //
-  //       }).then(function(response) {
-  //
-  //         $scope.socials = response.data.socials;
-  //
-  //       });
-  //
-  //
-  //
-  //
-  //     });
-  //
-  //
-  //
-  //   }
-  //
-  // }
+  if (ShareData.getPropertyspid() == null) {
+
+    $http.get(mustafasite + '/service_provider/me', {
+
+      headers: {
+
+        "Content-Type": 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+      }).then(function(response) {
+
+      $scope.current = response.data.null_percent;
+      $scope.fa_name = response.data.fa_name;
+      $scope.avatar = response.data.avatar;
+      $scope.business_type = response.data.business_type;
+      $scope.motto = response.data.motto;
+      $scope.fax = response.data.fax;
+      $scope.phone = response.data.phone;
+      $scope.address = response.data.address;
+      $scope.second_address = response.data.second_address;
+      $scope.email = response.data.email;
+      $scope.web_site = response.data.web_site;
+      $scope.socials = response.data.socials;
+      $scope.suitabilities = response.data.suitabilities;
+
+
+      $scope.editorEnabledbusiness_type = false;
+
+
+
+      $scope.enableEditorbusiness_type = function() {
+
+        $scope.editorEnabledbusiness_type = true;
+
+        $scope.editableTitlebusiness_type = $scope.business_type;
+
+      };
+
+      $scope.disableEditorbusiness_type = function() {
+
+        $scope.editorEnabledbusiness_type = false;
+
+      };
+
+
+
+      $scope.saveeditbusiness_type = function() {
+
+        var data = {
+
+          business_type: $scope.editableTitlebusiness_type,
+
+        };
+
+
+
+        var config = {
+
+          headers: {
+
+            'Content-Type': 'application/json',
+
+            'Access-Token': $localStorage.TokenKey.access,
+
+          }
+
+        }
+
+        $http.put(mustafasite + "/service_provider", JSON.stringify(data), config).then(function(response) {
+
+          $scope.business_type = $scope.editableTitlebusiness_type;
+
+          $scope.disableEditorbusiness_type();
+
+        });
+
+
+
+      };
+
+      $scope.editorEnabledmotto = false;
+
+
+
+      $scope.enableEditormotto = function() {
+
+        $scope.editorEnabledmotto = true;
+
+        $scope.editableTitlemotto = $scope.motto;
+
+      };
+
+
+
+      $scope.disableEditormotto = function() {
+
+        $scope.editorEnabledmotto = false;
+
+      };
+
+
+
+
+
+      $scope.saveeditmotto = function() {
+
+        var data = {
+
+          motto: $scope.editableTitlemotto,
+
+        };
+
+
+
+        var config = {
+
+          headers: {
+
+            'Content-Type': 'application/json',
+
+            'Access-Token': $localStorage.TokenKey.access,
+
+          }
+
+        }
+
+        $http.put(mustafasite + "/service_provider", JSON.stringify(data), config).then(function(response) {
+
+          $scope.motto = $scope.editableTitlemotto;
+
+          $scope.disableEditormotto();
+
+        });
+
+
+
+      };
+
+
+      $http.get(mustafasite + '/exam/my_exams', {
+
+        headers: {
+
+          "Content-Type": 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+        }).then(function(response) {
+
+        $scope.services = response.data.exams;
+
+      });
+
+
+
+      $scope.ShowTamasFormSP = function() {
+
+        if ($localStorage.UserType == "SP") {
+          $("#ShowPopupEditTamas").modal('show');
+          $scope.editphone = angular.copy($scope.phone);
+          $scope.editfax = angular.copy($scope.fax);
+          $scope.editaddress = angular.copy($scope.address);
+          $scope.editsecond_address = angular.copy($scope.second_address);
+          $scope.editemail = angular.copy($scope.email);
+          $scope.editweb_site = angular.copy($scope.web_site);
+        } else {
+
+        }
+
+      }
+
+      $scope.TamasFormSP = function() {
+
+        var data = {
+
+          phone: $scope.editphone,
+          fax: $scope.editfax,
+          address: $scope.editaddress,
+          second_address: $scope.editsecond_address,
+          email: $scope.editemail,
+          web_site: $scope.editweb_site,
+
+        };
+
+
+
+        var config = {
+
+          headers: {
+
+            'Content-Type': 'application/json',
+
+            'Access-Token': $localStorage.TokenKey.access,
+
+          }
+
+        }
+
+        $http.put(mustafasite + "/service_provider", JSON.stringify(data), config).then(function(response) {
+
+          $scope.phone = $scope.editphone;
+          $scope.fax = $scope.editfax;
+          $scope.address = $scope.editaddress;
+          $scope.second_address = $scope.editsecond_address;
+          $scope.email = $scope.editemail;
+          $scope.web_site = $scope.editweb_site;
+          $('#ShowPopupEditTamas').modal('hide');
+
+        });
+
+
+
+      };
+
+    });
+
+
+
+
+
+    $scope.savelogo = function(dataUrl, name) {
+
+      dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
+
+      var data = {
+
+        "image": dataUrl2,
+
+      }
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+
+
+      $http.put(mustafasite + '/service_provider/avatar64', JSON.stringify(data), config).then(function(response) {
+
+        $timeout(function() {
+
+          $scope.avatar = response.data;
+
+          $('#ShowPopupUploadLogo').modal('hide');
+
+          $scope.logopicfile = null;
+
+
+
+        }, 1000);
+
+      });
+
+
+    }
+
+
+
+    // $scope.services = [
+    //
+    //   {
+    //     id: '1',
+    //     servetitle: 'تست MBTI',
+    //     servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
+    //     serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
+    //   },
+    //
+    //   {
+    //     id: '1',
+    //     servetitle: 'تست ICDL',
+    //     servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
+    //     serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
+    //   },
+    //
+    //   {
+    //     id: '1',
+    //     servetitle: 'تست مایرز',
+    //     servedesc: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند این متن واقعی و مربوط به توضیحات صفحه مورد نظر است واقعی است. حالا سوال اینجاست که این متن " لورم ایپسوم " به چه دردی میخورد و اساسا برای چه منظور و هدفی ساخته شده است؟ پیش از بوجود آمدن لورم ایپسوم ، طراحان وب سایت در پروژه های وب سایت و طراحان کرافیک در پروژه های طراحی کاتولوگ ، بروشور ، پوستر و ... همواره با این مشکل مواجه بودند که صفحات پروژه خود را پیش از آنکه متن اصلی ',
+    //     serveimg: 'http://gorganiau.ac.ir/my_doc/gorgan/education/faculties/humanities/photo/business-management.jpg',
+    //   },
+    //
+    // ];
+
+
+
+    // $scope.comments = [
+    //
+    //   {
+    //     id: '1',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
+    //   },
+    //
+    //   {
+    //     id: '1',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
+    //   },
+    //
+    //   {
+    //     id: '1',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     commenttext: 'لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  لورم ایپسوم به انگلیسی متنی است بی مفهوم که تشکیل شده از کلمات معنی دار یا بی معنی کنار هم. کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه  ',
+    //   },
+    //
+    // ];
+
+
+    //
+    // $scope.ourteam = [
+    //
+    //   {
+    //     id: '1',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     name: 'نادر فتحی سرایداری بالا تپه',
+    //     place: 'مدیر فنی',
+    //     inlink: ' ',
+    //   },
+    //
+    //   {
+    //     id: '2',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     name: '2نادر فتحی سرایداری بالا تپه',
+    //     place: 'مدیر فنی',
+    //     inlink: ' ',
+    //   },
+    //
+    //   {
+    //     id: '3',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     name: '3نادر فتحی سرایداری بالا تپه',
+    //     place: 'مدیر فنی',
+    //     inlink: ' ',
+    //   },
+    //
+    //   {
+    //     id: '4',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     name: '3نادر فتحی سرایداری بالا تپه',
+    //     place: 'مدیر فنی',
+    //     inlink: ' ',
+    //   },
+    //
+    //   {
+    //     id: '5',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     name: '3نادر فتحی سرایداری بالا تپه',
+    //     place: 'مدیر فنی',
+    //     inlink: ' ',
+    //   },
+    //
+    //   {
+    //     id: '6',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     name: '3نادر فتحی سرایداری بالا تپه',
+    //     place: 'مدیر فنی',
+    //     inlink: ' ',
+    //   },
+    //
+    //   {
+    //     id: '7',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     name: '3نادر فتحی سرایداری بالا تپه',
+    //     place: 'مدیر فنی',
+    //     inlink: ' ',
+    //   },
+    //
+    //   {
+    //     id: '8',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     name: '3نادر فتحی سرایداری بالا تپه',
+    //     place: 'مدیر فنی',
+    //     inlink: ' ',
+    //   },
+    //
+    //   {
+    //     id: '9',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     name: '3نادر فتحی سرایداری بالا تپه',
+    //     place: 'مدیر فنی',
+    //     inlink: ' ',
+    //   },
+    //
+    //   {
+    //     id: '10',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     name: '3نادر فتحی سرایداری بالا تپه',
+    //     place: 'مدیر فنی',
+    //     inlink: ' ',
+    //   },
+    //
+    //   {
+    //     id: '11',
+    //     profileimg: 'https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png',
+    //     name: '3نادر فتحی سرایداری بالا تپه',
+    //     place: 'مدیر فنی',
+    //     inlink: ' ',
+    //   },
+    //
+    // ];
+
+
+
+    // $scope.editperson = function(index) {
+    //
+    //
+    //
+    //   $scope.editpersonf = angular.copy(
+    //
+    //     $scope.ourteam[index]
+    //
+    //   );
+    //
+    //   $scope.selectededitpersonfIndex = index;
+    //
+    //
+    //
+    // }
+
+    $scope.getmyteams = function() {
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+      $http.get(mustafasite + "/service_provider/my_teams", config).then(function(response) {
+        $scope.ourteam = response.data.services;
+
+      });
+    }
+
+    $scope.getmyteams();
+
+
+    $scope.saveperson = function(dataUrl, name) {
+
+      // Upload.upload({
+      //
+      //   url: '/sadafupload/upload.php',
+      //
+      //   data: {
+      //
+      //     'targetPath': 'images/',
+      //
+      //     file: Upload.dataUrltoBlob(dataUrl, name)
+      //
+      //   },
+      //
+      // }).then(function(response) {
+      //
+      //   $timeout(function() {
+      //
+      //     $scope.editpersonf.profileimg = '/sadafupload/' + response.data;
+      //
+      //     $scope.result = response.data;
+      //
+      //     if ($scope.selectededitpersonfIndex == -1) {
+      //
+      //       $scope.ourteam.push(angular.copy($scope.editpersonf));
+      //
+      //       $scope.$parent.selectededitpersonfIndex = $scope.ourteam.length - 1;
+      //
+      //     } else {
+      //
+      //       $scope.ourteam[$scope.selectededitpersonfIndex] = angular.copy($scope.editpersonf);
+      //
+      //     }
+      //
+      //     $('#ShowPopupEditperson').modal('hide');
+      //
+      //     $scope.personpicFile = null;
+      //
+      //
+      //
+      //   });
+      //
+      // }, function(response) {
+      //
+      //   if (response.status > 0) $scope.errorMsg = response.status
+      //
+      //     +
+      //     ': ' + response.data;
+      //
+      // });
+
+      dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
+
+      var data = {
+
+        "image": dataUrl2,
+        "url": $scope.teampersonlink,
+        "name": $scope.teampersonname,
+        "position": $scope.teampersonposition,
+
+
+      }
+
+
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+
+
+
+
+      $http.post(mustafasite + '/service_provider/team', JSON.stringify(data), config).then(function(response) {
+
+        $scope.getmyteams();
+        $('#ShowPopupEditperson').modal('hide');
+        $scope.personpicFile = null;
+        $scope.teampersonlink = null;
+        $scope.teampersonname = null;
+        $scope.teampersonposition = null;
+
+      });
+
+    }
+
+
+
+    $scope.addperson = function() {
+
+      $('#ShowPopupEditperson').modal('show');
+
+    };
+
+
+
+
+
+    $scope.removeperson = function(person) {
+
+
+      var data = person.id;
+
+
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': "multipart/form-data",
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+
+
+      $http.delete(mustafasite + '/service_provider/team/' + data, config).then(function(response) {
+
+        $scope.getmyteams();
+
+      });
+
+
+    }
+
+    $scope.getmycomment = function() {
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+      $http.get(mustafasite + "/service_provider/my_testimonials", config).then(function(response) {
+        $scope.comments = response.data.testimonials;
+        if (response.data.testimonials.length == 0) {
+          $scope.ShowTextNewComment = true
+        }
+        if (response.data.testimonials.length > 0) {
+          $scope.ShowTextNewComment = false
+        }
+      });
+    }
+
+    $scope.getmycomment();
+
+
+    $scope.savecomment = function(dataUrl, name) {
+
+      dataUrl2 = dataUrl.replace("data:image/png;base64,", "");
+
+      var data = {
+
+        "image": dataUrl2,
+        "title": $scope.namecommentmodal,
+        "description": $scope.commenttextmodal,
+        "rate": parseInt($scope.ratecommentmodal),
+
+
+      }
+
+
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+
+
+
+
+      $http.post(mustafasite + '/service_provider/testimonial', JSON.stringify(data), config).then(function(response) {
+
+        $scope.getmycomment();
+        $('#ShowPopupAddComment').modal('hide');
+        $scope.personpicFile = null;
+        $scope.namecommentmodal = null;
+        $scope.commenttextmodal = null;
+        $scope.ratecommentmodal = null;
+        alert("نظر شما با موفیقت ثبت شد.این نظر پس از تایید توسط ادمین نمایش داده میشود.")
+
+      });
+
+    }
+
+
+
+    $scope.addcomment = function() {
+
+      $('#ShowPopupAddComment').modal('show');
+
+    };
+
+
+
+
+
+    $scope.removecomment = function(comment) {
+
+
+      var data = comment.id;
+
+
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': "application/json",
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+
+
+      $http.delete(mustafasite + '/service_provider/testimonial/' + data, config).then(function(response) {
+
+        $scope.getmycomment();
+
+      });
+
+
+    }
+
+    $scope.socialnameid = [
+
+      {
+        key: "تلگرام",
+        value: "1"
+      },
+      {
+        key: "ایسنتاگرام",
+        value: "2"
+      },
+      {
+        key: "لینکدین",
+        value: "3"
+      },
+      {
+        key: "گوگل پلاس	",
+        value: "4"
+      },
+
+    ];
+
+
+    $scope.SocialAddEdit = function() {
+
+      var data = {
+
+        social_id: parseInt($scope.idsocial),
+
+        url: $scope.socialgetlink,
+
+      };
+
+
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+      $http.post(mustafasite + "/service_provider/social", JSON.stringify(data), config).then(function(response) {
+
+        $http.get(mustafasite + '/service_provider/me', {
+
+          headers: {
+
+            "Content-Type": 'application/json',
+
+            'Access-Token': $localStorage.TokenKey.access,
+
+          }
+
+        }).then(function(response) {
+
+          $scope.socials = response.data.socials;
+
+        });
+
+        $('#ShowPopupEditSocial').modal('hide');
+
+      });
+
+
+
+    };
+
+    $scope.removesocial = function(x) {
+
+      var data = x.social.id;
+
+
+
+      var config = {
+
+        headers: {
+          'Content-Type': "application/json",
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+
+
+      $http.delete(mustafasite + '/service_provider/social/' + data, config).then(function(response) {
+
+
+        $http.get(mustafasite + '/service_provider/me', {
+
+          headers: {
+
+            "Content-Type": 'application/json',
+
+            'Access-Token': $localStorage.TokenKey.access,
+
+          }
+
+        }).then(function(response) {
+
+          $scope.socials = response.data.socials;
+
+        });
+
+
+
+
+      });
+
+
+
+    }
+
+  }
 
 });
