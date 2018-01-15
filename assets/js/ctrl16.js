@@ -703,7 +703,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
   if (ShareData.getPropertyspid() != null) {
 
-    $http.get(mustafasite + '/service_provider/' + ShareData.getPropertyspid(), {
+    $http.get(mustafasite + '/service_provider/' + ShareData.getPropertyspid()), {
 
       headers: {
 
@@ -785,7 +785,7 @@ app.controller('spprofilepage', function($compile, $sce, $scope, $window, $http,
 
 
   if (ShareData.getPropertyspid() == null) {
-    $http.get(mustafasite + '/service_provider/me', {
+    $http.get(mustafasite + '/service_provider/me'), {
 
       headers: {
 
