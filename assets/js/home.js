@@ -349,8 +349,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
       }).then(function(response) {
 
       if (response.data.advertisements != null) {
-            $location.path("jobpostspage");
-            $localStorage.LocationUser = "jobpostspage";
+            $location.path("createapostpage");
+            $localStorage.LocationUser = "createapostpage";
       }
       else if (response.data.advertisements == null) {
         $location.path("postajobscenarios");
