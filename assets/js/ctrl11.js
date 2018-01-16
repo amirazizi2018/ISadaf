@@ -1977,8 +1977,8 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {
 
-      alert("آگهی شما با موفقیت درج شد. شما به طور اتوماتیک به پروفایل خودتان ارجا داده میشوید.");
-      $location.path("acompanypage");
+      alert("آگهی با موفیقت درج شد شما به طور خودکار به صفحه اصلی برمیگردید.");
+      $location.path("companymainpage");
 
     });
 
