@@ -1048,7 +1048,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     kargozaricon: "assets/images/lk3.png"
   }];
 
-  $scope.geymatkargozar = "0";
+  $scope.geymatkargozar = null;
 
   $scope.geymatkargozarmaharat = "0";
 
@@ -1066,7 +1066,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
 
 
-    if ($scope.geymatkargozar == "0") {
+    if ($scope.geymatkargozar == null) {
 
       alert("لطفا اول کارگزار را انتخاب کنید")
 
