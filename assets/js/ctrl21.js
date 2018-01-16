@@ -1730,6 +1730,8 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
   }
 
+  $scope.SelectZamanTakhmini = [];
+  $scope.SelectBarovordHazineh = [];
 
    $scope.Addresearch = function() {
 
