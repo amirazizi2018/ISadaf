@@ -1780,6 +1780,7 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
       type: $scope.SelectSanaat, // String
       work_hour_from: parseInt(zamantakhmniniv[0]), // Int
       work_hour_to: parseInt(zamantakhmniniv[1), // Int
+      duration: 36000, // Int
     };
 
 
@@ -1804,7 +1805,7 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
     $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {
 
-      alert("آگهی با موفیقت درج شد شما به طور خودکار به صفحه اصلی برمیگردید.");
+      alert("پژوهش با موفیقت درج شد شما به طور خودکار به صفحه اصلی برمیگردید.");
       $location.path("companymainpage");
 
     });
