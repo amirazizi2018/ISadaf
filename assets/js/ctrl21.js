@@ -1766,22 +1766,22 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
       });
 
 
-    var data = {
-      advertisement_types: $scope.advertisementtypes, // Array []
-      problem_type: $scope.SelectNoMasale,  // String
-      description: $scope.ResearchSharhMasale, // String
-      max_payment: parseInt(barovordhazine[1]), // Int
-      min_payment: parseInt(barovordhazine[0]), // Int
-      requirements: kalamekilidiforsend, // Object
-      skills: objhozetakhasosi,  // Object
-      title: $scope.ResearchTitle, // String
-      approach: $scope.RavashTahghigh, // String
-      output_type: $scope.NoeKhoroji, // String
-      type: $scope.SelectSanaat, // String
-      work_hour_from: parseInt(zamantakhmniniv[0]), // Int
-      work_hour_to: parseInt(zamantakhmniniv[1), // Int
-      duration: 36000, // Int
-    };
+    // var data = {
+    //   advertisement_types: $scope.advertisementtypes, // Array []
+    //   problem_type: $scope.SelectNoMasale,  // String
+    //   description: $scope.ResearchSharhMasale, // String
+    //   max_payment: parseInt(barovordhazine[1]), // Int
+    //   min_payment: parseInt(barovordhazine[0]), // Int
+    //   requirements: kalamekilidiforsend, // Object
+    //   skills: objhozetakhasosi,  // Object
+    //   title: $scope.ResearchTitle, // String
+    //   approach: $scope.RavashTahghigh, // String
+    //   output_type: $scope.NoeKhoroji, // String
+    //   type: $scope.SelectSanaat, // String
+    //   work_hour_from: parseInt(zamantakhmniniv[0]), // Int
+    //   work_hour_to: parseInt(zamantakhmniniv[1), // Int
+    //   duration: 36000, // Int
+    // }
 
 
 
