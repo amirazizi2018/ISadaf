@@ -1686,10 +1686,10 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
 
 
-  init();
+  // init();
 
 
-  // 
+  //
   // function init() {
   //
   //   $http.get(mustafasite + '/job/advertisement_types', {
