@@ -1689,129 +1689,129 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
   init();
 
 
-
-  function init() {
-
-    $http.get(mustafasite + '/job/advertisement_types', {
-
-      headers: {
-
-        "Content-Type": 'application/json',
-
-
-      }
-
-    }).then(function(response) {
-
-      $scope.prodList = response.data.advertisement_types;
-    });
-    $scope.orders = {};
-
-    $scope.orders.prods = {};
-
-    $scope.orders.prods.prod = {};
-
-    $scope.totalkhaskardanagahi = function() {
-
-      return $scope.prodList.filter(function(prod) {
-
-        return $scope.orders.prods.prod[prod.id];
-
-      }).reduce(function(subtotal, selectedProd) {
-
-        return subtotal + parseInt(selectedProd.gift_count);
-
-      }, 0);
-
-    };
-
-
-
-  }
-
-
-  $scope.Addresearch = function() {
-
-    var getzamantakhmini = $scope.SelectZamanTakhmini;
-    var zamantakhmniniv = (getzamantakhmini.toString().split('-'));
-
-    var getbarovordhazine = $scope.SelectBarovordHazineh;
-    var barovordhazine = (getbarovordhazine.toString().split('-'));
-
-
-    var arrayhozetakhasosi = [];
-    Object.keys($scope.formData.teahsilat).forEach(function(key) {
-      var val = $scope.formData.teahsilat[key]["title"];
-      arrayhozetakhasosi.push(val);
-    });
-
-    var objhozetakhasosi = {};
-
-    for (var i = 0; i <  arrayhozetakhasosi.length; ++i){
-      objhozetakhasosi[i] =  arrayshozetakhasosi[i];
-    }
-
-    var kalamekilidiforsend = {};
-
-    for (var i = 0; i <  $scope.skillsandexpertise.length; ++i){
-      kalamekilidiforsend[i] =  $scope.skillsandexpertise[i];
-    }
-
-    $scope.advertisementtypes = [];
-
-    angular.forEach($scope.orders.prods.prod,
-      function(value, key) {
-        $scope.advertisementtypes.push(key);
-      });
-
-
-    var data = {
-      advertisement_types: $scope.advertisementtypes, // Array []
-      problem_type: $scope.SelectNoMasale,  // String
-      description: $scope.ResearchSharhMasale, // String
-      max_payment: parseInt(barovordhazine[1]), // Int
-      min_payment: parseInt(barovordhazine[0]), // Int
-      requirements: kalamekilidiforsend , // Object
-      skills: objhozetakhasosi,  // Object
-      title: $scope.ResearchTitle, // String
-      approach: $scope.RavashTahghigh, // String
-      output_type: $scope.NoeKhoroji, // String
-      type: $scope.SelectSanaat, // String
-      work_hour_from: parseInt(zamantakhmniniv[0]), // Int
-      work_hour_to: parseInt(zamantakhmniniv[1), // Int
-    };
-
-
-
-    var config = {
-
-      headers: {
-
-        'Content-Type': 'application/json',
-
-        'Access-Token': $localStorage.TokenKey.access,
-
-      }
-
-    }
-
-    console.log(data);
-    console.log(JSON.stringify(data));
-    console.log($scope.orders);
-
-
-
-    $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {
-
-      alert("آگهی با موفیقت درج شد شما به طور خودکار به صفحه اصلی برمیگردید.");
-      $location.path("companymainpage");
-
-    });
-
-  }
-
-
-
+  // 
+  // function init() {
+  //
+  //   $http.get(mustafasite + '/job/advertisement_types', {
+  //
+  //     headers: {
+  //
+  //       "Content-Type": 'application/json',
+  //
+  //
+  //     }
+  //
+  //   }).then(function(response) {
+  //
+  //     $scope.prodList = response.data.advertisement_types;
+  //   });
+  //   $scope.orders = {};
+  //
+  //   $scope.orders.prods = {};
+  //
+  //   $scope.orders.prods.prod = {};
+  //
+  //   $scope.totalkhaskardanagahi = function() {
+  //
+  //     return $scope.prodList.filter(function(prod) {
+  //
+  //       return $scope.orders.prods.prod[prod.id];
+  //
+  //     }).reduce(function(subtotal, selectedProd) {
+  //
+  //       return subtotal + parseInt(selectedProd.gift_count);
+  //
+  //     }, 0);
+  //
+  //   };
+  //
+  //
+  //
+  // }
+  //
+  //
+  // $scope.Addresearch = function() {
+  //
+  //   var getzamantakhmini = $scope.SelectZamanTakhmini;
+  //   var zamantakhmniniv = (getzamantakhmini.toString().split('-'));
+  //
+  //   var getbarovordhazine = $scope.SelectBarovordHazineh;
+  //   var barovordhazine = (getbarovordhazine.toString().split('-'));
+  //
+  //
+  //   var arrayhozetakhasosi = [];
+  //   Object.keys($scope.formData.teahsilat).forEach(function(key) {
+  //     var val = $scope.formData.teahsilat[key]["title"];
+  //     arrayhozetakhasosi.push(val);
+  //   });
+  //
+  //   var objhozetakhasosi = {};
+  //
+  //   for (var i = 0; i <  arrayhozetakhasosi.length; ++i){
+  //     objhozetakhasosi[i] =  arrayshozetakhasosi[i];
+  //   }
+  //
+  //   var kalamekilidiforsend = {};
+  //
+  //   for (var i = 0; i <  $scope.skillsandexpertise.length; ++i){
+  //     kalamekilidiforsend[i] =  $scope.skillsandexpertise[i];
+  //   }
+  //
+  //   $scope.advertisementtypes = [];
+  //
+  //   angular.forEach($scope.orders.prods.prod,
+  //     function(value, key) {
+  //       $scope.advertisementtypes.push(key);
+  //     });
+  //
+  //
+  //   var data = {
+  //     advertisement_types: $scope.advertisementtypes, // Array []
+  //     problem_type: $scope.SelectNoMasale,  // String
+  //     description: $scope.ResearchSharhMasale, // String
+  //     max_payment: parseInt(barovordhazine[1]), // Int
+  //     min_payment: parseInt(barovordhazine[0]), // Int
+  //     requirements: kalamekilidiforsend , // Object
+  //     skills: objhozetakhasosi,  // Object
+  //     title: $scope.ResearchTitle, // String
+  //     approach: $scope.RavashTahghigh, // String
+  //     output_type: $scope.NoeKhoroji, // String
+  //     type: $scope.SelectSanaat, // String
+  //     work_hour_from: parseInt(zamantakhmniniv[0]), // Int
+  //     work_hour_to: parseInt(zamantakhmniniv[1), // Int
+  //   };
+  //
+  //
+  //
+  //   var config = {
+  //
+  //     headers: {
+  //
+  //       'Content-Type': 'application/json',
+  //
+  //       'Access-Token': $localStorage.TokenKey.access,
+  //
+  //     }
+  //
+  //   }
+  //
+  //   console.log(data);
+  //   console.log(JSON.stringify(data));
+  //   console.log($scope.orders);
+  //
+  //
+  //
+  //   $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {
+  //
+  //     alert("آگهی با موفیقت درج شد شما به طور خودکار به صفحه اصلی برمیگردید.");
+  //     $location.path("companymainpage");
+  //
+  //   });
+  //
+  // }
+  //
+  //
+  //
 
 
 
