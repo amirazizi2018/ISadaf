@@ -2,7 +2,6 @@
 <div ng-controller="createapostpage" class="imgkargozarpg11">
 
 
-
   <div class="sabtagahishog">
 
     <div class="container" style="padding-right: 0;">
@@ -63,17 +62,17 @@
 
                   <div class="col-md-10 col-xs-12">
 
-										<ui-select multiple ng-model="yourskillsandexpertise" theme="bootstrap" close-on-select="false" style="width: 100%;" title="مهارت خود را انتخاب کنید">
+                    <ui-select multiple ng-model="skillsandexpertise" on-select="OnClickSelect($item)" on-remove="OnRemoveSelect($item)" theme="bootstrap" close-on-select="false" style="width: 100%;" title="مهارت خود را انتخاب کنید">
 
-		                  <ui-select-match>{{$item.name}}</ui-select-match>
+                      <ui-select-match>{{$item.name}}</ui-select-match>
 
-		                  <ui-select-choices repeat="skill in yourskillsandexpertises | filter:$select.search">
+                      <ui-select-choices repeat="skill in skillsandexpertises | filter:$select.search">
 
-		                    {{skill.name}}
+                        {{skill.name}}
 
-		                  </ui-select-choices>
+                      </ui-select-choices>
 
-		                </ui-select>
+                    </ui-select>
 
                   </div>
 
@@ -201,7 +200,7 @@
 
 
                 </div>
-
+{{formData.teahsilat}}
                 <div class="searchdatabaser resanakal" ng-repeat="tahsil in formData.teahsilat" id="tahsilatid{{$index}}">
 
                   <div class="col-md-2 col-xs-1">
@@ -267,9 +266,9 @@
 
 
 
-                    <select class="h5title fontlight" data-placeholder="زمان تخمینی" class="SelectZamanTakhmini" tabindex="1" ng-model="formData.zamantakmini" style="margin-left: 15px;">
+                    <select class="h5title fontlight" data-placeholder="زمان تخمینی" class="selecttahsilat" tabindex="1" ng-model="SelectZamanTakhmini" style="margin-left: 15px;">
 
-            					<option value="2">1 الی 3 سال</option>
+                      <option ng-repeat="x in zamantakhmini" value="{{x.nameeng}}">{{x.nameper}}</option>
 
           					</select>
 
@@ -294,9 +293,9 @@
 
 
 
-                    <select class="h5title fontlight" data-placeholder="برآورد هزینه" class="SelectBarovordHazineh" tabindex="1" ng-model="formData.baravordhazine" style="margin-left: 15px;">
+                    <select class="h5title fontlight" data-placeholder="برآورد هزینه" class="selecttahsilat" tabindex="1" ng-model="SelectBarovordHazineh" style="margin-left: 15px;">
 
-            						<option value="2">22,000,000 الی 25,000,000 ریال</option>
+                      <option ng-repeat="x in baravordhazine" value="{{x.nameeng}}">{{x.nameper}}</option>
 
           					</select>
 
@@ -425,11 +424,7 @@
 
                   <span class="khasneagdtitlch">
 
-													  <md-checkbox ng-model="orders.prods.prod[prod.title]" aria-label="Checkbox {{$index}}">{{prod.title}}</md-checkbox>
-
-
-
-</span>
+                    <md-checkbox ng-model="orders.prods.prod[prod.id]" aria-label="Checkbox {{$index}}">{{prod.title}}</md-checkbox>
 
                 </div>
 
@@ -439,7 +434,7 @@
 
 
 
-                  {{prod.descr}}
+                  {{prod.description}}
 
                 </div>
 
@@ -447,14 +442,11 @@
 
                 <div class="col-md-2 col-xs-2 kasneaggeyjo">
 
-                  <span class="agahikhas2">{{prod.price}}</span>
+                  <span class="agahikhas2">{{prod.gift_count}}</span>
 
                   <span> ریال</span>
 
                 </div>
-
-
-
 
 
               </div>

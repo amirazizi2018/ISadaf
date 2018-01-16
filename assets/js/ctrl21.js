@@ -5,6 +5,7 @@ console.clear();
 app.controller('createaresearchpage', function($compile, $sce, $scope, $window, $http) {
 
 
+  var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 
   $scope.activeTab = "tab1";
 
@@ -23,6 +24,17 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
   }).then(function(response) {
     $scope.yourskillsandexpertises = response.data.data;
   });
+
+  $scope.skillsandexpertise = [];
+   $scope.OnClickSelect=function(item)
+  {
+   $scope.skillsandexpertise.push(item.name)
+  }
+
+  $scope.OnRemoveSelect = function(item) {
+   var index = $scope.skillsandexpertise.indexOf(item.name);
+   $scope.skillsandexpertise.splice(index, 1);
+  }
 
   $scope.sanatmarbote = [
 
@@ -66,6 +78,40 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 			nameeng: "IT"
 		},
 	];
+
+  $scope.zamantakhmini = [
+
+    {
+      nameper: "1 تا 3 سال",
+      nameeng: "1-3"
+    },
+
+    {
+      nameper: "3 تا 6 سال",
+      nameeng: "3-6"
+    },
+
+    {
+      nameper: "6 تا 9 سال",
+      nameeng: "6-9"
+    },
+
+  ];
+
+
+  $scope.baravordhazine = [
+
+    {
+      nameper: "22,000,000 الی 25,000,000 ریال",
+      nameeng: "22000000-25000000"
+    },
+
+    {
+      nameper: "25,000,000 الی 32,000,000 ریال",
+      nameeng: "25000000-32000000"
+    },
+
+  ];
 
 
 
@@ -1653,46 +1699,19 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
   function init() {
 
-    $scope.prodList = [
+    $http.get(mustafasite + '/job/advertisement_types', {
 
-      {
-        id: '1',
-        title: 'فوری/امن/محرمانه',
-        descr: 'شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید',
-        'price': '2500000',
-        selected: 'YES'
-      },
+      headers: {
 
-      {
-        id: '2',
-        title: 'فوری',
-        descr: 'شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید',
-        'price': '2500000'
-      },
+        "Content-Type": 'application/json',
 
-      {
-        id: '3',
-        title: 'امن',
-        descr: 'شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید',
-        'price': '2500000'
-      },
 
-      {
-        id: '4',
-        title: 'محرمانه',
-        descr: 'شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید',
-        'price': '2500000'
-      },
+      }
 
-      {
-        id: '5',
-        title: 'فوری 2',
-        descr: 'شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید',
-        'price': '2500000'
-      },
+    }).then(function(response) {
 
-    ];
-
+      $scope.prodList = response.data.advertisement_types;
+    });
     $scope.orders = {};
 
     $scope.orders.prods = {};
@@ -1703,11 +1722,11 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
       return $scope.prodList.filter(function(prod) {
 
-        return $scope.orders.prods.prod[prod.title];
+        return $scope.orders.prods.prod[prod.id];
 
       }).reduce(function(subtotal, selectedProd) {
 
-        return subtotal + parseInt(selectedProd.price);
+        return subtotal + parseInt(selectedProd.gift_count);
 
       }, 0);
 
