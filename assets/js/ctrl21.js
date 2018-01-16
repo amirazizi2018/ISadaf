@@ -1732,7 +1732,6 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
   $scope.SelectZamanTakhmini = [];
   $scope.SelectBarovordHazineh = [];
-$scope.RavashTahghigh = null;
    $scope.Addresearch = function() {
 
     var getzamantakhmini = $scope.SelectZamanTakhmini;
@@ -1774,7 +1773,7 @@ console.log(zamantakhmniniv);
 
     var data = {
       advertisement_types: $scope.advertisementtypes, // Array []
-      problem_type: $scope.SelectNoMasale,  // String
+      problem_type: $scope.selectnomasale,  // String
       description: $scope.ResearchSharhMasale, // String
       max_payment: parseInt(barovordhazine[1]), // Int
       min_payment: parseInt(barovordhazine[0]), // Int
