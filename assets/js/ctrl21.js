@@ -1641,7 +1641,7 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
   $scope.removettahsilat = function(i) {
 
-    $scope.formData.teahsilat.splice(i, 1);
+    $scope.Tahsilat.splice(i, 1);
 
   };
 
@@ -1651,7 +1651,7 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
   $scope.addtahsilat = function() {
 
-    $scope.formData.teahsilat.push({
+    $scope.Tahsilat.push({
       hoze: $scope.SelectHozeTakhasosi,
     });
 
@@ -1732,26 +1732,30 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
   $scope.SelectZamanTakhmini = [];
   $scope.SelectBarovordHazineh = [];
-
+$scope.RavashTahghigh = null
    $scope.Addresearch = function() {
 
     var getzamantakhmini = $scope.SelectZamanTakhmini;
     var zamantakhmniniv = (getzamantakhmini.toString().split('-'));
+console.log(getzamantakhmini);
+console.log(zamantakhmniniv);
 
     var getbarovordhazine = $scope.SelectBarovordHazineh;
     var barovordhazine = (getbarovordhazine.toString().split('-'));
+    console.log(getbarovordhazine);
+    console.log(barovordhazine);
 
 
     var arrayhozetakhasosi = [];
-    Object.keys($scope.formData.teahsilat).forEach(function(key) {
-      var val = $scope.formData.teahsilat[key]["hoze"];
+    Object.keys($scope.Tahsilat).forEach(function(key) {
+      var val = $scope.Tahsilat[key]["hoze"];
       arrayhozetakhasosi.push(val);
     });
 
     var objhozetakhasosi = {};
 
     for (var i = 0; i <  arrayhozetakhasosi.length; ++i){
-      objhozetakhasosi[i] =  arrayshozetakhasosi[i];
+      objhozetakhasosi[i] =  arrayhozetakhasosi[i];
     }
 
     var kalamekilidiforsend = {};
