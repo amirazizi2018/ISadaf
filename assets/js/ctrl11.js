@@ -31,7 +31,6 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
   });
 
 
-  $scope.skillsandexpertise = [];
 
   $scope.sanatmarbote = [
 

@@ -1,5 +1,5 @@
 
-<div ng-controller="createapostpage" class="imgkargozarpg11">
+<div ng-controller="createapostpage as ctrl" class="imgkargozarpg11">
 
 
 
@@ -158,7 +158,7 @@
 
 
 
-                  <div class="namemaharatkilid">{{vazife.title}}</div>
+                  <div class="namemaharatkilid">{{vazife[$index]}}</div>
 
                   <div class="removemahartkilid" ng-click="removesharhevazayef($index)">حذف</div>
 
@@ -167,7 +167,7 @@
                 </div>
 
 
-
+{{formData.sharhevazayef}}
 
 
               </div>
@@ -813,7 +813,7 @@
                     </div> -->
                     <div class="col-md-10 col-xs-12">
 
-                      <ui-select multiple ng-model="skillsandexpertise" theme="bootstrap" close-on-select="false" style="width: 100%;" title="مهارت خود را انتخاب کنید">
+                      <ui-select multiple ng-model="ctrl.skillsandexpertise" theme="bootstrap" close-on-select="false" style="width: 100%;" title="مهارت خود را انتخاب کنید">
 
                         <ui-select-match>{{$item.name}}</ui-select-match>
 
@@ -827,11 +827,9 @@
 
                     </div>
 
-{{skillsandexpertise}}
-
                   </div>
 
-
+{{skillsandexpertise}}
 
                   <div class="searchdatabaser resanakal" ng-repeat="maharat in formData.maharatkilidi" id="mahratkilidiid{{$index}}">
 
