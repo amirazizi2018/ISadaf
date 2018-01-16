@@ -1686,50 +1686,51 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
 
 
-  // init();
+   init();
 
 
-  //
-  // function init() {
-  //
-  //   $http.get(mustafasite + '/job/advertisement_types', {
-  //
-  //     headers: {
-  //
-  //       "Content-Type": 'application/json',
-  //
-  //
-  //     }
-  //
-  //   }).then(function(response) {
-  //
-  //     $scope.prodList = response.data.advertisement_types;
-  //   });
-  //   $scope.orders = {};
-  //
-  //   $scope.orders.prods = {};
-  //
-  //   $scope.orders.prods.prod = {};
-  //
-  //   $scope.totalkhaskardanagahi = function() {
-  //
-  //     return $scope.prodList.filter(function(prod) {
-  //
-  //       return $scope.orders.prods.prod[prod.id];
-  //
-  //     }).reduce(function(subtotal, selectedProd) {
-  //
-  //       return subtotal + parseInt(selectedProd.gift_count);
-  //
-  //     }, 0);
-  //
-  //   };
-  //
-  //
-  //
-  // }
-  //
-  //
+
+  function init() {
+
+    $http.get(mustafasite + '/job/advertisement_types', {
+
+      headers: {
+
+        "Content-Type": 'application/json',
+
+
+      }
+
+    }).then(function(response) {
+
+      $scope.prodList = response.data.advertisement_types;
+    });
+    
+    $scope.orders = {};
+
+    $scope.orders.prods = {};
+
+    $scope.orders.prods.prod = {};
+
+    $scope.totalkhaskardanagahi = function() {
+
+      return $scope.prodList.filter(function(prod) {
+
+        return $scope.orders.prods.prod[prod.id];
+
+      }).reduce(function(subtotal, selectedProd) {
+
+        return subtotal + parseInt(selectedProd.gift_count);
+
+      }, 0);
+
+    };
+
+
+
+  }
+
+
   // $scope.Addresearch = function() {
   //
   //   var getzamantakhmini = $scope.SelectZamanTakhmini;
