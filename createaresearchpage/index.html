@@ -47,7 +47,7 @@
 
                   </div>
                   <div class="col-md-10 col-xs-12">
-                    <input class="form-control addinputtott " id="profileshoghl" type="text" size="100" ng-model="ResearchTitle"></input>
+                    <input class="form-control addinputtott " id="profileshoghl" type="text" size="100" ng-model="formData.ResearchTitle"></input>
 
                   </div>
                 </div>
@@ -98,7 +98,7 @@
 
 
 
-                    <textarea ng-model="ResearchSharhMasale" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>
+                    <textarea ng-model="formData.ResearchSharhMasale" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-                    <select class="h5title fontlight" data-placeholder="نوع مسئله" class="selecttahsilat" tabindex="1" ng-model="selectnomasale" style="margin-left: 15px;">
+                    <select class="h5title fontlight" data-placeholder="نوع مسئله" class="selecttahsilat" tabindex="1" ng-model="formData.selectnomasale" style="margin-left: 15px;">
 											<option ng-repeat="x in nomasale" value="{{x.nameper}}">{{x.nameper}}</option>
 
           					</select>
@@ -151,7 +151,7 @@
 
 
 
-                    <select class="h5title fontlight" data-placeholder="صنعت یا حوزه کاربردی" class="selecttahsilat" tabindex="1" ng-model="SelectSanaat" style="margin-left: 15px;">
+                    <select class="h5title fontlight" data-placeholder="صنعت یا حوزه کاربردی" class="selecttahsilat" tabindex="1" ng-model="formData.SelectSanaat" style="margin-left: 15px;">
 
 											<option ng-repeat="x in sanatmarbote" value="{{x.nameper}}">{{x.nameper}}</option>
 
@@ -241,7 +241,7 @@
 
                   <div class="col-md-10 col-xs-12">
 
-                    <textarea ng-model="RavashTahghigh" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>
+                    <textarea ng-model="formData.RavashTahghigh" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>
 
 
                   </div>
@@ -265,7 +265,7 @@
 
 
 
-                    <select class="h5title fontlight" data-placeholder="زمان تخمینی" class="selecttahsilat" tabindex="1" ng-model="SelectZamanTakhmini" style="margin-left: 15px;">
+                    <select class="h5title fontlight" data-placeholder="زمان تخمینی" class="selecttahsilat" tabindex="1" ng-model="formData.SelectZamanTakhmini" style="margin-left: 15px;">
 
                       <option ng-repeat="x in zamantakhmini" value="{{x.nameeng}}">{{x.nameper}}</option>
 
