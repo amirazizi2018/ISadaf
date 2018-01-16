@@ -1980,12 +1980,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
       alert("آگهی شما با موفقیت درج شد. شما به طور اتوماتیک به پروفایل خودتان ارجا داده میشوید.");
       $location.path("acompanypage");
 
-
-
     });
-
-    alert("آگهی شما با موفقیت درج شد. شما به طور اتوماتیک به پروفایل خودتان ارجا داده میشوید..توجه فرمایید که آگهی بعد از تایید نهایی نمایش داده میشود.");
-    $location.path("acompanypage");
 
   }
 
