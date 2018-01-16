@@ -1187,11 +1187,11 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     $scope.selectedmaharat = kargozarmaharat;
 
-    var getnamekargozar = kargozarmaharat.kargozarname;
+    var getgeymatkargozar = kargozarmaharat.price;
 
-    var getgeymatkargozar = kargozarmaharat.kargozargeymat;
+    var gettimekargozar = kargozarmaharat.duration;
 
-    var geticonkargozar = kargozarmaharat.kargozaricon;
+    var geticonkargozar = kargozarmaharat.service_provider.avatar;
 
     $scope.geymatkargozarmaharat = getgeymatkargozar;
 
@@ -1199,21 +1199,23 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
 
 
-      if ($scope.geymatkargozarmaharat == "0") {
+
+            // if ($scope.geymatkargozar == "0") {
+              if ($scope.geymatkargozar == null) {
 
         alert("لطفا اول کارگزار را انتخاب کنید")
 
       } else {
 
-        var nametest = x.nametest;
+        var nametest = x.name;
 
         var getid = x.id;
 
-        var getsathmahart = x.sath;
+        // var getsathmahart = x.sath;
 
         $scope.testentekhabmaharat.push(x);
 
-        $scope.azmonmaharat.splice($scope.azmonmaharat.indexOf(x), 1);
+        $scope.allexam.splice($scope.allexam.indexOf(x), 1);
 
         $scope.formData.testentekhabmaharat.push({
 
@@ -1221,16 +1223,17 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
           nametest: nametest,
 
-          namekargozar: getnamekargozar,
+          // namekargozar: getnamekargozar,
 
           geymatkargozarmaharat: getgeymatkargozar,
 
           iconkargozar: geticonkargozar,
 
-          sathazmon: getsathmahart,
+          // sathazmon: getsathmahart,
 
         });
 
+        // $scope.geymatkargozarmaharat = "0";
         $scope.geymatkargozarmaharat = "0";
 
         $scope.selectedmaharat = "";
@@ -1425,7 +1428,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     $scope.detailslogt3maharat.shown = null;
 
-    $scope.azmonmaharat.push($scope.testentekhabmaharat[index]);
+    $scope.allexam.push($scope.testentekhabmaharat[index]);
 
     $scope.formData.testentekhabmaharat.splice($scope.formData.testentekhabmaharat.indexOf(x), 1);
 
@@ -1463,7 +1466,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     $scope.detailslogt3shyestegi.shown = null;
 
-    $scope.azmonshyestegi[ssss].parts.push($scope.testentekhabshyestegi[index]);
+    $scope.allexam[ssss].parts.push($scope.testentekhabshyestegi[index]);
 
     $scope.formData.testentekhabshyestegi.splice($scope.formData.testentekhabshyestegi.indexOf(x), 1);
 

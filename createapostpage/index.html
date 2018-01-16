@@ -1812,7 +1812,7 @@
 
 
 
-                      <input class="form-control jostojoazmon" id="profileshoghl" type="text" size="100" ng-model="searchtabname.name"></input>
+                      <input class="form-control jostojoazmon" id="profileshoghl" type="text" size="100" ng-model="searchtabnamemahrat.name"></input>
 
                       <i class="form-control-feedback fa fa-search"></i>
 
@@ -1830,7 +1830,7 @@
 
                   <div class="col-md-12 col-xs-12 flexclassazmon">
 
-                    <div class="withtestazmonh" ng-repeat="x in azmonmaharat | filter:searchtabname">
+                    <div class="withtestazmonh" ng-repeat="x in allexam | filter: { group: 'مهارتی' } | filter:searchtabnamemahrat">
 
                       <div></div>
 
@@ -1840,9 +1840,9 @@
 
                         <div class="col-md-9 col-xs-9">
 
-                          <div class="row r1boxdetclass h2title fontmedium">{{x.nametest}}</div>
+                          <div class="row r1boxdetclass h2title fontmedium">{{x.name}}</div>
 
-                          <div class="row r2boxdetclass">{{x.desctest}}</div>
+                          <div class="row r2boxdetclass">{{x.description}}</div>
 
                           <div class="row r3boxdetclass">
 
@@ -1894,15 +1894,15 @@
 
                             <div class="col-md-12 col-xs-12" style="padding-top: 15px;">
 
-                              <div class="kargozarentkhabazimg" ng-repeat="kargozarmaharat in x.kargozarha">
+                              <div class="kargozarentkhabazimg" ng-repeat="kargozarmaharat in x.exam_service_provider">
 
                                 <md-tooltip md-direction="top">
 
-                                  {{kargozarmaharat.kargozarname}}
+                                  {{kargozar.service_provider.fa_name}}
 
                                 </md-tooltip>
 
-                                <img class="img" ng-class="{active: kargozarmaharat == selectedmaharat}" src="{{kargozarmaharat.kargozaricon}}" ng-click="showgeymatkargozarmaharat(kargozarmaharat)">
+                                <img class="img" ng-class="{active: kargozarmaharat == selectedmaharat}" src="{{kargozarmaharat.service_provider.avatar}}" ng-click="showgeymatkargozarmaharat(kargozarmaharat)">
 
                               </div>
 
