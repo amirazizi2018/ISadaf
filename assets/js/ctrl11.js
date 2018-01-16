@@ -1116,13 +1116,15 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     $scope.selected = kargozar;
 
-    var getnamekargozar = kargozar.kargozarname;
+    var getgeymatkargozar = kargozar.price;
 
-    var getgeymatkargozar = kargozar.kargozargeymat;
+    var gettimekargozar = kargozar.duration;
 
-    var geticonkargozar = kargozar.kargozaricon;
+    var geticonkargozar = kargozar.service_provider.avatar;
 
     $scope.geymatkargozar = getgeymatkargozar;
+    $scope.timekargozar = gettimekargozar;
+
 
     $scope.addtestvakargo = function(x) {
 
@@ -1134,7 +1136,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
       } else {
 
-        var nametest = x.nametest;
+        var nametest = x.name;
 
         var getid = x.id;
 
