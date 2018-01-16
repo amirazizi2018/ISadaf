@@ -255,56 +255,47 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
 
   $scope.noemahalfaliat = [
-
     {
       nameper: "اداری",
-      nameeng: "EDARI"
+      nameeng: "EDARI",
     },
 
     {
-      nameper: "مدیریت",
-      nameeng: "MODIRIAT"
-    },
-    {
       nameper: "مالی",
-      nameeng: "MALI"
+      nameeng: "MALI",
     },
     {
       nameper: "پشتیبانی",
-      nameeng: "POSHTIBANI"
+      nameeng: "POSHTIBANI",
     },
-
     {
       nameper: "روابط عمومی",
-      nameeng: "RAVABET_UMUMI"
+      nameeng: "RAVABET_UMUMI",
     },
     {
       nameper: "آموزش",
-      nameeng: "AMUZESH"
+      nameeng: "AMUZESH",
     },
     {
       nameper: "منابع انسانی",
-      nameeng: "MANABE_ENSANI"
+      nameeng: "MANABE_ENSANI",
     },
     {
       nameper: "اجرایی",
-      nameeng: "EJRAE"
+      nameeng: "EJRAE",
     },
     {
       nameper: "تولید",
-      nameeng: "TOLID"
+      nameeng: "TOLID",
     },
-
     {
-      nameper: "تحقیق"
-      nameeng: "TAHGHIGH"
+      nameper: "تحقیق",
+      nameeng: "TAHGHIGH",
     },
     {
       nameper: "سایر موارد",
-      nameeng: "OTHER"
-    },
-
-
+      nameeng: "OTHER",
+    }
   ];
 
 
