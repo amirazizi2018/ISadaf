@@ -166,10 +166,6 @@
 
                 </div>
 
-
-{{formData.sharhevazayef}}
-
-
               </div>
 
               <!-- {{noehamkari[nohamkar.nameper]}}
@@ -2427,11 +2423,7 @@
 
                           <span class="khasneagdtitlch">
 
-													  <md-checkbox ng-model="orders.prods.prod[prod.title]" aria-label="Checkbox {{$index}}">{{prod.title}}</md-checkbox>
-
-
-
-</span>
+													  <md-checkbox ng-model="orders.prods.prod[prod.id]" aria-label="Checkbox {{$index}}">{{prod.title}}</md-checkbox>
 
                         </div>
 
@@ -2454,9 +2446,6 @@
                           <span> ریال</span>
 
                         </div>
-
-
-{{$scope.orders.prods.prod}}
 
 
                       </div>
@@ -2629,7 +2618,7 @@
 
                               <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">صنعت مربوطه</div>
 
-                              <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.selectedsanatmarbote}}</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title">{{selectedsanatmarbote}}</div>
 
                             </div>
 
