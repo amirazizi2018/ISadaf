@@ -3,7 +3,8 @@ console.clear();
 app.controller('companydashboardpage', function($compile, $sce, $scope, $window, $http, Upload, $timeout) {
 
 	$scope.activeTabF = "tab1";
-
+	var mustafasite = "https://sadaf.systmngr.ir/api/v1";
+
 
         $scope.showpagestarjobrating = 4;
         $scope.showpagestarjoboptions = {

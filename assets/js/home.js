@@ -348,11 +348,11 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
       }).then(function(response) {
 
-      if (response.data.advertisements != null) {
+      if (response.data.advertisements.length > 0) {
             $location.path("createapostpage");
             $localStorage.LocationUser = "createapostpage";
       }
-      else if (response.data.advertisements == null) {
+      else if (response.data.advertisements.length = 0) {
         $location.path("postajobscenarios");
         $localStorage.LocationUser = "postajobscenarios";
       }
@@ -373,11 +373,11 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
       }).then(function(response) {
 
-      if (response.data.search_packs != null) {
+      if (response.data.search_packs.length > 0) {
             $location.path("searchdatabasepage");
             $localStorage.LocationUser = "searchdatabasepage";
       }
-      else if (response.data.search_packs == null) {
+      else if (response.data.search_packs.length = 0) {
         $location.path("searchscenarios");
         $localStorage.LocationUser = "searchscenarios";
       }

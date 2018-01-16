@@ -114,7 +114,7 @@
               <div class="searchdatabaser">
 
                 <div class="col-md-2 col-xs-12">
-
+{{formData.sharhevazayef}}
                   <span class="titlefildsear h5title fontmedium">شرح وظایف این شغل</span>
 
                 </div>
@@ -713,23 +713,21 @@
 
                         <select class="h5title fontlight" data-placeholder="رشته تحصیلی" class="selecttahsilat" tabindex="1" ng-model="formData.reshteselec" style="margin-left: 15px;">
 
-            <option value="مکانیک">مکانیک</option>
-
-          </select>
+                            <option value="نرم افزار">نرم افزار</option>
+                          </select>
 
                         <select class="h5title fontlight" data-placeholder="گرایش تحصیلی" class="selecttahsilat" tabindex="1" ng-model="formData.grayeshselec" style="margin-left: 15px;">
 
-            <option value="طراحی جامدات">طراحی جامدات</option>
-
-          </select>
+                            <option value="مهندسی نرم افزار">مهندسی نرم افزار</option>
+                        </select>
 
                         <select class="h5title fontlight" data-placeholder="مقطع تحصیلی" class="selecttahsilat" tabindex="1" ng-model="formData.maghtaselec">
 
-            <option value="کارشناسی">کارشناسی</option>
+                              <option value="کارشناسی">کارشناسی</option>
 
-            <option value="کارشناسی ارشد">کارشناسی ارشد</option>
+                              <option value="کارشناسی ارشد">کارشناسی ارشد</option>
 
-          </select>
+                          </select>
 
 
 
@@ -793,7 +791,7 @@
 
                     </div>
 
-                    <div class="col-md-9 col-xs-12">
+                    <!-- <div class="col-md-9 col-xs-12">
 
 
 
@@ -813,10 +811,24 @@
 
 
 
+                    </div> -->
+                    <div class="col-md-10 col-xs-12">
+
+                      <ui-select multiple ng-model="skillsandexpertise" theme="bootstrap" close-on-select="false" style="width: 100%;" title="مهارت خود را انتخاب کنید">
+
+                        <ui-select-match>{{$item.name}}</ui-select-match>
+
+                        <ui-select-choices repeat="skill in skillsandexpertises | filter:$select.search">
+
+                          {{skill.name}}
+
+                        </ui-select-choices>
+
+                      </ui-select>
+
                     </div>
 
-
-
+{{skillsandexpertise}}
                   </div>
 
 
@@ -995,7 +1007,7 @@
 
                           <select class="h5title fontlight" ng-model="formData.vaziattahol">
 
-<option ng-repeat="x in vaziattahol" value="{{x.nameper}}">{{x.nameper}}</option>
+<option ng-repeat="x in vaziattahol" value="{{x.nameeng}}">{{x.nameper}}</option>
 
 </select>
 

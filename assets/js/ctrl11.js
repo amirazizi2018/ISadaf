@@ -17,6 +17,19 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
   });
 
+  $http.post(mustafasite + '/items', {
+
+    headers: {
+
+      "Content-Type": 'application/json',
+
+
+    }
+
+  }).then(function(response) {
+    $scope.skillsandexpertises = response.data.data;
+  });
+
 
   $scope.sanatmarbote = [
 
@@ -161,6 +174,18 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     },
 
     {
+      nameper: "کارشناس",
+      nameeng: "KARSHENAS"
+    },
+    {
+      nameper: "کارشناس ارشد",
+      nameeng: "KARSHENASE_ARSHAD"
+    },
+    {
+      nameper: "مدیر",
+      nameeng: "MODIR"
+    },
+    {
       nameper: "مدیر ارشد",
       nameeng: "MODIR_ARSHAD"
     },
@@ -190,7 +215,6 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
 
   $scope.shahr = [
-
     {
       nameper: "شهریار",
       nameeng: "shariyar"
@@ -202,15 +226,14 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     },
 
     {
-      nameper: "رباط کریم",
-      nameeng: "robatkarim"
+      nameper: "پردیس",
+      nameeng: "pardis"
     },
 
     {
       nameper: "کرج",
       nameeng: "karaj"
     },
-
   ];
 
 
@@ -246,6 +269,41 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
       nameper: "مالی",
       nameeng: "MALI"
     },
+    {
+      nameper: "پشتیبانی",
+      nameeng: "POSHTIBANI"
+    },
+
+    {
+      nameper: "روابط عمومی",
+      nameeng: "RAVABET_UMUMI"
+    },
+    {
+      nameper: "آموزش",
+      nameeng: "AMUZESH"
+    },
+    {
+      nameper: "منابع انسانی",
+      nameeng: "MANABE_ENSANI"
+    },
+    {
+      nameper: "اجرایی",
+      nameeng: "EJRAE"
+    },
+    {
+      nameper: "تولید",
+      nameeng: "TOLID"
+    },
+
+    {
+      nameper: "تحقیق"
+      nameeng: "TAHGHIGH"
+    },
+    {
+      nameper: "سایر موارد",
+      nameeng: "OTHER"
+    },
+
 
   ];
 
@@ -344,12 +402,12 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     {
       nameper: "متاهل",
-      nameeng: "motahel"
+      nameeng: "married"
     },
 
     {
       nameper: "مجرد",
-      nameeng: "mojarad"
+      nameeng: "single"
     },
 
   ];
@@ -1792,6 +1850,11 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     var getagesel = $scope.formData.sen;
     var agesel = (getagesel.toString().split('-'));
 
+    var mazaya = ($scope.formData.mazaya === 'true');
+    var assurance = ($scope.formData.bimetakmili === 'true');
+    var sanavat = ($scope.formData.sanavat === 'true');
+
+
     $scope.advertisementtypes = [];
 
     angular.forEach($scope.orders.prods.prod,
@@ -1810,40 +1873,40 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     }
     var data = {
 
-      advantage: $scope.formData.mazaya,
-      advertisement_types: $scope.advertisementtypes,
-      assurance: $scope.formData.bimetakmili,
-      city: $scope.formData.shahr,
-      coop_time: coop_timev,
-      coop_type: coop_typev,
-      department: $scope.formData.noemahalfaliat,
-      description: $scope.formData.tozihat,
-      education: $scope.formData.teahsilat,
-      exams: $scope.examarray,
-      experience_from: experienceft[0],
-      experience_to: experienceft[1],
-      experience_type: $scope.formData.hozedaraysabeghe,
-      marriage_status: $scope.formData.vaziattahol,
-      max_payment: payments[1],
-      military_status: $scope.formData.vaziatnezamvazife,
-      min_payment: payments[0],
-      moavenat_type: $scope.formData.vahedsazmani,
-      old_from: getagesel[0],
-      old_to: getagesel[1],
-      position: $scope.formData.mogeatdarjayghah,
-      requested: $scope.formData.vaziateghamati,
-      requirements: $scope.formData.maharatkilidi,
-      // resume_sp_id: item.id,
-      sanavat: $scope.formData.sanavat,
-      sex: $scope.formData.jensiat,
-      skills: $scope.formData.sharhevazayef,
-      // suitabilities: item.id,
-      title: $scope.onvanjayghahshoghl,
-      type: $scope.selectedsanatmarbote,
-      work_hour_from: $scope.formData.sataval,
-      work_hour_to: $scope.formData.satdovom,
-      work_hour_type: $scope.formData.roz,
-      work_location: $scope.formData.mahalfaliat,
+      advantage: , mazaya  // Boolean
+      advertisement_types: $scope.advertisementtypes, // Array []
+      assurance: , assurance // Boolean
+      city: $scope.formData.shahr, // String
+      coop_time: coop_timev, // String
+      coop_type: coop_typev, // String
+      department: $scope.formData.noemahalfaliat,  // String , Custom Entrance
+      description: $scope.formData.tozihat, // String
+      education: $scope.formData.reshteselec, // String // Problem
+      exams: $scope.examarray, // Array
+      experience_from: parseInt(experienceft[0]), // Int
+      experience_to: parseInt(experienceft[1]), // Int
+      experience_type: $scope.formData.hozedaraysabeghe, // String
+      marriage_status: $scope.formData.vaziattahol, // String , Custom Entrance
+      max_payment: parseInt(payments[1]), // Int
+      military_status: $scope.formData.vaziatnezamvazife, // String
+      min_payment: parseInt(payments[0]), // Int
+      moavenat_type: $scope.formData.vahedsazmani, // String
+      old_from: parseInt(getagesel[0]), // Int
+      old_to: parseInt(getagesel[1]), // Int
+      position: $scope.formData.mogeatdarjayghah,  // String , Custom Entrance
+      //requested: $scope.formData.vaziateghamati, // Nothing // 400 Bad Req
+      requirements: $scope.formData.maharatkilidi, // Object
+      // resume_sp_id: item.id, // Nothing // 400 Bad Req
+      sanavat: sanavat , // Boolean
+      sex: $scope.formData.jensiat, // String , Custom Entrance
+      skills: $scope.formData.sharhevazayef,  // Object
+      // suitabilities: item.id, // Array
+      title: $scope.onvanjayghahshoghl, // String
+      type: $scope.selectedsanatmarbote, // String
+      work_hour_from: parseInt($scope.formData.sataval), // Int
+      work_hour_to: parseInt($scope.formData.satdovom), // Int
+      work_hour_type: $scope.formData.roz, // String
+      work_location: $scope.formData.mahalfaliat, // String
 
     };
 
