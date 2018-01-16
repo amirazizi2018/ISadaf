@@ -1151,7 +1151,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
           nametest: nametest,
 
-          namekargozar: getnamekargozar,
+          // namekargozar: getnamekargozar,
 
           geymatkargozar: getgeymatkargozar,
 
