@@ -31,6 +31,17 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
   });
 
 
+  $scope.skillsandexpertise = [];
+   $scope.OnClickSelect=function(item)
+  {
+   $scope.skillsandexpertise.push(item.name)
+  }
+
+  $scope.OnRemoveSelect = function(item) {
+   var index = $scope.skillsandexpertise.indexOf(item.name);
+   $scope.skillsandexpertise.splice(index, 1);
+  }
+
 
   $scope.sanatmarbote = [
 
@@ -1658,9 +1669,8 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
   $scope.addsharhvazayef = function() {
 
     var title = $scope.formData.inpuvaluemaharatkild;
-    var count = counter++;
     $scope.formData.sharhevazayef.push({
-      count : title,
+      title : title,
       name: "id" + counter++
     });
 
@@ -1843,11 +1853,19 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     var assurance = ($scope.formData.bimetakmili === 'true');
     var sanavat = ($scope.formData.sanavat === 'true');
 
-    var objsharhevazayef = {}; //create the empty output object
-    $scope.formData.sharhevazayef.forEach( function(item){
-      var key = Object.keys(item)[0]; //take the first key from every object in the array
-      objsharhevazayef[ key ] = item [ key ];  //assign the key and value to output obj
+
+
+    var arraysharhevazayef = [];
+    Object.keys($scope.formData.sharhevazayef).forEach(function(key) {
+      var val = $scope.formData.sharhevazayef[key]["title"];
+      arraysharhevazayef.push(val);
     });
+
+    var objsharhevazayef = {};
+
+    for (var i = 0; i <  arraysharhevazayef.length; ++i){
+      objsharhevazayef[i] =  arraysharhevazayef[i];
+    }
 
     $scope.advertisementtypes = [];
 
@@ -1865,6 +1883,13 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     for (i = 0; i < $scope.formData.testentekhabmaharat.length; i++) {
       $scope.examarray.push($scope.formData.testentekhabmaharat[i]["id"]);
     }
+
+    var skillforsend = {};
+
+    for (var i = 0; i <  $scope.skillsandexpertise.length; ++i){
+      skillforsend[i] =  $scope.skillsandexpertise[i];
+    }
+
     var data = {
 
       advantage:  mazaya , // Boolean
@@ -1893,7 +1918,8 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
       // resume_sp_id: item.id, // Nothing // 400 Bad Req
       sanavat: sanavat , // Boolean
       sex: $scope.formData.jensiat, // String , Custom Entrance
-      skills: $scope.formData.maharatkilidi,  // Object
+    //  skills: $scope.formData.maharatkilidi,  // Object
+      skills: skillforsend,  // Object
       // suitabilities: item.id, // Array
       title: $scope.onvanjayghahshoghl, // String
       type: $scope.selectedsanatmarbote, // String
