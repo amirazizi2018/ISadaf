@@ -11,7 +11,19 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
   var counter = 0;
 
-  $http.get(mustafasite + '/exam').then(function(response) {
+  $http.get(mustafasite + '/service_provider/resume/list').then(function(response) {
+
+    $scope.ResumeServiceProvider = response.data.service_providers;
+
+  });
+
+  $http.get(mustafasite + '/suitability?per_page=1000').then(function(response) {
+
+    $scope.allsuitability = response.data.suitabilities;
+
+  });
+
+  $http.get(mustafasite + '/exam?per_page=1000').then(function(response) {
 
     $scope.allexam = response.data.exams;
 
@@ -42,6 +54,9 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
    $scope.skillsandexpertise.splice(index, 1);
   }
 
+  $scope.gaboldarkhatkarbararzyabinashode = false;
+  $scope.gaboldarkhatkarbararzyabinashodemaharat = false;
+  // $scope.gaboldarkhatkarbararzyabinashode = false;
 
   $scope.sanatmarbote = [
 
@@ -62,6 +77,10 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
   ];
 
+
+  $scope.clickresumesp = function(x) {
+   $scope.selectresumesp = x;
+  }
 
 
 

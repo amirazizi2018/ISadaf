@@ -1108,7 +1108,7 @@
 
                         <div class="col-md-10 col-xs-12">
 
-
+<!--
 
                           <div class="arzntagimg" style="">
 
@@ -1374,8 +1374,8 @@
 
                             <!-- </div> -->
 
-                          </div>
-                          <div class="arzntagimg">
+                          <!-- </div> -->
+                          <!-- <div class="arzntagimg">
 
                             <md-tooltip md-direction="top">
 
@@ -1408,16 +1408,15 @@
 
                             <img class="img" src="assets/images/lk4.png" />
 
-                          </div>
-                          <div class="arzntagimg">
+                          </div>  -->
+                          <div class="arzntagimg" ng-repeat="x in ResumeServiceProvider">
 
                             <md-tooltip md-direction="top">
 
-                              کارگذار تست
-
+{{x.fa_name}}
                             </md-tooltip>
 
-                            <img class="img" src="assets/images/lk5.png" />
+                            <img class="img" ng-class="{active: x == selectresumesp}" ng-click="clickresumesp(x)" src="{{avatar}}" />
 
                           </div>
 
@@ -1635,7 +1634,7 @@
 
                     <div class="col-md-6  col-xs-12" style="float: left;text-align: left;padding-left: 30px;">
 
-                      <md-checkbox ng-model="formData.gaboldarkhatkarbararzyabinashode" aria-label="Checkbox 5">قبول درخواست های کاربران ارزیابی نشده</md-checkbox>
+                      <md-checkbox ng-model="gaboldarkhatkarbararzyabinashode" aria-label="Checkbox 5">قبول درخواست های کاربران ارزیابی نشده</md-checkbox>
 
 
 
@@ -1834,7 +1833,7 @@
 
                       <div></div>
 
-                      <div class="btn col-xs-12 testbotto h4title fontlight" ng-class="{'tringledettest' : x.id==detailslogt3maharat.shown}" ng-click="toggleDetailsmaharat(x.id)" style="text-align: right;padding-right: 15px;">{{x.nametest}} </div>
+                      <div class="btn col-xs-12 testbotto h4title fontlight" ng-class="{'tringledettest' : x.id==detailslogt3maharat.shown}" ng-click="toggleDetailsmaharat(x.id)" style="text-align: right;padding-right: 15px;">{{x.name}} </div>
 
                       <div class="col-md-12 col-xs-12 boxdetclass" ng-show="x.id==detailslogt3maharat.shown">
 
@@ -1930,7 +1929,7 @@
 
                     <div class="col-md-6  col-xs-12" style="float: left;text-align: left;padding-left: 30px;">
 
-                      <md-checkbox ng-model="formData.gaboldarkhatkarbararzyabinashodemaharat" aria-label="Checkbox 6">قبول درخواست های کاربران ارزیابی نشده</md-checkbox>
+                      <md-checkbox ng-model="gaboldarkhatkarbararzyabinashodemaharat" aria-label="Checkbox 6">قبول درخواست های کاربران ارزیابی نشده</md-checkbox>
 
 
 
@@ -2136,11 +2135,12 @@
 
                   <div class="col-md-12 col-xs-12 flexclassazmon updatemrboxdeshap">
 
-                    <div class="col-md-12 col-xs-12 flexclassazmon nopaddinglr" ng-repeat="x in azmonshyestegi" ng-init="outerIndex = $index">
+                    <div class="col-md-12 col-xs-12 flexclassazmon nopaddinglr" ng-repeat="x in allsuitability" ng-init="outerIndex = $index">
 
-                      <span class="col-md-12 col-xs-12 fontmedium h4title bluecolor" style="padding-bottom: 10px;">{{x.partname}}</span>
+                      <!-- <span class="col-md-12 col-xs-12 fontmedium h4title bluecolor" style="padding-bottom: 10px;">{{x.partname}}</span> -->
 
-                      <div class="withtestazmonh" ng-repeat="x in x.parts">
+                      <!-- <div class="withtestazmonh" ng-repeat="x in x.parts"> -->
+                        <div class="withtestazmonh" >
 
                         <div></div>
 
@@ -2150,9 +2150,9 @@
 
                           <div class="col-md-12 col-xs-12">
 
-                            <div class="row r1boxdetclass h2title fontmedium">{{x.nametest}}</div>
+                            <div class="row r1boxdetclass h2title fontmedium">{{x.name}}</div>
 
-                            <div class="row r2boxdetclass">{{x.desctest}}</div>
+                            <div class="row r2boxdetclass">{{x.description}}</div>
 
                             <div class="row r3boxdetclass">
 
@@ -2176,7 +2176,7 @@
 
               md-direction="top">
 
-تست تولتیپ            </md-tooltip></i>
+میزان اهمیت این شایستگی برای شما           </md-tooltip></i>
 
 			<select class="h5title fontlight" ng-model="selectimportant">
 
