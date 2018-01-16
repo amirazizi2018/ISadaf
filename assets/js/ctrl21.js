@@ -302,7 +302,7 @@ console.log(zamantakhmniniv);
       max_payment: parseInt(barovordhazine[1]), // Int
       min_payment: parseInt(barovordhazine[0]), // Int
       requirements: kalamekilidiforsend, // Object
-      skills: objhozetakhasosi,  // Object
+      // skills: objhozetakhasosi,  // Object
       title: $scope.formData.ResearchTitle, // String
       approach: $scope.formData.RavashTahghigh, // String
       output_type: $scope.formData.NoeKhoroji, // String
