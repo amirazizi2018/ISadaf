@@ -1143,7 +1143,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
         $scope.testentekhab.push(x);
 
-        $scope.azmonshaksiyat.splice($scope.azmonshaksiyat.indexOf(x), 1);
+        $scope.allexam.splice($scope.allexam.indexOf(x), 1);
 
         $scope.formData.testentekhab.push({
 
@@ -1159,7 +1159,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
         });
 
-        $scope.geymatkargozar = "0";
+        $scope.geymatkargozar = null;
 
         $scope.selected = "";
 
