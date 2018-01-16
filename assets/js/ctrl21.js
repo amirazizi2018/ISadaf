@@ -1732,7 +1732,7 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
   $scope.SelectZamanTakhmini = [];
   $scope.SelectBarovordHazineh = [];
-$scope.RavashTahghigh = null
+$scope.RavashTahghigh = null;
    $scope.Addresearch = function() {
 
     var getzamantakhmini = $scope.SelectZamanTakhmini;
