@@ -1733,37 +1733,37 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
    $scope.Addresearch = function() {
 
-    var getzamantakhmini = $scope.SelectZamanTakhmini;
-    var zamantakhmniniv = (getzamantakhmini.toString().split('-'));
-
-    var getbarovordhazine = $scope.SelectBarovordHazineh;
-    var barovordhazine = (getbarovordhazine.toString().split('-'));
-
-
-    var arrayhozetakhasosi = [];
-    Object.keys($scope.formData.teahsilat).forEach(function(key) {
-      var val = $scope.formData.teahsilat[key]["hoze"];
-      arrayhozetakhasosi.push(val);
-    });
-
-    var objhozetakhasosi = {};
-
-    for (var i = 0; i <  arrayhozetakhasosi.length; ++i){
-      objhozetakhasosi[i] =  arrayshozetakhasosi[i];
-    }
-
-    var kalamekilidiforsend = {};
-
-    for (var i = 0; i <  $scope.skillsandexpertise.length; ++i){
-      kalamekilidiforsend[i] =  $scope.skillsandexpertise[i];
-    }
-
-    $scope.advertisementtypes = [];
-
-    angular.forEach($scope.orders.prods.prod,
-      function(value, key) {
-        $scope.advertisementtypes.push(key);
-      });
+    // var getzamantakhmini = $scope.SelectZamanTakhmini;
+    // var zamantakhmniniv = (getzamantakhmini.toString().split('-'));
+    //
+    // var getbarovordhazine = $scope.SelectBarovordHazineh;
+    // var barovordhazine = (getbarovordhazine.toString().split('-'));
+    //
+    //
+    // var arrayhozetakhasosi = [];
+    // Object.keys($scope.formData.teahsilat).forEach(function(key) {
+    //   var val = $scope.formData.teahsilat[key]["hoze"];
+    //   arrayhozetakhasosi.push(val);
+    // });
+    //
+    // var objhozetakhasosi = {};
+    //
+    // for (var i = 0; i <  arrayhozetakhasosi.length; ++i){
+    //   objhozetakhasosi[i] =  arrayshozetakhasosi[i];
+    // }
+    //
+    // var kalamekilidiforsend = {};
+    //
+    // for (var i = 0; i <  $scope.skillsandexpertise.length; ++i){
+    //   kalamekilidiforsend[i] =  $scope.skillsandexpertise[i];
+    // }
+    //
+    // $scope.advertisementtypes = [];
+    //
+    // angular.forEach($scope.orders.prods.prod,
+    //   function(value, key) {
+    //     $scope.advertisementtypes.push(key);
+    //   });
 
 
     var data = {
