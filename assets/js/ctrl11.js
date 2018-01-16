@@ -1395,7 +1395,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     $scope.detailslogt3.shown = null;
 
-    $scope.azmonshaksiyat.push($scope.testentekhab[index]);
+    $scope.allexam.push($scope.testentekhab[index]);
 
     $scope.formData.testentekhab.splice($scope.formData.testentekhab.indexOf(x), 1);
 
