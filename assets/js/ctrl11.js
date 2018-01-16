@@ -303,13 +303,13 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
   $scope.hoghogpayeh = [
 
     {
-      nameper: "22,000,000 الی 25,000,000 ریا",
-      nameeng: "2.2-2.5"
+      nameper: "22,000,000 الی 25,000,000 ریال",
+      nameeng: "22000000-25000000"
     },
 
     {
-      nameper: "25,000,000 الی 32,000,000 ریا",
-      nameeng: "2.5-3.2"
+      nameper: "25,000,000 الی 32,000,000 ریال",
+      nameeng: "25000000-32000000"
     },
 
   ];
@@ -1787,155 +1787,155 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
 
 
-  $scope.addjobfil = function() {
-
-
-    if ($scope.tamamvaght == true) {
-
-      var sfulltime = "FULL_TIME";
-
-    } else {
-
-      var sfulltime = " ";
-
-    }
-
-    if ($scope.parevaght == true) {
-
-      var sparttime = "PART_TIME";
-
-    } else {
-
-      var sparttime = " ";
-
-    }
-
-    if ($scope.karamozi == true) {
-
-      var skaramuzi = "KAR_AMUZI";
-
-    } else {
-
-      var skaramuzi = " ";
-
-    }
-
-    if ($scope.karvandi == true) {
-
-      var sKARVARZI = "KARVARZI";
-
-    } else {
-
-      var sKARVARZI = " ";
-
-    }
-
-    var coop_timev = sparttime + " " + sfulltime;
-    var coop_typev = skaramuzi + " " + sKARVARZI;
-
-    var getexperienceft = $scope.formData.sabeghekari;
-    var experienceft = (getexperienceft.toString().split('-'));
-
-    var getpayments = $scope.formData.hoghogpayeh;
-    var payments = (getpayments.toString().split('-'));
-    var getagesel = $scope.formData.sen;
-    var agesel = (getagesel.toString().split('-'));
-
-    var mazaya = ($scope.formData.mazaya === 'true');
-    var assurance = ($scope.formData.bimetakmili === 'true');
-    var sanavat = ($scope.formData.sanavat === 'true');
-
-
-    $scope.advertisementtypes = [];
-
-    angular.forEach($scope.orders.prods.prod,
-      function(value, key) {
-        $scope.advertisementtypes.push(key);
-      });
-
-    $scope.examarray = [];
-
-    for (i = 0; i < $scope.formData.testentekhab.length; i++) {
-      $scope.examarray.push($scope.formData.testentekhab[i]["id"]);
-    }
-
-    for (i = 0; i < $scope.formData.testentekhabmaharat.length; i++) {
-      $scope.examarray.push($scope.formData.testentekhabmaharat[i]["id"]);
-    }
-    var data = {
-
-      advantage: , mazaya  // Boolean
-      advertisement_types: $scope.advertisementtypes, // Array []
-      assurance: , assurance // Boolean
-      city: $scope.formData.shahr, // String
-      coop_time: coop_timev, // String
-      coop_type: coop_typev, // String
-      department: $scope.formData.noemahalfaliat,  // String , Custom Entrance
-      description: $scope.formData.tozihat, // String
-      education: $scope.formData.reshteselec, // String // Problem
-      exams: $scope.examarray, // Array
-      experience_from: parseInt(experienceft[0]), // Int
-      experience_to: parseInt(experienceft[1]), // Int
-      experience_type: $scope.formData.hozedaraysabeghe, // String
-      marriage_status: $scope.formData.vaziattahol, // String , Custom Entrance
-      max_payment: parseInt(payments[1]), // Int
-      military_status: $scope.formData.vaziatnezamvazife, // String
-      min_payment: parseInt(payments[0]), // Int
-      moavenat_type: $scope.formData.vahedsazmani, // String
-      old_from: parseInt(getagesel[0]), // Int
-      old_to: parseInt(getagesel[1]), // Int
-      position: $scope.formData.mogeatdarjayghah,  // String , Custom Entrance
-      //requested: $scope.formData.vaziateghamati, // Nothing // 400 Bad Req
-      requirements: $scope.formData.maharatkilidi, // Object
-      // resume_sp_id: item.id, // Nothing // 400 Bad Req
-      sanavat: sanavat , // Boolean
-      sex: $scope.formData.jensiat, // String , Custom Entrance
-      skills: $scope.formData.sharhevazayef,  // Object
-      // suitabilities: item.id, // Array
-      title: $scope.onvanjayghahshoghl, // String
-      type: $scope.selectedsanatmarbote, // String
-      work_hour_from: parseInt($scope.formData.sataval), // Int
-      work_hour_to: parseInt($scope.formData.satdovom), // Int
-      work_hour_type: $scope.formData.roz, // String
-      work_location: $scope.formData.mahalfaliat, // String
-
-    };
-
-
-
-    var config = {
-
-      headers: {
-
-        'Content-Type': 'application/json',
-
-        'Access-Token': $localStorage.TokenKey.access,
-
-      }
-
-    }
-
-    console.log(data);
-    console.log(JSON.stringify(data));
-    console.log($scope.orders);
-
-
-
-    $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {
-
-      alert("آگهی شما با موفقیت درج شد. شما به طور اتوماتیک به پروفایل خودتان ارجا داده میشوید.");
-      $location.path("acompanypage");
-
-
-
-    });
-
-    alert("آگهی شما با موفقیت درج شد. شما به طور اتوماتیک به پروفایل خودتان ارجا داده میشوید..توجه فرمایید که آگهی بعد از تایید نهایی نمایش داده میشود.");
-    $location.path("acompanypage");
-
-  }
-
-
+  // $scope.addjobfil = function() {
+  //
+  //
+  //   if ($scope.tamamvaght == true) {
+  //
+  //     var sfulltime = "FULL_TIME";
+  //
+  //   } else {
+  //
+  //     var sfulltime = " ";
+  //
+  //   }
+  //
+  //   if ($scope.parevaght == true) {
+  //
+  //     var sparttime = "PART_TIME";
+  //
+  //   } else {
+  //
+  //     var sparttime = " ";
+  //
+  //   }
+  //
+  //   if ($scope.karamozi == true) {
+  //
+  //     var skaramuzi = "KAR_AMUZI";
+  //
+  //   } else {
+  //
+  //     var skaramuzi = " ";
+  //
+  //   }
+  //
+  //   if ($scope.karvandi == true) {
+  //
+  //     var sKARVARZI = "KARVARZI";
+  //
+  //   } else {
+  //
+  //     var sKARVARZI = " ";
+  //
+  //   }
+  //
+  //   var coop_timev = sparttime + " " + sfulltime;
+  //   var coop_typev = skaramuzi + " " + sKARVARZI;
+  //
+  //   var getexperienceft = $scope.formData.sabeghekari;
+  //   var experienceft = (getexperienceft.toString().split('-'));
+  //
+  //   var getpayments = $scope.formData.hoghogpayeh;
+  //   var payments = (getpayments.toString().split('-'));
+  //   var getagesel = $scope.formData.sen;
+  //   var agesel = (getagesel.toString().split('-'));
+  //
+  //   var mazaya = ($scope.formData.mazaya === 'true');
+  //   var assurance = ($scope.formData.bimetakmili === 'true');
+  //   var sanavat = ($scope.formData.sanavat === 'true');
+  //
+  //
+  //   $scope.advertisementtypes = [];
+  //
+  //   angular.forEach($scope.orders.prods.prod,
+  //     function(value, key) {
+  //       $scope.advertisementtypes.push(key);
+  //     });
+  //
+  //   $scope.examarray = [];
+  //
+  //   for (i = 0; i < $scope.formData.testentekhab.length; i++) {
+  //     $scope.examarray.push($scope.formData.testentekhab[i]["id"]);
+  //   }
+  //
+  //   for (i = 0; i < $scope.formData.testentekhabmaharat.length; i++) {
+  //     $scope.examarray.push($scope.formData.testentekhabmaharat[i]["id"]);
+  //   }
+  //   var data = {
+  //
+  //     advantage: , mazaya  // Boolean
+  //     advertisement_types: $scope.advertisementtypes, // Array []
+  //     assurance: , assurance // Boolean
+  //     city: $scope.formData.shahr, // String
+  //     coop_time: coop_timev, // String
+  //     coop_type: coop_typev, // String
+  //     department: $scope.formData.noemahalfaliat,  // String , Custom Entrance
+  //     description: $scope.formData.tozihat, // String
+  //     education: $scope.formData.reshteselec, // String // Problem
+  //     exams: $scope.examarray, // Array
+  //     experience_from: parseInt(experienceft[0]), // Int
+  //     experience_to: parseInt(experienceft[1]), // Int
+  //     experience_type: $scope.formData.hozedaraysabeghe, // String
+  //     marriage_status: $scope.formData.vaziattahol, // String , Custom Entrance
+  //     max_payment: parseInt(payments[1]), // Int
+  //     military_status: $scope.formData.vaziatnezamvazife, // String
+  //     min_payment: parseInt(payments[0]), // Int
+  //     moavenat_type: $scope.formData.vahedsazmani, // String
+  //     old_from: parseInt(getagesel[0]), // Int
+  //     old_to: parseInt(getagesel[1]), // Int
+  //     position: $scope.formData.mogeatdarjayghah,  // String , Custom Entrance
+  //     //requested: $scope.formData.vaziateghamati, // Nothing // 400 Bad Req
+  //     requirements: $scope.formData.maharatkilidi, // Object
+  //     // resume_sp_id: item.id, // Nothing // 400 Bad Req
+  //     sanavat: sanavat , // Boolean
+  //     sex: $scope.formData.jensiat, // String , Custom Entrance
+  //     skills: $scope.formData.sharhevazayef,  // Object
+  //     // suitabilities: item.id, // Array
+  //     title: $scope.onvanjayghahshoghl, // String
+  //     type: $scope.selectedsanatmarbote, // String
+  //     work_hour_from: parseInt($scope.formData.sataval), // Int
+  //     work_hour_to: parseInt($scope.formData.satdovom), // Int
+  //     work_hour_type: $scope.formData.roz, // String
+  //     work_location: $scope.formData.mahalfaliat, // String
+  //
+  //   };
+  //
+  //
+  //
+  //   var config = {
+  //
+  //     headers: {
+  //
+  //       'Content-Type': 'application/json',
+  //
+  //       'Access-Token': $localStorage.TokenKey.access,
+  //
+  //     }
+  //
+  //   }
+  //
+  //   console.log(data);
+  //   console.log(JSON.stringify(data));
+  //   console.log($scope.orders);
+  //
+  //
+  //
+  //   $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {
+  //
+  //     alert("آگهی شما با موفقیت درج شد. شما به طور اتوماتیک به پروفایل خودتان ارجا داده میشوید.");
+  //     $location.path("acompanypage");
+  //
+  //
+  //
+  //   });
+  //
+  //   alert("آگهی شما با موفقیت درج شد. شما به طور اتوماتیک به پروفایل خودتان ارجا داده میشوید..توجه فرمایید که آگهی بعد از تایید نهایی نمایش داده میشود.");
+  //   $location.path("acompanypage");
+  //
+  // }
+  //
+  //
 
 
 
