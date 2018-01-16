@@ -1843,15 +1843,15 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     var getagesel = $scope.formData.sen;
     var agesel = (getagesel.toString().split('-'));
 
-    var mazaya = ($scope.formData.mazaya === 'true');
-    var assurance = ($scope.formData.bimetakmili === 'true');
-    var sanavat = ($scope.formData.sanavat === 'true');
-
-    var objsharhevazayef = {}; //create the empty output object
-    $scope.formData.sharhevazayef.forEach( function(item){
-      var key = Object.keys(item)[0]; //take the first key from every object in the array
-      objsharhevazayef[ key ] = item [ key ];  //assign the key and value to output obj
-    });
+    // var mazaya = ($scope.formData.mazaya === 'true');
+    // var assurance = ($scope.formData.bimetakmili === 'true');
+    // var sanavat = ($scope.formData.sanavat === 'true');
+    //
+    // var objsharhevazayef = {}; //create the empty output object
+    // $scope.formData.sharhevazayef.forEach( function(item){
+    //   var key = Object.keys(item)[0]; //take the first key from every object in the array
+    //   objsharhevazayef[ key ] = item [ key ];  //assign the key and value to output obj
+    // });
 
     $scope.advertisementtypes = [];
 
