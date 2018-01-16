@@ -17,7 +17,7 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
 
 
 
-  $http.get(mustafasite + '/exam').then(function(response) {
+  $http.get(mustafasite + '/exam?per_page=1000').then(function(response) {
 
     $scope.allexam = response.data.exams;
 

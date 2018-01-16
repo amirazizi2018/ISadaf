@@ -1,4 +1,3 @@
-
 <div ng-controller="chooseatestpage" class="chsentest">
 
 
@@ -23,7 +22,7 @@
 
           <li><a ng-class="{active: activeTab == 'tab2'}" ng-click="activeTab='tab2'">ارزیابی مهارتی</a></li>
 
-          <li><a ng-class="{active: activeTab == 'tab3'}" ng-click="activeTab='tab3'">ارزیابی شایستگی ها</a></li>
+          <!-- <li><a ng-class="{active: activeTab == 'tab3'}" ng-click="activeTab='tab3'">ارزیابی شایستگی ها</a></li> -->
 
 
 
@@ -337,7 +336,7 @@
 
         </div>
 
-        <div ng-show="activeTab=='tab3'">
+        <!-- <div ng-show="activeTab=='tab3'">
 
           <div class="pgsabtshoglbox" style="width: 100%;">
 
@@ -373,7 +372,7 @@
 
             </div>
 
-            <!-- 	        <div class="searchdatabaser">
+       	        <div class="searchdatabaser">
 
 							<div class="col-md-2 col-xs-12">
 
@@ -399,37 +398,37 @@
 
 
 
-</div> -->
+</div>
 
-            <div style="padding: 5px 30px;">
-              <hr>
-            </div>
+        <div style="padding: 5px 30px;">
+          <hr>
+        </div>
 
 
 
-            <div class="col-md-12 col-xs-12 flexclassazmon updatemrboxdeshap">
+        <div class="col-md-12 col-xs-12 flexclassazmon updatemrboxdeshap">
 
-              <div class="col-md-12 col-xs-12 flexclassazmon nopaddinglr" ng-repeat="x in azmonshyestegi" ng-init="outerIndex = $index">
+          <div class="col-md-12 col-xs-12 flexclassazmon nopaddinglr" ng-repeat="x in azmonshyestegi" ng-init="outerIndex = $index">
 
-                <span class="col-md-12 col-xs-12 fontmedium h4title bluecolor" style="padding-bottom: 10px;">{{x.partname}}</span>
+            <span class="col-md-12 col-xs-12 fontmedium h4title bluecolor" style="padding-bottom: 10px;">{{x.partname}}</span>
 
-                <div class="withtestazmonh" ng-repeat="x in x.parts">
+            <div class="withtestazmonh" ng-repeat="x in x.parts">
 
-                  <div></div>
+              <div></div>
 
-                  <div class="btn col-xs-12 testbotto h4title fontlight" ng-class="{'tringledettest' : x.id==detailslogt3shyestegi.shown}" ng-click="toggleDetailsshyestegi(x.id)" style="text-align: right;padding-right: 15px;">{{x.name}} </div>
+              <div class="btn col-xs-12 testbotto h4title fontlight" ng-class="{'tringledettest' : x.id==detailslogt3shyestegi.shown}" ng-click="toggleDetailsshyestegi(x.id)" style="text-align: right;padding-right: 15px;">{{x.name}} </div>
 
-                  <div class="col-md-12 col-xs-12 boxdetclass" ng-show="x.id==detailslogt3shyestegi.shown">
+              <div class="col-md-12 col-xs-12 boxdetclass" ng-show="x.id==detailslogt3shyestegi.shown">
 
-                    <div class="col-md-12 col-xs-12">
+                <div class="col-md-12 col-xs-12">
 
-                      <div class="row r1boxdetclass h2title fontmedium">{{x.name}}</div>
+                  <div class="row r1boxdetclass h2title fontmedium">{{x.name}}</div>
 
-                      <div class="row r2boxdetclass">{{x.description}}</div>
+                  <div class="row r2boxdetclass">{{x.description}}</div>
 
-                      <div class="row r3boxdetclass">
+                  <div class="row r3boxdetclass">
 
-                        <span>
+                    <span>
 
 		    <button type="button" class="btn greenbtn addtestvakargo aladdazmonp11" ng-click="addtestvakargoshyestegi(x , outerIndex)">اضافه نمودن</button>
 
@@ -441,7 +440,7 @@
 
 
 
-                        <span class="selectimportant">
+                    <span class="selectimportant">
 
 					اهمیت
 
@@ -465,51 +464,51 @@
 
 		</span>
 
-                      </div>
-
-
-
-                    </div>
-
                   </div>
 
+
+
                 </div>
 
               </div>
 
+            </div>
 
-
-              <div style="padding: 5px 30px;">
-                <hr>
-              </div>
-
-
-
-              <div class="col-md-12  col-xs-12" style="padding: 0 0 15px;">
-
-                <div class="col-md-6  col-xs-12 customwid40" style="float: left;text-align: right;padding-left: 30px;">
+          </div>
 
 
 
-                  <span class="bluecolor  h5title fontmedium">انتخاب کارگزار:</span>
-
-                </div>
-
-                <div class="col-md-6  col-xs-12 customwid60" style="float: right;padding-right: 30px;">
-
-                  <span class="  h5title fontmedium">شایستگی های انتخاب شده:</span>
-
-                  <span class="numberentkhansshp bluecolor  h5title fontmedium">{{formData.testentekhabshyestegi.length}} عدد</span>
-
-                </div>
+          <div style="padding: 5px 30px;">
+            <hr>
+          </div>
 
 
 
-                <div class="col-md-12 col-xs-12 kasneaggeyjo customwid60ksd">
+          <div class="col-md-12  col-xs-12" style="padding: 0 0 15px;">
 
-                  <div class="addwithtestazmonh col-xs-12" ng-repeat="x in formData.testentekhabshyestegi" ng-click="removetestvakargoshyestegi(x  , outerIndex)">
+            <div class="col-md-6  col-xs-12 customwid40" style="float: left;text-align: right;padding-left: 30px;">
 
-                    <button class="btn testbotto addedbote">
+
+
+              <span class="bluecolor  h5title fontmedium">انتخاب کارگزار:</span>
+
+            </div>
+
+            <div class="col-md-6  col-xs-12 customwid60" style="float: right;padding-right: 30px;">
+
+              <span class="  h5title fontmedium">شایستگی های انتخاب شده:</span>
+
+              <span class="numberentkhansshp bluecolor  h5title fontmedium">{{formData.testentekhabshyestegi.length}} عدد</span>
+
+            </div>
+
+
+
+            <div class="col-md-12 col-xs-12 kasneaggeyjo customwid60ksd">
+
+              <div class="addwithtestazmonh col-xs-12" ng-repeat="x in formData.testentekhabshyestegi" ng-click="removetestvakargoshyestegi(x  , outerIndex)">
+
+                <button class="btn testbotto addedbote">
 
   <span style="float: right;padding-right: 15px;">{{x.name}}</span>
 
@@ -519,41 +518,41 @@
 
   </button>
 
+              </div>
+
+            </div>
+
+            <div class="col-md-6  col-xs-12 customwid40">
+
+              <div class="col-md-12  col-xs-12 nopaddinglr">
+
+                <div class="selectkargozarshayes" ng-repeat="kargozarshyestegi in kargozarhashyestegi" ng-click="showgeymatkargozarshyestegi(kargozarshyestegi)">
+
+                  <div class="kargozarshentkhabazimg">
+
+                    <md-tooltip md-direction="top">
+
+                      {{kargozarshyestegi.kargozarname}}
+
+                    </md-tooltip>
+
+                    <img class="img" ng-class="{active: kargozarshyestegi == selectedshyestegi}" src="{{kargozarshyestegi.kargozaricon}}">
+
                   </div>
+
+
 
                 </div>
 
-                <div class="col-md-6  col-xs-12 customwid40">
+              </div>
 
-                  <div class="col-md-12  col-xs-12 nopaddinglr">
+              <div class="detailskargozarhashyestegich col-md-12 col-xs-12 nopaddinglr" ng-show="showgheymatkargozsp">
 
-                    <div class="selectkargozarshayes" ng-repeat="kargozarshyestegi in kargozarhashyestegi" ng-click="showgeymatkargozarshyestegi(kargozarshyestegi)">
+                <div class="nopaddinglr col-xs-12 col-md-12" ng-repeat="prod2 in formData.detkargozarhashyestegi">
 
-                      <div class="kargozarshentkhabazimg">
+                  <div class="col-md-6 col-xs-6 nopaddinglr">
 
-                        <md-tooltip md-direction="top">
-
-                          {{kargozarshyestegi.kargozarname}}
-
-                        </md-tooltip>
-
-                        <img class="img" ng-class="{active: kargozarshyestegi == selectedshyestegi}" src="{{kargozarshyestegi.kargozaricon}}">
-
-                      </div>
-
-
-
-                    </div>
-
-                  </div>
-
-                  <div class="detailskargozarhashyestegich col-md-12 col-xs-12 nopaddinglr" ng-show="showgheymatkargozsp">
-
-                    <div class="nopaddinglr col-xs-12 col-md-12" ng-repeat="prod2 in formData.detkargozarhashyestegi">
-
-                      <div class="col-md-6 col-xs-6 nopaddinglr">
-
-                        <span class="khasneagdtitlch ">
+                    <span class="khasneagdtitlch ">
 
 													  <md-checkbox ng-model="orders2.prod2s.prod2[prod2.packtitle]" aria-label="Checkbox{{$index}}">{{prod2.packtitle}}</md-checkbox>
 
@@ -561,37 +560,37 @@
 
 </span>
 
-                      </div>
+                  </div>
 
 
 
 
 
-                      <div class="col-md-6 col-xs-12 kasneaggeyjo">
+                  <div class="col-md-6 col-xs-12 kasneaggeyjo">
 
-                        <span class="agahikhas2">{{prod2.packprice}}</span>
+                    <span class="agahikhas2">{{prod2.packprice}}</span>
 
-                        <span> ریال</span>
-
-                      </div>
-
-
-
-                    </div>
+                    <span> ریال</span>
 
                   </div>
 
+
+
                 </div>
-
-
 
               </div>
 
+            </div>
+
+
+
+          </div>
 
 
 
 
-              <!-- <div class="col-md-12  col-xs-12" style="
+
+         <div class="col-md-12  col-xs-12" style="
 
     padding: 15px;
 
@@ -621,62 +620,54 @@
 
 		</div> -->
 
-            </div>
-
-
-
-
-
-            <div class="col-md-12 col-xs-12 btnsnexbacre" style="padding: 0px;">
-
-              <div class="col-md-2 col-xs-2" style="padding: 0;">
-
-                <a ng-click="activeTab='tab4'" class="backgam btn h5title fontmedium">« بازگشت به گام قبل</a>
-
-              </div>
-
-
-
-              <div class="col-md-8  col-xs-8" style="padding: 10px 0 15px;">
-                <div class="col-md-10 col-xs-10 mablagrescss" style="text-align: left;padding-left: 0;"> <span class="khasneagdtitlch">	مبلغ کل تا این مرحله:</span>
-
-                </div>
-
-                <div class="col-md-2 col-xs-2 kasneaggeyjo">
-
-                  <span class="majmosarmayegozarikhas">{{ totalazmonravan() + totalazmonmaharat() + totalazmonshyestegi() }}</span>
-
-                  <span> ریال</span>
-
-                </div>
-
-
-
-              </div>
-
-              <div class="col-md-2 col-xs-2" style="padding: 0;">
-
-
-
-                <a ng-click="activeTab='tab6'" class="nextgam btn h5title fontmedium">تایید و گام بعد »</a>
-
-
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
         </div>
 
 
 
 
 
+        <div class="col-md-12 col-xs-12 btnsnexbacre" style="padding: 0px;">
+
+          <div class="col-md-2 col-xs-2" style="padding: 0;">
+
+            <a ng-click="activeTab='tab4'" class="backgam btn h5title fontmedium">« بازگشت به گام قبل</a>
+
+          </div>
+
+
+
+          <div class="col-md-8  col-xs-8" style="padding: 10px 0 15px;">
+            <div class="col-md-10 col-xs-10 mablagrescss" style="text-align: left;padding-left: 0;"> <span class="khasneagdtitlch">	مبلغ کل تا این مرحله:</span>
+
+            </div>
+
+            <div class="col-md-2 col-xs-2 kasneaggeyjo">
+
+              <span class="majmosarmayegozarikhas">{{ totalazmonravan() + totalazmonmaharat() + totalazmonshyestegi() }}</span>
+
+              <span> ریال</span>
+
+            </div>
+
+
+
+          </div>
+
+          <div class="col-md-2 col-xs-2" style="padding: 0;">
+
+
+
+            <a ng-click="activeTab='tab6'" class="nextgam btn h5title fontmedium">تایید و گام بعد »</a>
+
+
+
+          </div>
+
+        </div>
+
       </div>
+
+
 
     </div>
 
@@ -684,9 +675,17 @@
 
 
 
-
-
-
-
-
   </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
