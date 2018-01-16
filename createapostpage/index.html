@@ -1539,7 +1539,7 @@
 
                   <div class="col-md-12 col-xs-12 flexclassazmon">
 
-                    <div class="withtestazmonh" ng-repeat="x in azmonshaksiyat | filter:searchtabname">
+                    <div class="withtestazmonh" ng-repeat="x in allexam | filter: { group: 'روانشناختی' } | filter:searchtabname">
 
                       <div></div>
 
@@ -1549,9 +1549,9 @@
 
                         <div class="col-md-9 col-xs-9">
 
-                          <div class="row r1boxdetclass h2title fontmedium">{{x.nametest}}</div>
+                          <div class="row r1boxdetclass h2title fontmedium">{{x.name}}</div>
 
-                          <div class="row r2boxdetclass">{{x.desctest}}</div>
+                          <div class="row r2boxdetclass">{{x.description}}</div>
 
                           <div class="row r3boxdetclass">
 
@@ -1599,15 +1599,15 @@
 
                             <div class="col-md-12 col-xs-12" style="padding-top: 15px;">
 
-                              <div class="kargozarentkhabazimg" ng-repeat="kargozar in x.kargozarha">
+                              <div class="kargozarentkhabazimg" ng-repeat="kargozar in x.exam_service_provider">
 
                                 <md-tooltip md-direction="top">
 
-                                  {{kargozar.kargozarname}}
+                                  {{kargozar.service_provider.fa_name}}
 
                                 </md-tooltip>
 
-                                <img class="img" ng-class="{active: kargozar == selected}" src="{{kargozar.kargozaricon}}" ng-click="showgeymatkargozar(kargozar)">
+                                <img class="img" ng-class="{active: kargozar == selected}" src="{{kargozar.service_provider.avatar}}" ng-click="showgeymatkargozar(kargozar)">
 
                               </div>
 
@@ -1662,8 +1662,6 @@
   <span style="float: right;padding-right: 15px;">{{x.nametest}}</span>
 
    <i class="fa fa-check" style="float: left;padding-left: 15px;"></i>
-
-
 
   </button>
 
@@ -2460,7 +2458,7 @@
                         </div>
 
 
-
+{{$scope.orders.prods.prod}}
 
 
                       </div>
@@ -2605,7 +2603,7 @@
 
                               <div class="col-md-6 col-xs-6 khasneagdtitlch ">عنوان جایگاه شغلی</div>
 
-                              <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.onvanjayghahshoghl}}</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title">{{onvanjayghahshoghl}}</div>
 
                             </div>
 
@@ -2613,7 +2611,7 @@
 
                               <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">ساعت کاری</div>
 
-                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-if="formData.saatkari.roz && formData.saatkari.sataval && formData.saatkari.satdovom">{{formData.saatkari.roz}} از ساعت {{formData.saatkari.sataval}} الی {{formData.saatkari.satdovom}} </div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-if="formData.roz && formData.sataval && formData.satdovom">{{formData.roz}} از ساعت {{formData.sataval}} الی {{formData.satdovom}} </div>
 
                             </div>
 
