@@ -5104,7 +5104,7 @@ resize: none;
 display: none;
 }
 
-.postajob-scenarios .box-price-one {
+.postajob-scenarios.search-scenarios .box-price-one {
     height: 560px;
 }
 

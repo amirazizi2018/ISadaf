@@ -347,16 +347,13 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
       }
 
       }).then(function(response) {
-        console.log(response.data.advertisements.length);
       if (response.data.advertisements.length > 0) {
             $location.path("createapostpage");
             $localStorage.LocationUser = "createapostpage";
-            console.log("B");
       }
       if (response.data.advertisements.length < 1) {
         $location.path("postajobscenarios");
         $localStorage.LocationUser = "postajobscenarios";
-        console.log("K");
       }
     });
 
