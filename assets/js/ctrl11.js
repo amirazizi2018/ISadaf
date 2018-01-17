@@ -1341,7 +1341,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
 
 
-    var nametest = x.nametest;
+    var nametest = x.name;
 
     var getid = x.id;
 
@@ -1357,7 +1357,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
         morelink: x.morelink,
 
-        nametest: x.nametest,
+        nametest: x.name,
 
         // parntid: outerIndex,
 
