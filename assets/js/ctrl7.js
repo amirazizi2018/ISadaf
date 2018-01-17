@@ -23,7 +23,10 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
 
   });
 
-
+  $scope.addjobfil = function() {
+  $location.path("jobseekerprofilepage");
+  $localStorage.LocationUser = "jobseekerprofilepage";
+}
 
   $scope.azmonmaharat = [
 

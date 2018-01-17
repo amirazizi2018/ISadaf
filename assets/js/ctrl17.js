@@ -1806,6 +1806,40 @@ $scope.setItemsPerPage = function(num) {
 }
 
 
+$scope.ChengePassWord = function(currentpassword, newpassword) {
+
+  var data = {
+
+    old_password: currentpassword,
+    new_password: newpassword
+
+  };
+
+
+
+  var config = {
+
+    headers: {
+
+      'Content-Type': 'application/json',
+
+      'Access-Token': $localStorage.TokenKey.access,
+
+    }
+
+  }
+
+
+
+  $http.put(mustafasite + '/service_provider/password', JSON.stringify(data), config).then(function(response) {
+    $scope.newpassword = null;
+    $scope.currentpassword = null;
+    alert("پسورد با موفیقت ویرایش شد.")
+  });
+
+
+
+}
 
 
 

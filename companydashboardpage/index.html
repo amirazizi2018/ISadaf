@@ -1576,9 +1576,30 @@
         </div>
 
         <div ng-show="activeTabF=='tab9'" class="mysetting">
-
+          <div class="col-md-12 col-xs-12 h3title bluecolor">
+             تغییر رمز عبور
+          </div>
+          <br>
+          <br>
+          <form name="chengepasswordform" novalidate class="chengepasswordform" ng-submit="chengepasswordform.$valid &&ChengePassWord(currentpassword,newpassword)">
+          <div class="col-md-12 col-xs-12 h4title graycolor">
+            رمز فعلی
+          </div>
+          <div class="col-md-12 col-xs-12 h4title graycolor">
+            <input type="text" name="currentpassword" ng-model="currentpassword">
+          </div>
+          <div class="col-md-12 col-xs-12 h4title graycolor">
+            رمز جدید
+          </div>
+          <div class="col-md-12 col-xs-12 h4title graycolor">
+            <input type="text" name="newpassword" ng-model="newpassword">
+          </div>
+          <div class="col-md-12 col-xs-12">
+             <button type="submit" class="btn bluebtn">تغییر رمز</button>
+          </div>
+          </form>
           <div class="clearfix"></div>
-
+<!--
           <div class="col-md-12 h4title graycolor">
 
             <md-checkbox ng-model="data.custom111" aria-label="Checkbox 1">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
@@ -1641,7 +1662,7 @@
 
             </md-switch>
 
-          </div>
+          </div> -->
 
           <div class="clearfix"></div>
 
