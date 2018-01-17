@@ -2610,7 +2610,12 @@
 
                               <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">موقعیت در جایگاه سازمانی</div>
 
-                              <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.mogeatdarjayghah}}</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-show="formData.mogeatdarjayghah == 'KARMAND'"  >کارمند</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-show="formData.mogeatdarjayghah == 'KARSHENAS'">کارشناس</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-show="formData.mogeatdarjayghah == 'KARSHENASE_ARSHAD'">کارشناس ارشد</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-show="formData.mogeatdarjayghah == 'MODIR'" >مدیر</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-show="formData.mogeatdarjayghah == 'MODIR_ARSHAD'" >مدیر ارشد</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-show="formData.mogeatdarjayghah == 'MOSHAVER'">مشاور</div>
 
                             </div>
 
@@ -2630,7 +2635,10 @@
 
                               <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">جنسیت</div>
 
-                              <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.jensiat}}</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-show="formData.jensiat == 'male'" >مرد</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-show="formData.jensiat == 'female'" >زن</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-show="formData.jensiat == 'both'" >مرد / زن</div>
+
 
                             </div>
 
@@ -2658,7 +2666,9 @@
 
                               <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">وضعیت تاهل</div>
 
-                              <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.vaziattahol}}</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-show="formData.vaziattahol == 'single'" >مجرد</div>
+                              <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-show="formData.vaziattahol == 'married'" >متاهل</div>
+
 
                             </div>
 
@@ -2698,7 +2708,7 @@
 
 
 
-
+{{formData.testentekhab}}
 
                       <div ng-if="formData.testentekhab.nametest" class="col-md-12 col-xs-12 desfinalpazmonha">
 
