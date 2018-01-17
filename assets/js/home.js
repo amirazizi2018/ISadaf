@@ -352,7 +352,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
             $location.path("createapostpage");
             $localStorage.LocationUser = "createapostpage";
       }
-      else if (response.data.advertisements.length = 0) {
+      if (response.data.advertisements.length = 0) {
         $location.path("postajobscenarios");
         $localStorage.LocationUser = "postajobscenarios";
       }
