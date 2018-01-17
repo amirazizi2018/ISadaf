@@ -1359,7 +1359,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
         nametest: x.nametest,
 
-        parntid: outerIndex,
+        // parntid: outerIndex,
 
       }
 
@@ -1367,7 +1367,8 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
 
 
-    $scope.azmonshyestegi[outerIndex].parts.splice($scope.azmonshyestegi[outerIndex].parts.indexOf(x), 1);
+    // $scope.azmonshyestegi[outerIndex].parts.splice($scope.azmonshyestegi[outerIndex].parts.indexOf(x), 1);
+    $scope.allsuitability.splice($scope.allsuitability.indexOf(x), 1);
 
     $scope.formData.testentekhabshyestegi.push({
 
@@ -1377,7 +1378,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
       nametest: nametest,
 
-      parntid: outerIndex,
+      // parntid: outerIndex,
 
     });
 
@@ -1479,13 +1480,14 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     });
 
-    var ssss = x.parntid;
+    // var ssss = x.parntid;
 
 
 
     $scope.detailslogt3shyestegi.shown = null;
 
-    $scope.allexam[ssss].parts.push($scope.testentekhabshyestegi[index]);
+    // $scope.allexam[ssss].parts.push($scope.testentekhabshyestegi[index]);
+    $scope.allexam.push($scope.testentekhabshyestegi[index]);
 
     $scope.formData.testentekhabshyestegi.splice($scope.formData.testentekhabshyestegi.indexOf(x), 1);
 
