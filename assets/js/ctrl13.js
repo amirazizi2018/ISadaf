@@ -216,6 +216,7 @@ app.controller('jobseekerdashboardpage',
     };
 
 
+    $scope.jobsaveddata = [];
 
 
     $scope.getbookmarkedjob = function() {
@@ -238,7 +239,6 @@ app.controller('jobseekerdashboardpage',
       $http.get(mustafasite + "/job_seeker", configjap).then(function(response) {
 
         for (var i = 0; i < response.data.bookmarked_job.length; i++) {
-            $scope.jobsaveddata = [];
             $scope.jobsaveddata.push(response.data.bookmarked_job[i].job);
         }
 
