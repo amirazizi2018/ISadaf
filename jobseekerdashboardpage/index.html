@@ -361,20 +361,32 @@
     <div class="mymessageboxdet col-md-12 col-xs-12 ">
     <div ng-show="activeTab=='inbox'" class="">
         <div ng-hide="isreceiveVisible">
-            <div class="emailrow" ng-repeat="email in emails" ng-click="showreceivemail(email)">
-                <span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
-                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ email.subject }}<br><span class="h6title fontlight">{{ email.from }}</span></span>
-                <span class="col-md-2 col-xs-2 emaildate textleft">{{ email.time }}<br>{{ email.date }}</span>
+            <div class="emailrow" ng-repeat="email in ReceiveMessage" ng-click="showreceivemail(email)">
+                <span class="col-md-1 col-xs-1 emailicon">
+									<i ng-if="email.seen == false" class="fa fa-envelope-o" aria-hidden="true"></i>
+									<i ng-if="email.seen == true" class="fa fa-envelope-open-o" aria-hidden="true"></i>
+								</span>
+                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ email.title }}<br>
+									<span ng-if="email.from == 'SP'" class="h6title fontlight">{{ email.service_provider.fa_name }}</span>
+									<span ng-if="email.from == 'EMP'" class="h6title fontlight">{{ email.employer.fa_name }}</span>
+								</span>
+                <span class="col-md-2 col-xs-2 emaildate textleft">{{ email.created_at | jalaliDate:'hh:mm tt'  }}<br>{{ email.created_at | jalaliDate:'jDD / jMM / jYY' }}</span>
             </div>
         </div>
 		<div ng-show="isreceiveVisible">
         <div class="modal-header">
                <span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
-                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ selectedreceiveEmail.subject }}<br><span class="h6title fontlight">{{ selectedreceiveEmail.from }}</span></span>
-                <span class="col-md-2 col-xs-2 emaildate textleft">{{ selectedreceiveEmail.time }}<br>{{ selectedreceiveEmail.date }}</span>
+                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ selectedreceiveEmail.title }}<br>
+									<span ng-if="selectedreceiveEmail.from == 'SP'" class="h6title fontlight">{{ selectedreceiveEmail.service_provider.fa_name }}</span>
+									<span ng-if="selectedreceiveEmail.from == 'EMP'" class="h6title fontlight">{{ selectedreceiveEmail.employer.fa_name }}</span>
+								</span>
+								<span class="col-md-2 col-xs-2 emaildate textleft">{{ selectedreceiveEmail.created_at | jalaliDate:'hh:mm tt'  }}<br>{{ selectedreceiveEmail.created_at | jalaliDate:'jDD / jMM / jYY' }}</span>
         </div>
         <div class="modal-body">
-            {{selectedreceiveEmail.body}}
+            {{selectedreceiveEmail.text}}
+						<br>
+						<br>
+						<a ng-if="selectedreceiveEmail.attached_file_path != null" href="{{selectedreceiveEmail.attached_file_path}}" class="btn greenbtn">دانلود پیوست</a>
         </div>
         <div class="modal-footer">
             <a class="btn removeemail darkgraybtn"  ng-click="removereceiveemail(selectedreceiveEmail)" ><i class="fa fa-trash-o" aria-hidden="true"></i> حذف</a>
@@ -383,23 +395,36 @@
         </div>
     </div>
     </div>
-
+
     <div ng-show="activeTab=='sent'">
 	        <div ng-hide="issentVisible">
-	        <div class="emailrow" ng-repeat="email in sentEmails" ng-click="showsentmail(email)">
+	        <div class="emailrow" ng-repeat="email in SendMessage" ng-click="showsentmail(email)">
                 <span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
-                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ email.subject }}<br><span class="h6title fontlight">{{ email.to }}</span></span>
-                <span class="col-md-2 col-xs-2 emaildate textleft">{{ email.time }}<br>{{ email.date }}</span>
+                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ email.title }}<br>
+									<span ng-if="selectedreceiveEmail.from == 'SP'" class="h6title fontlight">{{ email.service_provider.fa_name }}</span>
+									<span ng-if="selectedreceiveEmail.from == 'EMP'" class="h6title fontlight">{{ email.employer.fa_name }}</span>
+								</span>
+								<span class="col-md-2 col-xs-2 emaildate textleft">{{ email.created_at | jalaliDate:'hh:mm tt'  }}<br>{{ email.created_at | jalaliDate:'jDD / jMM / jYY' }}</span>
+
             </div>
     </div>
 			<div ng-show="issentVisible">
         <div class="modal-header">
-               <span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
-                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ selectedsentEmail.subject }}<br><span class="h6title fontlight">{{ selectedsentEmail.to }}</span></span>
-                <span class="col-md-2 col-xs-2 emaildate textleft">{{ selectedsentEmail.time }}<br>{{ selectedsentEmail.date }}</span>
-        </div>
+					<span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
+
+					 <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ selectedreceiveEmail.title }}<br>
+						 <span ng-if="selectedreceiveEmail.from == 'SP'" class="h6title fontlight">{{ selectedreceiveEmail.service_provider.fa_name }}</span>
+						 <span ng-if="selectedreceiveEmail.from == 'EMP'" class="h6title fontlight">{{ selectedreceiveEmail.employer.fa_name }}</span>
+					 </span>
+
+					 <span class="col-md-2 col-xs-2 emaildate textleft">{{ selectedreceiveEmail.created_at | jalaliDate:'hh:mm tt'  }}<br>{{ selectedreceiveEmail.created_at | jalaliDate:'jDD / jMM / jYY' }}</span>
+	 </div>
         <div class="modal-body">
-            {{selectedsentEmail.body}}
+					{{selectedreceiveEmail.text}}
+
+					<br>
+					<br>
+					<a ng-if="selectedreceiveEmail.attached_file_path != null" href="{{selectedreceiveEmail.attached_file_path}}" class="btn greenbtn">دانلود پیوست</a>
         </div>
         <div class="modal-footer">
             <a class="btn removeemail darkgraybtn fontmedium"  ng-click="removesentmail(selectedsentEmail)" ><i class="fa fa-trash-o" aria-hidden="true"></i> حذف</a>
@@ -419,6 +444,16 @@
                 <input type="text"
                     ng-model="composeEmail.to"><br />
 		</span>
+		<angucomplete id="members"
+              placeholder="Search members"
+              pause="400"
+              selectedobject="testObj"
+              url="https://sadaf.systmngr.ir/api/v1/auto?string="
+              datafield="results"
+              titlefield="firstName,surname"
+              descriptionfield="email"
+              imagefield="profilePic"
+              inputclass="form-control form-control-small"/>
 			<span class="col-md-1 col-xs-3 composetitle graycolor h5title">
   موضوع 
 		</span>	
@@ -432,9 +467,10 @@
          <textarea class="composeEmailbody" rows="10" 
                     ng-model="composeEmail.body"></textarea>
         </div>
+
 <div class="modal-footer" style="margin: 0; text-align: right;">      
       <a class="btn greenbtn" ng-click="sendEmail()">ارسال</a>
-      <span class="attachmail" ng-click="attachEmail()"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
+      <span class="attachmail"  ngf-select accept="application/pdf, image/*"  ng-model="atachmailmodel" ng-click="attachEmail()"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
         </div>
     </div>
   </div>

@@ -647,7 +647,7 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 
 
-                <div class="col-md-12 jobseekerrow" ng-repeat="jobseeker in jobseekers.slice(((jobseekerscurrentPage-1)*jobseekersitemsPerPage), ((jobseekerscurrentPage)*jobseekersitemsPerPage)) | filter : {tag: managingjobadsfilter}: false | orderBy:managingjobadsorderby" ">
+                <div class="col-md-12 jobseekerrow" ng-repeat="jobseeker in jobseekers.slice(((jobseekerscurrentPage-1)*jobseekersitemsPerPage), ((jobseekerscurrentPage)*jobseekersitemsPerPage)) | filter : {tag: managingjobadsfilter}: false | orderBy:managingjobadsorderby">
 
 	<div class="row ">
 
@@ -858,7 +858,7 @@ data-target="#ShowPopupMembershipPackages">تمدید عضویت</a>
 
 
 								<div class="col-md-4 col-xs-12 exfildsearcthe " ng-hide="dastekhedmatselected=='شایستگی' ">
-									<input type="file " ngf-select accept="application/pdf, image/* "  ng-model="samplekhedmat " name="file ">
+									<input class="uploadbtn" type="file" ngf-select accept="application/pdf, image/*"  ng-model="samplekhedmat" name="file ">
 										</div>
 
 										<div class="col-md-2 col-xs-12 " ng-hide="dastekhedmatselected=='شایستگی' ">

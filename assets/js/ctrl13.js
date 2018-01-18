@@ -14,6 +14,7 @@ app.controller('jobseekerdashboardpage',
 
 
 
+
     var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 
 
@@ -692,64 +693,113 @@ app.controller('jobseekerdashboardpage',
 
     $scope.activeTab = "inbox";
 
-    $scope.sentEmails = [
+    // $scope.sentEmails = [
+    //
+    //   {
+    //
+    //     frommail: 'A20Group@yahoo.com',
+    //
+    //     from: 'شرکت آسان پرداخت',
+    //
+    //     to: 'شزکت فناپ',
+    //
+    //     subject: 'دعوت به مصاحبه',
+    //
+    //     date: '96/07/24',
+    //
+    //     time: '2:33 ب.ظ',
+    //
+    //     body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
+    //
+    //   },
+    //
+    //   {
+    //
+    //     frommail: 'A20Group@yahoo.com',
+    //
+    //     from: 'شرکت آسان پرداخت',
+    //
+    //     to: 'شزکت فناپ',
+    //
+    //     subject: 'دعوت به مصاحبه',
+    //
+    //     date: '96/07/24',
+    //
+    //     time: '2:32 ب.ظ',
+    //
+    //     body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
+    //
+    //   },
+    // ];
 
-      {
+    $scope.GetSendMessage = function() {
 
-        frommail: 'A20Group@yahoo.com',
+      var config = {
 
-        from: 'شرکت آسان پرداخت',
+        headers: {
 
-        to: 'شزکت فناپ',
+          'Content-Type': 'application/json',
 
-        subject: 'دعوت به مصاحبه',
+          'Access-Token': $localStorage.TokenKey.access,
 
-        date: '96/07/24',
+        }
 
-        time: '2:33 ب.ظ',
+      }
 
-        body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
+      $http.get(mustafasite + '/job_seeker/receive_message', JSON.stringify(data), config).then(function(response) {
+        $scope.SendMessage = response.data.messages;
+      });
 
-      },
+    }
 
-      {
-
-        frommail: 'A20Group@yahoo.com',
-
-        from: 'شرکت آسان پرداخت',
-
-        to: 'شزکت فناپ',
-
-        subject: 'دعوت به مصاحبه',
-
-        date: '96/07/24',
-
-        time: '2:32 ب.ظ',
-
-        body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
-
-      },
-    ];
-
+    $scope.GetReceiveMessage();
 
 
     $scope.sendEmail = function() {
 
       $scope.activeTab = "sent";
 
-      $scope.composeEmail.from = "me";
 
-      $scope.composeEmail.to = $scope.composeEmail.to;
+      // $scope.sentEmails.push($scope.composeEmail);
+      //
+      // $scope.composeEmail = {};
 
-      $scope.composeEmail.subject = $scope.composeEmail.subject;
+      var getfileformat = $scope.atachmailmodel.name.split('.').pop();
+    var getfilebase64 = Upload.base64DataUrl($scope.atachmailmodel);
+    getfilebase64.then(function(value) {
+      var config = {
 
-      $scope.composeEmail.date = "96/07/24";
+        headers: {
 
-      $scope.composeEmail.time = "2:30 ب.ظ";
+          'Content-Type': 'application/json',
 
-      $scope.sentEmails.push($scope.composeEmail);
+          'Access-Token': $localStorage.TokenKey.access,
 
-      $scope.composeEmail = {};
+        }
+
+      }
+
+
+        var data = {
+          text: $scope.composeEmail.body,
+          title: $scope.composeEmail.subject,
+          target : $scope.composeEmail.type,
+          target_id: parseInt($scope.composeEmail.to),
+          file : value.split(',')[1],
+          file_format : getfileformat,
+        };
+
+        $http.post(mustafasite + '/job_seeker/message', JSON.stringify(data), config).then(function(response) {
+
+          $scope.atachmailmodel = null;
+          $scope.composeEmail = {};
+          $scope.activeTab = "sent";
+
+
+        });
+
+
+    });
 
 
 
@@ -760,14 +810,25 @@ app.controller('jobseekerdashboardpage',
 
 
 
-
-
-
     $scope.showreceivemail = function(email) {
 
-      $scope.isreceiveVisible = true;
+      var config = {
 
-      $scope.selectedreceiveEmail = email;
+        headers: {
+
+          'Content-Type': 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+      $http.get(mustafasite + '/job_seeker/message/' + email.id, JSON.stringify(data), config).then(function(response) {
+        $scope.isreceiveVisible = true;
+
+        $scope.selectedreceiveEmail = email;
+      });
 
     };
 
@@ -799,63 +860,86 @@ app.controller('jobseekerdashboardpage',
 
 
 
-    $scope.emails = [
+    // $scope.emails = [
+    //
+    //   {
+    //
+    //     frommail: 'A20Group@yahoo.com',
+    //
+    //     from: 'شرکت آسان پرداخت',
+    //
+    //     to: 'me',
+    //
+    //     subject: 'دعوت به مصاحبه',
+    //
+    //     date: '96/07/24',
+    //
+    //     time: '2:33 ب.ظ',
+    //
+    //     body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
+    //
+    //   },
+    //
+    //   {
+    //
+    //     frommail: 'A20Group@yahoo.com',
+    //
+    //     from: 'شرکت آسان پرداخت',
+    //
+    //     to: 'me',
+    //
+    //     subject: 'دعوت به مصاحبه',
+    //
+    //     date: '96/07/24',
+    //
+    //     time: '2:32 ب.ظ',
+    //
+    //     body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
+    //
+    //   },
+    //
+    //   {
+    //
+    //     frommail: 'A20Group@yahoo.com',
+    //
+    //     from: 'شرکت آسان پرداخت',
+    //
+    //     to: 'me',
+    //
+    //     subject: 'دعوت به مصاحبه',
+    //
+    //     date: '96/07/24',
+    //
+    //     time: '2:31 ب.ظ',
+    //
+    //     body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
+    //
+    //   }
+    //
+    // ];
 
-      {
+    $scope.GetReceiveMessage = function() {
 
-        frommail: 'A20Group@yahoo.com',
+      var config = {
 
-        from: 'شرکت آسان پرداخت',
+        headers: {
 
-        to: 'me',
+          'Content-Type': 'application/json',
 
-        subject: 'دعوت به مصاحبه',
+          'Access-Token': $localStorage.TokenKey.access,
 
-        date: '96/07/24',
-
-        time: '2:33 ب.ظ',
-
-        body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
-
-      },
-
-      {
-
-        frommail: 'A20Group@yahoo.com',
-
-        from: 'شرکت آسان پرداخت',
-
-        to: 'me',
-
-        subject: 'دعوت به مصاحبه',
-
-        date: '96/07/24',
-
-        time: '2:32 ب.ظ',
-
-        body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
-
-      },
-
-      {
-
-        frommail: 'A20Group@yahoo.com',
-
-        from: 'شرکت آسان پرداخت',
-
-        to: 'me',
-
-        subject: 'دعوت به مصاحبه',
-
-        date: '96/07/24',
-
-        time: '2:31 ب.ظ',
-
-        body: 'با سلامتحقق این هدف و چشم انداز در صورتی محقق می گردد که این سامانه دارای ویژگی¬های خاصی باشد که دارا بودن آن ویژگی¬ها در گام اول شروط لازم را جهت تحقق این چشم انداز برآورده نموده و در گام بعد این ویژگی ها با به وجود آوردن مزیت های رقابتی برای این سامانه شروط کافی جهت موفقیت این سامانه را نیز فراهم می آورد باتشکر معاونت منابع انسانی شرکت آسان پرداخت'
+        }
 
       }
 
-    ];
+      $http.get(mustafasite + '/job_seeker/receive_message', JSON.stringify(data), config).then(function(response) {
+        $scope.ReceiveMessage = response.data.messages;
+      });
+
+    }
+
+    $scope.GetReceiveMessage();
+
 
 
 
@@ -865,7 +949,16 @@ app.controller('jobseekerdashboardpage',
 
       $scope.activeTab = "compose";
 
-      $scope.composeEmail.to = selectedreceiveEmail.frommail;
+      $scope.composeEmail.subject = selectedreceiveEmail.title;
+
+      if (selectedreceiveEmail.from == "EMP") {
+        $scope.composeEmail.to = selectedreceiveEmail.employer.id;
+        $scope.composeEmail.type = "EMP";
+      }
+      if (selectedreceiveEmail.from == "SP") {
+        $scope.composeEmail.to = selectedreceiveEmail.service_provider.id;
+        $scope.composeEmail.type = "SP";
+      }
 
       $scope.isreceiveVisible = false;
 
@@ -879,9 +972,18 @@ app.controller('jobseekerdashboardpage',
 
       $scope.activeTab = "compose";
 
-      $scope.composeEmail.to = selectedsentEmail.frommail;
+      $scope.composeEmail.subject = selectedreceiveEmail.title;
 
-      $scope.issentVisible = false;
+      if (selectedreceiveEmail.from == "EMP") {
+        $scope.composeEmail.to = selectedreceiveEmail.employer.id;
+        $scope.composeEmail.type = "EMP";
+      }
+      if (selectedreceiveEmail.from == "SP") {
+        $scope.composeEmail.to = selectedreceiveEmail.service_provider.id;
+        $scope.composeEmail.type = "SP";
+      }
+
+      $scope.isreceiveVisible = false;
 
     };
 
@@ -892,26 +994,41 @@ app.controller('jobseekerdashboardpage',
     $scope.removereceiveemail = function(selectedreceiveEmail) {
 
 
+      //
+      //
+      //
+      // var index = -1;
+      //
+      //
+      //
+      // $scope.emails.some(function(obj, i) {
+      //
+      //   return obj.id == selectedreceiveEmail.body ? index = i : false;
+      //
+      // });
+      //
+      //
+      //
+      // $scope.emails.splice($scope.emails.indexOf(selectedreceiveEmail), 1);
+      //
+      // $scope.isreceiveVisible = false;
 
+      var config = {
 
+        headers: {
 
-      var index = -1;
+          'Content-Type': 'application/json',
 
+          'Access-Token': $localStorage.TokenKey.access,
 
+        }
 
-      $scope.emails.some(function(obj, i) {
+      }
 
-        return obj.id == selectedreceiveEmail.body ? index = i : false;
-
+      $http.delete(mustafasite + '/job_seeker/message/' + selectedreceiveEmail.id , JSON.stringify(data), config).then(function(response) {
+        $scope.GetReceiveMessage();
+        $scope.isreceiveVisible = false;
       });
-
-
-
-      $scope.emails.splice($scope.emails.indexOf(selectedreceiveEmail), 1);
-
-      $scope.isreceiveVisible = false;
-
-
 
 
 
@@ -924,22 +1041,39 @@ app.controller('jobseekerdashboardpage',
 
 
 
+      //
+      // var index = -1;
+      //
+      //
+      //
+      // $scope.sentEmails.some(function(obj, i) {
+      //
+      //   return obj.id == selectedsentEmail.body ? index = i : false;
+      //
+      // });
+      //
+      //
+      //
+      // $scope.sentEmails.splice($scope.sentEmails.indexOf(selectedsentEmail), 1);
+      //
+      // $scope.issentVisible = false;
+      var config = {
 
-      var index = -1;
+        headers: {
 
+          'Content-Type': 'application/json',
 
+          'Access-Token': $localStorage.TokenKey.access,
 
-      $scope.sentEmails.some(function(obj, i) {
+        }
 
-        return obj.id == selectedsentEmail.body ? index = i : false;
+      }
 
+      $http.delete(mustafasite + '/job_seeker/message/' + selectedreceiveEmail.id , JSON.stringify(data), config).then(function(response) {
+        $scope.GetSendMessage();
+        $scope.issentVisible = false;
       });
 
-
-
-      $scope.sentEmails.splice($scope.sentEmails.indexOf(selectedsentEmail), 1);
-
-      $scope.issentVisible = false;
 
 
 
