@@ -752,7 +752,7 @@ app.controller('jobseekerdashboardpage',
 
     }
 
-    $scope.GetReceiveMessage();
+    $scope.GetSendMessage();
 
 
     $scope.sendEmail = function() {
