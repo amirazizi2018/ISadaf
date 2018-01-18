@@ -746,7 +746,7 @@ app.controller('jobseekerdashboardpage',
 
       }
 
-      $http.get(mustafasite + '/job_seeker/receive_message', JSON.stringify(data), config).then(function(response) {
+      $http.get(mustafasite + '/job_seeker/receive_message', config).then(function(response) {
         $scope.SendMessage = response.data.messages;
       });
 
@@ -932,7 +932,7 @@ app.controller('jobseekerdashboardpage',
 
       }
 
-      $http.get(mustafasite + '/job_seeker/receive_message', JSON.stringify(data), config).then(function(response) {
+      $http.get(mustafasite + '/job_seeker/receive_message', config).then(function(response) {
         $scope.ReceiveMessage = response.data.messages;
       });
 
