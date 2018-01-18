@@ -1141,6 +1141,9 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     var geticonkargozar = kargozar.service_provider.avatar;
 
+    var getidexamsp = kargozar.id;
+
+
     $scope.geymatkargozar = getgeymatkargozar;
     $scope.timekargozar = gettimekargozar;
 
@@ -1158,7 +1161,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
         var nametest = x.name;
 
-        var getid = x.id;
+        // var getid = x.id;
 
         $scope.testentekhab.push(x);
 
@@ -1166,7 +1169,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
         $scope.formData.testentekhab.push({
 
-          id: getid,
+          id: getidexamsp,
 
           nametest: nametest,
 
@@ -1212,6 +1215,9 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     var geticonkargozar = kargozarmaharat.service_provider.avatar;
 
+    var getidexamsp = kargozarmaharat.id;
+
+
     $scope.geymatkargozarmaharat = getgeymatkargozar;
 
     $scope.addtestvakargomaharat = function(x) {
@@ -1228,7 +1234,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
         var nametest = x.name;
 
-        var getid = x.id;
+        // var getid = x.id;
 
         // var getsathmahart = x.sath;
 
@@ -1238,7 +1244,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
         $scope.formData.testentekhabmaharat.push({
 
-          id: getid,
+          id: getidexamsp,
 
           nametest: nametest,
 
@@ -1865,8 +1871,10 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     }
 
-    var coop_timev = sparttime + " " + sfulltime;
-    var coop_typev = skaramuzi + " " + sKARVARZI;
+    // var coop_timev = sparttime + " " + sfulltime;
+    // var coop_typev = skaramuzi + " " + sKARVARZI;
+    var coop_timev = sfulltime;
+    var coop_typev = skaramuzi;
 
     var getexperienceft = $scope.formData.sabeghekari;
     var experienceft = (getexperienceft.toString().split('-'));
