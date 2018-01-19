@@ -685,9 +685,12 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     $scope.jobdescription = [];
     Object.keys(input).forEach(function(key) {
+      console.log(key);
+      console.log(input);
       var obj = {};
       obj["line"] = input[key];
-      jobdescription.push(obj);
+      $scope.jobdescription.push(obj);
+      console.log($scope.jobdescription);
     });
 
   });
