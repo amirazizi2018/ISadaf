@@ -1986,7 +1986,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {
 
       var paydata = {
-        id: parseInt(response.sataval), // Int
+        id: parseInt(response.data.data.id), // Int
       }
 
       $http.post(mustafasite + '/employer/pay/job', JSON.stringify(paydata), config).then(function(response) {
