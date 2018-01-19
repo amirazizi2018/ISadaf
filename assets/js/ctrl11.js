@@ -1702,12 +1702,18 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
   $scope.addsharhvazayef = function() {
 
     var title = $scope.formData.inpuvaluemaharatkild;
-    $scope.formData.sharhevazayef.push({
-      title : title,
-      name: "id" + counter++
-    });
+    if(title != null){
+      $scope.formData.sharhevazayef.push({
+        title : title,
+        name: "id" + counter++
+      });
+      $scope.formData.inpuvaluemaharatkild = "";
+    }
+    else {
+      alert("ابتدا چیزی بنویسید.")
+    }
 
-    $scope.formData.inpuvaluemaharatkild = "";
+
 
   };
 
