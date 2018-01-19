@@ -181,12 +181,6 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
 
 
-
-
-
-
-
-
   $scope.removettahsilat = function(i) {
 
     $scope.Tahsilat.splice(i, 1);
@@ -251,6 +245,8 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
 
   }
+
+
 
   $scope.SelectZamanTakhmini = [];
   $scope.SelectBarovordHazineh = [];

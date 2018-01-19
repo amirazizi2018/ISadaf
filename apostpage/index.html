@@ -218,6 +218,7 @@
                         <ul class="companymore jobpageti">
 <!-- {{ajob.description}} -->
 <li ng-repeat="x in jobdescription">{{x.line}}</li>
+{{jobdescription}}
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-12">
@@ -393,7 +394,7 @@
 				</div>       
 <div class="col-md-10 col-xs-12 ">				
 				<span class="exfildvalue gethithre">
-                            <span   class="">{{ajob.work_hour_from}} تا {{ajob.work_hour_to}} - {{ajob.experience_type}}</span>
+                            <span   class="">{{ajob.work_hour_type}} - {{ajob.work_hour_from}} تا {{ajob.work_hour_to}}</span>
                         </span>
 							</div>
 </div>
@@ -536,7 +537,7 @@
                   <div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی کلی:</div>
 
 
-
+{{ProfileResSp}}
               <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in ProfileResSp | filter: { exam : { group  : 'رزومه' }}">
 
   <div class="btn testbotto finalbotdetres" >
