@@ -1707,7 +1707,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
         title : title,
         name: "id" + counter++
       });
-      $scope.formData.inpuvaluemaharatkild = "";
+      $scope.formData.inpuvaluemaharatkild = null;
     }
     else {
       alert("ابتدا چیزی بنویسید.")
