@@ -1408,11 +1408,10 @@
                           <div class="arzntagimg" ng-repeat="x in ResumeServiceProvider">
 
                             <md-tooltip md-direction="top">
-
-{{x.fa_name}}
+                                {{x.fa_name}}
                             </md-tooltip>
 
-                            <img class="img" ng-class="{active: x == selectresumesp}" ng-click="clickresumesp(x)" src="{{avatar}}" />
+                            <img class="img" src="{{x.avatar}}" ng-class="{active: x == selectresumesp}" ng-click="clickresumesp(x)" />
 
                           </div>
 

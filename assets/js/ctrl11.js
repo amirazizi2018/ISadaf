@@ -1888,6 +1888,8 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     var assurance = ($scope.formData.bimetakmili === 'true');
     var sanavat = ($scope.formData.sanavat === 'true');
 
+    var gabolshaksiyat = ($scope.gaboldarkhatkarbararzyabinashode === 'true');
+    var gabolmaharat = ($scope.gaboldarkhatkarbararzyabinashodemaharat === 'true');
 
 
     var arraysharhevazayef = [];
@@ -1925,6 +1927,8 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
       skillforsend[i] =  $scope.skillsandexpertise[i];
     }
 
+
+
     var data = {
 
       advantage:  mazaya , // Boolean
@@ -1933,6 +1937,10 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
       city: $scope.formData.shahr, // String
       coop_time: coop_timev, // String
       coop_type: coop_typev, // String
+      accept_user_witout_exam: gabolshaksiyat,
+      accept_user_witout_resume: false,
+      accept_user_witout_skill: gabolmaharat,
+      accept_user_witout_suitability: false,
       department: $scope.formData.noemahalfaliat,  // String , Custom Entrance
       description: $scope.formData.tozihat, // String
       education: $scope.formData.reshteselec, // String // Problem
@@ -1950,7 +1958,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
       position: $scope.formData.mogeatdarjayghah,  // String , Custom Entrance
       //requested: $scope.formData.vaziateghamati, // Nothing // 400 Bad Req
       requirements: objsharhevazayef , // Object
-      // resume_sp_id: item.id, // Nothing // 400 Bad Req
+      resume_sp_id: $scope.selectresumesp.id, // Int
       sanavat: sanavat , // Boolean
       sex: $scope.formData.jensiat, // String , Custom Entrance
     //  skills: $scope.formData.maharatkilidi,  // Object
