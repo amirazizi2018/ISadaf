@@ -909,11 +909,11 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
   $scope.dastekhedmatselected = "رزومه";
 
 
-  $http.get(mustafasite + '/exam').then(function(response) {
+  $http.get(mustafasite + '/exam?per_page=1000').then(function(response) {
     $scope.getexamnameid = response.data.exams;
   });
 
-  $http.get(mustafasite + '/suitability/package').then(function(response) {
+  $http.get(mustafasite + '/suitability/package?per_page=1000').then(function(response) {
     $scope.getsuitabilitynameid = response.data.packages;
   });
 

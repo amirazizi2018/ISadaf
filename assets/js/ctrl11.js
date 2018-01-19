@@ -1965,8 +1965,6 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     };
 
-
-
     var config = {
 
       headers: {
@@ -1987,8 +1985,16 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {
 
-      alert("آگهی با موفیقت درج شد شما به طور خودکار به صفحه اصلی برمیگردید.");
-      $location.path("companymainpage");
+      var paydata = {
+        id: parseInt(response.sataval), // Int
+      }
+
+      $http.post(mustafasite + '/employer/pay/job', JSON.stringify(paydata), config).then(function(response) {
+
+        alert("آگهی با موفیقت درج شد شما به طور خودکار به صفحه اصلی برمیگردید.");
+        $location.path("companymainpage");
+
+      });
 
     });
 
