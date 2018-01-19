@@ -73,7 +73,7 @@
                <nav class="navbar">
                   <div class="container-fluid">
                      <div class="navbar-header">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand cursorpointer" ng-click="gotomainpage()">
                         <img width="150" height="auto" src="assets/images/logo.svg" alt="">
                         </a>
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -179,19 +179,19 @@
                                     ">
                                     <div class="col-md-12 col-xs-12 h2title bluecolor fontmedium" style="margin: 15px 0;">عضویت</div>
                                     <form name="personFormjs" novalidate ng-submit="personFormjs.$valid &&RegisteryJS(UserNameJS,PhoneJS,PassJS,FullNameJS,EmailJS,MeliCodeJS)">
-                                      <div style="color:Red" ng-show="personFormjs.UserNameJS.$dirty&&personFormjs.UserNameJS.$error.pattern">Please Enter Valid Email</div>
-                                        <div style="color:Red" ng-show="personFormjs.FullNameJS.$dirty&&personFormjs.FullNameJS.$error.pattern">Please Enter Valid Email</div>
-                                        <div style="color:Red" ng-show="personFormjs.EmailJS.$dirty&&personFormjs.EmailJS.$error.pattern">Please Enter Valid Email</div>
-                                        <div style="color:Red" ng-show="personFormjs.PhoneJS.$dirty&&personFormjs.PhoneJS.$error.pattern">Please Enter Valid Email</div>
-                                        <div style="color:Red" ng-show="personFormjs.PassJS.$dirty&&personFormjs.PassJS.$error.pattern">Please Enter Valid Email</div>
-                                        <div style="color:Red" ng-show="MeliCodeReq">sdlkcmskdmkd Enter Valid Email</div>
+                                      <div style="color:Red" ng-show="personFormjs.UserNameJS.$dirty&&personFormjs.UserNameJS.$error.pattern">نام کاربری نباید خالی باشد.</div>
+                                        <div style="color:Red" ng-show="personFormjs.FullNameJS.$dirty&&personFormjs.FullNameJS.$error.pattern">فیلد نام و نام خانوادگی نباید خالی باشد.</div>
+                                        <div style="color:Red" ng-show="personFormjs.EmailJS.$dirty&&personFormjs.EmailJS.$error.pattern">لطفا ایمیل خود را به صورت صحیح وارد نمایید.</div>
+                                        <div style="color:Red" ng-show="personFormjs.PhoneJS.$dirty&&personFormjs.PhoneJS.$error.pattern">لطفا شماره موبایل خود را درست وارد نمایید.</div>
+                                        <div style="color:Red" ng-show="personFormjs.PassJS.$dirty&&personFormjs.PassJS.$error.pattern">رمز عبور باید بیش از 6 حرف باشد.</div>
+                                        <div style="color:Red" ng-show="MeliCodeReq">کد ملی شما ناصحیح میباشد.</div>
 
                                        <div class="col-md-12 col-xs-12">
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="UserNameJS" ng-model="UserNameJS" placeholder="نام کاربری" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="FullNameJS" ng-model="FullNameJS" placeholder="نام و نام خانوادگی" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="MeliCodeJS" ng-model="MeliCodeJS" placeholder="کد ملی" ng-change="valichengemelicode()" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="EmailJS" ng-model="EmailJS" placeholder="ایمیل"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"><br>
-                                          <input class="inputloginreg fontmedium greencolor" type="text" name="PhoneJS" ng-model="PhoneJS" placeholder="شماره موبایل" ng-pattern="/^989[0-9]{9}$/" required><br>
+                                          <input class="inputloginreg fontmedium greencolor" type="text" name="PhoneJS" ng-model="PhoneJS" placeholder="شماره موبایل" ng-pattern="/^[0][9][0-3][0-9]{8,8}$/" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="PassJS"  ng-model="PassJS" placeholder="رمز عبور" ng-pattern="/^.{6,}$/"  required><br>
                                        </div>
                                        <div class="col-md-12 col-xs-12 h5title fontmedium textright">

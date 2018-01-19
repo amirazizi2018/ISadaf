@@ -1707,6 +1707,8 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
       name: "id" + counter++
     });
 
+    $scope.formData.inpuvaluemaharatkild = "";
+
   };
 
 

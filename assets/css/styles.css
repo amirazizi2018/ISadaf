@@ -3822,6 +3822,42 @@ For Page Company Page 8
   box-shadow: 11px 0 11px -7px rgba(74, 74, 74, 1);
 }
 
+.tag-style3 {
+  background: #f15a24 none repeat scroll 0 0;
+  border-radius: 9px 0 0 9px;
+  color: #fff !important;
+  float: right;
+  margin-right: -2px;
+  padding: 7px 12px;
+  -webkit-box-shadow: 11px 0 11px -7px rgba(74, 74, 74, 1);
+  -moz-box-shadow: 11px 0 11px -7px rgba(74, 74, 74, 1);
+  box-shadow: 11px 0 11px -7px rgba(74, 74, 74, 1);
+}
+
+.tag-style4 {
+  background: #8cc63f none repeat scroll 0 0;
+  border-radius: 9px 0 0 9px;
+  color: #fff !important;
+  float: right;
+  margin-right: -2px;
+  padding: 7px 12px;
+  -webkit-box-shadow: 11px 0 11px -7px rgba(74, 74, 74, 1);
+  -moz-box-shadow: 11px 0 11px -7px rgba(74, 74, 74, 1);
+  box-shadow: 11px 0 11px -7px rgba(74, 74, 74, 1);
+}
+
+.tag-style5 {
+  background: #f15a24 none repeat scroll 0 0;
+  border-radius: 9px 0 0 9px;
+  color: #fff !important;
+  float: right;
+  margin-right: -2px;
+  padding: 7px 12px;
+  -webkit-box-shadow: 11px 0 11px -7px rgba(74, 74, 74, 1);
+  -moz-box-shadow: 11px 0 11px -7px rgba(74, 74, 74, 1);
+  box-shadow: 11px 0 11px -7px rgba(74, 74, 74, 1);
+}
+
 .companystatistics.jobpagecs {
   border-radius: 3px;
   float: right;

@@ -681,7 +681,17 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
     $scope.jobsdata = response.data.like;
     $scope.totalItems = $scope.jobsdata.length;
 
+    var input = response.data.job.requirements;
+
+    $scope.jobdescription = [];
+    Object.keys(input).forEach(function(key) {
+      var obj = {};
+      obj["line"] = input[key];
+      jobdescription.push(obj); //push newly created object in `op`array
+    });
+
   });
+
 
 
 

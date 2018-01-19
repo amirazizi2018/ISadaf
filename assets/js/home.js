@@ -317,7 +317,25 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     }
   }
 
+  $scope.gotomainpage = function() {
+    if ($localStorage.UserType == "JS") {
+      $location.path("jobseekermainpage");
+      $localStorage.LocationUser = "jobseekermainpage";
 
+    }
+    if ($localStorage.UserType == "EMP") {
+      $location.path("companymainpage");
+      $localStorage.LocationUser = "companymainpage";
+    }
+    if ($localStorage.UserType == "SP") {
+      $location.path("spmainpage");
+      $localStorage.LocationUser = "spmainpage";
+    }
+    else {
+      $location.path("home");
+      $localStorage.LocationUser = "home";
+    }
+  }
 
 
 
@@ -483,9 +501,11 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
   $scope.RegisteryJS = function(UserNameJS, PhoneJS, PassJS, FullNameJS, EmailJS, MeliCodeJS) {
 
+    var PhoneJSRes = PhoneJS.slice(1);
+
     var data = {
       username: UserNameJS,
-      phone: PhoneJS,
+      phone: "98"+PhoneJSRes,
       password: PassJS,
       fullname: FullNameJS,
       email: EmailJS,
@@ -519,9 +539,11 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
   $scope.RegisteryEMP = function(UserNameEMP, PhoneEMP, PassEMP, FullNameEMP, EmailEMP) {
 
+    var PhoneEMPRes = PhoneEMP.slice(1);
+
     var data = {
       username: UserNameEMP,
-      phone: PhoneEMP,
+      phone: "98"+PhoneEMPRes,
       password: PassEMP,
       fa_name: FullNameEMP,
       email: EmailEMP,
