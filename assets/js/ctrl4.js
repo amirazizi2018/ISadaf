@@ -678,6 +678,27 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     $scope.examshayeteghi = response.data.job.exam_sp;
 
+    var id_sp = response.data.job.resume_sp_id;
+
+        var config = {
+
+          headers: {
+
+            'Content-Type': 'application/json',
+
+            'Access-Token': $localStorage.TokenKey.access,
+
+          }
+
+        }
+
+        $http.get(mustafasite + '/service_provider/' + id_sp , JSON.stringify(data), config).then(function(response) {
+          $scope.ProfileResSp = response.data.exams;
+          $scope.ProfileSp = response.data;
+        });
+
+
+
     $scope.jobsdata = response.data.like;
     $scope.totalItems = $scope.jobsdata.length;
 
@@ -685,12 +706,9 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     $scope.jobdescription = [];
     Object.keys(input).forEach(function(key) {
-      console.log(key);
-      console.log(input);
       var obj = {};
       obj["line"] = input[key];
       $scope.jobdescription.push(obj);
-      console.log($scope.jobdescription);
     });
 
   });

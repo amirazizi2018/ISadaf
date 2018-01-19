@@ -217,8 +217,6 @@
 <div class="col-md-9 col-xs-12 pg6martopdejob">                        <div class="h2title fontmedium bluecolor" style="padding: 5px 0;">شرح شغل:</div>
                         <ul class="companymore jobpageti">
 <!-- {{ajob.description}} -->
-{{jobdescription}}
-{{response.data.job.requirements}}
 <li ng-repeat="x in jobdescription">{{x.line}}</li>
                         </ul>
                     </div>
@@ -395,7 +393,7 @@
 				</div>       
 <div class="col-md-10 col-xs-12 ">				
 				<span class="exfildvalue gethithre">
-                            <span   class="">{{ajob.work_hour_from}} تا {{ajob.work_hour_to}}</span>
+                            <span   class="">{{ajob.work_hour_from}} تا {{ajob.work_hour_to}} - {{ajob.experience_type}}</span>
                         </span>
 							</div>
 </div>
@@ -533,6 +531,32 @@
 		<div class="col-md-12 coompanyservices jobpagetable">
                 <div class="h2title fontmedium bluecolor" style="padding: 5px 0 10px;">ارزیابی های مورد نیاز</div>
 				<div class="col-md-12 col-xs-12 assmereq">
+          <div class="col-md-12 col-xs-12 row" style="padding: 20px 0 30px;">
+
+                  <div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی کلی:</div>
+
+
+
+              <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in ProfileResSp | filter: { exam : { group  : 'رزومه' }}">
+
+  <div class="btn testbotto finalbotdetres" >
+
+  <md-tooltip
+
+                md-direction="top">
+
+                رزومه شخصی
+
+              </md-tooltip>
+  <div class="finalbotdetrestext" >
+    <span class="fontlight h6title">رزومه شخصی</span>
+      </div>
+    <div class="finalbotdetresimg"><img class="img" src="{{ProfileSp.avatar}}"></div>
+    </div>
+          </div>
+          </div>
+
+
 				<div class="col-md-12 col-xs-12 row" style="padding: 20px 0 30px;">
 								<div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی شخصیت</div>
 
