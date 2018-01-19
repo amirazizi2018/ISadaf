@@ -986,14 +986,17 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
     }
     if ($scope.dastekhedmatselected == "مهارتی" || $scope.dastekhedmatselected == "روانشناختی") {
 
-      var finalduration;
-
+      var finalduration = null;
+console.log(finalduration);
       if($scope.vahedzaman == "min"){
         finalduration = $scope.modatzaman;
+        console.log(finalduration);
       }
       if($scope.vahedzaman == "hur"){
         finalduration = $scope.modatzaman*60;
+        console.log(finalduration);
       }
+      console.log(finalduration);
 
       var data = {
         exam_id: parseInt($scope.namekhedmatselected),

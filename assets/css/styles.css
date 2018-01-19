@@ -2333,6 +2333,11 @@ ul {
   background: #fff;
   border: 1px solid #0a415b;
   border-radius: 3px;
+  width: 50px;
+}
+
+.arzntagimg img.active {
+border: 1px solid #29b473;
 }
 
 .arzintitle {

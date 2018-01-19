@@ -372,12 +372,13 @@
 				</div>       
 <div class="col-md-10 col-xs-12 ">				
 				<span class="exfildvalue ">
-          <span ng-show="ajob.position == 'KARMAND'"  class="">کارمند</span>
+          <!-- <span ng-show="ajob.position == 'KARMAND'"  class="">کارمند</span>
           <span ng-show="ajob.position == 'KARSHENAS'"  class="">کارشناس</span>
           <span ng-show="ajob.position == 'KARSHENASE_ARSHAD'"  class="">کارشناس ارشد</span>
           <span ng-show="ajob.position == 'MODIR'"  class="">مدیر</span>
           <span ng-show="ajob.position == 'MODIR_ARSHAD'"  class="">مدیر ارشد</span>
-          <span ng-show="ajob.position == 'MOSHAVER'"  class="">مشاور</span>
+          <span ng-show="ajob.position == 'MOSHAVER'"  class="">مشاور</span> -->
+        {{ajob.position}}
                                 </span>
 							</div>
 </div>
@@ -419,7 +420,7 @@
 				</div>       
 <div class="col-md-10 col-xs-12 ">				
 				<span class="exfildvalue ">
-          <span ng-show="ajob.department == 'EDARI'"  class="">اداری</span>
+          <!-- <span ng-show="ajob.department == 'EDARI'"  class="">اداری</span>
           <span ng-show="ajob.department == 'MALI'"  class="">مالی</span>
           <span ng-show="ajob.department == 'POSHTIBANI'"  class="">پشتیبانی</span>
           <span ng-show="ajob.department == 'RAVABET_UMUMI'"  class="">روابط عمومی</span>
@@ -428,7 +429,8 @@
           <span ng-show="ajob.department == 'EJRAE'"  class="">اجرایی</span>
           <span ng-show="ajob.department == 'TOLID'"  class="">تولید</span>
           <span ng-show="ajob.department == 'TAHGHIGH'"  class="">تحقیق</span>
-          <span ng-show="ajob.department == 'OTHER'"  class="">سایر موارد</span>
+          <span ng-show="ajob.department == 'OTHER'"  class="">سایر موارد</span> -->
+          {{ajob.department}}
                                 </span>
 							</div>
 </div>
@@ -529,21 +531,21 @@
                 <div class="h2title fontmedium bluecolor" style="padding: 5px 0 10px;">ارزیابی های مورد نیاز</div>
 				
 				<div class="col-md-12 col-xs-12 assmereq">
-				<div class="col-md-12 col-xs-12 row" ng-repeat="x in assmereq"  style="padding: 20px 0 30px;">
-								<div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">{{x.name}}</div>
+				<div class="col-md-12 col-xs-12 row" style="padding: 20px 0 30px;">
+								<div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی شخصیت</div>
 
-						<div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in x.row">
+						<div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in examshayeteghi | filter: { exam.group : 'روانشناختی' }">
 <div class="btn testbotto finalbotdetres" > 
 <md-tooltip
               md-direction="top">
-              {{x.title}}
+              {{x.exam.name}}
             </md-tooltip>
 <div class="finalbotdetrestext" > 
-  <span class="fontlight h6title">{{x.title | limitTo: 20 }}</span>
-  <span class="finalbotdetressath fontlight" ng-if="x.level">{{x.level}}</span>
+  <span class="fontlight h6title">{{x.exam.name | limitTo: 20 }}</span>
+  <!-- <span class="finalbotdetressath fontlight" ng-if="x.level">{{x.level}}</span> -->
     </div>
 
-  <div class="finalbotdetresimg"><img class="img" src="{{x.img}}"></div>
+  <div class="finalbotdetresimg"><img class="img" src="{{x.service_provider.avatar}}"></div>
 
   </div>
 				</div>

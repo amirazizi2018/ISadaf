@@ -676,9 +676,42 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
     $scope.ajob = response.data.job;
     $scope.advertisementtypes = response.data.job.advertisement_types;
 
+    $scope.examshayeteghi = response.data.job.exam_sp;
+
+    $scope.jobsdata = response.data.like;
+    $scope.totalItems = $scope.jobsdata.length;
+
   });
 
 
+
+
+
+    $scope.viewby = 3;
+
+    $scope.currentPage = 1;
+
+    $scope.itemsPerPage = $scope.viewby;
+
+    $scope.maxSize = 5;
+
+
+
+    $scope.setPage = function(pageNo) {
+
+      $scope.currentPage = pageNo;
+
+    };
+
+
+
+    $scope.setItemsPerPage = function(num) {
+
+      $scope.itemsPerPage = num;
+
+      $scope.currentPage = 1;
+
+    }
 
   $scope.requestshowpage = true;
   $scope.pindedplusonej = true;
@@ -802,59 +835,6 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
 
 
-
-  var config = {
-
-    headers: {
-
-      'Content-Type': 'application/json'
-
-    }
-
-  }
-
-
-
-  $http.get(mustafasite + "/job", config).then(function(response) {
-
-    $scope.jobsdata = response.data.hits;
-
-    $scope.totalItems = $scope.jobsdata.length;
-
-
-
-
-  });
-
-
-
-
-
-  $scope.viewby = 3;
-
-  $scope.currentPage = 1;
-
-  $scope.itemsPerPage = $scope.viewby;
-
-  $scope.maxSize = 5;
-
-
-
-  $scope.setPage = function(pageNo) {
-
-    $scope.currentPage = pageNo;
-
-  };
-
-
-
-  $scope.setItemsPerPage = function(num) {
-
-    $scope.itemsPerPage = num;
-
-    $scope.currentPage = 1;
-
-  }
 
 
 
