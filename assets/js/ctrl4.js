@@ -20,7 +20,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     normalFill: '#fff',
 
-        rtl: false,
+    rtl: false,
 
     readOnly: true,
 
@@ -30,7 +30,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     spacing: "5px",
 
-        starWidth: "16px"
+    starWidth: "16px"
 
   };
 
@@ -46,7 +46,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     normalFill: '#fff',
 
-        rtl: false,
+    rtl: false,
 
     readOnly: false,
 
@@ -56,7 +56,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     spacing: "5px",
 
-        starWidth: "20px"
+    starWidth: "20px"
 
   };
 
@@ -72,7 +72,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     normalFill: '#E6E6E6',
 
-        rtl: false,
+    rtl: false,
 
     readOnly: false,
 
@@ -82,7 +82,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     spacing: "5px",
 
-        starWidth: "20px"
+    starWidth: "20px"
 
   };
 
@@ -96,7 +96,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     normalFill: '#fff',
 
-        rtl: false,
+    rtl: false,
 
     readOnly: false,
 
@@ -106,7 +106,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     spacing: "5px",
 
-        starWidth: "17px"
+    starWidth: "17px"
 
   };
 
@@ -120,7 +120,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     normalFill: '#fff',
 
-        rtl: false,
+    rtl: false,
 
     readOnly: false,
 
@@ -130,7 +130,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     spacing: "5px",
 
-        starWidth: "17px"
+    starWidth: "17px"
 
   };
 
@@ -144,7 +144,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     normalFill: '#fff',
 
-        rtl: false,
+    rtl: false,
 
     readOnly: false,
 
@@ -154,7 +154,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     spacing: "5px",
 
-        starWidth: "17px"
+    starWidth: "17px"
 
   };
 
@@ -170,7 +170,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     normalFill: '#fff',
 
-        rtl: false,
+    rtl: false,
 
     readOnly: false,
 
@@ -180,7 +180,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     spacing: "5px",
 
-        starWidth: "17px"
+    starWidth: "17px"
 
   };
 
@@ -194,7 +194,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     normalFill: '#fff',
 
-        rtl: false,
+    rtl: false,
 
     readOnly: false,
 
@@ -204,7 +204,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     spacing: "5px",
 
-        starWidth: "17px"
+    starWidth: "17px"
 
   };
 
@@ -687,31 +687,31 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
 
 
-    $scope.viewby = 3;
+  $scope.viewby = 3;
+
+  $scope.currentPage = 1;
+
+  $scope.itemsPerPage = $scope.viewby;
+
+  $scope.maxSize = 5;
+
+
+
+  $scope.setPage = function(pageNo) {
+
+    $scope.currentPage = pageNo;
+
+  };
+
+
+
+  $scope.setItemsPerPage = function(num) {
+
+    $scope.itemsPerPage = num;
 
     $scope.currentPage = 1;
 
-    $scope.itemsPerPage = $scope.viewby;
-
-    $scope.maxSize = 5;
-
-
-
-    $scope.setPage = function(pageNo) {
-
-      $scope.currentPage = pageNo;
-
-    };
-
-
-
-    $scope.setItemsPerPage = function(num) {
-
-      $scope.itemsPerPage = num;
-
-      $scope.currentPage = 1;
-
-    }
+  }
 
   $scope.requestshowpage = true;
   $scope.pindedplusonej = true;
@@ -1141,7 +1141,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     normalFill: '#fff',
 
-        rtl: false,
+    rtl: false,
 
     readOnly: true,
 
@@ -1151,7 +1151,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     spacing: "5px",
 
-        starWidth: "16px"
+    starWidth: "16px"
 
   };
 
@@ -1163,7 +1163,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     normalFill: '#E6E6E6',
 
-        rtl: false,
+  rtl: false,
 
     readOnly: true,
 
@@ -1193,7 +1193,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
     ShareData.setPropertyempid(getcompanyid);
     $location.path("acompanypage");
 
-   }
+  }
 
 
 
