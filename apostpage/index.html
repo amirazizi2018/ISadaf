@@ -218,7 +218,6 @@
                         <ul class="companymore jobpageti">
 <!-- {{ajob.description}} -->
 <li ng-repeat="x in jobdescription">{{x.line}}</li>
-{{jobdescription}}
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-12">
@@ -533,12 +532,12 @@
                 <div class="h2title fontmedium bluecolor" style="padding: 5px 0 10px;">ارزیابی های مورد نیاز</div>
 				<div class="col-md-12 col-xs-12 assmereq">
           <div class="col-md-12 col-xs-12 row" style="padding: 20px 0 30px;">
-
+{{profilesp}}
                   <div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی کلی:</div>
 
 
-{{ProfileResSp}}
-              <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in ProfileResSp | filter: { exam : { group  : 'رزومه' }}">
+{{profileressp}}
+              <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in profileressp">
 
   <div class="btn testbotto finalbotdetres" >
 

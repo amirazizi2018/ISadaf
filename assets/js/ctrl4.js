@@ -705,8 +705,8 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
         }
 
         $http.get(mustafasite + '/service_provider/' + id_sp , JSON.stringify(data), config).then(function(response) {
-          $scope.ProfileResSp = response.data.exams;
-          $scope.ProfileSp = response.data;
+          $scope.profileressp = response.data.exams;
+          $scope.profilesp = response.data;
         });
   });
 
