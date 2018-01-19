@@ -217,6 +217,8 @@
 <div class="col-md-9 col-xs-12 pg6martopdejob">                        <div class="h2title fontmedium bluecolor" style="padding: 5px 0;">شرح شغل:</div>
                         <ul class="companymore jobpageti">
 <!-- {{ajob.description}} -->
+{{jobdescription}}
+{{response.data.job.requirements}}
 <li ng-repeat="x in jobdescription">{{x.line}}</li>
                         </ul>
                     </div>
