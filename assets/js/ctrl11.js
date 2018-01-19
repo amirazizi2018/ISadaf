@@ -1936,7 +1936,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
       department: $scope.formData.noemahalfaliat,  // String , Custom Entrance
       description: $scope.formData.tozihat, // String
       education: $scope.formData.reshteselec, // String // Problem
-      exams: $scope.examarray, // Array
+      exam_sp: $scope.examarray, // Array
       experience_from: parseInt(experienceft[0]), // Int
       experience_to: parseInt(experienceft[1]), // Int
       experience_type: $scope.formData.hozedaraysabeghe, // String
