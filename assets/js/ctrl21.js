@@ -176,8 +176,6 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
     detkargozarhashyestegi: [],
 
-
-
   };
 
 
