@@ -256,6 +256,7 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
   $scope.SelectZamanTakhmini = [];
   $scope.SelectBarovordHazineh = [];
+
    $scope.Addresearch = function() {
 
     var getzamantakhmini = $scope.SelectZamanTakhmini;
@@ -303,7 +304,7 @@ console.log(zamantakhmniniv);
       min_payment: parseInt(barovordhazine[0]), // Int
       requirements: kalamekilidiforsend, // Object
       // skills: objhozetakhasosi,  // Object
-      title: $scope.formData.ResearchTitle, // String
+      title: $scope.formData.researchtitle, // String
       approach: $scope.formData.RavashTahghigh, // String
       output_type: $scope.formData.NoeKhoroji, // String
       type: $scope.formData.SelectSanaat, // String
