@@ -997,7 +997,7 @@ console.log(finalduration);
         console.log(finalduration);
       }
       console.log(finalduration);
-
+ 
       var data = {
         exam_id: parseInt($scope.namekhedmatselected),
         price: parseInt($scope.pricekhedmatselected),
