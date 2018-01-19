@@ -692,7 +692,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
       var id_sp = response.data.job.resume_sp_id;
 
-        var config = {
+        var config_sp = {
 
           headers: {
 
@@ -704,7 +704,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
         }
 
-        $http.get(mustafasite + '/service_provider/' + id_sp , JSON.stringify(data), config).then(function(response) {
+        $http.get(mustafasite + '/service_provider/' + id_sp , config_sp).then(function(response) {
           $scope.profileressp = response.data.exams;
           alert("gereftam");
           $scope.profilesp = response.data;
