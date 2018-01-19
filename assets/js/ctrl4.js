@@ -706,6 +706,7 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
         $http.get(mustafasite + '/service_provider/' + id_sp , JSON.stringify(data), config).then(function(response) {
           $scope.profileressp = response.data.exams;
+          alert("gereftam");
           $scope.profilesp = response.data;
         });
   });
