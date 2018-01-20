@@ -609,7 +609,8 @@ $scope.getaliiempset();
 	    var config = {
 
 	      headers: {
-
+					
+					'Content-Type' : 'application/json',
 	        'Access-Token': $localStorage.TokenKey.access,
 
 	      }
