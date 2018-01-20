@@ -654,25 +654,25 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
   }
 
 
-  $scope.selectkargozarinint = [];
-
-  $scope.selectkargozar = function(kargozar) {
-    $scope.selectkargozarinint = [];
-    $scope.selected = kargozar;
-    $scope.selectkargozarinint.push(kargozar);
-  }
+  // $scope.selectkargozarinint = [];
+  //
+  // $scope.selectkargozar = function(kargozar) {
+  //   $scope.selectkargozarinint = [];
+  //   $scope.selected = kargozar;
+  //   $scope.selectkargozarinint.push(kargozar);
+  // }
 
 
   $scope.selectkargozarresume = function(x) {
 
-    $scope.selectedresumesp = x;
-    var result;
-    for each (var item in x.exams) {
-      if(exam.group === "رزومه") {
-          result = item;
-          break;
-      }
-    }
+    // $scope.selectedresumesp = x;
+    // var result;
+    // for each (var item in x.exams) {
+    //   if(exam.group === "رزومه") {
+    //       result = item;
+    //       break;
+    //   }
+    // }
 
 
     $scope.gotocreateres = function() {
@@ -708,7 +708,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
     }
 
 
-}
+  }
 
 
 
