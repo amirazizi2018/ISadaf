@@ -665,14 +665,15 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
   $scope.selectkargozarresume = function(x) {
 
-    // $scope.selectedresumesp = x;
-    // var result;
-    // for each (var item in x.exams) {
-    //   if(exam.group === "رزومه") {
-    //       result = item;
-    //       break;
-    //   }
-    // }
+    $scope.selectedresumesp = x;
+    var ddd = x.exams;
+    var result;
+    for each (var item in ddd) {
+      if(exam.group === "رزومه") {
+          result = item;
+          break;
+      }
+    }
 
 
     $scope.gotocreateres = function() {
