@@ -366,12 +366,21 @@ app.controller('companydashboardpage', function($compile, $sce, $scope, $window,
 	    $scope.socials = response.data.socials;
 			$scope.advertisements = response.data.advertisements;
 			$scope.search_packs = response.data.search_packs;
-			$scope.jsbookmarked = response.data.jobs;
 
-	    $scope.jobseekersaved = response.data.jobs;
+			$scope.jobsaveddata = response.data.jobs;
+			$scope.jobsavedtotalItems = $scope.jobsaveddata.length;
+
+			// JS requests
+			$scope.jobseekersaved = [];
+			for (var x = 0; x < response.data.jobs.length; x++) {
+				for (var i = 0; i < response.data.jobs[x].requests.length; i++) {
+					$scope.jobseekersaved.push(response.data.jobs[x].requests[i]);
+				}
+			}
+
+			console.log($scope.jobseekersaved);
 			$scope.jobseekersavedtotalItems = $scope.jobseekersaved.length;
 
-	    $scope.jobsavedtotalItems = $scope.employeejobs.length;
 
 	  });
 }
