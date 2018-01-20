@@ -489,11 +489,11 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
 
 
 
-      if ($scope.geymatkargozarmaharat == "0") {
-
-        alert("لطفا اول کارگزار را انتخاب کنید")
-
-      } else {
+      // if ($scope.geymatkargozarmaharat != "0") {
+      //
+      //   alert("لطفا اول کارگزار را انتخاب کنید")
+      //
+      // } else {
 
         /* 		var nametest = x.nametest;
 
@@ -564,8 +564,8 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
 
 
 
-
-      }
+      //
+      // }
 
     }
 
