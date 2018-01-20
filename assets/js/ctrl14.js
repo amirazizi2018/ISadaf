@@ -616,7 +616,7 @@ $scope.getaliiempset();
 
 
 
-	    $http.post(mustafasite + '/employer/bookmark' + data, config).then(function(response) {
+	    $http.post(mustafasite + '/employer/bookmark/' + data, config).then(function(response) {
 
 				$scope.getaliiempset();
 
