@@ -706,7 +706,7 @@ $scope.setItemsPerPage = function(num) {
 				'Content-Type' : 'application/json',
         'Access-Token': $localStorage.TokenKey.access
 
-      }
+      };
 
     }
 

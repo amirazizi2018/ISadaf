@@ -244,6 +244,34 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
   ];
 
 
+    $scope.reshteeducation = [
+      {
+        nameper: "نرم افزار",
+      },
+      {
+        nameper: "طراح گرافیک",
+      },
+      {
+        nameper: "مدیریت",
+      },
+      {
+        nameper: "حسابداری",
+      },
+      {
+        nameper: "اقتصاد",
+      },
+      {
+        nameper: "روزنامه نگاری",
+      },
+      {
+        nameper: "منشی",
+      },
+      {
+        nameper: "صنایع",
+      },
+    ];
+
+
 
   $scope.shahr = [
     {
