@@ -694,7 +694,9 @@ $scope.setItemsPerPage = function(num) {
 
   $scope.removejobseekerbookmark = function(jobseeker) {
 
-    var data = jobseeker.job_seeker.id;
+    var data = {
+			id : parseInt(jobseeker.job_seeker.id),
+		}
 
 
 
