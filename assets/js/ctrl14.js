@@ -701,7 +701,7 @@ $scope.setItemsPerPage = function(num) {
     var config = {
 
       headers: {
-
+				'Content-Type' : 'application/json',
         'Access-Token': $localStorage.TokenKey.access,
 
       }
@@ -710,7 +710,7 @@ $scope.setItemsPerPage = function(num) {
 
 
 
-    $http.delete(mustafasite + '/employer/bookmark/job_seeker' + data, config).then(function(response) {
+    $http.delete(mustafasite + '/employer/bookmark/job_seeker' , JSON.stringify(data), config).then(function(response) {
 
 			$scope.getaliiempset();
 
