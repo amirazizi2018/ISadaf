@@ -467,7 +467,7 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
 
     $scope.selectedmaharat = kargozarmaharat;
 
-    // var getnamekargozar = kargozarmaharat.kargozarname;
+    var getidexam = kargozarmaharat.id;
 
     var getgeymatkargozar = kargozarmaharat.price;
 
@@ -483,9 +483,9 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
     $scope.timekargozarmaharat = gettimekargozar;
 
     $scope.addtestvakargomaharat = function(x) {
-
-      var getnametest = x.name;
-      var getidtest = x.id;
+      //
+      // var getnametest = x.name;
+      // var getidtest = x.id;
 
 
 
@@ -531,12 +531,11 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
 
 
 
-        var data = {
-          "jsId": $localStorage.UserId,
-          "FullName": $localStorage.UserFaName,
-          "TestType": getnametest,
-          "ExamId": getidtest
-        };
+        // var data = {
+        //   "jsId": $localStorage.UserId,
+        //   "FullName": ,
+        //   "ExamId": getidexam
+        // };
 
 
 
@@ -545,18 +544,16 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
           headers: {
 
             'Content-Type': 'application/json',
+            'Access-Token': $localStorage.TokenKey.access
 
           }
 
         }
 
-        $http.post('http://www.ishaygan.ir/Account/login', JSON.stringify(data), config).then(function(response) {
+        $http.post('https://sadaf.systmngr.ir/api/v1/exam/' + getidexam +'/pay', config).then(function(response) {
 
-          var tokenddd = response.token;
 
-          var examurl = "http://www.ishaygan.ir/ExamApi/MbtiExam/?token=";
-
-          var urlforgotosite = tokenddd + examurl;
+          var urlforgotosite = geturlkargozar + "?JsId=" + $localStorage.UserId + "&Exam_id=" + getidexam + "&Fullname=" + $localStorage.UserFaName;
 
           window.open(urlforgotosite, '_self', '');
 
