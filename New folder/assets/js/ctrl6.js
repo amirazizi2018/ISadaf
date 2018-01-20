@@ -201,7 +201,7 @@ app.controller('jobseekerprofilepage' ,function($compile, $sce, $scope, $window,
 	{activeclass : 'active' ,textbtn:'تمام وقت'},
 	{textbtn:'پاره وقت'},
 	{textbtn:'کارآموزی'},
-	{textbtn:'کاروندی'},
+	{textbtn:'کارورزی'},
 	];
 
 	$scope.companychart = [

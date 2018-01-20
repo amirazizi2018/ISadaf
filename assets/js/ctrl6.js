@@ -503,7 +503,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
     },
 
     {
-      textbtn: 'کاروندی'
+      textbtn: 'کارورزی'
     },
 
   ];

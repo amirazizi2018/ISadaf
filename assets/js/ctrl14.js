@@ -366,14 +366,19 @@ app.controller('companydashboardpage', function($compile, $sce, $scope, $window,
 	    $scope.socials = response.data.socials;
 			$scope.advertisements = response.data.advertisements;
 			$scope.search_packs = response.data.search_packs;
+			$scope.jsbookmarked = response.data.jobs;
 
-	    $scope.jobsaveddata = response.data.jobs;
+	    $scope.jobseekersaved = response.data.jobs;
+			$scope.jobseekersavedtotalItems = $scope.jobseekersaved.length;
 
 	    $scope.jobsavedtotalItems = $scope.employeejobs.length;
 
 	  });
 }
 $scope.getaliiempset();
+
+
+
 
 
 
@@ -520,12 +525,12 @@ $scope.getaliiempset();
 '</svg>'   };	
 
 		//   $scope.jobsaveddata = [
-   //       {id:'1', companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-   //       {id:'2', companyname:'شرکت مپنا',companylogo:'assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-   //       {id:'3', companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-   //       {id:'4', companyname:'شرکت مپنا',companylogo:'assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-   //       {id:'5', companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-   //       {id:'6', companyname:'شرکت مپنا',companylogo:'assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کاروندی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+   //       {id:'1', companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کارورزی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+   //       {id:'2', companyname:'شرکت مپنا',companylogo:'assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کارورزی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+   //       {id:'3', companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کارورزی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+   //       {id:'4', companyname:'شرکت مپنا',companylogo:'assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کارورزی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+   //       {id:'5', companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کارورزی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+   //       {id:'6', companyname:'شرکت مپنا',companylogo:'assets/images/mapnalogo.png',jobname:'مدیر تولید ',joblocations:'تهران',jobfield:'مهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی',typeofcooperation: [{activeclass : 'active' ,textbtn:'تمام وقت'},{textbtn:'پاره وقت'},{textbtn:'کارآموزی'},{textbtn:'کارورزی'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '5 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
    // ];
 
 
@@ -616,45 +621,56 @@ $scope.setItemsPerPage = function(num) {
 
 
    
-	$scope.jobseekersaved = [ 
-      {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},      
-	  {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
- ];	
- 
-			$scope.sendsearchinjobse  = function() {
-$scope.jobseekersaved = [ 
-      {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-       {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
- ];	
-     }
+	// $scope.jobseekersaved = [ 
+ //      {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},      
+	//   {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+ // ];	
+ //
+// 			$scope.sendsearchinjobse  = function() {
+// $scope.jobseekersaved = [ 
+//       {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+//         {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+//        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+//         {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "", searchlog : "",},
+//  ];	
+//      }
   
-  $scope.jobseekersavedviewby = 8;
-  $scope.jobseekersavedtotalItems = $scope.jobseekersaved.length;
-  $scope.jobseekersavedcurrentPage = 1;
-  $scope.jobseekersaveditemsPerPage = $scope.jobseekersavedviewby;
-  $scope.jobseekersavedmaxSize = 5;
-
-  $scope.jobseekersavedsetPage = function (pageNo) {
-    $scope.jobseekersavedcurrentPage = pageNo;
-  };
-
-$scope.setItemsPerPage = function(num) {
-  $scope.itemsPerPage = num;
-  $scope.currentPage = 1; 
-}
+//
 
 
-
-
+$scope.jobseekersavedviewby = 8;
+
+
+$scope.jobseekersavedcurrentPage = 1;
+
+$scope.jobseekersaveditemsPerPage = $scope.jobseekersavedviewby;
+
+$scope.jobseekersavedmaxSize = 5;
+
+
+
+$scope.jobseekersavedsetPage = function (pageNo) {
+
+	$scope.jobseekersavedcurrentPage = pageNo;
+
+};
+
+
+
+$scope.setItemsPerPage = function(num) {
+
+$scope.itemsPerPage = num;
+
+$scope.currentPage = 1;
+
+}
 
 
 

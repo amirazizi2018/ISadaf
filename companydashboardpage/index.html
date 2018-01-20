@@ -673,7 +673,7 @@
 
                 <div class="fontlight">
 
-                  کاروندی
+                  کارورزی
 
                 </div>
 
@@ -693,7 +693,7 @@
 
 <div class="col-md-12 readmorejob">
 
-<button  ng-click="HideJob()" type="button" class="btn greenbtnreverse fontmedium"><span>پنهان نمودن آگهی</span></button>
+<button  ng-click="HideJob(item)" type="button" class="btn greenbtnreverse fontmedium"><span>پنهان نمودن آگهی</span></button>
 
 </div>
 
@@ -960,11 +960,11 @@
 
 			<span class="pinjob removejob col-md-1 col-xs-1 " ng-click="pin(jobseeker) "><i class="fa fa-times " aria-hidden="true "></i></span>
 
-			<span class="jobseekerpicture col-md-3 col-xs-3 "><img src="{{jobseeker.picture}} "/></span>
+			<span class="jobseekerpicture col-md-3 col-xs-3 "><img src="{{jobseeker.jobseeker.avatar}} "/></span>
 
-			<span class="jobseekername bluecolor col-md-7 col-xs-7 fontmedium ">{{jobseeker.name}}</span>
+			<span class="jobseekername bluecolor col-md-7 col-xs-7 fontmedium ">{{jobseeker.jobseeker.fullname}}</span>
 
-			<span class="jobseekertag graycolor h5title col-md-7 col-xs-7 ">{{jobseeker.tag}}</span>
+			<span class="jobseekertag graycolor h5title col-md-7 col-xs-7 ">{{jobseeker.jobseeker.email}}</span>
 
 	</div>
 
@@ -972,19 +972,19 @@
 
         <span  ng-class="{ 'greencolor': jobseeker.status=='پیام داده شد' } " class="jobseekerstatus bluecolor h5title col-md-12 fontmedium "> {{ jobseeker.status }}</span>
 
-        <span class="jobseekerdate graycolor h6title col-md-12 "> {{ jobseeker.date }}</span>
+        <span class="jobseekerdate graycolor h6title col-md-12 "> {{ jobseeker.updated_at | jalaliDate:'jDD / jMMMM / jYY' }}</span>
 
 	</div>
 
 <div class="col-md-5 col-xs-5 textcenter " style="padding-top: 7px; ">
 
-        <span class="jobseekersendmass graycolor h6title col-md-3 col-xs-3 " ng-click=" "()> <i class="fa fa-envelope-o " aria-hidden="true "></i><br>پیام به کارجو</span>
+        <span class="jobseekersendmass graycolor h6title col-md-3 col-xs-3 " ng-click=""> <i class="fa fa-envelope-o " aria-hidden="true "></i><br>پیام به کارجو</span>
 
-        <span class="jobseekerviewprofile graycolor h6title col-md-3 col-xs-3 " ng-click=" "()><i class="fa fa-eye " aria-hidden="true "></i> <br>مشاهده پروفایل</span>
+        <span class="jobseekerviewprofile graycolor h6title col-md-3 col-xs-3 " ng-click=""><i class="fa fa-eye " aria-hidden="true "></i> <br>مشاهده پروفایل</span>
 
-        <span class="jobseekerdownloadprofile graycolor h6title col-md-3 col-xs-3 " ng-click=" "()><i class="fa fa-file-pdf-o " aria-hidden="true "></i> <br>دانلود پرو فایل</span>
+        <span class="jobseekerdownloadprofile graycolor h6title col-md-3 col-xs-3 " ng-click=""><i class="fa fa-file-pdf-o " aria-hidden="true "></i> <br>دانلود پرو فایل</span>
 
-        <span class="jobseekersearchlog graycolor h6title col-md-3 col-xs-3 " ng-click=" "()><i class="fa fa-info " aria-hidden="true "></i> <br>جزئیات جستجو</span>
+        <span class="jobseekersearchlog graycolor h6title col-md-3 col-xs-3 " ng-click=""><i class="fa fa-info " aria-hidden="true "></i> <br>جزئیات جستجو</span>
 
 		</div>
 

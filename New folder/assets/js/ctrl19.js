@@ -117,7 +117,7 @@ $scope.showpagerectanrating = 7.2;
 	{activeclass : 'active' ,textbtn:'تمام وقت'},
 	{textbtn:'پاره وقت'},
 	{textbtn:'کارآموزی'},
-	{textbtn:'کاروندی'},
+	{textbtn:'کارورزی'},
 	];
 	
 	$scope.companychart = [
