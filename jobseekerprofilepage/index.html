@@ -321,15 +321,15 @@
           </div>
           <div class="modal-body">
 
-            <div class="kargozarentkhabazimg" ng-repeat="kargozar kargozarha">
+            <div class="kargozarentkhabazimg" ng-repeat="x in spresume">
 
               <md-tooltip md-direction="top">
 
-                {{kargozar.kargozarname}}
+                {{x.fa_name}}
 
               </md-tooltip>
 
-              <img class="img" ng-class="{active: kargozar == selected}" src="{{kargozar.kargozaricon}}" ng-click="selectkargozar(kargozar)">
+              <img class="img" ng-class="{active: x == selectedresumesp}" src="{{x.avatar}}" ng-click="selectkargozarresume(x)">
 
             </div>
 
@@ -353,6 +353,7 @@
 
 
       <div class="col-md-12 col-xs-12 assmereq">
+
 
         <div class="col-md-12 col-xs-12 row" style="padding: 20px 0 30px;">
           <div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی کلی:</div>

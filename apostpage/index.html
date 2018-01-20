@@ -536,19 +536,19 @@
 
               <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in profileressp | filter: { exam : { group  : 'رزومه' }}">
 
-  <div class="btn testbotto finalbotdetres" >
+  <div class="btn testbotto finalbotdetres" ng-click="gotoaddresume(x)">
 
   <md-tooltip
 
                 md-direction="top">
 
-                رزومه شخصی
+                پر کردن رزومه با کارگذار {{profilesp.fa_name}}
 
               </md-tooltip>
   <div class="finalbotdetrestext" >
     <span class="fontlight h6title">رزومه شخصی</span>
       </div>
-    <div class="finalbotdetresimg"><img class="img" src="{{profilesp}}"></div>
+    <div class="finalbotdetresimg"><img class="img" src="{{profilesp.avatar}}"></div>
     </div>
           </div>
           </div>
@@ -558,7 +558,7 @@
 								<div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی شخصیت</div>
 
 						<div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in examshayeteghi | filter: { exam : { group  : 'روانشناختی' }}">
-<div class="btn testbotto finalbotdetres" > 
+<div class="btn testbotto finalbotdetres" ng-click="gotoaexam(x)"> 
 <md-tooltip
               md-direction="top">
               {{x.exam.name}}

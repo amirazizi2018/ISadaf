@@ -6,6 +6,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
   var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 
+
   // bar akse in not o show
   $scope.ShowForJS = function() {
     if ($localStorage.UserType == 'JS') {
@@ -96,6 +97,23 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
 
 
+  var configforgetspresume = {
+
+    headers: {
+
+      'Content-Type': 'application/json',
+
+      'Access-Token': $localStorage.TokenKey.access,
+
+    }
+
+  }
+
+  $http.get(mustafasite + "/job_seeker", configforgetspresume).then(function(response) {
+
+    $scope.spresume = response.data.service_providers;
+
+  });
 
 
   $http.get(mustafasite + '/job_seeker', {
@@ -637,6 +655,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
 
   $scope.selectkargozarinint = [];
+
   $scope.selectkargozar = function(kargozar) {
     $scope.selectkargozarinint = [];
     $scope.selected = kargozar;
@@ -644,21 +663,54 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
   }
 
 
-  $scope.gotocreateres = function() {
+  $scope.selectkargozarresume = function(x) {
+
+    $scope.selectedresumesp = x;
+    var result;
+    for each (var item in x.exams) {
+      if(exam.group === "رزومه") {
+          result = item;
+          break;
+      }
+    }
+
+
+    $scope.gotocreateres = function() {
 
 
 
-    if ($scope.selectkargozarinint == null) {
+      if ($scope.selectedresumesp == null) {
 
-      alert("لطفا اول کارگزار را انتخاب کنید")
+        alert("لطفا اول کارگزار را انتخاب کنید")
 
-    } else {
+      } else {
+
+        var geturlkargozar = result.url;
+
+              var config = {
+
+                headers: {
+
+                  'Content-Type': 'application/json',
+                  'Access-Token': $localStorage.TokenKey.access
+
+                }
+
+              }
 
 
+                var urlforgotosite = geturlkargozar + "?JsId=" + $localStorage.UserId + "&Fullname=" + $localStorage.UserFaName;
+
+                window.open(urlforgotosite, '_self', '');
+
+      }
 
     }
 
-  }
+
+}
+
+
 
   /* 	$scope.notifications = [
 

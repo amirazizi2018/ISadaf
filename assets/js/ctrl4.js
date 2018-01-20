@@ -706,10 +706,62 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
         $http.get(mustafasite + '/service_provider/' + id_sp , config_sp).then(function(response) {
           $scope.profileressp = response.data.exams;
-          $scope.profilesp = response.data.avatar;
+          $scope.profilesp = response.data;
         });
   });
 
+
+
+    $scope.gotoaddresume = function(x) {
+
+      var geturlkargozar = x.url;
+
+            var config = {
+
+              headers: {
+
+                'Content-Type': 'application/json',
+                'Access-Token': $localStorage.TokenKey.access
+
+              }
+
+            }
+
+
+              var urlforgotosite = geturlkargozar + "?JsId=" + $localStorage.UserId + "&Fullname=" + $localStorage.UserFaName;
+
+              window.open(urlforgotosite, '_self', '');
+
+  }
+
+
+  $scope.gotoaexam = function(x) {
+
+    var getidexam = x.id;
+
+    var geturlkargozar = x.url;
+
+          var config = {
+
+            headers: {
+
+              'Content-Type': 'application/json',
+              'Access-Token': $localStorage.TokenKey.access
+
+            }
+
+          }
+
+          $http.post('https://sadaf.systmngr.ir/api/v1/exam/' + getidexam +'/pay', config).then(function(response) {
+
+
+            var urlforgotosite = geturlkargozar + "?JsId=" + $localStorage.UserId + "&Exam_id=" + getidexam + "&Fullname=" + $localStorage.UserFaName;
+
+            window.open(urlforgotosite, '_self', '');
+
+
+          });
+}
 
 
 
