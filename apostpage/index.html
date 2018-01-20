@@ -532,12 +532,9 @@
                 <div class="h2title fontmedium bluecolor" style="padding: 5px 0 10px;">ارزیابی های مورد نیاز</div>
 				<div class="col-md-12 col-xs-12 assmereq">
           <div class="col-md-12 col-xs-12 row" style="padding: 20px 0 30px;">
-{{profilesp}}
                   <div class="col-md-12 col-xs-12 khasneagdtitlch h4title fontmedium">ارزیابی کلی:</div>
 
-
-{{profileressp}}
-              <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in profileressp">
+              <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in profileressp | filter: { exam : { group  : 'رزومه' }}">
 
   <div class="btn testbotto finalbotdetres" >
 
