@@ -817,33 +817,35 @@
 
 	<div class="col-md-5 col-xs-5 ">
 
-			<span class="pinjob addjob col-md-1 col-xs-1 " ng-click="pin(jobseeker) "><svg version="1.1 " id="Layer_1 " xmlns="http://www.w3.org/2000/svg " xmlns:xlink="http://www.w3.org/1999/xlink " x="0px " y="0px "viewBox="0 0 9.6 9.6 " style="enable-background:new
+			<span class="pinjob addjob col-md-1 col-xs-1 " ng-click="addtobookmark(jobseeker) "><svg version="1.1 " id="Layer_1 " xmlns="http://www.w3.org/2000/svg " xmlns:xlink="http://www.w3.org/1999/xlink " x="0px " y="0px "viewBox="0 0 9.6 9.6 " style="enable-background:new
               0 0 9.6 9.6; " xml:space="preserve "><path d="M8.9,4.1H5.5V0.7C5.5,0.3,5.2,0,4.8,0C4.4,0,4.1,0.3,4.1,0.7v3.4H0.7C0.3,4.1,0,4.4,0,4.8c0,0.4,0.3,0.7,0.7,0.7h3.4v3.4c0,0.4,0.3,0.7,0.7,0.7c0.4,0,0.7-0.3,0.7-0.7V5.5h3.4c0.4,0,0.7-0.3,0.7-0.7C9.6,4.4,9.3,4.1,8.9,4.1L8.9,4.1z
               M8.9,4.1 "/></svg></span>
 
-			<span class="jobseekerpicture col-md-3 "><img src="{{jobseeker.picture}} "/></span>
 
-			<span class="jobseekername bluecolor col-md-7 fontmedium ">{{jobseeker.name}}</span>
+			<span class="jobseekerpicture col-md-3 "><img src="{{jobseeker.job_seeker.avatar}} "/></span>
 
-			<span class="jobseekertag graycolor h5title col-md-7 ">{{jobseeker.tag}}</span>
+			<span class="jobseekername bluecolor col-md-7 fontmedium ">{{jobseeker.job_seeker.fullname}}</span>
+
+			<span class="jobseekertag graycolor h5title col-md-7 ">{{jobseeker.job_seeker.email}}</span>
 
 	</div>
 
 	<div class="col-md-2 col-xs-2 textcenter ">
 
-        <span  ng-class="{ 'greencolor': jobseeker.status=='پیام داده شد' } " class="jobseekerstatus bluecolor h5title col-md-12 fontmedium "> {{ jobseeker.status }}</span>
+    <span ng-if="jobseeker.status == 'new'" ng-class="{ 'greencolor': jobseeker.status=='پیام داده شد' } " class="jobseekerstatus bluecolor h5title col-md-12 fontmedium ">جدید</span>
 
-        <span class="jobseekerdate graycolor h6title col-md-12 "> {{ jobseeker.date }}</span>
+    <span class="jobseekerdate graycolor h6title col-md-12 "> {{ jobseeker.updated_at | jalaliDate:'jDD / jMMMM / jYY' }}</span>
+
 
 	</div>
 
 <div class="col-md-5 col-xs-5 textcenter " style="padding-top: 7px; ">
 
-        <span class="jobseekersendmass graycolor h6title col-md-4 col-xs-4 " ng-click=" "()> <i class="fa fa-envelope-o " aria-hidden="true "></i><br>پیام به کارجو</span>
+        <span class="jobseekersendmass graycolor h6title col-md-4 col-xs-4 " ng-click=""> <i class="fa fa-envelope-o " aria-hidden="true "></i><br>پیام به کارجو</span>
 
-        <span class="jobseekerviewprofile graycolor h6title col-md-4 col-xs-4 " ng-click=" "()><i class="fa fa-eye " aria-hidden="true "></i> <br>مشاهده پروفایل</span>
+        <span class="jobseekerviewprofile graycolor h6title col-md-4 col-xs-4 " ng-click=""><i class="fa fa-eye " aria-hidden="true "></i> <br>مشاهده پروفایل</span>
 
-        <span class="jobseekerdownloadprofile graycolor h6title col-md-4 col-xs-4 " ng-click=" "()><i class="fa fa-file-pdf-o " aria-hidden="true "></i> <br>دانلود پرو فایل</span>
+        <span class="jobseekerdownloadprofile graycolor h6title col-md-4 col-xs-4 " ng-click=""><i class="fa fa-file-pdf-o " aria-hidden="true "></i> <br>دانلود پرو فایل</span>
 
 		</div>
 
@@ -958,21 +960,21 @@
 
 	<div class="col-md-5 col-xs-5 ">
 
-			<span class="pinjob removejob col-md-1 col-xs-1 " ng-click="pin(jobseeker) "><i class="fa fa-times " aria-hidden="true "></i></span>
+			<span class="pinjob removejob col-md-1 col-xs-1 " ng-click="removejobseekerbookmark(jobseeker) "><i class="fa fa-times " aria-hidden="true "></i></span>
 
-			<span class="jobseekerpicture col-md-3 col-xs-3 "><img src="{{jobseeker.jobseeker.avatar}} "/></span>
+			<span class="jobseekerpicture col-md-3 col-xs-3 "><img src="{{jobseeker.job_seeker.avatar}}"/></span>
 
-			<span class="jobseekername bluecolor col-md-7 col-xs-7 fontmedium ">{{jobseeker.jobseeker.fullname}}</span>
+			<span class="jobseekername bluecolor col-md-7 col-xs-7 fontmedium ">{{jobseeker.job_seeker.fullname}}</span>
 
-			<span class="jobseekertag graycolor h5title col-md-7 col-xs-7 ">{{jobseeker.jobseeker.email}}</span>
+			<span class="jobseekertag graycolor h5title col-md-7 col-xs-7 ">{{jobseeker.job_seeker.email}}</span>
 
 	</div>
 
 	<div class="col-md-2 col-xs-2 textcenter ">
 
-        <span  ng-class="{ 'greencolor': jobseeker.status=='پیام داده شد' } " class="jobseekerstatus bluecolor h5title col-md-12 fontmedium "> {{ jobseeker.status }}</span>
+        <span ng-if="jobseeker.status == 'new'" ng-class="{ 'greencolor': jobseeker.status=='پیام داده شد' } " class="jobseekerstatus bluecolor h5title col-md-12 fontmedium ">جدید</span>
 
-        <span class="jobseekerdate graycolor h6title col-md-12 "> {{ jobseeker.updated_at | jalaliDate:'jDD / jMMMM / jYY' }}</span>
+        <span class="jobseekerdate graycolor h6title col-md-12 "> {{ jobseeker.bookmarked_at | jalaliDate:'jDD / jMMMM / jYY' }}</span>
 
 	</div>
 

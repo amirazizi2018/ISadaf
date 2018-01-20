@@ -370,17 +370,18 @@ app.controller('companydashboardpage', function($compile, $sce, $scope, $window,
 			$scope.jobsaveddata = response.data.jobs;
 			$scope.jobsavedtotalItems = $scope.jobsaveddata.length;
 
+			$scope.jobseekersaved = response.data.bookmarked_js;
+			$scope.jobseekersavedtotalItems = $scope.jobseekersaved.length;
+
 			// JS requests
-			$scope.jobseekersaved = [];
+			$scope.jobseekers = [];
 			for (var x = 0; x < response.data.jobs.length; x++) {
 				for (var i = 0; i < response.data.jobs[x].requests.length; i++) {
-					$scope.jobseekersaved.push(response.data.jobs[x].requests[i]);
+					$scope.jobseekers.push(response.data.jobs[x].requests[i]);
 				}
 			}
 
-			console.log($scope.jobseekersaved);
-			$scope.jobseekersavedtotalItems = $scope.jobseekersaved.length;
-
+			$scope.jobseekerstotalItems = $scope.jobseekers.length;
 
 	  });
 }
@@ -589,31 +590,64 @@ $scope.getaliiempset();
   
 
   
+	$scope.addtobookmark = function(jobseeker) {
+
+		var json = {
+			where : "بوکمارک در داشبرد مدیریتی و در تب درخواست ها"
+		}
+
+	    var data = {
+				id : parseInt(jobseeker.job_seeker.id),
+				detail : json,
+				status : "جدید",
+			}
+
+
+
+	    var config = {
+
+	      headers: {
+
+	        'Access-Token': $localStorage.TokenKey.access,
+
+	      }
+
+	    }
+
+
+
+	    $http.post(mustafasite + '/employer/bookmark/job_seeker' + data, config).then(function(response) {
+
+				$scope.getaliiempset();
+
+	    });
+
+
+
+	  }
   
   
   
   
-  
-  
-	$scope.filterdatejosdata = [
-         {"name":"کارشناس فروش","date":"96/01/24",},
-    ];
-		   
-	$scope.jobseekers = [ 
-      {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},      
-	  {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
-        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
- ];	
-	
-  
+ //
+	// $scope.filterdatejosdata = [
+ //         {"name":"کارشناس فروش","date":"96/01/24",},
+ //    ];
+ //
+	// $scope.jobseekers = [ 
+ //      {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},      
+	//   {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "کارشناس فروش", status : "جدید", date : "امروز", sendmass : "", viewprofile : "", downloadprofile : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
+ //        {id : "1" , picture : "https://myevent.com/assets/myevent/common/img/user.png" , name : "حمید محمدی", tag : "ک2ارشناس فروش", status : "پیام داده شد", date : "4/4/96", sendmass : "", viewprofile : "", downloadprofile : "",},
+ // ];	
+ //
+ //
   $scope.jobseekersviewby = 8;
-  $scope.jobseekerstotalItems = $scope.jobseekers.length;
   $scope.jobseekerscurrentPage = 1;
   $scope.jobseekersitemsPerPage = $scope.jobseekersviewby;
   $scope.jobseekersmaxSize = 5;
@@ -652,10 +686,40 @@ $scope.setItemsPerPage = function(num) {
 //      }
   
 //
-
+
+
+
+  $scope.removejobseekerbookmark = function(jobseeker) {
+
+    var data = jobseeker.job_seeker.id;
+
+
+
+    var config = {
+
+      headers: {
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+
+
+    $http.delete(mustafasite + '/employer/bookmark/job_seeker' + data, config).then(function(response) {
+
+			$scope.getaliiempset();
+
+    });
+
+
+
+  }
+
+
 
 $scope.jobseekersavedviewby = 8;
-
 
 $scope.jobseekersavedcurrentPage = 1;
 
