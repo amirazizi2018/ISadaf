@@ -328,6 +328,7 @@ app.controller('companydashboardpage', function($compile, $sce, $scope, $window,
 
 
     $scope.max =            100;
+		$scope.current = 24;
 
 		$scope.getaliiempset = function() {
 		$http.get(mustafasite + '/employer/me', {
