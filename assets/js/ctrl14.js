@@ -694,13 +694,13 @@ $scope.setItemsPerPage = function(num) {
 
   $scope.removejobseekerbookmark = function(jobseeker) {
 
-    var data = {
+    var dataremove = {
 			id : parseInt(jobseeker.job_seeker.id),
 		}
 
 
 
-    var config = {
+    var configremove = {
 
       headers: {
 				'Content-Type' : 'application/json',
@@ -712,7 +712,7 @@ $scope.setItemsPerPage = function(num) {
 
 
 
-    $http.delete(mustafasite + '/employer/bookmark/job_seeker' , JSON.stringify(data), config).then(function(response) {
+    $http.delete(mustafasite + '/employer/bookmark/job_seeker' , JSON.stringify(dataremove), configremove).then(function(response) {
 
 			$scope.getaliiempset();
 
