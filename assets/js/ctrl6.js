@@ -667,14 +667,24 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
     $scope.selectedresumesp = x;
     var ddd = x.exams;
-    var result;
-    for each (var item in ddd) {
-      if(exam.group === "رزومه") {
-          result = item;
-          break;
-      }
-    }
+    // var result;
+    // for each (var item in ddd) {
+    //   if(exam.group === "رزومه") {
+    //       result = item;
+    //       break;
+    //   }
+    // }
+    // var myArray = [
+    //  {id:1, name:"bob"},
+    //  {id:2, name:"dan"},
+    //  {id:3, name:"barb"},
+    // ]
 
+    // grab the Array item which matchs the id "2"
+    var item = ddd.find(item => item.exam.group === "رزومه");
+
+    // print
+    console.log(item);
 
     $scope.gotocreateres = function() {
 
