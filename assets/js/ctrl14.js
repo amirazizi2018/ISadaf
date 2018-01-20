@@ -592,17 +592,19 @@ $scope.getaliiempset();
   
 	$scope.addtobookmark = function(jobseeker) {
 
-		var json = {
-			where : "بوکمارک در داشبرد مدیریتی و در تب درخواست ها"
-		}
+		 // var json = {
+		 // 	where : "بوکمارک در داشبرد مدیریتی و در تب درخواست ها"
+		 // }
 
-	    var data = {
+	    // var data = {
+			// 	id : parseInt(jobseeker.job_seeker.id),
+			// 	detail : json,
+			// 	status : "جدید",
+			// }
+
+			var data = {
 				id : parseInt(jobseeker.job_seeker.id),
-				detail : json,
-				status : "جدید",
 			}
-
-
 
 	    var config = {
 
