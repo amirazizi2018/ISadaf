@@ -97,25 +97,6 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
 
 
-  var configforgetspresume = {
-
-    headers: {
-
-      'Content-Type': 'application/json',
-
-      'Access-Token': $localStorage.TokenKey.access,
-
-    }
-
-  }
-
-  $http.get(mustafasite + "/job_seeker", configforgetspresume).then(function(response) {
-
-    $scope.spresume = response.data.service_providers;
-
-  });
-
-
   $http.get(mustafasite + '/job_seeker', {
 
     headers: {
@@ -126,7 +107,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
     }
 
-  }).then(function(response) {
+    }).then(function(response) {
 
     $scope.current = response.data.null_percent;
 
@@ -324,7 +305,23 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
 
 
+  var configforgetspresume = {
 
+    headers: {
+
+      'Content-Type': 'application/json',
+
+      'Access-Token': $localStorage.TokenKey.access,
+
+    }
+
+  }
+
+  $http.get(mustafasite + "/service_provider/resume/list", configforgetspresume).then(function(response) {
+
+    $scope.spresume = response.data.service_providers;
+
+  });
 
 
 
