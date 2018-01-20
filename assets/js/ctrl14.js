@@ -695,7 +695,7 @@ $scope.setItemsPerPage = function(num) {
   $scope.removejobseekerbookmark = function(jobseeker) {
 
     var dataremove = {
-			id : parseInt(jobseeker.job_seeker.id),
+			id : parseInt(jobseeker.job_seeker.id)
 		}
 
 
@@ -704,7 +704,7 @@ $scope.setItemsPerPage = function(num) {
 
       headers: {
 				'Content-Type' : 'application/json',
-        'Access-Token': $localStorage.TokenKey.access,
+        'Access-Token': $localStorage.TokenKey.access
 
       }
 
