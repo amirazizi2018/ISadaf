@@ -609,7 +609,7 @@ $scope.getaliiempset();
 	    var config = {
 
 	      headers: {
-					
+
 					'Content-Type' : 'application/json',
 	        'Access-Token': $localStorage.TokenKey.access,
 
@@ -619,7 +619,7 @@ $scope.getaliiempset();
 
 
 
-	    $http.post(mustafasite + '/employer/bookmark/' , JSON.stringify(data), config).then(function(response) {
+	    $http.post(mustafasite + '/employer/bookmark/job_seeker' , JSON.stringify(data), config).then(function(response) {
 
 				$scope.getaliiempset();
 
