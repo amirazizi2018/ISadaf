@@ -6,3 +6,4 @@ RewriteRule ^ - [L]
 
 # If the requested resource doesn't exist, use index.html
 RewriteRule ^ /index.html
+RewriteRule !.(js|gif|jpg|png|css|eot|svg|ttf|woff|woff2|map)$ index.php
