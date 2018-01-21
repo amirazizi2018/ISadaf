@@ -63,7 +63,7 @@
       <script src="assets/js/ctrl21.js"></script>
       <script src="assets/js/ctrl22.js"></script>
       <script src="assets/js/script.js"></script>
-      <base href="/ISadaf/">
+      <base href="/">
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
    </head>
    <body ng-app="sadaf-reg-ads" ng-controller="home">
@@ -152,7 +152,7 @@
                                     <form name="loginform" novalidate ng-submit="loginform.$valid &&Loginsc(UserName,Pass)">
                                        <div class="col-md-12 col-xs-12">
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="UserName" ng-model="UserName" placeholder="نام کاربری/ایمیل"><br>
-                                          <input class="inputloginreg fontmedium greencolor"  type="text" name="Pass" ng-model="Pass" placeholder="رمز عبور"><br>
+                                          <input class="inputloginreg fontmedium greencolor"  type="password" name="Pass" ng-model="Pass" placeholder="رمز عبور"><br>
                                        </div>
                                        <div class="col-md-6 col-xs-12 h5title fontmedium textright cursorpointer"><a class="ozvnismlp" ng-click="showreges()">عضو نیستم</a></div>
                                        <div class="col-md-6 col-xs-12 h5title fontmedium textleft"><a class="forgotpasslp" data-toggle="modal" data-target="#ShowPopupForgetPass">رمز عبورم را فراموش کردم</a></div>
@@ -179,24 +179,23 @@
                                     ">
                                     <div class="col-md-12 col-xs-12 h2title bluecolor fontmedium" style="margin: 15px 0;">عضویت</div>
                                     <form name="personFormjs" novalidate ng-submit="personFormjs.$valid &&RegisteryJS(UserNameJS,PhoneJS,PassJS,FullNameJS,EmailJS,MeliCodeJS)">
-                                      <div style="color:Red" ng-show="personFormjs.UserNameJS.$dirty&&personFormjs.UserNameJS.$error.pattern">نام کاربری نباید خالی باشد.</div>
+                                        <div style="color:Red" ng-show="personFormjs.UserNameJS.$dirty&&personFormjs.UserNameJS.$error.pattern">نام کاربری نباید خالی باشد.</div>
                                         <div style="color:Red" ng-show="personFormjs.FullNameJS.$dirty&&personFormjs.FullNameJS.$error.pattern">فیلد نام و نام خانوادگی نباید خالی باشد.</div>
                                         <div style="color:Red" ng-show="personFormjs.EmailJS.$dirty&&personFormjs.EmailJS.$error.pattern">لطفا ایمیل خود را به صورت صحیح وارد نمایید.</div>
                                         <div style="color:Red" ng-show="personFormjs.PhoneJS.$dirty&&personFormjs.PhoneJS.$error.pattern">لطفا شماره موبایل خود را درست وارد نمایید.</div>
                                         <div style="color:Red" ng-show="personFormjs.PassJS.$dirty&&personFormjs.PassJS.$error.pattern">رمز عبور باید بیش از 6 حرف باشد.</div>
                                         <div style="color:Red" ng-show="MeliCodeReq">کد ملی شما ناصحیح میباشد.</div>
-
                                        <div class="col-md-12 col-xs-12">
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="UserNameJS" ng-model="UserNameJS" placeholder="نام کاربری" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="FullNameJS" ng-model="FullNameJS" placeholder="نام و نام خانوادگی" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="MeliCodeJS" ng-model="MeliCodeJS" placeholder="کد ملی" ng-change="valichengemelicode()" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="EmailJS" ng-model="EmailJS" placeholder="ایمیل"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="PhoneJS" ng-model="PhoneJS" placeholder="شماره موبایل" ng-pattern="/^[0][9][0-3][0-9]{8,8}$/" required><br>
-                                          <input class="inputloginreg fontmedium greencolor" type="text" name="PassJS"  ng-model="PassJS" placeholder="رمز عبور" ng-pattern="/^.{6,}$/"  required><br>
+                                          <input class="inputloginreg fontmedium greencolor" type="password" name="PassJS"  ng-model="PassJS" placeholder="رمز عبور" ng-pattern="/^.{6,}$/"  required><br>
                                        </div>
-                                       <div class="col-md-12 col-xs-12 h5title fontmedium textright">
+                                       <!-- <div class="col-md-12 col-xs-12 h5title fontmedium textright">
                                           <md-checkbox class="h5title fontmedium bluecolor moafeghchebox" ng-model="sdsd" aria-label="Checkbox 1"> با <a href="" class="underline">قوانین</a> سامانه موافقم </md-checkbox>
-                                       </div>
+                                       </div> -->
                                        <div class="col-md-12 col-xs-12" style="padding: 15px;">
                                           <button type="submit" class="btn bluebtn">ثبت نام</button>
                                        </div>
@@ -220,21 +219,21 @@
                                     ">
                                     <div class="col-md-12 col-xs-12 h2title bluecolor fontmedium" style="margin: 15px 0;">عضویت</div>
                                     <form name="personFormemp" novalidate ng-submit="personFormemp.$valid &&RegisteryEMP(UserNameEMP,PhoneEMP,PassEMP,FullNameEMP,EmailEMP)">
-                                       <!-- <div style="color:Red" ng-show="personForm.UserName.$dirty&&personForm.UserName.$error.pattern">Please Enter Valid Email</div>
-                                          <div style="color:Red" ng-show="personForm.FullName.$dirty&&personForm.FullName.$error.pattern">Please Enter Valid Email</div>
-                                          <div style="color:Red" ng-show="personForm.Email.$dirty&&personForm.Email.$error.pattern">Please Enter Valid Email</div>
-                                          <div style="color:Red" ng-show="personForm.Phone.$dirty&&personForm.Phone.$error.pattern">Please Enter Valid Email</div>
-                                          <div style="color:Red" ng-show="personForm.Pass.$dirty&&personForm.Pass.$error.pattern">Please Enter Valid Email</div> -->
+                                      <div style="color:Red" ng-show="personFormemp.UserNameEMP.$dirty&&personFormemp.UserNameEMP.$error.pattern">نام کاربری نباید خالی باشد.</div>
+                                      <div style="color:Red" ng-show="personFormemp.FullNameEMP.$dirty&&personFormemp.FullNameEMP.$error.pattern">فیلد نام و نام خانوادگی نباید خالی باشد.</div>
+                                      <div style="color:Red" ng-show="personFormemp.EmailEMP.$dirty&&personFormemp.EmailEMP.$error.pattern">لطفا ایمیل خود را به صورت صحیح وارد نمایید.</div>
+                                      <div style="color:Red" ng-show="personFormemp.PhoneEMP.$dirty&&personFormemp.PhoneEMP.$error.pattern">لطفا شماره موبایل خود را درست وارد نمایید.</div>
+                                      <div style="color:Red" ng-show="personFormemp.PassEMP.$dirty&&personFormemp.PassEMP.$error.pattern">رمز عبور باید بیش از 6 حرف باشد.</div>
                                        <div class="col-md-12 col-xs-12">
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="UserNameEMP" ng-model="UserNameEMP" placeholder="نام کاربری" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="FullNameEMP" ng-model="FullNameEMP" placeholder="نام شرکت" required><br>
                                           <input class="inputloginreg fontmedium greencolor" type="text" name="EmailEMP" ng-model="EmailEMP" placeholder="ایمیل"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"><br>
-                                          <input class="inputloginreg fontmedium greencolor" type="text" name="PhoneEMP" ng-model="PhoneEMP" placeholder="شماره موبایل" ng-pattern="/^989[0-9]{9}$/" required><br>
-                                          <input class="inputloginreg fontmedium greencolor" type="text" name="PassEMP"  ng-model="PassEMP" placeholder="رمز عبور" ng-pattern="/^.{6,}$/"  required><br>
+                                          <input class="inputloginreg fontmedium greencolor" type="text" name="PhoneEMP" ng-model="PhoneEMP" placeholder="شماره موبایل" ng-pattern="/^[0][9][0-3][0-9]{8,8}$/" required><br>
+                                          <input class="inputloginreg fontmedium greencolor" type="password" name="PassEMP"  ng-model="PassEMP" placeholder="رمز عبور" ng-pattern="/^.{6,}$/"  required><br>
                                        </div>
-                                       <div class="col-md-12 col-xs-12 h5title fontmedium textright">
+                                       <!-- <div class="col-md-12 col-xs-12 h5title fontmedium textright">
                                           <md-checkbox class="h5title fontmedium bluecolor moafeghchebox" ng-model="sdsd" aria-label="Checkbox 1"> با <a href="" class="underline">قوانین</a> سامانه موافقم </md-checkbox>
-                                       </div>
+                                       </div> -->
                                        <div class="col-md-12 col-xs-12" style="padding: 15px;">
                                           <button type="submit" class="btn bluebtn">ثبت نام</button>
                                        </div>

@@ -537,6 +537,8 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
         //   "ExamId": getidexam
         // };
 
+         var data = {};
+
 
 
         var config = {
@@ -550,7 +552,7 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
 
         }
 
-        $http.post('https://sadaf.systmngr.ir/api/v1/exam/' + getidexam +'/pay', config).then(function(response) {
+        $http.post('https://sadaf.systmngr.ir/api/v1/exam/' + getidexam +'/pay', JSON.stringify(data) ,config).then(function(response) {
 
 
           var urlforgotosite = geturlkargozar + "?JsId=" + $localStorage.UserId + "&Exam_id=" + getidexam + "&Fullname=" + $localStorage.UserFaName;

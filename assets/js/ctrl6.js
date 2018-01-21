@@ -680,8 +680,8 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
     // grab the Array item which matchs the id "2"
     var item = ddd.find(item => item.exam.group === "رزومه");
 
-    // print
-    console.log(item);
+    // // print
+    // console.log(item);
 
     $scope.gotocreateres = function() {
 
@@ -693,7 +693,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
       } else {
 
-        var geturlkargozar = result.url;
+        var geturlkargozar = item.url;
 
               var config = {
 
