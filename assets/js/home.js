@@ -216,7 +216,7 @@ app.filter('jalaliDatewill', function() {
   }
 });
 
-app.controller('home', function($compile, $sce, $scope, $window, $http, ShareData, $location, $localStorage, $sessionStorage) {
+app.controller('home', function($compile, $sce, $scope, $window, $http, ShareData, $location, $localStorage, $sessionStorage,SweetAlert) {
   var mustafasite = "https://sadaf.systmngr.ir/api/v1";
   moment.locale('fa');
 
@@ -484,14 +484,10 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
       return (s < 2 && c == s) || (s >= 2 && c == (11 - s));
     }
 
-    console.log("checkmelicode");
-
     if (checkCodeMeli($scope.MeliCodeJS)) {
       $scope.MeliCodeReq = false;
-      console.log("true");
     } else {
       $scope.MeliCodeReq = true;
-      console.log("false");
     }
 
   }
@@ -572,6 +568,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
 
   $scope.Loginsc = function(UserName, Pass) {
+
+    SweetAlert.swal("Good job!", "You clicked the button!", "success")
 
     var data = {
       username: UserName,
