@@ -271,6 +271,35 @@
                                  </div>
                               </div>
                            </div>
+
+                           <div id="ShowPopupResetPass" class="modal modal-md loginpopup textcenter" role="dialog">
+                                          <div class="modal-dialog">
+                                             <div class="modal-content " style="float: right;width: 100%;background: none;-webkit-box-shadow: 0 0px 0px rgba(0,0,0,0);box-shadow: 0 0px 0px rgba(0,0,0,0);border: 0;">
+                                                <div style="
+                                                   margin: 0 85px;
+                                                   background: rgba(230, 230, 230, 0.92);
+                                                   border-radius: 3px;
+                                                   float: right;
+                                                   ">
+                                                   <div style="
+                                                      margin: 0 60px;
+                                                      ">
+                                                      <div class="col-md-12 col-xs-12 h2title bluecolor fontmedium" style="margin: 15px 0;">بازیابی رمز عبور</div>
+                                                      <form name="personFormresetpass" novalidate ng-submit="personFormresetpass.$valid &&ResetPass(ReciveCode,NewPass)">
+                                                         <div class="col-md-12 col-xs-12">
+                                                            <input class="inputloginreg fontmedium greencolor" type="text" name="ReciveCode" ng-model="ReciveCode" placeholder="کد دریافتی" required><br>
+                                                            <input class="inputloginreg fontmedium greencolor" type="password" name="NewPass" ng-model="NewPass" placeholder="رمز عبور جدید" required><br>
+                                                         </div>
+                                                         <div class="col-md-12 col-xs-12" style="padding: 15px;">
+                                                            <button type="submit" class="btn bluebtn">تغییر رمز</button>
+                                                         </div>
+                                                      </form>
+                                                   </div>
+                                                </div>
+                                             </div>
+
+
+
                         </div>
                      </div>
                      <div id="ShowPopupactivecode" class="modal modal-md loginpopup textcenter" role="dialog">
@@ -304,8 +333,11 @@
             </div>
          </div>
       </header>
-
-      <div data-ng-view=""></div>
+       <div data-ng-view=""></div>
+       <div ng-hide="loadedspinner" class="backspinner">
+            <div class="spinner">
+            </div>
+        </div>
 
       <footer>
          <div class="footer" id="footer">

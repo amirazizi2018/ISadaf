@@ -220,7 +220,6 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
   var mustafasite = "https://sadaf.systmngr.ir/api/v1";
   moment.locale('fa');
 
-
   $scope.checkauth = function() {
     if ($localStorage.TokenKey == null || $localStorage.UserType == null) {
       $scope.isHideafterlogin = true;
@@ -493,11 +492,15 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
   }
 
 
+  $scope.loadedspinner = true;
+
+
 
 
   $scope.RegisteryJS = function(UserNameJS, PhoneJS, PassJS, FullNameJS, EmailJS, MeliCodeJS) {
 
     var PhoneJSRes = PhoneJS.slice(1);
+    $scope.loadedspinner = false;
 
     var data = {
       username: UserNameJS,
@@ -517,13 +520,44 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
 
     $http.post(mustafasite + '/job_seeker/register', JSON.stringify(data), config).then(function(response) {
+      $scope.loadedspinner = true;
       $("#ShowPopupRegsJs").modal('hide');
-      $scope.UserNameJS = null;
+      // $scope.UserNameJS = null;
       $scope.PhoneJS = null;
-      $scope.PassJS = null;
+      // $scope.PassJS = null;
       $scope.EmailJS = null;
       $scope.FullNameJS = null;
       $scope.MeliCodeJS = null;
+      SweetAlert.swal({
+       title: "تبریک!",
+       text: "ثبت نام شما در سامانه صدف با موفیقت به اتمام رسید.هم اکنون میتوانید جهت تایید حساب کاربری و استفاده از خدمات صدف وارد سامانه شوید.",
+       type: "success",
+       showCancelButton: true,
+       confirmButtonColor: "#DD6B55",
+       cancelButtonText: "بازگشت",
+       confirmButtonColor: "#29b572",
+       confirmButtonText: "ورود",
+     },
+     function(isConfirm){
+       if (isConfirm) {
+         $("#ShowPopuplogin").modal('show');
+      } else {
+      }
+    });
+
+    },function Error (response) {
+      $scope.loadedspinner = true;
+
+      if (response.status == 409) {
+          SweetAlert.swal({
+           title: "خطا!",
+           text: "کاربری با این مشخصات پیشتر در سامانه ثبت نام شده است.",
+           type: "error",
+           showCancelButton: false,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "بازگشت",
+         });
+      }
     });
 
 
@@ -560,6 +594,36 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
       $scope.EmailEMP = null;
       $scope.FullNameEMP = null;
 
+      SweetAlert.swal({
+       title: "تبریک!",
+       text: "ثبت نام شما در سامانه صدف با موفیقت به اتمام رسید.هم اکنون میتوانید جهت تایید حساب کاربری و استفاده از خدمات صدف وارد سامانه شوید.",
+       type: "success",
+       showCancelButton: true,
+       confirmButtonColor: "#DD6B55",
+       cancelButtonText: "بازگشت",
+       confirmButtonColor: "#29b572",
+       confirmButtonText: "ورود",
+     },
+     function(isConfirm){
+       if (isConfirm) {
+         $("#ShowPopuplogin").modal('show');
+      } else {
+      }
+    });
+
+    },function Error (response) {
+      $scope.loadedspinner = true;
+
+      if (response.status == 409) {
+          SweetAlert.swal({
+           title: "خطا!",
+           text: "شرکتی با این مشخصات پیشتر در سامانه ثبت نام شده است.",
+           type: "error",
+           showCancelButton: false,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "بازگشت",
+         });
+      }
     });
 
 
@@ -568,8 +632,6 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
 
   $scope.Loginsc = function(UserName, Pass) {
-
-    SweetAlert.swal("Good job!", "You clicked the button!", "success")
 
     var data = {
       username: UserName,
@@ -602,6 +664,18 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
             $scope.isHideafterlogin = false;
             $scope.isActiveafterlogin = true;
             $scope.isHidelogin = true;
+
+          },function Error (response) {
+            // if (response.status == 409) {
+            //     SweetAlert.swal({
+            //      title: "خطا!",
+            //      text: "شرکتی با این مشخصات پیشتر در سامانه ثبت نام شده است.",
+            //      type: "error",
+            //      showCancelButton: false,
+            //      confirmButtonColor: "#DD6B55",
+            //      confirmButtonText: "بازگشت",
+            //    });
+            // }
           });
         }
         if (response.data.data.type == "EMP") {
@@ -620,6 +694,17 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
             $scope.isHideafterlogin = false;
             $scope.isActiveafterlogin = true;
             $scope.isHidelogin = true;
+          },function Error (response) {
+            // if (response.status == 409) {
+            //     SweetAlert.swal({
+            //      title: "خطا!",
+            //      text: "شرکتی با این مشخصات پیشتر در سامانه ثبت نام شده است.",
+            //      type: "error",
+            //      showCancelButton: false,
+            //      confirmButtonColor: "#DD6B55",
+            //      confirmButtonText: "بازگشت",
+            //    });
+            // }
           });
         }
         if (response.data.data.type == "SP") {
@@ -639,6 +724,17 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
             $scope.isHideafterlogin = false;
             $scope.isActiveafterlogin = true;
             $scope.isHidelogin = true;
+          },function Error (response) {
+            // if (response.status == 409) {
+            //     SweetAlert.swal({
+            //      title: "خطا!",
+            //      text: "شرکتی با این مشخصات پیشتر در سامانه ثبت نام شده است.",
+            //      type: "error",
+            //      showCancelButton: false,
+            //      confirmButtonColor: "#DD6B55",
+            //      confirmButtonText: "بازگشت",
+            //    });
+            // }
           });
         }
 
@@ -681,6 +777,17 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
                 $scope.isActiveafterlogin = true;
                 $scope.isHidelogin = true;
               });
+            },function Error (response) {
+              if (response.status == 401) {
+                  SweetAlert.swal({
+                   title: "خطا!",
+                   text: "کد وارد شما صحیح نمیباشد. لطفا مجدد امتحان کنید",
+                   type: "error",
+                   showCancelButton: false,
+                   confirmButtonColor: "#DD6B55",
+                   confirmButtonText: "بازگشت",
+                 });
+              }
             });
           }
 
@@ -702,6 +809,17 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
                 $scope.isActiveafterlogin = true;
                 $scope.isHidelogin = true;
               });
+            },function Error (response) {
+              if (response.status == 401) {
+                  SweetAlert.swal({
+                   title: "خطا!",
+                   text: "کد وارد شما صحیح نمیباشد. لطفا مجدد امتحان کنید",
+                   type: "error",
+                   showCancelButton: false,
+                   confirmButtonColor: "#DD6B55",
+                   confirmButtonText: "بازگشت",
+                 });
+              }
             });
           }
 
@@ -724,13 +842,47 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
                 $scope.isActiveafterlogin = true;
                 $scope.isHidelogin = true;
               });
+            },function Error (response) {
+              if (response.status == 401) {
+                  SweetAlert.swal({
+                   title: "خطا!",
+                   text: "کد وارد شما صحیح نمیباشد. لطفا مجدد امتحان کنید",
+                   type: "error",
+                   showCancelButton: false,
+                   confirmButtonColor: "#DD6B55",
+                   confirmButtonText: "بازگشت",
+                 });
+              }
             });
           }
 
         };
 
       }
+    },function Error (response) {
+      $scope.loadedspinner = true;
 
+      if (response.status == 406) {
+          SweetAlert.swal({
+           title: "خطا!",
+           text: "رمز عبور شما اشتباه وارد شده است.",
+           type: "error",
+           showCancelButton: false,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "بازگشت",
+         });
+      }
+
+      if (response.status == 404) {
+          SweetAlert.swal({
+           title: "خطا!",
+           text: "نام کاربری در سامانه موجود نمیباشد.",
+           type: "error",
+           showCancelButton: false,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "بازگشت",
+         });
+      }
 
     });
 
@@ -791,9 +943,70 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     }
 
     $http.post(mustafasite + '/job_seeker/password/forget', JSON.stringify(data), config).then(function(response) {
+      $("#ShowPopupForgetPass").modal('hide');
+      $("#ShowPopupResetPass").modal('show');
+
+      $scope.ResetPass = function(ReciveCode,NewPass) {
+
+        var dataResPass = {
+          phone: "98"+PhoneForgRes,
+          code: ReciveCode,
+          password : NewPass,
+        };
+
+
+        $http.post(mustafasite + '/job_seeker/password/forget', JSON.stringify(dataResPass), config).then(function(response) {
+          $("#ShowPopupResetPass").modal('hide');
+          SweetAlert.swal({
+           title: "تبریک!",
+           text: "رمز عبور شما با موفیقت ریست شد. شما میتوانید با کلیک بر روی دکمه ورود وارد سامانه شوید.",
+           type: "success",
+           showCancelButton: true,
+           confirmButtonColor: "#DD6B55",
+           cancelButtonText: "بازگشت",
+           confirmButtonColor: "#29b572",
+           confirmButtonText: "ورود",
+         },
+         function(isConfirm){
+           if (isConfirm) {
+             $("#ShowPopuplogin").modal('show');
+          } else {
+          }
+        });
+        },function Error (response) {
+
+          if (response.status == 404) {
+             //  SweetAlert.swal({
+             //   title: "خطا!",
+             //   text: "شماره تلفن شما در سامانه موجود نمیباشد.",
+             //   type: "error",
+             //   showCancelButton: false,
+             //   confirmButtonColor: "#DD6B55",
+             //   confirmButtonText: "بازگشت",
+             // });
+          }
+
+        });
+
+      };
+
+        },function Error (response) {
+
+      if (response.status == 404) {
+          SweetAlert.swal({
+           title: "خطا!",
+           text: "شماره تلفن شما در سامانه موجود نمیباشد.",
+           type: "error",
+           showCancelButton: false,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "بازگشت",
+         });
+      }
 
     });
+
   };
+
 
   $scope.SendMessToAdmin = function(titlemesadmin, bodymesadmin) {
     var data = {
