@@ -1095,7 +1095,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     kargozaricon: "assets/images/lk3.png"
   }];
 
-  $scope.geymatkargozar = "0";
+  $scope.geymatkargozar = null;
 
   $scope.geymatkargozarmaharat = "0";
 
@@ -1113,27 +1113,27 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
 
 
-    if ($scope.geymatkargozar == "0") {
+    if ($scope.geymatkargozar == null) {
 
       alert("لطفا اول کارگزار را انتخاب کنید")
 
     }
 
   }
-
-
-
-  $scope.addtestvakargomaharat = function(x) {
-
-
-
-    if ($scope.geymatkargozarmaharat == "0") {
-
-      alert("لطفا اول کارگزار را انتخاب کنید")
-
-    }
-
-  }
+  //
+  //
+  //
+  // $scope.addtestvakargomaharat = function(x) {
+  //
+  //
+  //
+  //   if ($scope.geymatkargozarmaharat == "0") {
+  //
+  //     alert("لطفا اول کارگزار را انتخاب کنید")
+  //
+  //   }
+  //
+  // }
 
 
 
@@ -1189,7 +1189,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
         var nametest = x.name;
 
-        // var getid = x.id;
+        var getremoveid = x.id;
 
         $scope.testentekhab.push(x);
 
@@ -1201,7 +1201,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
           nametest: nametest,
 
-          // namekargozar: getnamekargozar,
+          removeid: getremoveid,
 
           geymatkargozar: getgeymatkargozar,
 
@@ -1209,7 +1209,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
         });
 
-        $scope.geymatkargozar = null;
+        $scope.geymatkargozar = "";
 
         $scope.selected = "";
 
@@ -1446,15 +1446,21 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
     $scope.testentekhab.some(function(obj, i) {
 
-      return obj.id == x.id ? index = i : false;
+      return obj.id == x.removeid ? index = i : false;
 
     });
+
+    // console.log(index);
+    // console.log($scope.testentekhab[index]);
+    // console.log(x);
+
 
     $scope.detailslogt3.shown = null;
 
     $scope.allexam.push($scope.testentekhab[index]);
 
     $scope.formData.testentekhab.splice($scope.formData.testentekhab.indexOf(x), 1);
+    $scope.testentekhab.splice($scope.formData.testentekhab.indexOf(x), 1);
 
 
 
@@ -1597,7 +1603,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
       $scope.detailslogt3.shown = null;
 
-      $scope.geymatkargozar = "0";
+      $scope.geymatkargozar = null;
 
       $scope.selected = "";
 
@@ -1609,7 +1615,7 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
 
       $scope.detailslogt3.shown = name;
 
-      $scope.geymatkargozar = "0";
+      $scope.geymatkargozar = null;
 
       $scope.selected = "";
 
@@ -1924,8 +1930,8 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
     var assurance = ($scope.formData.bimetakmili === 'true');
     var sanavat = ($scope.formData.sanavat === 'true');
 
-    var gabolshaksiyat = ($scope.gaboldarkhatkarbararzyabinashode === 'true');
-    var gabolmaharat = ($scope.gaboldarkhatkarbararzyabinashodemaharat === 'true');
+    // var gabolshaksiyat = ( === 'true');
+    // var gabolmaharat = ( === 'true');
 
 
     var arraysharhevazayef = [];
@@ -1973,9 +1979,9 @@ app.controller('createapostpage', function($compile, $sce, $scope, $window, $htt
       city: $scope.formData.shahr, // String
       coop_time: coop_timev, // String
       coop_type: coop_typev, // String
-      accept_user_witout_exam: gabolshaksiyat,
+      accept_user_witout_exam: $scope.gaboldarkhatkarbararzyabinashode,
       accept_user_witout_resume: false,
-      accept_user_witout_skill: gabolmaharat,
+      accept_user_witout_skill: $scope.gaboldarkhatkarbararzyabinashodemaharat,
       accept_user_witout_suitability: false,
       department: $scope.formData.noemahalfaliat,  // String , Custom Entrance
       description: $scope.formData.tozihat, // String

@@ -1,0 +1,606 @@
+﻿				   <div ng-controller="jobseekerdashboardpage">
+
+	<div class="dashboard">
+						        <div class="container">
+
+						<h1 class="h1title bluecolor">
+        <span class="fontmedium">داشبورد مدیریتی</span>
+    </h1>
+	         <div class=" col-md-3 col-xs-3 dashboardmenu nopaddingright">
+                        <ul class="rmenu nopaddingright">
+                            <li><a class="topborderradius" ng-class="{active: activeTabF == 'tab1'}" ng-click="activeTabF='tab1'">وضعیت فعلی کاربر</a></li>
+                            <li><a ng-class="{active: activeTabF == 'tab2'}" ng-click="activeTabF='tab2'">اعلانات</a></li>
+                            <li><a ng-class="{active: activeTabF == 'tab3'}" ng-click="activeTabF='tab3'">موقعیت های ذخیره شده</a></li>
+<!--                             <li><a ng-class="{active: activeTabF == 'tab4'}" ng-click="activeTabF='tab4'">آمار و اطلاعات من</a></li> -->
+                            <!-- <li><a ng-class="{active: activeTabF == 'tab5'}" ng-click="activeTabF='tab5'">کارگزاران ارزیابی من</a></li> -->
+                            <li><a ng-class="{active: activeTabF == 'tab6'}" ng-click="activeTabF='tab6'">صندوق پیام من</a></li>
+                            <!-- <li><a class="botborderradius" ng-class="{active: activeTabF == 'tab7'}" ng-click="activeTabF='tab7'">تراکنش های مالی من</a></li> -->
+                        </ul>
+						  <ul class="setting nopaddingright">
+                            <li><a class="borderradius" ng-class="{active: activeTabF == 'tab8'}" ng-click="activeTabF='tab8'"><i class="fa fa-cog" aria-hidden="true" style="padding-left: 10px;"></i>تنظیمات</a></li>
+                        </ul>
+             </div>
+
+						        <div class="col-md-9 col-xs-9 boxcontent">
+		<div ng-show="activeTabF=='tab1'" >
+<div class="profilestatuscurrent">
+<div class="col-md-2 col-xs-12 profileimg">
+<img src="{{logopic}}" >
+<!-- <a data-toggle="modal" data-target="#ShowPopupUploadLogo" class="titleandicon">  -->
+<!-- <div class="editlogohover">  -->
+<!-- <div class="titleandicon">  -->
+<!-- <i class="fa fa-picture-o" aria-hidden="true"></i> <br> تغییر لوگو -->
+<!-- </div> -->
+<!-- </div> -->
+ <!-- </a>  -->
+</div>
+<!-- <div id="ShowPopupUploadLogo" class="modal modal-md" role="dialog">
+        <div class="modal-dialog">
+        <div class="modal-content ">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>ویرایش لوگو</h3>
+        </div>
+        <div class="modal-body">
+            <strong>آپلود پروفایل:</strong>
+        <button ngf-select ng-model="logopicfile" accept="image/*">
+           انتخاب عکس</button>
+        <div ngf-drop ng-model="logopicfile" ngf-pattern="image/*"
+             class="cropArea">
+            <img-crop area-type="square"  image="logopicfile | ngfDataUrl"                 
+            result-image="croppedDataUrl"  ng-init="croppedDataUrl=''">
+            </img-crop>
+        </div>			
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-primary" ng-click="savelogo(croppedDataUrl, logopicfile.name)">ذخیره</a>
+            <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">بستن</a>
+        </div>
+    </div>
+    </div>
+    </div> -->
+<div class="col-md-8  col-xs-12 userinfor">
+<div class="h2title bluecolor fontmedium">{{fullname}}</div>
+<div class="h4title graycolor">{{position}}</div>
+<div class="h3title bluecolor fontlight">{{email}}</div>
+<div class="socialprofile notuser" ng-repeat="x in socials">
+	<a href="{{x.url}}" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+		<md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
+	</a>
+</div>
+</div>
+<div class="col-md-2  col-xs-12 profilestatus">
+<div class="profilestatusprogress">{{ preciseCurrent || current }}%</div>
+<div class="profilestatusgiftone"><i class="fa fa-gift" aria-hidden="true"></i></div>
+<div class="profilestatusgifttwo"><i class="fa fa-gift" aria-hidden="true"></i></div>
+<round-progress
+    max="max"
+    current="current"
+    color="url(#gradient)"
+    bgcolor="#999999"
+    radius="100"
+    stroke="30"
+    rounded="false"
+    clockwise="true"
+    responsive="true"
+    duration="2000"
+    animation="easeInOutQuart"
+    animation-delay="0"
+	on-render="showPreciseCurrent">		
+    <svg>
+      <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="5%"  stop-color="#005B97"/>
+      <stop offset="95%" stop-color="#29B473"/>
+      </linearGradient>
+    </svg></round-progress>
+	<div class="profilestatustext h4title bluecolor fontmedium">وضعیت پروفایل</div>
+
+</div>
+
+<div class="clearfix"></div>
+
+<div class="col-md-2 h4title graycolor fontmedium">وضعیت کاربری</div>
+<div ng-if="activestatus == true" class="col-md-10 h4title fontmedium greencolor">فعال</div><div ng-if="activestatus == false" class="col-md-10 h4title fontmedium redcolor">غیر فعال</div>
+<div class="clearfix"></div>
+
+<div class="col-md-2 h4title graycolor linehigh30 fontmedium">اطلاعات دسترسی</div>
+<div class="col-md-10 preminfor">
+<a ng-class="{'greencolor': phone ,'graycolor': phone == null }"  class="mobile" href=""><md-tooltip md-direction="top">{{phone}}</md-tooltip><i class="fa fa-mobile" aria-hidden="true"></i></a>
+<a ng-class="{'greencolor': phonefix ,'graycolor': phonefix == null }"  class="phone" href=""><md-tooltip md-direction="top">{{phonefix}}</md-tooltip><i class="fa fa-phone-square" aria-hidden="true"></i></a>
+<a ng-class="{'greencolor': address ,'graycolor': address == null }"  class="addressloc" href=""><md-tooltip md-direction="top">{{address}}</md-tooltip><i class="fa fa-building" aria-hidden="true"></i></a>
+<a ng-class="{'greencolor': email ,'graycolor': email == null }"  class="mail" href=""><md-tooltip md-direction="top">{{email}}</md-tooltip><i class="fa fa-envelope" aria-hidden="true"></i></a>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="col-md-2 h4title graycolor linehigh40 fontmedium">ارتقای پروفایل</div>
+<div class="col-md-10 h5title whitecolor "><button type="button" class="btn upgradeprofile greenbtn fontmedium"><i class="fa fa-share-square-o" aria-hidden="true"></i><span>ارتقـای پروفایل</span></button>
+</div>
+
+<div class="clearfix"></div>
+<div class="clearfix"></div>
+
+<div class="col-md-8 h4title graycolor onsmsdiv linehigh40 fontmedium">          <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">فعال نمودن اطلاع رسانی فوری با پیامک <span class="onsmsprice">5000 تومان </span></md-checkbox></div>
+<div class="col-md-4 h5title"><button type="button" class="btn increasecredit greenbtnreverse fontmedium"><span>افزایش اعتبار</span></button>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="col-md-12 col-xs-12 profilebanner"><span>.:محــــل تبلیـــــغات:.</span></div>
+<div class="clearfix"></div>
+
+</div>
+</div>
+  <div ng-show="activeTabF=='tab2'" >
+			<div class="notificationrow graycolor {{item.newnotificationclass}}" ng-repeat="item in notificationdata.slice(((notificationcurrentPage-1)*notificationitemsPerPage), ((notificationcurrentPage)*notificationitemsPerPage))">
+		<div class="col-md-1 notificationicon">
+		<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+</div>
+<div class="col-md-11 nopaddingright notificationcontent">
+			<div ng-bind-html="item.title|trustAsHtml"></div>
+			</div>
+		</div>
+		<div class="col-md-12 col-xs-12 paginationcenter" style="background: #E1E2E5;">
+    <ul uib-pagination boundary-links="true" total-items="notificationtotalItems" ng-model="notificationcurrentPage" ng-change="notificationpageChanged()"  items-per-page="notificationitemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+</div>
+</div>
+<div ng-show="activeTabF=='tab3'" >	
+<div class="col-md-6 col-xs-12 jobdetailsbox graycolor" ng-repeat="item in jobsaveddata.job.slice(((jobsaveddatacurrentPage-1)*jobsaveddataitemsPerPage), ((jobsaveddatacurrentPage)*jobsaveddataitemsPerPage))">
+       <div class="jobdetails fontlight">
+            <div class="h6title jobdate graycolor">{{item.created_at | jalaliDate:'jDD / jMMMM / jYY' }}</div>
+				<div class="pinjob removejob" ng-click="removejob(item)"><i class="fa fa-times" aria-hidden="true"></i></div>
+
+            <div class="row rowonejob">
+               <div class="col-md-4 col-xs-12 centerjobrespon">
+                  <div class="companylogo col-md-12 col-xs-12">
+                     <img src="{{item.employer.avatar}}" >
+                     <md-tooltip
+                        md-direction="top">
+                        {{item.employer.fa_name}}
+                     </md-tooltip>
+                  </div>
+                  <div class="jobrateuser col-md-12 col-xs-12">
+                     <rate-yo class="mstarbb" on-set="set" on-change="showpagestarchange" ng-model="showpagestarrating" read-only="showpagestaroptions.readOnly" options="showpagestaroptions"></rate-yo>
+                  </div>
+                  <div class="jobratesystem col-md-12 col-xs-12">
+                     <rate-yo on-set="set" on-change="showpagerectanchange" ng-model="showpagerectanrating" read-only="showpagerectanoptions.readOnly" options="showpagerectanoptions"></rate-yo>
+                  </div>
+               </div>
+               <div class="col-md-8 col-xs-12 paddingjobrespon">
+                  <div class="h2title bluecolor jobname fontmedium">{{item.title}}</div>
+                  <div class="h5title graycolor joblocations fontlight"><i class="fa fa-map-marker" aria-hidden="true"></i>{{item.city}}</div>
+                  <div class="h4title bluecolor jobfield">{{item.education}}</div>
+                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='FULL_TIME'}">
+                     <div class="fontlight">
+                        تمام وقت
+                     </div>
+                  </div>
+                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_time=='PART_TIME'}">
+                     <div class="fontlight">
+                        پاره وقت
+                     </div>
+                  </div>
+                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='KAR_AMUZI'}">
+                     <div class="fontlight">
+                        کارآموزی			
+                     </div>
+                  </div>
+                  <div class="col-md-2 h6title typeofcooperation fontlight graycolor" ng-class="{'active' : item.coop_type=='KARVARZI'}">
+                     <div class="fontlight">
+                        کارورزی
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row rowtwojob">
+             <div class="col-md-6 requestforcooperationjob">                  <button ng-click="requestjob(item,$index)" ng-show="requestshow[$index] || item.requested == null  || item.requested == false" ng-hide="requestshowshow[$index] || item.requested == true"  type="button" class="btn greenbtn fontmedium"><span>درخواست همکاری</span></button>                  <button  ng-click="derequestjob(item,$index)" ng-show="derequestshow[$index] || item.requested == true" ng-hide="derequestshowhide[$index] || item.requested == null  || item.requested == false" type="button" class="btn greenbtn dereq fontmedium"><span>لغو درخواست</span></button>                             </div>               <div class="col-md-6 readmorejob">                  <button  ng-click="showajob(item)" type="button" class="btn greenbtnreverse algnbtnmd fontmedium"><span>مطالعه بیشتر </span><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></button>               </div>
+            </div>
+         </div>
+			</div>
+		
+		
+<div class="col-md-12 paginationcenter">
+    <ul uib-pagination boundary-links="true" total-items="jobsaveddatatotalItems" ng-model="jobsaveddatacurrentPage" ng-change="jobsaveddatapageChanged()"  items-per-page="jobsaveddataitemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+</div>
+</div>
+<div ng-show="activeTabF=='tab4'" >
+ 			            <div class="clearfix"></div>
+
+			<div class="col-md-6 graycolor">تعداد تکرار پروفایل شما در جستجوی سازمان ها:</div>
+			<div class="col-md-6 bulecolor underlinelink" ng-repeat="item in numberdownandrep">{{item.numrepeat}}</div>
+            <div class="clearfix"></div>
+
+			<div class="col-md-12 graycolor">سازمان های خواستار شما:</div>
+			            <div class="clearfix"></div>
+            <div class="col-md-12">
+			<div class="col-md-2  col-xs-4 yourrequestingorganizations" ng-repeat="item in yourrequestingorganizations">
+			<a href="{{item.companylink}}"><img src="{{item.companylogo}}" alt="{{item.companyname}}"></a>
+			<md-tooltip
+              md-direction="top">
+              {{item.companyname}}
+            </md-tooltip>
+            </div>
+			</div>
+			            <div class="clearfix"></div>
+						
+			<div class="col-md-6 graycolor">تعداد دفعات دانلود پروفایل شما از طرف سازمان ها:</div>
+			<div class="col-md-6 bulecolor underlinelink" ng-repeat="item in numberdownandrep">{{item.numdownload}}</div>
+            <div class="clearfix"></div>
+			
+			<div class="col-md-12 graycolor">سازمان های خواستار شما:</div>
+			            <div class="clearfix"></div>
+            <div class="col-md-12 col-xs-12 yourskill" ng-repeat="item in yourskill">
+			<div class="col-md-12   col-xs-6  skillname graycolor">{{item.skill}}</div>
+			<div class="col-md-6 col-xs-12 skillprogressbar">
+	    <uib-progressbar max="100" value="item.persent" duration="800" animation="easeInOutQuart" animation-delay="0" on-render="showPreciseCurrent"></uib-progressbar>
+
+            </div>
+			<span class="skillpersent graycolor">{{item.persent}}%</span>
+            </div>
+			
+			</div>
+<div ng-show="activeTabF=='tab5'" >
+ 			            <div class="clearfix"></div>
+<div class="evaluationbrokershead textcenter">
+			<div class="col-md-4 col-xs-4 graycolor">حوزه های مختلف</div>
+			<div class="col-md-4 col-xs-4 graycolor">کارگزار پیشفرض</div>
+			<div class="col-md-4 col-xs-4 graycolor">تغییرات</div>
+            <div class="clearfix"></div>
+</div>
+<div class="basicinformationeb textcenter">
+			<div class="col-md-4 col-xs-4 bluecolor fontmedium" style="direction: ltr;">(اطلاعات اولیه (رزومه </div>
+			<div class="col-md-4 col-xs-4 "><img ng-if="bibroker.length > 0"  class="img brokericonimg" src="{{bibroker}}"><span ng-if="!bibroker" class="graycolor">انتخاب نشده</span></div>
+			<div class="col-md-4 col-xs-4"><button type="button" class="btn graybtn"  ng-click="toggleDetailsbi('basicinformationeb')"><span>تغییر کارگزار پیشفرض</span></button></div>
+            <div class="clearfix"></div>
+			
+			<div class="col-md-12 col-xs-12 boxbrokersele" ng-hide="basicinformationeb==biselbroker.shown" >
+				<div class="bluecolor textright fontmedium">کارگزار ارزیابی من در خصوص ارزیابی های شخصیت</div>
+<div class="row">
+<div class="col-md-12 col-xs-12">
+<div class="brokersem"  ng-repeat="broker in brokers">
+<md-tooltip
+              md-direction="top">
+              {{broker.kargozarname}}
+            </md-tooltip>
+<img class="img brokericonimg" ng-class="{active: broker == selectbibroker}" src="{{broker.kargozaricon}}" ng-click="selectbibrokerfun(broker)">
+</div>	
+								</div>
+								</div>
+					<button type="button" class="btn greenbtn fontmedium" ng-click="savebibroker(x)"><span>ذخیره</span></button>
+
+				</div>
+
+				
+</div>
+<div class="personalityevaluationseb textcenter">
+			<div class="col-md-4 col-xs-4 bluecolor fontmedium">ارزیابی های شخصیت</div>
+			<div class="col-md-4 col-xs-4"><img ng-if="pebroker.length > 0"  class="img brokericonimg" src="{{pebroker}}"><span ng-if="!pebroker" class="graycolor">انتخاب نشده</span></div>
+			<div class="col-md-4 col-xs-4"><button type="button" class="btn graybtn"  ng-click="toggleDetailspe('personalityevaluationseb')"><span>تغییر کارگزار پیشفرض</span></button></div>
+            <div class="clearfix"></div>
+			
+			<div class="col-md-12 col-xs-12 boxbrokersele" ng-hide="personalityevaluationseb==peselbroker.shown" >
+				<div class="bluecolor textright fontmedium">کارگزار ارزیابی من در خصوص ارزیابی های شخصیت</div>
+<div class="row">
+<div class="col-md-12 col-xs-12">
+<div class="brokersem"  ng-repeat="broker in brokers">
+<md-tooltip
+              md-direction="top">
+              {{broker.kargozarname}}
+            </md-tooltip>
+<img class="img brokericonimg" ng-class="{active: broker == selectpebroker}" src="{{broker.kargozaricon}}" ng-click="selectpebrokerfun(broker)">
+</div>	
+								</div>
+								</div>
+					<button type="button" class="btn greenbtn fontmedium" ng-click="savepebroker(x)"><span>ذخیره</span></button>
+
+				</div>
+</div>		
+<div class="certificateeb textcenter">
+			<div class="col-md-4 col-xs-4 bluecolor fontmedium">گواهینامه های مهارتی</div>
+			<div class="col-md-4 col-xs-4"><img ng-if="ccbroker.length > 0"  class="img brokericonimg" src="{{ccbroker}}"><span ng-if="!ccbroker" class="graycolor">انتخاب نشده</span></div>
+			<div class="col-md-4 col-xs-4"><button type="button" class="btn graybtn"  ng-click="toggleDetailscc('certificateeb')"><span>تغییر کارگزار پیشفرض</span></button></div>
+            <div class="clearfix"></div>
+			
+			<div class="col-md-12 col-xs-12 boxbrokersele" ng-hide="certificateeb==ccselbroker.shown" >
+				<div class="bluecolor textright fontmedium">کارگزار ارزیابی من در خصوص ارزیابی های شخصیت</div>
+<div class="row">
+<div class="col-md-12 col-xs-12">
+<div class="brokersem"  ng-repeat="broker in brokers">
+<md-tooltip
+              md-direction="top">
+              {{broker.kargozarname}}
+            </md-tooltip>
+<img class="img brokericonimg" ng-class="{active: broker == selectccbroker}" src="{{broker.kargozaricon}}" ng-click="selectccbrokerfun(broker)">
+</div>	
+								</div>
+								</div>
+					<button type="button" class="btn greenbtn fontmedium" ng-click="saveccbroker(x)"><span>ذخیره</span></button>
+
+				</div>
+</div>	
+<div class="competencyappraisal textcenter">
+			<div class="col-md-4 col-xs-4 bluecolor fontmedium">ارزیابی های شخصیت</div>
+			<div class="col-md-4 col-xs-4 "><img ng-if="cabroker.length > 0"  class="img brokericonimg" src="{{cabroker}}"><span ng-if="!cabroker" class="graycolor">انتخاب نشده</span></div>
+			<div class="col-md-4 col-xs-4"><button type="button" class="btn graybtn"  ng-click="toggleDetailsca('competencyappraisal')"><span>تغییر کارگزار پیشفرض</span></button></div>
+            <div class="clearfix"></div>
+			
+			<div class="col-md-12 col-xs-12 boxbrokersele" ng-hide="competencyappraisal==caselbroker.shown" >
+				<div class="bluecolor textright fontmedium">کارگزار ارزیابی من در خصوص ارزیابی های شخصیت</div>
+<div class="row">
+<div class="col-md-12 col-xs-12">
+<div class="brokersem"  ng-repeat="broker in brokers">
+<md-tooltip
+              md-direction="top">
+              {{broker.kargozarname}}
+            </md-tooltip>
+<img class="img brokericonimg" ng-class="{active: broker == selectcabroker}" src="{{broker.kargozaricon}}" ng-click="selectcabrokerfun(broker)">
+</div>	
+								</div>
+								</div>
+					<button type="button" class="btn greenbtn fontmedium" ng-click="savecabroker(x)"><span>ذخیره</span></button>
+
+				</div>
+</div>	
+		
+
+</div>
+<div ng-show="activeTabF=='tab6'" class="mymessagebox">
+            <div class="clearfix"></div>
+
+    <ul class="nav nav-tabs">
+        <li ng-class="{active: activeTab == 'inbox'}">
+            <a class="mymessageboxtab" ng-click="activeTab='inbox'">صندوق دریافت</a>
+        </li>
+        <li ng-class="{active: activeTab == 'sent'}">
+            <a class="mymessageboxtab" ng-click="activeTab='sent'">پیام های ارسال شده</a>
+        </li>     
+		<li ng-class="{active: activeTab == 'compose'}">
+            <a class="mymessageboxtab" ng-click="activeTab='compose'">ایجاد پیام</a>
+        </li>
+    </ul>    
+    <div class="mymessageboxdet col-md-12 col-xs-12 ">
+    <div ng-show="activeTab=='inbox'" class="">
+        <div ng-hide="isreceiveVisible">
+            <div class="emailrow" ng-repeat="email in ReceiveMessage" ng-click="showreceivemail(email)">
+                <span class="col-md-1 col-xs-1 emailicon">
+									<i ng-if="email.seen == false" class="fa fa-envelope-o" aria-hidden="true"></i>
+									<i ng-if="email.seen == true" class="fa fa-envelope-open-o" aria-hidden="true"></i>
+								</span>
+                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ email.title }}<br>
+									<span ng-if="email.from == 'SP'" class="h6title fontlight">{{ email.service_provider.fa_name }}</span>
+									<span ng-if="email.from == 'EMP'" class="h6title fontlight">{{ email.employer.fa_name }}</span>
+								</span>
+                <span class="col-md-2 col-xs-2 emaildate textleft">{{ email.created_at | jalaliDate:'hh:mm'  }}<br>{{ email.created_at | jalaliDate:'jDD / jMM / jYY' }}</span>
+            </div>
+        </div>
+		<div ng-show="isreceiveVisible">
+        <div class="modal-header">
+               <span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
+                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ selectedreceiveEmail.title }}<br>
+									<span ng-if="selectedreceiveEmail.from == 'SP'" class="h6title fontlight">{{ selectedreceiveEmail.service_provider.fa_name }}</span>
+									<span ng-if="selectedreceiveEmail.from == 'EMP'" class="h6title fontlight">{{ selectedreceiveEmail.employer.fa_name }}</span>
+								</span>
+								<span class="col-md-2 col-xs-2 emaildate textleft">{{ selectedreceiveEmail.created_at | jalaliDate:'hh:mm'  }}<br>{{ selectedreceiveEmail.created_at | jalaliDate:'jDD / jMM / jYY' }}</span>
+        </div>
+        <div class="modal-body">
+            {{selectedreceiveEmail.text}}
+						<br>
+						<br>
+						<a ng-if="selectedreceiveEmail.attached_file_path != null" href="{{selectedreceiveEmail.attached_file_path}}" class="btn greenbtn">دانلود پیوست</a>
+        </div>
+        <div class="modal-footer">
+            <a class="btn removeemail darkgraybtn"  ng-click="removereceiveemail(selectedreceiveEmail)" ><i class="fa fa-trash-o" aria-hidden="true"></i> حذف</a>
+            <a class="btn replayemail greenbtn" ng-click="replayereceivemail(selectedreceiveEmail)">پاسخ به پیام</a>
+            <a class="btn backtomail bluebtn" ng-click="backtoreceivemail()">بازگشت    <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    </div>
+
+    <div ng-show="activeTab=='sent'">
+	        <div ng-hide="issentVisible">
+	        <div class="emailrow" ng-repeat="email in SendMessage" ng-click="showsentmail(email)">
+                <span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
+                <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ email.title }}<br>
+									<span ng-if="email.to == 'SP'" class="h6title fontlight">{{ email.service_provider.fa_name }}</span>
+									<span ng-if="email.to == 'EMP'" class="h6title fontlight">{{ email.employer.fa_name }}</span>
+								</span>
+								<span class="col-md-2 col-xs-2 emaildate textleft">{{ email.created_at | jalaliDate:'hh:mm'  }}<br>{{ email.created_at | jalaliDate:'jDD / jMM / jYY' }}</span>
+
+            </div>
+    </div>
+			<div ng-show="issentVisible">
+        <div class="modal-header">
+					<span class="col-md-1 col-xs-1 emailicon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
+
+					 <span class="col-md-9 col-xs-9 emailminides fontmedium">{{ selectedsentEmail.title }}<br>
+						 <span ng-if="selectedsentEmail.to == 'SP'" class="h6title fontlight">{{ selectedsentEmail.service_provider.fa_name }}</span>
+						 <span ng-if="selectedsentEmail.to == 'EMP'" class="h6title fontlight">{{ selectedsentEmail.employer.fa_name }}</span>
+					 </span>
+
+					 <span class="col-md-2 col-xs-2 emaildate textleft">{{ selectedsentEmail.created_at | jalaliDate:'hh:mm'  }}<br>{{ selectedsentEmail.created_at | jalaliDate:'jDD / jMM / jYY' }}</span>
+	 </div>
+        <div class="modal-body">
+					{{selectedsentEmail.text}}
+
+					<br>
+					<br>
+					<a ng-if="selectedsentEmail.attached_file_path != null" href="{{selectedsentEmail.attached_file_path}}" target="_blank" class="btn greenbtn">دانلود پیوست</a>
+        </div>
+        <div class="modal-footer">
+            <a class="btn removeemail darkgraybtn fontmedium"  ng-click="removesentmail(selectedsentEmail)" ><i class="fa fa-trash-o" aria-hidden="true"></i> حذف</a>
+            <a class="btn replayemail greenbtn fontmedium" ng-click="replayesentmail(selectedsentEmail)">پاسخ به پیام</a>
+            <a class="btn backtomail bluebtn fontmedium" ng-click="backtosentmail()">بازگشت    <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    </div>
+    
+    
+    <div ng-show="activeTab=='compose'">
+        <div class="modal-header">
+				{{composeEmail.to}}
+		<span class="col-md-1 col-xs-3 composetitle graycolor h5title">
+  پیام به 
+		</span>	
+		<span class="col-md-11 col-xs-9 composeval">
+                <!-- <input type="text"
+                    ng-model="composeEmail.to"> -->
+										<angucomplete
+															placeholder="جستجو کنید"
+															pause="400"
+															selectedobject="composeEmail.to"
+															url="https://sadaf.systmngr.ir/api/v1/auto?string="
+															datafield="data"
+															titlefield="fa_name"
+															imagefield="avatar"
+												>
+											</angucomplete>
+										<br />
+		</span>
+			<span class="col-md-1 col-xs-3 composetitle graycolor h5title">
+  موضوع 
+		</span>	
+		<span class="col-md-11 col-xs-9 composeval">
+                <input type="text" 
+                    ng-model="composeEmail.subject"><br />
+		</span>
+
+		</div>
+<div class="modal-body" style="padding: 0;">       
+         <textarea class="composeEmailbody" rows="10" 
+                    ng-model="composeEmail.body"></textarea>
+        </div>
+
+<div class="modal-footer" style="margin: 0; text-align: right;">      
+      <a class="btn greenbtn" ng-click="sendEmail()">ارسال</a>
+      <span class="attachmail"  ngf-select accept="application/pdf, image/*"  ng-model="atachmailmodel" ng-click="attachEmail()"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
+			{{atachmailmodel.name}}
+        </div>
+    </div>
+  </div>
+              <div class="clearfix"></div>
+
+</div>
+<div ng-show="activeTabF=='tab7'"  class="myfinancialtransactions">
+            
+  <table class="table table-bordered transactionstable">
+    <thead>
+      <tr>
+        <th>  
+		<a ng-click="orderByField='transactionhistory'; reverseSort = !reverseSort">
+           تاریخ تراکنش <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactiontype'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactionhistory'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+          </a></th>
+        <th>
+          <a ng-click="orderByField='transactiontype'; reverseSort = !reverseSort">
+            نوع تراکنش <span ng-if="!orderByField"><i class="fa fa-sort" aria-hidden="true"></i></span>  <span ng-show="orderByField == 'transactionhistory'"><i class="fa fa-sort" aria-hidden="true"></i></span> <span ng-show="orderByField == 'transactiontype'"><span ng-show="!reverseSort"><i class="fa fa-caret-up" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+          </a>
+        </th>
+        <th>شماره پیگیری</th>
+        <th>مبلغ (تومان)</th>
+        <th>موجودی (تومان)</th>
+        <th>دریافت فاکتور</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="transaction in mytransactions.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))|orderBy:orderByField:reverseSort">
+        <td>{{transaction.transactionhistory}}</td>
+        <td>{{transaction.transactiontype}}</td>
+        <td>{{transaction.issuetracking}}</td>
+        <td ng-class="{'greencolor': transaction.transactiontype == 'واریز',
+           'graycolor': transaction.transactiontype == 'واریز ناموفق',
+           'redcolor': transaction.transactiontype == 'پرداخت'}">{{transaction.transactionprice}}</td>
+        <td ng-class="{'greencolor': transaction.transactiontype == 'واریز',
+           'graycolor': transaction.transactiontype == 'واریز ناموفق'}">{{transaction.transactioncredit}}</td>
+        <td class="recivefactorlink"><a href="{{transaction.recivefactorlink}}"><i class="fa fa-download h2title" aria-hidden="true"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+ <div class="col-md-6 col-xs-12 textright">
+    <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"  items-per-page="itemsPerPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+</div> 
+
+<div class="col-md-6 col-xs-12 mysetincreasecredit">
+					<button type="button" class="btn greenbtn fontmedium"><span>افزایش اعتبار</span></button>
+</div>
+
+</div>
+<div ng-show="activeTabF=='tab8'"  class="mysetting">
+
+	<div class="col-md-12 col-xs-12 h3title bluecolor">
+		 تغییر رمز عبور
+	</div>
+	<br>
+	<br>
+	<form name="chengepasswordform" novalidate class="chengepasswordform" ng-submit="chengepasswordform.$valid &&ChengePassWord(currentpassword,newpassword)">
+	<div class="col-md-12 col-xs-12 h4title graycolor">
+		رمز فعلی
+	</div>
+	<div class="col-md-12 col-xs-12 h4title graycolor">
+		<input type="text" name="currentpassword" ng-model="currentpassword">
+	</div>
+
+	<div class="col-md-12 col-xs-12 h4title graycolor">
+		رمز جدید
+	</div>
+	<div class="col-md-12 col-xs-12 h4title graycolor">
+		<input type="text" name="newpassword" ng-model="newpassword">
+	</div>
+	<div class="col-md-12 col-xs-12">
+		 <button type="submit" class="btn bluebtn">تغییر رمز</button>
+	</div>
+</form>
+
+            <!-- <div class="clearfix"></div>
+            <div class="col-md-12 h4title graycolor">      
+			<md-checkbox ng-model="data.custom111" aria-label="Checkbox 1">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
+			</div>
+       <div class="clearfix"></div>
+            <div class="col-md-12 h4title graycolor">      
+			<md-checkbox ng-model="data.custom222" aria-label="Checkbox 1">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
+			</div>
+			       <div class="clearfix"></div>
+            <div class="col-md-12 h4title graycolor">      
+			<md-checkbox ng-model="data.custom333" aria-label="Checkbox 1">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود</md-checkbox>
+			</div>
+						       <div class="clearfix"></div>
+							               <div class="col-md-10 h4title graycolor">      
+    شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی 
+</div>
+  							               <div class="col-md-2 mysettingswitch">      
+ <md-switch md-invert ng-model="data.sw111" aria-label="Switch 1">
+  </md-switch>
+  </div>
+			       <div class="clearfix"></div>    
+				   <div class="col-md-10 h4title graycolor">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح </div>
+
+  							               <div class="col-md-2 mysettingswitch">      
+ <md-switch md-invert ng-model="data.sw222" aria-label="Switch 2">
+  </md-switch>
+  </div>
+			       <div class="clearfix"></div>		
+				   <div class="col-md-10 h4title graycolor">شی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح </div>
+  							               <div class="col-md-2 mysettingswitch">      
+ <md-switch md-invert ng-model="data.sw333" aria-label="Switch 3">
+  </md-switch>
+  </div> -->
+			       <div class="clearfix"></div>
+			       <div class="clearfix"></div>
+
+</div>
+
+
+		
+
+
+        </div>
+									</div>
+									</div>
+
+		
+			
+			
+			
+			
+			
+			
+			
+			</div>

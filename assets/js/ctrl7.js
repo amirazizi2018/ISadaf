@@ -379,6 +379,16 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
 
   }
 
+  $scope.readmore = function(x) {
+
+    if ($scope.geymatkargozarmaharat == "0") {
+
+      alert("لطفا اول کارگزار را انتخاب کنید")
+
+    }
+
+  }
+
 
 
   $scope.addtestvakargoshyestegi = function(x) {
@@ -408,6 +418,7 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
     var getgeymatkargozar = kargozar.kargozargeymat;
 
     var geticonkargozar = kargozar.kargozaricon;
+
 
     $scope.geymatkargozar = getgeymatkargozar;
 
@@ -474,6 +485,8 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
     var gettimekargozar = kargozarmaharat.duration;
 
     var geturlkargozar = kargozarmaharat.url;
+
+    var getidkargozar = kargozarmaharat.service_provider.id;
 
 
     // var geticonkargozar = kargozarmaharat.kargozaricon;
@@ -571,7 +584,10 @@ app.controller('chooseatestpage', function($compile, $sce, $scope, $window, $htt
 
     }
 
-
+    $scope.readmore = function() {
+        ShareData.setPropertyspid(getidkargozar);
+        $location.path("spprofilepage");
+    }
 
   }
 

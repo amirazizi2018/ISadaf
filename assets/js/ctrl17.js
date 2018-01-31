@@ -761,7 +761,7 @@ app.controller('spdashboardpage', function($compile, $sce, $scope, $window, $htt
 
 
 
-  $http.get(mustafasite + '/service_provider/notification', {
+  $http.get(mustafasite + '/service_provider/notification?per_page=1000', {
 
     headers: {
 

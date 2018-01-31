@@ -1207,6 +1207,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 .attachmail {
   font-size: 25px;
   position: relative;
+  padding-left: 7%;
 }
 
 .attachmail .fa-paperclip:before {
@@ -3367,12 +3368,14 @@ For Page Company Page 8
 }
 
 .text-samaneh {
-  padding: 0px 0 20px 0;
+    padding: 0px 15px 20px 0;
 }
 
 .text-samaneh h2 {
   color: #fff;
   font-weight: 400;
+  margin-top: 60px;
+  margin-bottom: 25px;
 }
 
 .text-samaneh p {
@@ -4213,16 +4216,14 @@ For Page 6
 }
 
 .jobseekerprofilepage .addbtnpgjp {
-  height: 44px;
+  height: 40px;
   background: rgba(0, 0, 0, 0);
   border: 1px dashed #0A415B;
   transition: all 0.3s ease-in-out 0s;
 }
 
 .jobseekerprofilepage .addbtnpgjp:hover {
-  height: 44px;
   background: #fff;
-  border: 1px dashed #0A415B;
 }
 
 .jobseekerprofilepage .addbtnpgjp i {
@@ -5199,4 +5200,19 @@ display: none;
   vertical-align: middle;
   background: #0000005e;
       top: 0;
-  }
+}
+
+.tikbeforerahkar {
+  padding-right: 15px
+}
+
+.tikbeforerahkar:before {
+  content: '';
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  background: url(../images/tick.svg);
+  background-position-y: 2px;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,931 @@
+
+<div ng-controller="createaresearchpage" class="imgkargozarpg11">
+
+
+  <div class="sabtagahishog">
+
+    <div class="container" style="padding-right: 0;">
+
+
+
+      <h1 class="h1title bluecolor">
+
+        <span class="fontmedium">ثبت یک پژوهش</span>
+
+    </h1>
+
+      <div class="tabhead">
+
+        <ul class="nav nav-tabs">
+
+          <li><a style="margin-right: 0px;" ng-class="{active: activeTab == 'tab1'}" ng-click="activeTab='tab1'">اطلاعات جایگاه شغلی</a></li>
+
+          <li><a ng-class="{active: activeTab == 'tab2'}" ng-click="activeTab='tab2'">خاص نمودن آگهی</a></li>
+
+          <li><a ng-class="{active: activeTab == 'tab3'}" ng-click="activeTab='tab3'">ارسال آگهی</a></li>
+
+        </ul>
+
+      </div>
+
+
+
+      <div class="sabtagahishogbox">
+
+        <div ng-show="activeTab=='tab1'">
+
+          <div class="pgsabtshoglbox">
+
+            <div class="searchdatabase">
+              <div>
+                <div class="searchdatabaser">
+
+                  <div class="col-md-2 col-xs-12">
+
+                    <span class="titlefildsear h5title fontmedium">عنوان پژوهش</span>
+
+                  </div>
+                  <div class="col-md-10 col-xs-12">
+                    <input class="form-control addinputtott " id="profileshoghl" type="text" size="100" ng-model="ResearchTitle"></input>
+                  </div>
+                </div>
+
+                <div class="searchdatabaser">
+
+                  <div class="col-md-2 col-xs-12">
+
+                    <span class="titlefildsear  h5title fontmedium">کلمات کلیدی</span>
+
+                  </div>
+
+                  <div class="col-md-10 col-xs-12">
+
+                    <ui-select multiple ng-model="skillsandexpertise" on-select="OnClickSelect($item)" on-remove="OnRemoveSelect($item)" theme="bootstrap" close-on-select="false" style="width: 100%;" title="مهارت خود را انتخاب کنید">
+
+                      <ui-select-match>{{$item.name}}</ui-select-match>
+
+                      <ui-select-choices repeat="skill in yourskillsandexpertises | filter:$select.search">
+
+                        {{skill.name}}
+
+                      </ui-select-choices>
+
+                    </ui-select>
+
+                  </div>
+
+
+
+
+
+                </div>
+
+                <div class="searchdatabaser">
+
+                  <div class="col-md-2 col-xs-12">
+
+                    <span class="titlefildsear h5title fontmedium">شرح مسئله</span>
+
+
+
+                  </div>
+
+
+
+                  <div class="col-md-10 col-xs-12">
+
+
+
+                    <textarea ng-model="ResearchSharhMasale" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>
+
+
+
+
+
+                  </div>
+
+
+
+
+
+                </div>
+
+
+
+                <div class="searchdatabaser">
+
+                  <div class="col-md-2 col-xs-12">
+
+                    <span class="titlefildsear h5title fontmedium">نوع مسئله</span>
+
+                  </div>
+
+                  <div class="col-md-3 col-xs-12">
+
+
+
+                    <select class="h5title fontlight" data-placeholder="نوع مسئله" class="selecttahsilat" tabindex="1" ng-model="SelectNomasale" style="margin-left: 15px;">
+											<option ng-repeat="x in nomasale" value="{{x.nameper}}">{{x.nameper}}</option>
+
+          					</select>
+
+
+                  </div>
+
+
+
+
+
+                </div>
+                <div class="searchdatabaser">
+
+                  <div class="col-md-2 col-xs-12">
+
+                    <span class="titlefildsear h5title fontmedium">صنعت یا حوزه کاربردی</span>
+
+                  </div>
+
+                  <div class="col-md-3 col-xs-12">
+
+
+
+                    <select class="h5title fontlight" data-placeholder="صنعت یا حوزه کاربردی" class="selecttahsilat" tabindex="1" ng-model="SelectSanaat" style="margin-left: 15px;">
+
+											<option ng-repeat="x in sanatmarbote" value="{{x.nameper}}">{{x.nameper}}</option>
+
+          				</select>
+
+
+                  </div>
+
+
+
+
+
+                </div>
+
+
+
+
+                <div class="searchdatabaser">
+
+                  <div class="col-md-2 col-xs-12">
+
+                    <span class="titlefildsear h5title fontmedium">حوزه تخصصی</span>
+
+                  </div>
+
+                  <div class="col-md-3 col-xs-12">
+
+
+
+                    <select class="h5title fontlight" data-placeholder="حوزه تخصصی" class="selecttahsilat" tabindex="1" ng-model="SelectHozeTakhasosi" style="margin-left: 15px;">
+
+											<option ng-repeat="x in hozetakhasosi" value="{{x.nameper}}">{{x.nameper}}</option>
+
+          					</select>
+
+
+                  </div>
+                  <div class="col-md-1 col-xs-12">
+                    <a class="btn btn-default addmaharatbtn h6title fontmedium" ng-click="addtahsilat()">اضافه</a>
+
+
+
+                  </div>
+
+
+
+
+                </div>
+                <div class="searchdatabaser resanakal" ng-repeat="tahsil in Tahsilat" id="tahsilatid{{$index}}">
+
+                  <div class="col-md-2 col-xs-1">
+
+                  </div>
+
+                  <div class="col-md-10 col-xs-12">
+
+
+
+                    <div class="namemaharatkilid">{{tahsil.hoze}}</div>
+
+                    <div class="removemahartkilid" ng-click="removettahsilat($index)">حذف</div>
+
+
+
+
+
+                  </div>
+
+
+
+
+
+                </div>
+
+
+                <div class="searchdatabaser">
+
+                  <div class="col-md-2 col-xs-12">
+
+                    <span class="titlefildsear h5title fontmedium">روش تحقیق و اجرا</span>
+
+
+
+                  </div>
+
+
+
+                  <div class="col-md-10 col-xs-12">
+
+                    <textarea ng-model="RavashTahghigh" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>
+
+
+                  </div>
+
+
+
+
+
+                </div>
+
+
+                <div class="searchdatabaser">
+
+                  <div class="col-md-2 col-xs-12">
+
+                    <span class="titlefildsear h5title fontmedium">زمان تخمینی</span>
+
+                  </div>
+
+                  <div class="col-md-3 col-xs-12">
+
+
+
+                    <select class="h5title fontlight" data-placeholder="زمان تخمینی" class="selecttahsilat" tabindex="1" ng-model="SelectZamanTakhmini" style="margin-left: 15px;">
+
+                      <option ng-repeat="x in zamantakhmini" value="{{x.nameeng}}">{{x.nameper}}</option>
+
+          					</select>
+
+
+                  </div>
+
+
+
+
+
+                </div>
+
+                <div class="searchdatabaser">
+
+                  <div class="col-md-2 col-xs-12">
+
+                    <span class="titlefildsear h5title fontmedium">برآورد هزینه</span>
+
+                  </div>
+
+                  <div class="col-md-3 col-xs-12">
+
+
+
+                    <select class="h5title fontlight" data-placeholder="برآورد هزینه" class="selecttahsilat" tabindex="1" ng-model="SelectBarovordHazineh" style="margin-left: 15px;">
+
+                      <option ng-repeat="x in baravordhazine" value="{{x.nameeng}}">{{x.nameper}}</option>
+
+          					</select>
+
+
+                  </div>
+
+
+
+
+
+                </div>
+
+
+                <div class="searchdatabaser">
+
+                  <div class="col-md-2 col-xs-12">
+
+                    <span class="titlefildsear h5title fontmedium">نوع خروجی</span>
+
+
+
+                  </div>
+
+
+
+                  <div class="col-md-10 col-xs-12">
+
+
+
+                    <textarea ng-model="NoeKhoroji" style="overflow:auto;resize:none;width: 100%;" rows="8"></textarea>
+
+
+
+
+
+                  </div>
+
+
+
+
+
+                </div>
+
+
+                <div class="searchdatabaser">
+
+                  <div class="col-md-2 col-xs-12">
+
+                    <span class="titlefildsear h5title fontmedium">آپلود فایل های کاربردی</span>
+
+                  </div>
+
+
+                  <div class="col-md-10 col-xs-12">
+
+                    <a class="btn btn-default addmaharatbtn h6title fontmedium" ngf-select accept="application/pdf, image/*"  ng-model="atachresearchmodel" style="display:  inline-block;">گزینش فایل</a>
+                    {{atachresearchmodel.name}}
+
+                  </div>
+
+
+
+
+                </div>
+
+
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+          </div>
+
+
+
+          <div class="col-md-12 col-xs-12 btnsnexbacre" style="padding: 0px;">
+
+
+
+            <a href="#" class="backgam btn h5title fontmedium">« بازگشت به پروفایل</a>
+
+            <a ng-click="activeTab='tab2'" class="nextgam btn h5title fontmedium">ادامه برای گام بعد »</a>
+
+
+
+          </div>
+
+        </div>
+
+
+
+
+        <div ng-show="activeTab=='tab2'">
+
+
+
+          <div class="pgsabtshoglbox">
+
+            <div class="searchdatabaser">
+
+
+
+              <div class="col-md-12 titledesemkanatkhas">برای انتخاب امکانات خاص برای نمایش آگهی خود از این بخش استفاده نمایددددددد</div>
+
+
+
+
+
+              <div class="khasnemagaghi" ng-repeat="prod in prodList">
+
+                <div class="col-md-2 col-xs-12">
+
+                  <span class="khasneagdtitlch">
+
+                    <md-checkbox ng-model="orders.prods.prod[prod.id]" aria-label="Checkbox {{$index}}">{{prod.title}}</md-checkbox>
+
+                </div>
+
+
+
+                <div class="col-md-8 col-xs-8 kasneagdet h5title">
+
+
+
+                  {{prod.description}}
+
+                </div>
+
+
+
+                <div class="col-md-2 col-xs-2 kasneaggeyjo">
+
+                  <span class="agahikhas2">{{prod.gift_count}}</span>
+
+                  <span> ریال</span>
+
+                </div>
+
+
+              </div>
+
+
+
+
+
+
+
+            </div>
+
+            <div style="padding: 5px 30px;">
+              <hr>
+            </div>
+
+
+
+            <div class="col-md-12  col-xs-12" style="
+
+    padding: 10px 0 15px;
+
+">
+              <div class="col-md-10 col-xs-10" style="
+
+    text-align: left;
+
+    padding-left: 0;
+
+"> <span class="khasneagdtitlch">	مجموع سرمایه گذاری در این مرحله:</span>
+
+              </div>
+
+              <div class="col-md-2 col-xs-2 kasneaggeyjo">
+
+                <span class="majmosarmayegozarikhas">{{totalkhaskardanagahi()}}</span>
+
+                <span> ریال</span>
+
+              </div>
+
+            </div>
+
+
+
+          </div>
+
+
+
+
+
+
+
+          <div class="col-md-12 col-xs-12 btnsnexbacre" style="padding: 0px;">
+
+            <div class="col-md-2 col-xs-2" style="padding: 0;">
+
+
+
+              <a ng-click="activeTab='tab1'" class="backgam btn h5title fontmedium">« بازگشت به گام قبل</a>
+
+            </div>
+
+
+
+            <div class="col-md-8  col-xs-8" style="
+
+    padding: 10px 0 15px;
+
+">
+              <div class="col-md-10 col-xs-10 mablagrescss" style="
+
+    text-align: left;
+
+    padding-left: 0;
+
+"> <span class="khasneagdtitlch">	مبلغ کل تا این مرحله:</span>
+
+              </div>
+
+              <div class="col-md-2 col-xs-2 kasneaggeyjo">
+
+                <span class="majmosarmayegozarikhas">{{ totalazmonravan() + totalazmonmaharat() + totalazmonshyestegi() + totalkhaskardanagahi() }}</span>
+
+                <span> ریال</span>
+
+              </div>
+
+
+
+            </div>
+
+            <div class="col-md-2 col-xs-2" style="padding: 0;">
+
+
+
+              <a ng-click="activeTab='tab3'" class="nextgam btn h5title fontmedium">تایید و گام بعد »</a>
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div ng-show="activeTab=='tab3'">
+
+
+
+          <div class="pgsabtshoglbox">
+
+            <div class="searchdatabaser">
+
+
+
+              <div class="col-md-12 titledesemkanatkhas" style="
+
+    padding-bottom: 15px;
+
+">هم اکنون می توانید مختصر اطلاعات آگهی خود را مشاهده بفرمایید. پس از تایید و پرداخت مبلغ سرمایه گذاری آگهی شما در لیست آخرین آگهی های سامانه قرار خواهد گرفت
+
+              </div>
+
+
+
+              <div class="col-md-12 col-xs-12">
+
+                <div class="boxsharagahi">
+
+                  <div class="row" style="padding: 15px 0;">
+
+                    <div class="col-md-6 col-xs-12">
+
+                      <div class="col-md-6 col-xs-6 khasneagdtitlch ">عنوان جایگاه شغلی</div>
+
+                      <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.onvanjayghahshoghl}}</div>
+
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+
+                      <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">ساعت کاری</div>
+
+                      <div class="col-md-6 col-xs-6 kasneagdet h5title" ng-if="formData.saatkari.roz && formData.saatkari.sataval && formData.saatkari.satdovom">{{formData.saatkari.roz}} از ساعت {{formData.saatkari.sataval}} الی {{formData.saatkari.satdovom}} </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row" style="padding: 15px 0;">
+
+                    <div class="col-md-6 col-xs-12">
+
+                      <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">موقعیت در جایگاه سازمانی</div>
+
+                      <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.mogeatdarjayghah}}</div>
+
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+
+                      <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">صنعت مربوطه</div>
+
+                      <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.selectedsanatmarbote}}</div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row" style="padding: 15px 0;">
+
+                    <div class="col-md-6 col-xs-12">
+
+                      <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">جنسیت</div>
+
+                      <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.jensiat}}</div>
+
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+
+                      <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">وضعیت اقامتی</div>
+
+                      <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.vaziateghamati}}</div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row" style="padding: 15px 0;">
+
+                    <div class="col-md-6 col-xs-12">
+
+                      <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">سن</div>
+
+                      <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.sen}}</div>
+
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+
+                      <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">وضعیت تاهل</div>
+
+                      <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.vaziattahol}}</div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row" style="padding: 15px 0;">
+
+                    <div class="col-md-6 col-xs-12">
+
+                      <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">شهر</div>
+
+                      <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.shahr}}</div>
+
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+
+                      <div class="col-md-6 col-xs-6 khasneagdtitlch h5title fontmedium">وضعیت نظام وظیفه</div>
+
+                      <div class="col-md-6 col-xs-6 kasneagdet h5title">{{formData.vaziatnezamvazife}}</div>
+
+                    </div>
+
+                  </div>
+
+
+
+
+
+
+
+                </div>
+
+              </div>
+
+
+
+
+
+
+
+              <div ng-if="formData.testentekhab.nametest" class="col-md-12 col-xs-12 desfinalpazmonha">
+
+                <div class="col-md-2 col-xs-12 khasneagdtitlch h5title fontmedium">ارزیابی روانشناختی</div>
+
+                <div class="col-md-10 col-xs-12 kasneagdet">
+
+
+
+                  <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in formData.testentekhab">
+
+                    <div class="btn testbotto finalbotdetres">
+
+                      <md-tooltip md-direction="top">
+
+                        {{x.nametest}}
+
+                      </md-tooltip>
+
+                      <div class="finalbotdetrestext">
+
+                        <span class="finalbotdetresname">{{x.nametest  | limitTo: 20 }}</span>
+
+                        <span class="finalbotdetressath" ng-if="x.sath">{{x.sath}}</span>
+
+                      </div>
+
+
+
+                      <div class="finalbotdetresimg"><img class="img" src="{{x.iconkargozar}}"></div>
+
+
+
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+              </div>
+
+
+
+              <div ng-if="formData.testentekhabmaharat.nametest" class="col-md-12 col-xs-12 desfinalpazmonha">
+
+                <div class="col-md-2 col-xs-12 khasneagdtitlch h5title fontmedium">ارزیابی مهارتی</div>
+
+                <div class="col-md-10 col-xs-12 kasneagdet">
+
+
+
+                  <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in formData.testentekhabmaharat">
+
+                    <div class="btn testbotto finalbotdetres">
+
+                      <md-tooltip md-direction="top">
+
+                        {{x.nametest}}
+
+                      </md-tooltip>
+
+                      <div class="finalbotdetrestext">
+
+                        <span class="finalbotdetresname">{{x.nametest  | limitTo: 20 }}</span>
+
+                        <span class="finalbotdetressath" ng-if="x.sath">{{x.sath}}</span>
+
+                      </div>
+
+
+
+                      <div class="finalbotdetresimg"><img class="img" src="{{x.iconkargozar}}"></div>
+
+
+
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+              </div>
+
+
+
+              <div ng-if="formData.testentekhabshyestegi.nametest" class="col-md-12 col-xs-12 desfinalpazmonha">
+
+                <div class="col-md-2 col-xs-12 khasneagdtitlch h5title fontmedium">ارزیابی شایستگی</div>
+
+                <div class="col-md-10 col-xs-12 kasneagdet">
+
+
+
+                  <div class="finaldetwithtestazmonh col-xs-12" ng-repeat="x in formData.testentekhabshyestegi">
+
+                    <div class="btn testbotto finalbotdetres">
+
+                      <md-tooltip md-direction="top">
+
+                        {{x.nametest}}
+
+                      </md-tooltip>
+
+                      <div class="finalbotdetrestext">
+
+                        <span class="finalbotdetresname">{{x.nametest | limitTo: 20 }}</span>
+
+                        <span class="finalbotdetressath" ng-if="x.sath">{{x.sath}}</span>
+
+                      </div>
+
+
+
+                      <div class="finalbotdetresimg"><img class="img" src="{{x.iconkargozar}}"></div>
+
+
+
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+              </div>
+
+
+
+              <div class="col-md-12 col-xs-12 desfinalpazmonha">
+
+                <div class="col-md-2 col-xs-12 khasneagdtitlch h5title fontmedium">توضیحات</div>
+
+                <div class="col-md-10 col-xs-12 kasneagdet h5title " style="padding-right: 30px;">{{formData.tozihat}}</div>
+
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+          <div class="col-md-12 col-xs-12 btnsnexbacre" style="padding: 0px;">
+
+            <div class="col-md-2 col-xs-2" style="padding: 0;">
+
+
+
+              <a ng-click="activeTab='tab2'" class="backgam btn h5title fontmedium">« بازگشت به گام قبل</a>
+
+            </div>
+
+
+
+            <div class="col-md-8  col-xs-8" style="
+
+    padding: 10px 0 15px;
+
+">
+              <div class="col-md-10 col-xs-10 mablagrescss" style="
+
+    text-align: left;
+
+    padding-left: 0;
+
+"> <span class="khasneagdtitlch">	مبلغ کل قابل پرداخت:</span>
+
+              </div>
+
+              <div class="col-md-2 col-xs-2 kasneaggeyjo mablagrescss">
+
+                <span class="majmosarmayegozarikhas">{{ totalazmonravan() + totalazmonmaharat() + totalazmonshyestegi() + totalkhaskardanagahi() }}</span>
+
+                <span> ریال</span>
+
+              </div>
+
+
+
+            </div>
+
+            <div class="col-md-2 col-xs-2" style="padding: 0;">
+
+
+
+              <a ng-click="Addresearch()" class="nextgam btn h5title fontmedium">پرداخت و ثبت</a>
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+</div>

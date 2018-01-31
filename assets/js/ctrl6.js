@@ -2,7 +2,7 @@ console.clear();
 
 
 
-app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window, $http, Upload, $timeout, ShareData, $location, $localStorage, $sessionStorage) {
+app.controller('jobseekerprofilepage', function($compile, $sce, $scope, AvatarService ,$window, $http, Upload, $timeout, ShareData, $location, $localStorage, $sessionStorage) {
 
   var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 
@@ -95,7 +95,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
   $scope.max = 100;
 
-
+if(ShareData.getPropertyjsid() == null) {
 
   $http.get(mustafasite + '/job_seeker', {
 
@@ -107,11 +107,11 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
     }
 
-    }).then(function(response) {
+      }).then(function(response) {
 
     $scope.current = response.data.null_percent;
 
-    $scope.logopic = response.data.avatar;
+    $scope.logopic = response.data.avatar  + "?ver=" +  new Date().getTime();
 
     $scope.fullname = response.data.fullname;
 
@@ -129,6 +129,8 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
     $scope.socials = response.data.socials;
 
+    $scope.jsresumecompelet = response.data.resume;
+    $scope.results = response.data.results;
 
 
     $scope.editorEnabledposition = false;
@@ -356,17 +358,14 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
     $http.put(mustafasite + '/job_seeker/avatar64', JSON.stringify(data), config).then(function(response) {
 
-      $timeout(function() {
+        $scope.profiledetaflogin = {};
 
-        $scope.logopic = response.data;
+        AvatarService.avatar = response.data + "?ver=" +  new Date().getTime();
+        $scope.logopic = response.data  + "?ver=" +  new Date().getTime();
 
         $('#ShowPopupUploadLogo').modal('hide');
 
         $scope.logopicfile = null;
-
-
-
-      });
 
     });
 
@@ -378,7 +377,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
 
 
-  $http.get(mustafasite + '/job_seeker/notification', {
+  $http.get(mustafasite + '/job_seeker/notification?per_page=1000', {
 
     headers: {
 
@@ -746,7 +745,7 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
 
 
 
-  $http.get(mustafasite + "/job", config).then(function(response) {
+  $http.get(mustafasite + "/job?research=false", config).then(function(response) {
 
     $scope.data = response.data.hits;
 
@@ -1079,7 +1078,47 @@ app.controller('jobseekerprofilepage', function($compile, $sce, $scope, $window,
   };
 
 
+}
+
+if(ShareData.getPropertyjsid() != null) {
+
+  var config = {
+
+    headers: {
+
+      'Content-Type': 'application/json',
+
+      'Access-Token': $localStorage.TokenKey.access,
+
+    }
+
+  }
+
+  $http.get(mustafasite + "/job_seeker/" + ShareData.getPropertyjsid() , configforgetspresume).then(function(response) {
+
+    $scope.current = response.data.null_percent;
+
+    $scope.logopic = response.data.avatar;
+
+    $scope.fullname = response.data.fullname;
+
+    $scope.position = response.data.position;
+
+    $scope.email = response.data.email;
+
+    $scope.phone = response.data.phone;
+
+    $scope.phonefix = response.data.fixed_phone;
+
+    $scope.address = response.data.address;
+
+    $scope.mybio = response.data.bio;
+
+    $scope.socials = response.data.socials;
+
+  });
 
 
+}
 
 });

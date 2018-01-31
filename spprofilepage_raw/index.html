@@ -1,0 +1,873 @@
+
+<div ng-controller="spprofilepage">
+
+  <div class="container">
+
+    <div class="col-md-12  col-xs-12 serviceprovider">
+
+
+
+      <div class="col-md-2 col-xs-12 profileimg">
+
+        <div class="profileimgcl">
+
+          <img src="{{avatar}}">
+
+          <a ng-if="ShowForSP()" data-toggle="modal" data-target="#ShowPopupUploadLogo" class="titleandicon">
+
+            <div class="editlogohover">
+
+              <div class="titleandicon">
+
+                <i class="fa fa-picture-o" aria-hidden="true"></i> <br> تغییر لوگو
+
+              </div>
+
+            </div>
+
+          </a>
+
+        </div>
+
+
+
+        <div id="ShowPopupUploadLogo" class="modal modal-md" role="dialog">
+
+          <div class="modal-dialog">
+
+            <div class="modal-content ">
+
+              <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                <h3>ویرایش لوگو</h3>
+
+              </div>
+
+              <div class="modal-body">
+
+                <strong>آپلود پروفایل:</strong>
+
+                <button ngf-select ng-model="logopicfile" accept="image/*">
+
+           انتخاب عکس</button>
+
+                <div ngf-drop ng-model="logopicfile" ngf-pattern="image/*" class="cropArea">
+
+                  <img-crop area-type="square" image="logopicfile | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+
+                  </img-crop>
+
+                </div>
+
+              </div>
+
+              <div class="modal-footer">
+
+                <a class="btn btn-primary" ng-click="savelogo(croppedDataUrl, logopicfile.name)">ذخیره</a>
+
+                <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">بستن</a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <a data-toggle="modal" data-target="#ShowPopupcharticonuserstatus">
+
+          <div class="charticonuserstatus">
+
+            <i class="fa fa-align-right" aria-hidden="true"></i>
+
+            <span>مشاهده جزئیات</span>
+
+          </div>
+
+        </a>
+
+        <div data-toggle="modal" data-target="#ShowPopupcharticonuserstatus" class="jobrateuser col-md-12 col-xs-12">
+
+          <rate-yo class="mstarbb" on-set="set" on-change="showpagestarchange" ng-model="showpagestarrating" read-only="showpagestaroptions.readOnly" options="showpagestaroptions"></rate-yo>
+
+        </div>
+
+        <div data-toggle="modal" data-target="#ShowPopupcharticonuserstatus" class="jobratesystem col-md-12 col-xs-12">
+
+          <rate-yo on-set="set" on-change="showpagerectanchange" ng-model="showpagerectanrating" read-only="showpagerectanoptions.readOnly" options="showpagerectanoptions"></rate-yo>
+
+        </div>
+
+      </div>
+
+      <div id="ShowPopupcharticonuserstatus" class="modal modal-md" role="dialog">
+
+        <div class="modal-dialog lgdlogmodal">
+
+          <div class="modal-content " style="
+
+    float: right;
+
+    width: 100%;
+
+">
+
+            <div class="modal-header" style="
+
+    border: 0;
+
+    padding-bottom: 0;
+
+"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+              <span class="h2title bluecolor fontmedium">آمار و اطلاعات تفکیکی شایگان</span>
+
+            </div>
+
+            <div class="modal-body">
+
+              <div class="backgrounde6">
+
+                <div class="clearfix" style="
+
+    padding: 9px 0;
+
+"></div>
+
+                <div class="col-md-6 col-xs-12">
+
+                  <div class="row">
+
+                    <span class="col-md-7 h5title">میانگین امتیازات کاربران:</span>
+
+                    <span class="col-md-3 h5title">4.2 از 5</span>
+
+                    <span class="col-md-2 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange1" ng-model="showonestarrating1" read-only="showonestaroptions1.readOnly" options="showonestaroptions1"></rate-yo></span>
+
+                  </div>
+
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+
+                  <div class="row">
+
+                    <span class="col-md-4 h5title">میانگین امتیازات شما:</span>
+
+                    <span class="col-md-3 h5title">4.2 از 5</span>
+
+                    <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange1" ng-model="showmulstarrating1" read-only="showmulstaroptions1.readOnly" options="showmulstaroptions1"></rate-yo></span>
+
+                  </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-6 col-xs-12">
+
+                  <div class="row">
+
+                    <span class="col-md-12 h5title">میانگین امتیازات کارفرمایان:</span>
+
+                  </div>
+
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+
+                  <div class="row">
+
+                    <span class="col-md-4 h5title"></span>
+
+                    <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                    <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange1" ng-model="showmulrectanrating1" read-only="showmulrectanoptions1.readOnly" options="showmulrectanoptions1"></rate-yo>
+
+	</span>
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="clearfix"></div>
+
+
+
+              </div>
+
+              <div class="col-md-6 col-xs-12 backgroundf2">
+
+                <div class="h5title fontbold darkgraycolor" style="padding: 15px 0;">امتیاز سیستمی</div>
+
+                <div class="row" style="margin-bottom: 15px;">
+
+                  <span class="col-md-4 h5title">محیط کاری</span>
+
+                  <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                  <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange2" ng-model="showmulrectanrating2" read-only="showmulrectanoptions2.readOnly" options="showmulrectanoptions2"></rate-yo>
+
+	</span>
+
+                </div>
+
+                <div class="row" style="margin-bottom: 15px;">
+
+                  <span class="col-md-4 h5title">مدیریت</span>
+
+                  <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                  <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange3" ng-model="showmulrectanrating3" read-only="showmulrectanoptions3.readOnly" options="showmulrectanoptions3"></rate-yo>
+
+	</span>
+
+                </div>
+
+                <div class="row" style="margin-bottom: 15px;">
+
+                  <span class="col-md-4 h5title">حقوق و مزایا</span>
+
+                  <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                  <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange4" ng-model="showmulrectanrating4" read-only="showmulrectanoptions4.readOnly" options="showmulrectanoptions4"></rate-yo>
+
+	</span>
+
+                </div>
+
+                <div class="row" style="margin-bottom: 15px;">
+
+                  <span class="col-md-4 h5title">امکان رشد</span>
+
+                  <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                  <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange5" ng-model="showmulrectanrating5" read-only="showmulrectanoptions5.readOnly" options="showmulrectanoptions5"></rate-yo>
+
+	</span>
+
+                </div>
+
+                <div class="row" style="margin-bottom: 15px;">
+
+                  <span class="col-md-4 h5title">محیط کاری</span>
+
+                  <span class="col-md-3 h5title">7.2 از 10 </span>
+
+                  <span class="col-md-5 h5title">
+
+        <rate-yo on-set="set" on-change="showmulrectanchange6" ng-model="showmulrectanrating6" read-only="showmulrectanoptions6.readOnly" options="showmulrectanoptions6"></rate-yo>
+
+	</span>
+
+                </div>
+
+
+
+              </div>
+
+
+
+              <div class="col-md-6 col-xs-12">
+
+                <div class="h5title fontbold darkgraycolor" style="padding: 15px 0;">امتیاز کارجویان</div>
+
+                <div class="h5title fontlight darkgraycolor" style="position: absolute;left: 45px;top: 20px;border-bottom: 1px solid #56ace0;">امتیازات شما</div>
+
+                <div class="row" style="margin-bottom: 15px;">
+
+                  <span class="col-md-3 h5title linehigh15">محیط کاری</span>
+
+                  <span class="col-md-3 h5title linehigh15">4.2 از 5</span>
+
+                  <span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange2" ng-model="showonestarrating2" read-only="showonestaroptions2.readOnly" options="showonestaroptions2"></rate-yo></span>
+
+                  <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange2" ng-model="showmulstarrating2" read-only="showmulstaroptions2.readOnly" options="showmulstaroptions2"></rate-yo></span>
+
+
+
+                </div>
+
+                <div class="row" style="margin-bottom: 15px;">
+
+                  <span class="col-md-3 h5title linehigh15">مدیریت</span>
+
+                  <span class="col-md-3 h5title linehigh15">4.2 از 5</span>
+
+                  <span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange3" ng-model="showonestarrating3" read-only="showonestaroptions3.readOnly" options="showonestaroptions3"></rate-yo></span>
+
+                  <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange3" ng-model="showmulstarrating3" read-only="showmulstaroptions3.readOnly" options="showmulstaroptions3"></rate-yo></span>
+
+
+
+                </div>
+
+                <div class="row" style="margin-bottom: 15px;">
+
+                  <span class="col-md-3 h5title linehigh15">حقوق و مزایا</span>
+
+                  <span class="col-md-3 h5title linehigh15">4.2 از 5</span>
+
+                  <span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange4" ng-model="showonestarrating4" read-only="showonestaroptions4.readOnly" options="showonestaroptions4"></rate-yo></span>
+
+                  <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange4" ng-model="showmulstarrating4" read-only="showmulstaroptions4.readOnly" options="showmulstaroptions4"></rate-yo></span>
+
+
+
+                </div>
+
+                <div class="row" style="margin-bottom: 15px;">
+
+                  <span class="col-md-3 h5title linehigh15">امکان رشد</span>
+
+                  <span class="col-md-3 h5title linehigh15">4.2 از 5</span>
+
+                  <span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange5" ng-model="showonestarrating5" read-only="showonestaroptions5.readOnly" options="showonestaroptions5"></rate-yo></span>
+
+                  <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange5" ng-model="showmulstarrating5" read-only="showmulstaroptions5.readOnly" options="showmulstaroptions5"></rate-yo></span>
+
+
+
+                </div>
+
+                <div class="row" style="margin-bottom: 15px;">
+
+                  <span class="col-md-3 h5title linehigh15">محیط کاری</span>
+
+                  <span class="col-md-3 h5title linehigh15">4.2 از 5</span>
+
+                  <span class="col-md-1 h5title">     <rate-yo class="mstarbb" on-set="set" on-change="showonestarchange6" ng-model="showonestarrating6" read-only="showonestaroptions6.readOnly" options="showonestaroptions6"></rate-yo></span>
+
+                  <span class="col-md-5 h5title">     <rate-yo class="mstarbbblue" on-set="set" on-change="showmulstarchange6" ng-model="showmulstarrating6" read-only="showmulstaroptions6.readOnly" options="showmulstaroptions6"></rate-yo></span>
+
+
+
+                </div>
+
+
+
+              </div>
+
+
+
+            </div>
+
+            <div class="clearfix"></div>
+
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-10 nopaddinglr">
+
+        <div class="col-md-9  col-xs-12 userinfor">
+
+          <div class="h1title bluecolor companyname fontmedium">{{fa_name}}</div>
+
+          <span class="h4title graycolor companysaham fontlight" ng-hide="editorEnabledbusiness_type">({{business_type}}) <a ng-if="ShowForSP()" class="cursorpointer" ng-click="enableEditorbusiness_type(editableTitlebusiness_type)"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+
+          <span class="h4title graycolor companysaham fontlight" ng-show="editorEnabledbusiness_type">
+
+  <input ng-model="editableTitlebusiness_type" ng-show="editorEnabledbusiness_type">
+
+  <a class="cursorpointer" ng-click="saveeditbusiness_type()"><i class="fa fa-check greencolor" aria-hidden="true"></i></a>
+
+  <a class="cursorpointer" ng-click="disableEditorbusiness_type()"><i class="fa fa-times redcolor" aria-hidden="true"></i></a>
+
+</span>
+          <div class="h4title bluecolor companyslogan fontlight">{{motto}} <a ng-if="ShowForSP()" class="cursorpointer" ng-click="enableEditormotto(editableTitlemotto)"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+
+          <div class="h4title bluecolor companyslogan fontlight" ng-show="editorEnabledmotto">
+
+            <input ng-model="editableTitlemotto" ng-show="editorEnabledmotto">
+
+            <a class="cursorpointer" ng-click="saveeditmotto()"><i class="fa fa-check greencolor" aria-hidden="true"></i></a>
+
+            <a class="cursorpointer" ng-click="disableEditormotto()"><i class="fa fa-times redcolor" aria-hidden="true"></i></a>
+
+          </div>
+          <div ng-if="NotShowForSP()" class="socialprofile notuser" ng-repeat="x in socials">
+
+            <a href="{{x.url}}" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+              <md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
+            </a>
+
+          </div>
+
+          <div ng-if="ShowForSP()" class="socialprofile meuser" ng-repeat="x in socials">
+
+            <a ng-click="removesocial(x)" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+              <md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
+            </a>
+
+          </div>
+
+          <div ng-if="ShowForSP()" class="socialprofile meuser">
+
+            <a data-toggle="modal" data-target="#ShowPopupEditSocial" class="addsocialbtn">
+              <md-tooltip md-direction="top">ویرایش / اضافه</md-tooltip>
+            </a>
+
+          </div>
+        </div>
+
+        <div id="ShowPopupEditSocial" class="modal modal-md" role="dialog">
+
+          <div class="modal-dialog">
+
+            <div class="modal-content ">
+
+              <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                <h3>ویرایش / اضافه شبکه های اجتماعی</h3>
+
+              </div>
+
+              <div class="modal-body">
+                <form name="editsocialform" novalidate ng-submit="editsocialform.$valid &&SocialAddEdit()" class="jobpostpfilterbox">
+                  <strong>نوع شبکه:</strong>
+                  <select class="h5title fontlight" ng-model="idsocial">
+                <option ng-repeat="x in socialnameid" value="{{x.value}}">{{x.key}}</option>
+            </select>
+                  <br>
+                  <br>
+
+                  <strong>لینک صفحه:</strong><input type="text" name="socialgetlink" ng-model="socialgetlink"> <br/>
+                  <br>
+
+                  <button type="submit" class="btn bluebtn">ذخیره</button>
+                </form>
+
+
+
+              </div>
+
+
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- <div class="col-md-3 col-xs-3 selectdefaultserver" ng-if="NotShowForSP()">
+
+          <button type="button" class="btn greenbtn fontmedium"><span>انتخاب به عنوان کارگزار پیشفرض</span></button>
+
+        </div> -->
+
+        <div class="col-md-12 col-xs-12 spcontactdetbox nopaddingleft" ng-click="ShowTamasFormSP()">
+
+          <div class="col-md-12 col-xs-12 h5title fontlight graycolor spcontactdet">
+
+            <div class="col-md-2">
+
+              <p><i class="fa fa-phone-square" aria-hidden="true"></i> {{phone}}</p>
+
+              <p style="margin: 0;"><i class="fa fa-fax" aria-hidden="true"></i> {{fax}}</p>
+
+            </div>
+
+            <div class="col-md-7">
+
+              <p><i class="fa fa-building" aria-hidden="true"></i> {{address}}</p>
+
+              <p style="margin: 0;"><i class="fa fa-industry" aria-hidden="true"></i> {{second_address}}</p>
+
+            </div>
+
+            <div class="col-md-3">
+
+              <p><i class="fa fa-envelope" aria-hidden="true"></i> {{email}}</p>
+
+              <p style="margin: 0;"><i class="fa fa-external-link-square" aria-hidden="true"></i> {{web_site}}</p>
+
+            </div>
+
+
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="ShowPopupEditTamas" class="modal modal-md" role="dialog">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content ">
+
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+            <h3>ویرایش اطلاعات تماس با ما</h3>
+
+          </div>
+
+          <div class="modal-body">
+            <form name="edittamasform" novalidate ng-submit="edittamasform.$valid &&TamasFormSP()" class="jobpostpfilterbox">
+              <strong>شماره تماس:</strong><input type="text" name="editphone" ng-model="editphone"> <br/>
+              <br>
+              <br>
+              <strong>شماره فکس:</strong><input type="text" name="editfax" ng-model="editfax"> <br/>
+              <br>
+              <br>
+              <strong>آدرس:</strong><input type="text" name="editaddress" ng-model="editaddress"> <br/>
+              <br>
+              <br>
+              <strong>آدرس دوم:</strong><input type="text" name="editsecond_address" ng-model="editsecond_address"> <br/>
+              <br>
+              <br>
+              <strong>ایمیل سازمانی:</strong><input type="text" name="editemail" ng-model="editemail"> <br/>
+              <br>
+              <br>
+              <strong>آدرس وب سایت:</strong><input type="text" name="editweb_site" ng-model="editweb_site"> <br/>
+              <br>
+              <br>
+              <button type="submit" class="btn bluebtn">ذخیره</button>
+            </form>
+
+
+
+          </div>
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="clearfix"></div>
+
+
+
+
+
+    <div class="services" ng-class="{showallservices: showallservices}">
+
+      <div class="col-md-12 col-xs-12 h2title bluecolor fontmedium servicesh1title" style="padding: 0 0 15px;">خدمات ما روی سامانه صدف</div>
+      <div class="serve" ng-if="suitabilities.length != 0">
+
+        <div class="row">
+
+          <div class="col-md-3 col-xs-12 "><img src="https://a20group.github.io/ISadaf/assets/images/sp_shayesteghi_exam/shayesteghi.png">
+
+          </div>
+
+          <div class="col-md-9 col-xs-12 servetitle h2title">
+
+پکیچ کانون ارزیابی
+          </div>
+
+          <br>
+
+          <br>
+
+          <div class="col-md-9 col-xs-12  servedesc h4title graycolor">
+
+این پکیج کانون ارزیابی است            <!-- <br>
+            <a href="{{serve.sample_result_url}}" target="_blank" class="sampleservicebtn btn greenbtn fontmedium">دانلود نمونه</a> -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="serve" ng-repeat="serve in services">
+
+        <div class="row">
+
+          <div class="col-md-3 col-xs-12 "><img src="{{serve.exam.image_path}}">
+
+          </div>
+
+          <div class="col-md-9 col-xs-12 servetitle h2title">
+
+            {{serve.exam.name}}
+
+          </div>
+
+          <br>
+
+          <br>
+
+          <div class="col-md-9 col-xs-12  servedesc h4title graycolor">
+
+            {{serve.description}}
+            <br>
+            <a href="{{serve.sample_result_url}}" target="_blank" class="sampleservicebtn btn greenbtn fontmedium">دانلود نمونه</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-12 col-xs-12 showallservicesbtn">
+
+        <span ng-click="showallservices = !showallservices">
+
+<span class="graycolor" ng-show="!showallservices">بیشتر بخوانید <i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
+
+        <span class="graycolor" ng-show="showallservices">کمتر بخوانید <i class="fa fa-angle-double-up" aria-hidden="true"></i></span>
+
+        </span>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+
+
+  <div class="spcomments">
+
+    <div class="container">
+
+      <div class="textaddcomment" ng-if="ShowTextNewComment">نظرات مثبت مشتریان درباره خود را در این بخش اضافه کنید. &gt; &gt; &gt;</div>
+
+      <div class="col-md-4 spcomment" ng-repeat="comment in comments">
+
+        <div ng-if="ShowForSP()" class="pinjob removejob delicon" ng-click="removecomment(comment)" style="display: inline-block;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+
+        <div class="commentimg">
+          <img src="{{comment.image_path}}" title="{{comment.title}}" alt="{{comment.title}}"/>
+        </div>
+
+        <div class="commenttext"><q>{{comment.description}}</q></div>
+
+        <div class="commentstar" style="text-align: center;">
+
+          <rate-yo class="mstarbb" ng-model="comment.rate" read-only="commestaroptions.readOnly" options="commestaroptions"></rate-yo>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-2 col-xs-6 ourteam addpersonbtn addcommentbtn" ng-if="ShowForSP()">
+
+        <div class="personimg" ng-click="addcomment()" role="button" tabindex="0" style="margin-top: -3px;padding: 5px;"><i class="fa fa-plus" aria-hidden="true"></i>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div id="ShowPopupAddComment" class="modal modal-md" role="dialog">
+
+    <div class="modal-dialog">
+
+      <div class="modal-content ">
+
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+          <h3>اضافه کردن</h3>
+
+        </div>
+
+        <div class="modal-body">
+
+          <strong>آپلود عکس:</strong>
+
+          <button ngf-select ng-model="personpicFile" accept="image/*">
+
+           انتخاب عکس</button>
+
+          <div ngf-drop ng-model="personpicFile" ngf-pattern="image/*" class="cropArea">
+
+            <img-crop area-type="square" image="personpicFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+
+            </img-crop>
+
+          </div>
+
+
+
+          <br />
+
+          <strong>نام نظر دهنده:</strong><input type="text" ng-model="namecommentmodal" required>
+
+
+
+          <br />
+
+          <strong>متن نظر:</strong><textarea type="text" ng-model="commenttextmodal"  rows="5" cols="50" required></textarea><br />
+
+          <strong>امتیاز  از 5:</strong><input type="text" ng-model="ratecommentmodal" required><br />
+
+        </div>
+
+        <div class="modal-footer">
+
+          <a class="btn btn-primary" ng-click="savecomment(croppedDataUrl, personpicFile.name)">ذخیره</a>
+
+          <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">بستن</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <div class="container" style="padding-bottom: 30px;">
+
+    <div class="col-md-12 col-xs-12 h1title  bluecolor fontmedium textcenter" style="padding-top: 30px;">تیم تخصصی ما</div>
+
+    <div class="col-md-2 col-xs-6 ourteam" ng-repeat="person in ourteam">
+
+      <div ng-if="ShowForSP()" class="pinjob removejob delicon" ng-click="removeperson(person)" style="display: inline-block;position: initial;"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+
+      <!-- <div class="pinjob removejob" data-toggle="modal" data-target="#ShowPopupEditperson" ng-click="editperson($index)" style="display: inline-block;position: initial;"><i class="fa fa-pencil" aria-hidden="true"></i></div> -->
+
+      <div class="personimg">
+
+        <img src="{{person.image_path}}">
+
+        <a class="linkedin" href="{{person.url}}"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+
+      </div>
+
+      <div class="personname h5title fontmedium">{{person.name}}</div>
+
+      <div class="personplace h5title graycolor">{{person.position}}</div>
+
+    </div>
+
+    <div class="col-md-2 col-xs-6 ourteam addpersonbtn" ng-if="ShowForSP()" style="margin-top: 31px;">
+
+      <div class="personimg" ng-click="addperson()" role="button" tabindex="0" style="margin-top: -3px;padding: 5px;"><i class="fa fa-plus" aria-hidden="true"></i>
+
+      </div>
+
+      <div class="personname h5title fontmedium">نام شخص</div>
+
+      <div class="personplace h5title graycolor">جایگاه شخص</div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <div id="ShowPopupEditperson" class="modal modal-md" role="dialog">
+
+    <div class="modal-dialog">
+
+      <div class="modal-content ">
+
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+          <h3>اضافه کردن</h3>
+
+        </div>
+
+        <div class="modal-body">
+
+          <strong>آپلود عکس:</strong>
+
+          <button ngf-select ng-model="personpicFile" accept="image/*">
+
+           انتخاب عکس</button>
+
+          <div ngf-drop ng-model="personpicFile" ngf-pattern="image/*" class="cropArea">
+
+            <img-crop area-type="square" image="personpicFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+
+            </img-crop>
+
+          </div>
+
+
+
+          <br />
+
+          <strong>نام و نام خانوادگی:</strong><input type="text" ng-model="teampersonname" required>
+
+
+
+          <br />
+
+          <strong>لینک شبکه اجتماعی:</strong><input type="text" ng-model="teampersonlink" required><br />
+
+          <strong>سمت:</strong><input type="text" ng-model="teampersonposition" required><br />
+
+        </div>
+
+        <div class="modal-footer">
+
+          <a class="btn btn-primary" ng-click="saveperson(croppedDataUrl, personpicFile.name)">ذخیره</a>
+
+          <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">بستن</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>

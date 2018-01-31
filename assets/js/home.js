@@ -7,112 +7,112 @@ app.config(function($routeProvider, $locationProvider) {
 
   $routeProvider.when("/home", {
     controller: "mainpage",
-    templateUrl: "/../mainpage/index.html"
+    templateUrl: "/../mainpage_raw/index.html"
   });
 
   $routeProvider.when("/jobseekermainpage", {
     controller: "jobseekermainpage",
-    templateUrl: "/../jobseekermainpage/index.html"
+    templateUrl: "/../jobseekermainpage_raw/index.html"
   });
 
   $routeProvider.when("/jobpostspage", {
     controller: "jobpostspage",
-    templateUrl: "/../jobpostspage/index.html"
+    templateUrl: "/../jobpostspage_raw/index.html"
   });
 
   $routeProvider.when("/apostpage", {
     controller: "apostpage",
-    templateUrl: "/../apostpage/index.html"
+    templateUrl: "/../apostpage_raw/index.html"
   });
 
   $routeProvider.when("/acompanypage", {
     controller: "acompanypage",
-    templateUrl: "/../acompanypage/index.html"
+    templateUrl: "/../acompanypage_raw/index.html"
   });
 
   $routeProvider.when("/jobseekerprofilepage", {
     controller: "jobseekerprofilepage",
-    templateUrl: "/../jobseekerprofilepage/index.html"
+    templateUrl: "/../jobseekerprofilepage_raw/index.html"
   });
 
   $routeProvider.when("/chooseatestpage", {
     controller: "chooseatestpage",
-    templateUrl: "/../chooseatestpage/index.html"
+    templateUrl: "/../chooseatestpage_raw/index.html"
   });
 
   $routeProvider.when("/companymainpage", {
     controller: "companymainpage",
-    templateUrl: "/../companymainpage/index.html"
+    templateUrl: "/../companymainpage_raw/index.html"
   });
 
   $routeProvider.when("/searchscenarios", {
     controller: "searchscenarios",
-    templateUrl: "/../searchscenarios/index.html"
+    templateUrl: "/../searchscenarios_raw/index.html"
   });
 
   $routeProvider.when("/postajobscenarios", {
     controller: "postajobscenarios",
-    templateUrl: "/../postajobscenarios/index.html"
+    templateUrl: "/../postajobscenarios_raw/index.html"
   });
 
   $routeProvider.when("/createapostpage", {
     controller: "createapostpage",
-    templateUrl: "/../createapostpage/index.html"
+    templateUrl: "/../createapostpage_raw/index.html"
   });
 
   $routeProvider.when("/searchdatabasepage", {
     controller: "searchdatabasepage",
-    templateUrl: "/../searchdatabasepage/index.html"
+    templateUrl: "/../searchdatabasepage_raw/index.html"
   });
 
   $routeProvider.when("/jobseekerdashboardpage", {
     controller: "jobseekerdashboardpage",
-    templateUrl: "/../jobseekerdashboardpage/index.html"
+    templateUrl: "/../jobseekerdashboardpage_raw/index.html"
   });
 
   $routeProvider.when("/companydashboardpage", {
     controller: "companydashboardpage",
-    templateUrl: "/../companydashboardpage/index.html"
+    templateUrl: "/../companydashboardpage_raw/index.html"
   });
 
   $routeProvider.when("/spmainpage", {
     controller: "spmainpage",
-    templateUrl: "/../spmainpage/index.html"
+    templateUrl: "/../spmainpage_raw/index.html"
   });
 
   $routeProvider.when("/spprofilepage", {
     controller: "spprofilepage",
-    templateUrl: "/../spprofilepage/index.html"
+    templateUrl: "/../spprofilepage_raw/index.html"
   });
 
   $routeProvider.when("/spdashboardpage", {
     controller: "spdashboardpage",
-    templateUrl: "/../spdashboardpage/index.html"
+    templateUrl: "/../spdashboardpage_raw/index.html"
   });
 
   $routeProvider.when("/jobsalbum", {
     controller: "jobsalbum",
-    templateUrl: "/../jobsalbum/index.html"
+    templateUrl: "/../jobsalbum_raw/index.html"
   });
 
   $routeProvider.when("/aresearchpage", {
     controller: "aresearchpage",
-    templateUrl: "/../aresearchpage/index.html"
+    templateUrl: "/../aresearchpage_raw/index.html"
   });
 
   $routeProvider.when("/researchposts", {
     controller: "researchposts",
-    templateUrl: "/../researchposts/index.html"
+    templateUrl: "/../researchposts_raw/index.html"
   });
 
   $routeProvider.when("/createaresearchpage", {
     controller: "createaresearchpage",
-    templateUrl: "/../createaresearchpage/index.html"
+    templateUrl: "/../createaresearchpage_raw/index.html"
   });
 
   $routeProvider.when("/acertificatepage", {
     controller: "acertificatepage",
-    templateUrl: "/../acertificatepage/index.html"
+    templateUrl: "/../acertificatepage_raw/index.html"
   });
 
 
@@ -157,6 +157,8 @@ app.service('ShareData', function() {
   var jobid = null;
   var empid = null;
   var spid = null;
+  var jsid = null;
+
 
   return {
     getPropertysermahhp: function() {
@@ -183,7 +185,13 @@ app.service('ShareData', function() {
     },
     setPropertyspid: function(value) {
       spid = value;
-    }
+    },
+    getPropertyjsid: function() {
+      return jsid;
+    },
+    setPropertyjsid: function(value) {
+      jsid = value;
+    },
   };
 });
 
@@ -216,12 +224,17 @@ app.filter('jalaliDatewill', function() {
   }
 });
 
-app.controller('home', function($compile, $sce, $scope, $window, $http, ShareData, $location, $localStorage, $sessionStorage,SweetAlert) {
+app.service('AvatarService', function() {
+
+  this.avatar = null;
+});
+
+app.controller('home', function($compile, $sce, $scope, $window, AvatarService ,$http, ShareData, $location, $localStorage, $sessionStorage,SweetAlert) {
   var mustafasite = "https://sadaf.systmngr.ir/api/v1";
   moment.locale('fa');
 
   $scope.checkauth = function() {
-    if ($localStorage.TokenKey == null || $localStorage.UserType == null) {
+    if ($localStorage.TokenKey == " " || $localStorage.UserType == " ") {
       $scope.isHideafterlogin = true;
       $scope.isActiveafterlogin = false;
       $scope.isHidelogin = false;
@@ -230,7 +243,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
       $localStorage.UserType = " ";
       $localStorage.LocationUser = " ";
       $localStorage.TokenKey = " ";
-
+      $localStorage.UserFaName = " ";
+      $localStorage.UserId = " ";
     } else {
       var config = {
         headers: {
@@ -239,20 +253,40 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
         }
       }
 
+      var dataref = {
+        refresh:$localStorage.TokenKey.access,
+      }
+
+
       if ($localStorage.UserType == "JS") {
         $http.get(mustafasite + "/job_seeker", config).then(function(response) {
           $scope.isHideafterlogin = false;
           $scope.isActiveafterlogin = true;
           $scope.profiledetaflogin = response.data;
+          AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+          $scope.profileavatar = AvatarService.avatar;
           $scope.isHidelogin = true;
           $scope.isActivelogin = false;
           $location.path($localStorage.LocationUser);
         }, function errorCallback(response) {
-          $scope.isHideafterlogin = true;
-          $scope.isActiveafterlogin = false;
-          $scope.isHidelogin = false;
-          $scope.isActivelogin = false;
-          $location.path("mainpage");
+
+          $http.post(mustafasite + '/job_seeker/refresh', JSON.stringify(dataref), config).then(function(response) {
+            $scope.isHideafterlogin = false;
+            $scope.isActiveafterlogin = true;
+            $scope.profiledetaflogin = response.data;
+            AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+            $scope.profileavatar = AvatarService.avatar;
+            $scope.isHidelogin = true;
+            $scope.isActivelogin = false;
+            $location.path($localStorage.LocationUser);
+          },function Error (response) {
+            $scope.isHideafterlogin = true;
+            $scope.isActiveafterlogin = false;
+            $scope.isHidelogin = false;
+            $scope.isActivelogin = false;
+            $location.path("mainpage");
+          });
+
         });
       }
       if ($localStorage.UserType == "EMP") {
@@ -260,15 +294,31 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
           $scope.isHideafterlogin = false;
           $scope.isActiveafterlogin = true;
           $scope.profiledetaflogin = response.data;
+          AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+          $scope.profileavatar = AvatarService.avatar;
           $scope.isHidelogin = true;
           $scope.isActivelogin = false;
           $location.path($localStorage.LocationUser);
         }, function errorCallback(response) {
-          $scope.isHideafterlogin = true;
-          $scope.isActiveafterlogin = false;
-          $scope.isHidelogin = false;
-          $scope.isActivelogin = false;
-          $location.path("mainpage");
+
+          $http.post(mustafasite + '/job_seeker/refresh', JSON.stringify(dataref), config).then(function(response) {
+            $scope.isHideafterlogin = false;
+            $scope.isActiveafterlogin = true;
+            $scope.profiledetaflogin = response.data;
+            AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+            $scope.profileavatar = AvatarService.avatar;
+            $scope.isHidelogin = true;
+            $scope.isActivelogin = false;
+            $location.path($localStorage.LocationUser);
+          },function Error (response) {
+            $scope.isHideafterlogin = true;
+            $scope.isActiveafterlogin = false;
+            $scope.isHidelogin = false;
+            $scope.isActivelogin = false;
+            $location.path("mainpage");
+          });
+
+
         });
       }
       if ($localStorage.UserType == "SP") {
@@ -276,16 +326,33 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
           $scope.isHideafterlogin = false;
           $scope.isActiveafterlogin = true;
           $scope.profiledetaflogin = response.data;
+          AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+          $scope.profileavatar = AvatarService.avatar;
           $scope.isHidelogin = true;
           $scope.isActivelogin = false;
           $location.path($localStorage.LocationUser);
         }, function errorCallback(response) {
-          $scope.isHideafterlogin = true;
-          $scope.isActiveafterlogin = false;
-          $scope.isHidelogin = false;
-          $scope.isActivelogin = false;
-          $location.path("mainpage");
+
+          $http.post(mustafasite + '/job_seeker/refresh', JSON.stringify(dataref), config).then(function(response) {
+            $scope.isHideafterlogin = false;
+            $scope.isActiveafterlogin = true;
+            $scope.profiledetaflogin = response.data;
+            AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+            $scope.profileavatar = AvatarService.avatar;
+            $scope.isHidelogin = true;
+            $scope.isActivelogin = false;
+            $location.path($localStorage.LocationUser);
+          },function Error (response) {
+            $scope.isHideafterlogin = true;
+            $scope.isActiveafterlogin = false;
+            $scope.isHidelogin = false;
+            $scope.isActivelogin = false;
+            $location.path("mainpage");
+          });
+
+
         });
+
       }
     }
 
@@ -293,6 +360,13 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
   $scope.checkauth();
 
+  $scope.ShowForNull = function() {
+    if ($localStorage.UserType == 'JS' || $localStorage.UserType == ' ') {
+      return true
+    } else {
+      return false
+    }
+  }
 
   $scope.ShowForJS = function() {
     if ($localStorage.UserType == 'JS') {
@@ -320,17 +394,16 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     if ($localStorage.UserType == "JS") {
       $location.path("jobseekermainpage");
       $localStorage.LocationUser = "jobseekermainpage";
-
     }
-    if ($localStorage.UserType == "EMP") {
+    else if ($localStorage.UserType == "EMP") {
       $location.path("companymainpage");
       $localStorage.LocationUser = "companymainpage";
     }
-    if ($localStorage.UserType == "SP") {
+    else if ($localStorage.UserType == "SP") {
       $location.path("spmainpage");
       $localStorage.LocationUser = "spmainpage";
     }
-    else {
+    else if ($localStorage.UserType == " ") {
       $location.path("home");
       $localStorage.LocationUser = "home";
     }
@@ -339,12 +412,29 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
 
 
   $scope.gotoprofilepagejs = function() {
-    $location.path("jobseekerprofilepage");
-    $localStorage.LocationUser = "jobseekerprofilepage";
+    if ($localStorage.UserType == 'JS') {
+      $location.path("jobseekerprofilepage");
+      $localStorage.LocationUser = "jobseekerprofilepage";
+    } else {
+      SweetAlert.swal({
+       title: "کاربر گرامی",
+       text: "برای استفاده از سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "warning",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "متوجه شدم",
+     })
+    }
+
   }
+
   $scope.gotoresearchpage = function() {
     $location.path("researchposts");
     $localStorage.LocationUser = "researchposts";
+  }
+  $scope.gotojobpage = function() {
+    $location.path("jobpostspage");
+    $localStorage.LocationUser = "jobpostspage";
   }
   $scope.gotosppage = function() {
     $location.path("spmainpage");
@@ -599,7 +689,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
        text: "ثبت نام شما در سامانه صدف با موفیقت به اتمام رسید.هم اکنون میتوانید جهت تایید حساب کاربری و استفاده از خدمات صدف وارد سامانه شوید.",
        type: "success",
        showCancelButton: true,
-       confirmButtonColor: "#DD6B55",
+       cancelButtonColor: "#DD6B55",
        cancelButtonText: "بازگشت",
        confirmButtonColor: "#29b572",
        confirmButtonText: "ورود",
@@ -647,10 +737,11 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     $http.post(mustafasite + '/login', JSON.stringify(data), config).then(function(response) {
 
       if (response.data.type == null) {
+        $localStorage.UserId = response.data.data.id;
+        $localStorage.UserFaName = response.data.data.fa_name;
         if (response.data.data.type == "JS") {
           $localStorage.TokenKey = response.data;
           $localStorage.UserType = "JS";
-
           var config2 = {
             headers: {
               'Content-Type': 'application/json',
@@ -660,6 +751,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
           $http.get(mustafasite + "/job_seeker", config2).then(function(response) {
             $location.path("jobseekermainpage");
             $scope.profiledetaflogin = response.data;
+            AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+            $scope.profileavatar = AvatarService.avatar;
             $("#ShowPopuplogin").modal('hide');
             $scope.isHideafterlogin = false;
             $scope.isActiveafterlogin = true;
@@ -690,6 +783,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
           $http.get(mustafasite + "/employer/me", config2).then(function(response) {
             $location.path("companymainpage");
             $scope.profiledetaflogin = response.data;
+            AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+            $scope.profileavatar = AvatarService.avatar;
             $("#ShowPopuplogin").modal('hide');
             $scope.isHideafterlogin = false;
             $scope.isActiveafterlogin = true;
@@ -720,6 +815,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
           $http.get(mustafasite + "/service_provider/me", config2).then(function(response) {
             $location.path("spmainpage");
             $scope.profiledetaflogin = response.data;
+            AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+            $scope.profileavatar = AvatarService.avatar;
             $("#ShowPopuplogin").modal('hide');
             $scope.isHideafterlogin = false;
             $scope.isActiveafterlogin = true;
@@ -772,6 +869,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
               $http.get(mustafasite + "/job_seeker", config2).then(function(response) {
                 $location.path("jobseekermainpage");
                 $scope.profiledetaflogin = response.data;
+                AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+                $scope.profileavatar = AvatarService.avatar;
                 $("#ShowPopupactivecode").modal('hide');
                 $scope.isHideafterlogin = false;
                 $scope.isActiveafterlogin = true;
@@ -804,6 +903,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
               $http.get(mustafasite + "/employer/me", config2).then(function(response) {
                 $location.path("companymainpage");
                 $scope.profiledetaflogin = response.data;
+                AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+                $scope.profileavatar = AvatarService.avatar;
                 $("#ShowPopupactivecode").modal('hide');
                 $scope.isHideafterlogin = false;
                 $scope.isActiveafterlogin = true;
@@ -837,6 +938,8 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
               $http.get(mustafasite + "/service_provider/me", config2).then(function(response) {
                 $location.path("spmainpage");
                 $scope.profiledetaflogin = response.data;
+                AvatarService.avatar = response.data.avatar + "?ver=" +  new Date().getTime();
+                $scope.profileavatar = AvatarService.avatar;
                 $("#ShowPopupactivecode").modal('hide');
                 $scope.isHideafterlogin = false;
                 $scope.isActiveafterlogin = true;
@@ -904,7 +1007,11 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
         $scope.isHideafterlogin = true;
         $scope.isActiveafterlogin = false;
         $scope.isHidelogin = false;
-        $localStorage.LocationUser = null;
+        $localStorage.UserType = " ";
+        $localStorage.LocationUser = " ";
+        $localStorage.TokenKey = " ";
+        $localStorage.UserFaName = " ";
+        $localStorage.UserId = " ";
       });
     }
     if ($localStorage.UserType == "EMP") {
@@ -913,7 +1020,11 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
         $scope.isHideafterlogin = true;
         $scope.isActiveafterlogin = false;
         $scope.isHidelogin = false;
-        $localStorage.LocationUser = null;
+        $localStorage.UserType = " ";
+        $localStorage.LocationUser = " ";
+        $localStorage.TokenKey = " ";
+        $localStorage.UserFaName = " ";
+        $localStorage.UserId = " ";
 
       });
     }
@@ -923,7 +1034,11 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
         $scope.isHideafterlogin = true;
         $scope.isActiveafterlogin = false;
         $scope.isHidelogin = false;
-        $localStorage.LocationUser = null;
+        $localStorage.UserType = " ";
+        $localStorage.LocationUser = " ";
+        $localStorage.TokenKey = " ";
+        $localStorage.UserFaName = " ";
+        $localStorage.UserId = " ";
 
       });
     }
@@ -955,14 +1070,14 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
         };
 
 
-        $http.post(mustafasite + '/job_seeker/password/forget', JSON.stringify(dataResPass), config).then(function(response) {
+        $http.post(mustafasite + '/job_seeker/password/reset', JSON.stringify(dataResPass), config).then(function(response) {
           $("#ShowPopupResetPass").modal('hide');
           SweetAlert.swal({
            title: "تبریک!",
            text: "رمز عبور شما با موفیقت ریست شد. شما میتوانید با کلیک بر روی دکمه ورود وارد سامانه شوید.",
            type: "success",
            showCancelButton: true,
-           confirmButtonColor: "#DD6B55",
+           cancelButtonColor: "#DD6B55",
            cancelButtonText: "بازگشت",
            confirmButtonColor: "#29b572",
            confirmButtonText: "ورود",
@@ -974,7 +1089,7 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
           }
         });
         },function Error (response) {
-
+          console.log(response);
           if (response.status == 404) {
              //  SweetAlert.swal({
              //   title: "خطا!",
@@ -1021,8 +1136,44 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
     }
 
     $http.post(mustafasite + '/suggestion', JSON.stringify(data), config).then(function(response) {
-      console.log(data);
-    });
+      $scope.titlemesadmin = null;
+      $scope.bodymesadmin = null;
+      SweetAlert.swal({
+       title: "کاربر گرامی!",
+       text: "پیام شما با موفیقت ارسال شد.",
+       type: "success",
+       showCancelButton: false,
+       confirmButtonColor: "#29b572",
+       confirmButtonText: "ورود",
+     });
+
+
+    },function Error (response) {
+
+      if (response.status == 403) {
+          SweetAlert.swal({
+           title: "خطا!",
+           text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+           type: "error",
+           showCancelButton: false,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "بازگشت",
+         });
+      }
+
+      if (response.status == 500) {
+          SweetAlert.swal({
+           title: "خطا!",
+           text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+           type: "error",
+           showCancelButton: false,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "بازگشت",
+         });
+      }
+
+  });
+
   };
 
 
@@ -1057,6 +1208,12 @@ app.controller('home', function($compile, $sce, $scope, $window, $http, ShareDat
   };
 
 
+  $scope.$watch(function(){
+   return AvatarService.avatar;
+}, function(newValue, oldValue){
+       $scope.profileavatar = newValue;
+
+});
 
 
 });

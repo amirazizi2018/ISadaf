@@ -1,8 +1,7 @@
 console.clear();
 
 
-
-app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, ShareData, $location, $localStorage, $sessionStorage) {
+app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, ShareData, $location, $localStorage, $sessionStorage , SweetAlert ) {
 
 
 
@@ -202,7 +201,7 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
 
 
 
-      $http.get(mustafasite + "/job?and_keywords=" + searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " + sKARVARZI + " " + $scope.sexvalue + " " + Resume + " " + Shayesteghi + " "  + RavanShanakhti + " " + Maharati + " " + selectcity , config).then(function(response) {
+      $http.get(mustafasite + "/job?research=false&and_keywords=" + searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " + sKARVARZI + " " + $scope.sexvalue + " " + Resume + " " + Shayesteghi + " "  + RavanShanakhti + " " + Maharati + " " + selectcity , config).then(function(response) {
 
         $scope.jobsdata = response.data.hits;
 
@@ -252,7 +251,7 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
 
 
 
-    $http.get(mustafasite + "/job", config).then(function(response) {
+    $http.get(mustafasite + "/job?research=false", config).then(function(response) {
 
       $scope.jobsdata = response.data.hits;
 
@@ -442,7 +441,7 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
 
 
 
-      $http.get(mustafasite + "/job?and_keywords=" + searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " + sKARVARZI + " " + $scope.sexvalue + " " + Resume + " " + Shayesteghi + " "  + RavanShanakhti + " " + Maharati + " " + selectcity , config).then(function(response) {
+      $http.get(mustafasite + "/job?research=false&and_keywords=" + searchkeyword + " " + sfulltime + " " + sparttime + " " + skaramuzi + " " + sKARVARZI + " " + $scope.sexvalue + " " + Resume + " " + Shayesteghi + " "  + RavanShanakhti + " " + Maharati + " " + selectcity , config).then(function(response) {
 
         $scope.jobsdata = response.data.hits;
 
@@ -617,7 +616,12 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
 
 
 
-  $scope.sex = [{
+  $scope.sex = [
+    {
+        nameper: "مرد / زن",
+        nameeng: "both"
+      },
+    {
       nameper: "مرد",
       nameeng: "male"
     },
@@ -770,7 +774,56 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
       $scope.derequestshowhide[$index] = false;
       $scope.derequestshow[$index] = true;
 
-    });
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای درخواست این موقعیت شغلی ابتدا میبایست پروفایل کاربری خود را تکمیل نمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
 
 
 
@@ -805,7 +858,57 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
       $scope.derequestshowhide[$index] = true;
       $scope.derequestshow[$index] = false;
 
-    });
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای درخواست این موقعیت شغلی ابتدا میبایست پروفایل کاربری خود را تکمیل نمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
+
 
 
 
@@ -815,25 +918,9 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
 
   $scope.showajob = function(item) {
 
-    var config = {
-
-      headers: {
-
-        'Content-Type': 'application/json',
-
-        'Access-Token': $localStorage.TokenKey.access,
-
-      }
-
-    }
-
-    $http.get(mustafasite + "/job_seeker", config).then(function(response) {
-
       ShareData.setPropertyjobid(item.id);
 
       $location.path("apostpage");
-
-    });
 
   }
 

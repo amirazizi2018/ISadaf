@@ -741,26 +741,30 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     var geturlkargozar = x.url;
 
-          var config = {
-
-            headers: {
-
-              'Content-Type': 'application/json',
-              'Access-Token': $localStorage.TokenKey.access
-
-            }
-
-          }
-
-          $http.post('https://sadaf.systmngr.ir/api/v1/exam/' + getidexam +'/pay', config).then(function(response) {
+    var data = {};
 
 
-            var urlforgotosite = geturlkargozar + "?JsId=" + $localStorage.UserId + "&Exam_id=" + getidexam + "&Fullname=" + $localStorage.UserFaName;
 
-            window.open(urlforgotosite, '_self', '');
+   var config = {
+
+     headers: {
+
+       'Content-Type': 'application/json',
+       'Access-Token': $localStorage.TokenKey.access
+
+     }
+
+   }
+
+   $http.post('https://sadaf.systmngr.ir/api/v1/exam/' + getidexam +'/pay', JSON.stringify(data) ,config).then(function(response) {
 
 
-          });
+     var urlforgotosite = geturlkargozar + "?JsId=" + $localStorage.UserId + "&Exam_id=" + getidexam + "&Fullname=" + $localStorage.UserFaName;
+
+     window.open(urlforgotosite, '_self', '');
+
+
+   });
 }
 
 
@@ -793,8 +797,8 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
   }
 
-  $scope.requestshowpage = true;
-  $scope.pindedplusonej = true;
+  // $scope.requestshowpage = true;
+  // $scope.pindedplusonej = true;
 
 
 
@@ -943,11 +947,63 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     $http.post(mustafasite + '/job_seeker/bookmark/job', JSON.stringify(data), config).then(function(response) {
 
-      $scope.pindedplusonej = false;
-      $scope.pindedcheckonej = true;
+      $scope.pindedplusshowajob = false;
+      $scope.pindedcheckhideajob = false;
+      $scope.pindedplusajob = true;
+      $scope.pindedcheckajob = true
 
 
-    });
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
+
 
 
 
@@ -971,11 +1027,66 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     $http.delete(mustafasite + '/job_seeker/bookmark/job/' + getjobid, config).then(function(response) {
 
-      $scope.pindedplusonej = true;
-      $scope.pindedcheckonej = false;
+      $scope.pindedplusajob = false;
+      $scope.pindedcheckajob = false;
+      $scope.pindedplusshowajob = true;
+      $scope.pindedcheckhideajob = true;
 
 
-    });
+
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
+
+
+
 
 
 
@@ -1007,11 +1118,62 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     $http.post(mustafasite + '/job_seeker/request_job', JSON.stringify(data), config).then(function(response) {
 
-      $scope.derequestshowpage = true;
-      $scope.requestshowpage = false;
+      $scope.requestshowshowajob = true;
+      $scope.requestshowajob = false;
+      $scope.derequestshowhideajob = false;
+      $scope.derequestshowajob = true;
 
 
-    });
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای درخواست این موقعیت شغلی ابتدا میبایست پروفایل کاربری خود را تکمیل نمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
 
 
 
@@ -1038,11 +1200,63 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
 
     $http.delete(mustafasite + '/job_seeker/request_job/' + getjobid, config).then(function(response) {
 
-      $scope.derequestshowpage = false;
-      $scope.requestshowpage = true;
+      $scope.requestshowshowajob = false;
+      $scope.requestshowajob = true;
+      $scope.derequestshowhideajob = true;
+      $scope.derequestshowajob = false;
 
 
-    });
+
+                },function Error (response) {
+
+              if (response.status == 401) {
+                  SweetAlert.swal({
+                   title: "خطا!",
+                   text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+                   type: "error",
+                   showCancelButton: false,
+                   confirmButtonColor: "#DD6B55",
+                   confirmButtonText: "بازگشت",
+                 });
+              }
+
+              if (response.status == 404) {
+                  SweetAlert.swal({
+                   title: "خطا!",
+                   text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+                   type: "error",
+                   showCancelButton: false,
+                   confirmButtonColor: "#DD6B55",
+                   confirmButtonText: "بازگشت",
+                 });
+              }
+
+              if (response.status == 403) {
+                  SweetAlert.swal({
+                   title: "خطا!",
+                   text: "برای درخواست این موقعیت شغلی ابتدا میبایست پروفایل کاربری خود را تکمیل نمایید.",
+                   type: "error",
+                   showCancelButton: false,
+                   confirmButtonColor: "#DD6B55",
+                   confirmButtonText: "بازگشت",
+                 });
+              }
+
+              if (response.status == 500) {
+                  SweetAlert.swal({
+                   title: "خطا!",
+                   text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+                   type: "error",
+                   showCancelButton: false,
+                   confirmButtonColor: "#DD6B55",
+                   confirmButtonText: "بازگشت",
+                 });
+              }
+
+
+
+
+            });
 
 
 
@@ -1168,7 +1382,57 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
       $scope.derequestshowhide[$index] = false;
       $scope.derequestshow[$index] = true;
 
-    });
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای درخواست این موقعیت شغلی ابتدا میبایست پروفایل کاربری خود را تکمیل نمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
+
 
 
 
@@ -1203,7 +1467,57 @@ app.controller('apostpage', function($compile, $sce, $scope, $window, $http, Upl
       $scope.derequestshowhide[$index] = true;
       $scope.derequestshow[$index] = false;
 
-    });
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای درخواست این موقعیت شغلی ابتدا میبایست پروفایل کاربری خود را تکمیل نمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
+
 
 
 

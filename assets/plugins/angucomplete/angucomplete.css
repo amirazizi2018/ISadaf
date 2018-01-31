@@ -32,7 +32,8 @@
     padding: 5px;
     color: #000000;
     margin-bottom: 4px;
-
+    display: inline-flex;
+    width: 100%;
 }
 
 .angucomplete-selected-row, .angucomplete-row:hover {
@@ -42,7 +43,7 @@
 
 .angucomplete-image-holder {
     padding-top: 2px;
-    float: left;
+    float: right;
     margin-right: 10px;
     margin-left: 5px;
 }
@@ -54,6 +55,10 @@
     border-color: #ececec;
     border-style: solid;
     border-width: 1px;
+}
+
+.angucomplete-title {
+    line-height: 40px;
 }
 
 .angucomplete-image-default {

@@ -1,12 +1,45 @@
 console.clear();
 
 
+app.factory('selecttype', function () {
 
+  return {
+
+casetype: function (type) {
+
+  switch (type) {
+          case "employer":
+            return "EMP";
+            break;
+            case "service_provider":
+              return "SP";
+              break;
+              case "job_seekers":
+                return "JS";
+                break;
+                case "EMP":
+                  return "EMP";
+                  break;
+                  case "SP":
+                    return "SP";
+                    break;
+                    case "JS":
+                      return "JS";
+                      break;
+
+        }
+
+
+}
+
+};
+
+});
 
 
 app.controller('jobseekerdashboardpage',
 
-  ['$compile', '$sce', '$scope', '$window', '$http', 'Upload', '$timeout', 'ShareData', '$location', '$localStorage', '$sessionStorage', function($compile, $sce, $scope, $window, $http, Upload, $timeout, ShareData, $location, $localStorage, $sessionStorage) {
+  ['$compile', '$sce', '$scope', '$window', '$http', 'Upload', '$timeout', 'ShareData', '$location', '$localStorage', 'selecttype' ,'$sessionStorage', function($compile, $sce, $scope, $window, $http, Upload, $timeout, ShareData, $location, $localStorage, selecttype ,$sessionStorage) {
 
     $scope.activeTabF = "tab1";
 
@@ -116,7 +149,7 @@ app.controller('jobseekerdashboardpage',
 
 
 
-    $http.get(mustafasite + '/job_seeker/notification', {
+    $http.get(mustafasite + '/job_seeker/notification?per_page=1000', {
 
       headers: {
 
@@ -746,7 +779,7 @@ app.controller('jobseekerdashboardpage',
 
       }
 
-      $http.get(mustafasite + '/job_seeker/receive_message', config).then(function(response) {
+      $http.get(mustafasite + '/job_seeker/sent_message', config).then(function(response) {
         $scope.SendMessage = response.data.messages;
       });
 
@@ -755,9 +788,35 @@ app.controller('jobseekerdashboardpage',
     $scope.GetSendMessage();
 
 
+        $scope.replayesentmail = function(selectedsentEmail) {
+          console.log(selectedsentEmail);
+          $scope.composeEmail = {};
+
+          $scope.activeTab = "compose";
+
+          $scope.composeEmail.subject = selectedsentEmail.title;
+          if (selectedsentEmail.to == "EMP") {
+            var ShowNameMailReplay = selectedsentEmail.employer.fa_name;
+            var input = $('#_value');
+            input.val(ShowNameMailReplay);
+            $scope.sentuserid = selectedsentEmail.employer.id;
+            $scope.sentusertype = "EMP";
+          }
+          if (selectedsentEmail.to == "SP") {
+            var ShowNameMailReplay = selectedsentEmail.service_provider.fa_name;
+            var input = $('#_value');
+            input.val(ShowNameMailReplay);
+            $scope.sentuserid = selectedsentEmail.service_provider.id;
+            $scope.sentusertype = "SP";
+          }
+
+          $scope.isreceiveVisible = false;
+
+        };
+
     $scope.sendEmail = function() {
 
-      $scope.activeTab = "sent";
+      // $scope.activeTab = "sent";
 
 
       // $scope.sentEmails.push($scope.composeEmail);
@@ -778,24 +837,36 @@ app.controller('jobseekerdashboardpage',
         }
 
       }
+        var data = null;
+
+      if ($scope.composeEmail == null) {
+        data = {
+         text: $scope.composeEmail.body,
+         title: $scope.composeEmail.subject,
+         target : selecttype.casetype($scope.sentusertype),
+         target_id: parseInt($scope.sentuserid),
+         file : value.split(',')[1],
+         file_format : getfileformat,
+       };
+     } else if($scope.composeEmail != null) {
+        data = {
+         text: $scope.composeEmail.body,
+         title: $scope.composeEmail.subject,
+         target : selecttype.casetype($scope.composeEmail.to.originalObject.type),
+         target_id: parseInt($scope.composeEmail.to.originalObject.id),
+         file : value.split(',')[1],
+         file_format : getfileformat,
+       };
+      }
 
 
-        var data = {
-          text: $scope.composeEmail.body,
-          title: $scope.composeEmail.subject,
-          target : $scope.composeEmail.type,
-          target_id: parseInt($scope.composeEmail.to),
-          file : value.split(',')[1],
-          file_format : getfileformat,
-        };
 
         $http.post(mustafasite + '/job_seeker/message', JSON.stringify(data), config).then(function(response) {
-
+          $scope.GetSendMessage();
           $scope.atachmailmodel = null;
           $scope.composeEmail = {};
+          $scope.searchStr = null;
           $scope.activeTab = "sent";
-
-
         });
 
 
@@ -966,26 +1037,6 @@ app.controller('jobseekerdashboardpage',
 
 
 
-    $scope.replayesentmail = function(selectedsentEmail) {
-
-      $scope.composeEmail = {};
-
-      $scope.activeTab = "compose";
-
-      $scope.composeEmail.subject = selectedreceiveEmail.title;
-
-      if (selectedreceiveEmail.from == "EMP") {
-        $scope.composeEmail.to = selectedreceiveEmail.employer.id;
-        $scope.composeEmail.type = "EMP";
-      }
-      if (selectedreceiveEmail.from == "SP") {
-        $scope.composeEmail.to = selectedreceiveEmail.service_provider.id;
-        $scope.composeEmail.type = "SP";
-      }
-
-      $scope.isreceiveVisible = false;
-
-    };
 
 
 

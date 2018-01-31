@@ -2,7 +2,7 @@ console.clear();
 
 
 
-app.controller('createaresearchpage', function($compile, $sce, $scope, $window, $http, ShareData, $location, $localStorage, $sessionStorage) {
+app.controller('createaresearchpage', function($compile, $sce, $scope, $window, $http, ShareData, $location, $localStorage, $sessionStorage , Upload) {
 
 
   var mustafasite = "https://sadaf.systmngr.ir/api/v1";
@@ -98,7 +98,6 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
   ];
 
-
   $scope.baravordhazine = [
 
     {
@@ -113,6 +112,7 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
   ];
 
+  $scope.Tahsilat = [];
 
   $scope.testentekhab = [];
 
@@ -121,62 +121,162 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
   $scope.testentekhabshyestegi = [];
 
 
+   $scope.Addresearch = function() {
+
+    var getzamantakhmini = $scope.SelectZamanTakhmini;
+    var zamantakhmniniv = (getzamantakhmini.toString().split('-'));
+
+    var getbarovordhazine = $scope.SelectBarovordHazineh;
+    var barovordhazine = (getbarovordhazine.toString().split('-'));
 
 
-  $scope.totalazmonravan = function() {
+     var arrayhozetakhasosi = [];
+     Object.keys($scope.Tahsilat).forEach(function(key) {
+       var val = $scope.Tahsilat[key]["hoze"];
+       arrayhozetakhasosi.push(val);
+     });
 
-    var totalazmonravan = 0;
+     var objhozetakhasosi = {};
 
-    angular.forEach($scope.formData.testentekhab, function(item) {
+     for (var i = 0; i <  arrayhozetakhasosi.length; ++i){
+       objhozetakhasosi[i] =  arrayhozetakhasosi[i];
+     }
 
-      totalazmonravan += item.geymatkargozar * 1;
+    var kalamekilidiforsend = {};
 
-    })
+    for (var i = 0; i <  $scope.skillsandexpertise.length; ++i){
+      kalamekilidiforsend[i] =  $scope.skillsandexpertise[i];
+    }
+
+    $scope.advertisementtypes = [];
+
+    angular.forEach($scope.orders.prods.prod,
+      function(value, key) {
+        $scope.advertisementtypes.push(key);
+      });
 
 
 
-    return totalazmonravan;
+
+
+
+    var config = {
+
+      headers: {
+
+        'Content-Type': 'application/json',
+
+        'Access-Token': $localStorage.TokenKey.access,
+
+      }
+
+    }
+
+
+    var getfileformat = $scope.atachresearchmodel.name.split('.').pop();
+  var getfilebase64 = Upload.base64DataUrl($scope.atachresearchmodel);
+  getfilebase64.then(function(value) {
+    var data = {
+      advertisement_types: $scope.advertisementtypes, // Array []
+      problem_type: $scope.SelectNomasale,  // String
+      description: $scope.ResearchSharhMasale, // String
+      max_payment: parseInt(barovordhazine[1]), // Int
+      min_payment: parseInt(barovordhazine[0]), // Int
+      requirements: kalamekilidiforsend, // Object
+      skills: objhozetakhasosi,  // Object
+      title: $scope.ResearchTitle, // String
+      marriage_status:"both",
+      approach: $scope.RavashTahghigh, // String
+      output_type: $scope.NoeKhoroji, // String
+      type: $scope.SelectSanaat, // String
+      work_hour_from: parseInt(zamantakhmniniv[0]), // Int
+      work_hour_to: parseInt(zamantakhmniniv[1]), // Int
+      duration: 36000, // Int
+      file_format : getfileformat,
+      file : value.split(',')[1],
+    }
+
+        console.log(data);
+        // console.log(JSON.stringify(data));
+        console.log($scope.orders);
+  $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {
+    console.log(response);
+    var paydata = {
+      id: parseInt(response.data.data.id), // Int
+    }
+
+    $http.post(mustafasite + '/employer/pay/job', JSON.stringify(paydata), config).then(function(response) {
+
+      alert("پژوهش با موفیقت درج شد شما به طور خودکار به صفحه اصلی برمیگردید.");
+      $location.path("companymainpage");
+
+    });
+
+  });
+});
+
+
+
+
 
   }
 
 
 
-  $scope.totalazmonmaharat = function() {
+  // $scope.totalazmonravan = function() {
+  //
+  //   var totalazmonravan = 0;
+  //
+  //   angular.forEach($scope.formData.testentekhab, function(item) {
+  //
+  //     totalazmonravan += item.geymatkargozar * 1;
+  //
+  //   })
+  //
+  //
+  //
+  //   return totalazmonravan;
+  //
+  // }
 
-    var totalazmonmaharat = 0;
-
-    angular.forEach($scope.formData.testentekhabmaharat, function(item) {
-
-      totalazmonmaharat += item.geymatkargozarmaharat * 1;
-
-    })
 
 
+  // $scope.totalazmonmaharat = function() {
+  //
+  //   var totalazmonmaharat = 0;
+  //
+  //   angular.forEach($scope.formData.testentekhabmaharat, function(item) {
+  //
+  //     totalazmonmaharat += item.geymatkargozarmaharat * 1;
+  //
+  //   })
+  //
+  //
+  //
+  //   return totalazmonmaharat;
+  //
+  // }
+  //
 
-    return totalazmonmaharat;
-
-  }
-
-
-  $scope.formData = {
-
-    sharhevazayef: [],
-
-    teahsilat: [],
-
-    selectedItemskhas: [],
-
-    maharatkilidi: [],
-
-    testentekhab: [],
-
-    testentekhabmaharat: [],
-
-    testentekhabshyestegi: [],
-
-    detkargozarhashyestegi: [],
-
-  };
+  // $scope.formData = {
+  //
+  //   sharhevazayef: [],
+  //
+  //   teahsilat: [],
+  //
+  //   selectedItemskhas: [],
+  //
+  //   maharatkilidi: [],
+  //
+  //   testentekhab: [],
+  //
+  //   testentekhabmaharat: [],
+  //
+  //   testentekhabshyestegi: [],
+  //
+  //   detkargozarhashyestegi: [],
+  //
+  // };
 
 
 
@@ -196,6 +296,8 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
     $scope.Tahsilat.push({
       hoze: $scope.SelectHozeTakhasosi,
     });
+
+    $scope.SelectHozeTakhasosi = null;
 
   };
 
@@ -245,103 +347,6 @@ app.controller('createaresearchpage', function($compile, $sce, $scope, $window, 
 
 
   }
-
-
-
-  $scope.SelectZamanTakhmini = [];
-  $scope.SelectBarovordHazineh = [];
-
-   $scope.Addresearch = function() {
-
-    var getzamantakhmini = $scope.SelectZamanTakhmini;
-    var zamantakhmniniv = (getzamantakhmini.toString().split('-'));
-console.log(getzamantakhmini);
-console.log(zamantakhmniniv);
-
-    var getbarovordhazine = $scope.SelectBarovordHazineh;
-    var barovordhazine = (getbarovordhazine.toString().split('-'));
-    console.log(getbarovordhazine);
-    console.log(barovordhazine);
-
-
-    // var arrayhozetakhasosi = [];
-    // Object.keys($scope.Tahsilat).forEach(function(key) {
-    //   var val = $scope.Tahsilat[key]["hoze"];
-    //   arrayhozetakhasosi.push(val);
-    // });
-    //
-    // var objhozetakhasosi = {};
-    //
-    // for (var i = 0; i <  arrayhozetakhasosi.length; ++i){
-    //   objhozetakhasosi[i] =  arrayhozetakhasosi[i];
-    // }
-
-    var kalamekilidiforsend = {};
-
-    for (var i = 0; i <  $scope.skillsandexpertise.length; ++i){
-      kalamekilidiforsend[i] =  $scope.skillsandexpertise[i];
-    }
-
-    $scope.advertisementtypes = [];
-
-    angular.forEach($scope.orders.prods.prod,
-      function(value, key) {
-        $scope.advertisementtypes.push(key);
-      });
-
-
-    var data = {
-      advertisement_types: $scope.advertisementtypes, // Array []
-      problem_type: $scope.formData.selectnomasale,  // String
-      description: $scope.formData.ResearchSharhMasale, // String
-      max_payment: parseInt(barovordhazine[1]), // Int
-      min_payment: parseInt(barovordhazine[0]), // Int
-      requirements: kalamekilidiforsend, // Object
-      // skills: objhozetakhasosi,  // Object
-      title: $scope.formData.researchtitle, // String
-      approach: $scope.formData.RavashTahghigh, // String
-      output_type: $scope.formData.NoeKhoroji, // String
-      type: $scope.formData.SelectSanaat, // String
-      work_hour_from: parseInt(zamantakhmniniv[0]), // Int
-      work_hour_to: parseInt(zamantakhmniniv[1]), // Int
-      duration: 36000, // Int
-    }
-
-
-
-    var config = {
-
-      headers: {
-
-        'Content-Type': 'application/json',
-
-        'Access-Token': $localStorage.TokenKey.access,
-
-      }
-
-    }
-
-    console.log(data);
-    console.log(JSON.stringify(data));
-    console.log($scope.orders);
-
-
-
-    $http.post(mustafasite + '/employer/job', JSON.stringify(data), config).then(function(response) {
-
-      alert("پژوهش با موفیقت درج شد شما به طور خودکار به صفحه اصلی برمیگردید.");
-      $location.path("companymainpage");
-
-    });
-
-
-  }
-
-
-
-
-
-
 
 
 });

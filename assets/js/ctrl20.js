@@ -1,6 +1,82 @@
 console.clear();
 
 app.controller('researchposts' ,function($compile, $sce, $scope, $window, $http, Upload, $timeout) {
+
+
+		var mustafasite = "https://sadaf.systmngr.ir/api/v1";
+
+		$http.post(mustafasite + '/items', {
+
+			headers: {
+
+				"Content-Type": 'application/json',
+
+
+			}
+
+		}).then(function(response) {
+			$scope.yourskillsandexpertises = response.data.data;
+		});
+
+
+
+		    var config = {
+
+		      headers: {
+
+		        'Content-Type': 'application/json'
+
+		      }
+
+		    }
+
+
+
+		    $http.get(mustafasite + "/job?research=true", config).then(function(response) {
+
+		      $scope.data = response.data.hits;
+
+					$scope.totalItems = $scope.data.length;
+
+		    });
+
+				$scope.viewby = 3;
+
+			  $scope.currentPage = 1;
+
+			  $scope.itemsPerPage = $scope.viewby;
+
+			  $scope.maxSize = 5;
+
+
+
+			  $scope.setPage = function (pageNo) {
+
+			    $scope.currentPage = pageNo;
+
+			  };
+
+
+
+			$scope.setItemsPerPage = function(num) {
+
+			  $scope.itemsPerPage = num;
+
+			  $scope.currentPage = 1;
+
+			}
+
+
+
+			  $scope.removejob = function(item) {
+
+			    $scope.data.splice(item, 1);
+
+			  };
+
+
+
+
 		
         $scope.ratesearch = 0;
         $scope.ratesearchoptions = {
@@ -13,7 +89,8 @@ app.controller('researchposts' ,function($compile, $sce, $scope, $window, $http,
 			spacing: "5px",
             starWidth: "16px"
         };    
-		
+
+
 	
 		$scope.showpagerectanjobrating = 7.2;
         $scope.showpagerectanjoboptions = {
@@ -45,12 +122,12 @@ app.controller('researchposts' ,function($compile, $sce, $scope, $window, $http,
     $scope.current =        40;
     $scope.max =            100;
 	
-	$scope.yourskillsandexpertises = [
-	{title : 'ایجاد پروفایل شغلی'},
-	{title : 'fdddfdfdf'},
-	{title : 'بلیلبیلبیل'},
-	];	
-	
+	// $scope.yourskillsandexpertises = [
+	// {title : 'ایجاد پروفایل شغلی'},
+	// {title : 'fdddfdfdf'},
+	// {title : 'بلیلبیلبیل'},
+	// ];	
+  //
 	
 	$scope.adstime = [
         {nameper : "1 تا 2 ماه", nameeng : "shariyar"},
@@ -59,33 +136,16 @@ app.controller('researchposts' ,function($compile, $sce, $scope, $window, $http,
 		{nameper : "4 تا 6 ماه", nameeng : "karaj"},
     ];		
 
-
-			$scope.data = [
-         {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-         {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-         {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-         {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
-       ];
+      //
+			// $scope.data = [
+      //    {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+      //    {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+      //    {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+      //    {id:'1',  companyname:'بانک سامان',companylogo:'assets/images/samanlogo.png',jobname:'کاتولوپژوهش بر روی ایجاد پوشش نانوساختار کاربید تنگستن روی سطوح آلومینیومی به روش مهندسی معکوس',jobtime:'3 ماه',jobprice:' 52,000,000',jobfield:'کاتولومهندسی صنایع/ مهندسی مکانیک/ مدیریت صنعتی/مهندسی شیمی/مهندسی مواد/...',jobtag: [{textbtn:'آنالیز سیستم ها'},{textbtn:'آنالیز سیستم ها'},{textbtn:'بازرسی سطح'},{textbtn:'سنتز مواد پیشرفته'},{textbtn:'آنالیز سیستم ها'},],requestforcooperationjoblink : '#' ,readmorejoblink : '#' ,jobdate : '7 / تیر / 96' ,jobrateuser : '3' ,jobratesystem : '7'},
+      //  ];
 
 	 
-  $scope.viewby = 3;
-  $scope.totalItems = $scope.data.length;
-  $scope.currentPage = 1;
-  $scope.itemsPerPage = $scope.viewby;
-  $scope.maxSize = 5;
-
-  $scope.setPage = function (pageNo) {
-    $scope.currentPage = pageNo;
-  };
-
-$scope.setItemsPerPage = function(num) {
-  $scope.itemsPerPage = num;
-  $scope.currentPage = 1; 
-}
-
-  $scope.removejob = function(item) {
-    $scope.data.splice(item, 1);
-  };
+
   
 
 	

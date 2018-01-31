@@ -399,7 +399,7 @@ $scope.getaliiempset();
 			$localStorage.LocationUser = "acompanypage";
 		}
 
-		$http.get(mustafasite + '/employer/notification', {
+		$http.get(mustafasite + '/employer/notification?per_page=1000', {
 
 			headers: {
 
@@ -602,11 +602,11 @@ $scope.getaliiempset();
 			// 	status : "جدید",
 			// }
 
-			var data = {
+			var dataremovebookmark = {
 				id : parseInt(jobseeker.job_seeker.id),
 			}
 
-	    var config = {
+	    var configremovebookmark = {
 
 	      headers: {
 
@@ -619,7 +619,7 @@ $scope.getaliiempset();
 
 
 
-	    $http.post(mustafasite + '/employer/bookmark/job_seeker' , JSON.stringify(data), config).then(function(response) {
+	    $http.post(mustafasite + '/employer/bookmark/job_seeker' , JSON.stringify(dataremovebookmark), configremovebookmark).then(function(response) {
 
 				$scope.getaliiempset();
 
@@ -706,7 +706,7 @@ $scope.setItemsPerPage = function(num) {
 				'Content-Type' : 'application/json',
         'Access-Token': $localStorage.TokenKey.access
 
-      };
+      }
 
     }
 
@@ -1054,7 +1054,11 @@ $scope.setItemsPerPage = function(num) {
   
 
   
-	
+
+	$scope.showajs = function(jobseeker) {
+		ShareData.setPropertyjsid(jobseeker.job_seeker.id);
+		$location.path("jobseekerprofilepage");
+	}
 	
 });
 

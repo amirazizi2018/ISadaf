@@ -2,7 +2,7 @@ console.clear();
 
 
 
-app.controller('jobseekermainpage', function($compile, $sce, $scope, $window, $http, ShareData, $location, $localStorage, $sessionStorage) {
+app.controller('jobseekermainpage', function($compile, $sce, $scope, $window, $http, ShareData, $location, $localStorage, $sessionStorage,SweetAlert) {
 
   var mustafasite = "https://sadaf.systmngr.ir/api/v1";
 
@@ -16,6 +16,22 @@ app.controller('jobseekermainpage', function($compile, $sce, $scope, $window, $h
 
     $location.path("jobpostspage");
 
+  }
+
+
+  $scope.soonservice = function() {
+    SweetAlert.swal({
+     title: "کاربر گرامی",
+     text: "این سرویس به زودی بر روی سامانه فعال خواهد شد.",
+     type: "warning",
+     showCancelButton: false,
+     confirmButtonColor: "#DD6B55",
+     confirmButtonText: "متوجه شدم",
+   })
+  }
+
+  $scope.gotoprofilepage = function() {
+    $location.path("jobseekerprofilepage");
   }
 
 
@@ -100,40 +116,40 @@ app.controller('jobseekermainpage', function($compile, $sce, $scope, $window, $h
 
 
 
-  $scope.companystatistics = [
-
-    {
-      img: 'assets/images/statistics1.svg',
-      number: '۲۰۱۵۵۳',
-      title: 'نیروی کارجو',
-    },
-
-    {
-      img: 'assets/images/statistics2.svg',
-      number: '۸۷۸۵',
-      title: 'شرکت/سازمان',
-    },
-
-    {
-      img: 'assets/images/statistics3.svg',
-      number: '۱۲۰۸',
-      title: 'موقعیت شغلی',
-    },
-
-    {
-      img: 'assets/images/statistics4.svg',
-      number: '۱۷۹',
-      title: 'کارگزار خدمات',
-    },
-
-    {
-      img: 'assets/images/statistics5.svg',
-      number: '36',
-      title: 'فرصت پژوهشی',
-    },
-
-  ];
-
+  // $scope.companystatistics = [
+  //
+  //   {
+  //     img: 'assets/images/statistics1.svg',
+  //     number: '۲۰۱۵۵۳',
+  //     title: 'نیروی کارجو',
+  //   },
+  //
+  //   {
+  //     img: 'assets/images/statistics2.svg',
+  //     number: '۸۷۸۵',
+  //     title: 'شرکت/سازمان',
+  //   },
+  //
+  //   {
+  //     img: 'assets/images/statistics3.svg',
+  //     number: '۱۲۰۸',
+  //     title: 'موقعیت شغلی',
+  //   },
+  //
+  //   {
+  //     img: 'assets/images/statistics4.svg',
+  //     number: '۱۷۹',
+  //     title: 'کارگزار خدمات',
+  //   },
+  //
+  //   {
+  //     img: 'assets/images/statistics5.svg',
+  //     number: '36',
+  //     title: 'فرصت پژوهشی',
+  //   },
+  //
+  // ];
+  //
 
 
 
@@ -152,7 +168,7 @@ app.controller('jobseekermainpage', function($compile, $sce, $scope, $window, $h
 
 
 
-  $http.get(mustafasite + "/job", config).then(function(response) {
+  $http.get(mustafasite + "/job?research=false&per_page=9", config).then(function(response) {
 
     $scope.jobsdata = response.data.hits;
 
@@ -223,7 +239,56 @@ app.controller('jobseekermainpage', function($compile, $sce, $scope, $window, $h
       $scope.pindedcheck[$index] = true;
 
 
-    });
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
 
 
 
@@ -256,7 +321,57 @@ app.controller('jobseekermainpage', function($compile, $sce, $scope, $window, $h
       $scope.pindedplusshow[$index] = true;
       $scope.pindedcheckhide[$index] = true;
 
-    });
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
+
 
 
 
@@ -295,7 +410,56 @@ app.controller('jobseekermainpage', function($compile, $sce, $scope, $window, $h
       $scope.derequestshowhide[$index] = false;
       $scope.derequestshow[$index] = true;
 
-    });
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای درخواست این موقعیت شغلی ابتدا میبایست پروفایل کاربری خود را تکمیل نمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
 
 
 
@@ -330,7 +494,56 @@ app.controller('jobseekermainpage', function($compile, $sce, $scope, $window, $h
       $scope.derequestshowhide[$index] = true;
       $scope.derequestshow[$index] = false;
 
-    });
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای درخواست این موقعیت شغلی ابتدا میبایست پروفایل کاربری خود را تکمیل نمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
 
 
 
@@ -363,25 +576,27 @@ app.controller('jobseekermainpage', function($compile, $sce, $scope, $window, $h
 
   $scope.showajob = function(item) {
 
-    var config = {
+    // var config = {
+    //
+    //   headers: {
+    //
+    //     'Content-Type': 'application/json',
+    //
+    //     'Access-Token': $localStorage.TokenKey.access,
+    //
+    //   }
+    //
+    // }
 
-      headers: {
+    // $http.get(mustafasite + "/job_seeker", config).then(function(response) {
+    //
+    //
+    //
+    // });
 
-        'Content-Type': 'application/json',
+    ShareData.setPropertyjobid(item.id);
 
-        'Access-Token': $localStorage.TokenKey.access,
-
-      }
-
-    }
-
-    $http.get(mustafasite + "/job_seeker", config).then(function(response) {
-
-      ShareData.setPropertyjobid(item.id);
-
-      $location.path("apostpage");
-
-    });
+    $location.path("apostpage");
 
   }
 

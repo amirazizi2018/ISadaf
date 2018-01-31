@@ -67,19 +67,19 @@ app.controller('spmainpage', function($compile, $sce, $scope, $window, $http, Sh
     {
       title: 'ارزیابی از کارجویان',
       img: 'assets/images/sptopb3.svg',
-      text: 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید',
+      text: 'در سامانه صدف کارجویان در فرآیند معرفی به کارفرمایان توسط کارگزاران در سه سطح مورد ارزیابی قرار می گیرند. ارزیابی از طریق آزمون های آنلاین، ارزیابی مهارتی و ارزیابی شایستگی.',
     },
 
     {
       title: 'نمایش خدمات و محصولات',
       img: 'assets/images/sptopb2.svg',
-      text: 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید',
+      text: 'کارگزاران می توانند از طریق پروفایل خود و فضاهای تبلیلغات در سامان صدف سرویس و خدمات خود را به کارفرمایان و کارجویان ارائه و  معرفی نمایند',
     },
 
     {
       title: 'مشاوره به کارفرمایان',
       img: 'assets/images/sptopb1.svg',
-      text: 'برای اضافه نمودن یک پروفایل کافیست ابتدا اقدام به عضویت نموده و وارد حساب برای آنکه بتوانید برای یک شغل درخواست ثبت کنید می بایست تا حد مشخصی پروفایل کاملی داشته باشید',
+      text: 'در فرآیند ارائه هر خدمت کارفرمایان و کارجویان می توانند در مورد سرویس و خدمات کارگزاران به صورت آنلاین مشاوره دریافت نمایند.',
     },
 
   ];
@@ -145,12 +145,57 @@ app.controller('spmainpage', function($compile, $sce, $scope, $window, $http, Sh
 
 
 
+
     $http.post(mustafasite + '/service_provider/request', JSON.stringify(data), config).then(function(response) {
 
-      alert("درخواست شما با موفقیت ارسال شد.");
       $scope.directphone = null
       $scope.organemail = null;
-    });
+      SweetAlert.swal({
+       title: "تبریک!",
+       text: "درخواست شما برای عضویت در سامانه صدف با موفیقت ثبت شد. به زودی سامانه صدف با شما تماس خواهد گرفت.",
+       type: "success",
+       showCancelButton: false,
+       confirmButtonColor: "#29b572",
+       confirmButtonText: "ورود",
+     });
+
+
+    },function Error (response) {
+
+      if (response.status == 403) {
+          SweetAlert.swal({
+           title: "خطا!",
+           text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+           type: "error",
+           showCancelButton: false,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "بازگشت",
+         });
+      }
+
+      if (response.status == 409) {
+          SweetAlert.swal({
+           title: "خطا!",
+           text: "شما قبلا با این مشخصات در سامانه صدف درخواست عضویت داده اید.",
+           type: "error",
+           showCancelButton: false,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "بازگشت",
+         });
+      }
+
+      if (response.status == 500) {
+          SweetAlert.swal({
+           title: "خطا!",
+           text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+           type: "error",
+           showCancelButton: false,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "بازگشت",
+         });
+      }
+
+  });
 
 
 
