@@ -701,8 +701,56 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
       $scope.pindedplus[$index] = true;
       $scope.pindedcheck[$index] = true;
 
+    },function Error (response) {
 
-    });
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
 
 
 
@@ -735,11 +783,61 @@ app.controller('jobpostspage', function($compile, $sce, $scope, $window, $http, 
       $scope.pindedplusshow[$index] = true;
       $scope.pindedcheckhide[$index] = true;
 
-    });
+    },function Error (response) {
+
+  if (response.status == 401) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "برای استفاده از سرویسهای سامانه صدف لازم است ثبت نام نموده و یا به حساب کاربری خود وارد شوید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 404) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "شغل مورد نظر شما اخیرا از سامانه حذف گردیده است.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 403) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+  if (response.status == 500) {
+      SweetAlert.swal({
+       title: "خطا!",
+       text: "با عرض پوزش ، سامانه تا دقایقی در دسترس نمیباشد. لطفا در زمان دیگری دوباره اقدام فرمایید.",
+       type: "error",
+       showCancelButton: false,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "بازگشت",
+     });
+  }
+
+
+
+
+});
 
 
 
   }
+
 
 
 

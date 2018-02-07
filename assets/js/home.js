@@ -234,7 +234,7 @@ app.controller('home', function($compile, $sce, $scope, $window, AvatarService ,
   moment.locale('fa');
 
   $scope.checkauth = function() {
-    if ($localStorage.TokenKey == " " || $localStorage.UserType == " ") {
+    if ($localStorage.TokenKey == " " || $localStorage.UserType == " " || $localStorage.TokenKey == null || $localStorage.UserType == null) {
       $scope.isHideafterlogin = true;
       $scope.isActiveafterlogin = false;
       $scope.isHidelogin = false;

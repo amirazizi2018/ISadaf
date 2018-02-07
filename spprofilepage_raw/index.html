@@ -407,7 +407,7 @@
           </div>
           <div ng-if="NotShowForSP()" class="socialprofile notuser" ng-repeat="x in socials">
 
-            <a href="{{x.url}}" class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
+            <a href="{{x.url}}"  target="_blank"  class="{{x.social.name}}" ng-style="{'background-image':'url({{x.social.logo}})'}">
               <md-tooltip md-direction="top">{{x.social.fa_name}}</md-tooltip>
             </a>
 
@@ -582,7 +582,7 @@
     <div class="services" ng-class="{showallservices: showallservices}">
 
       <div class="col-md-12 col-xs-12 h2title bluecolor fontmedium servicesh1title" style="padding: 0 0 15px;">خدمات ما روی سامانه صدف</div>
-      <div class="serve" ng-if="suitabilities.length != 0">
+      <div class="serve" ng-if="suitabilities.length > 0">
 
         <div class="row">
 
@@ -664,7 +664,7 @@
 
 
 
-  <div class="spcomments">
+  <div class="spcomments" ng-if="comments.length > 0">
 
     <div class="container">
 
@@ -766,7 +766,7 @@
 
 
 
-  <div class="container" style="padding-bottom: 30px;">
+  <div class="container" ng-if="ourteam.length > 0" style="padding-bottom: 30px;">
 
     <div class="col-md-12 col-xs-12 h1title  bluecolor fontmedium textcenter" style="padding-top: 30px;">تیم تخصصی ما</div>
 

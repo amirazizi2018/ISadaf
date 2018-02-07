@@ -779,7 +779,7 @@ app.controller('jobseekerdashboardpage',
 
       }
 
-      $http.get(mustafasite + '/job_seeker/sent_message', config).then(function(response) {
+      $http.get(mustafasite + '/job_seeker/sent_message?per_page=100000', config).then(function(response) {
         $scope.SendMessage = response.data.messages;
       });
 
@@ -789,7 +789,6 @@ app.controller('jobseekerdashboardpage',
 
 
         $scope.replayesentmail = function(selectedsentEmail) {
-          console.log(selectedsentEmail);
           $scope.composeEmail = {};
 
           $scope.activeTab = "compose";
@@ -809,6 +808,13 @@ app.controller('jobseekerdashboardpage',
             $scope.sentuserid = selectedsentEmail.service_provider.id;
             $scope.sentusertype = "SP";
           }
+      		if (selectedsentEmail.to == "JS") {
+      			var ShowNameMailReplay = selectedsentEmail.job_seeker.fa_name;
+      			var input = $('#_value');
+      			input.val(ShowNameMailReplay);
+      			$scope.sentuserid = selectedsentEmail.job_seeker.id;
+      			$scope.sentusertype = "JS";
+      		}
 
           $scope.isreceiveVisible = false;
 
@@ -817,72 +823,9 @@ app.controller('jobseekerdashboardpage',
     $scope.sendEmail = function() {
 
       // $scope.activeTab = "sent";
-
-
       // $scope.sentEmails.push($scope.composeEmail);
       //
       // $scope.composeEmail = {};
-
-      var getfileformat = $scope.atachmailmodel.name.split('.').pop();
-    var getfilebase64 = Upload.base64DataUrl($scope.atachmailmodel);
-    getfilebase64.then(function(value) {
-      var config = {
-
-        headers: {
-
-          'Content-Type': 'application/json',
-
-          'Access-Token': $localStorage.TokenKey.access,
-
-        }
-
-      }
-        var data = null;
-
-      if ($scope.composeEmail == null) {
-        data = {
-         text: $scope.composeEmail.body,
-         title: $scope.composeEmail.subject,
-         target : selecttype.casetype($scope.sentusertype),
-         target_id: parseInt($scope.sentuserid),
-         file : value.split(',')[1],
-         file_format : getfileformat,
-       };
-     } else if($scope.composeEmail != null) {
-        data = {
-         text: $scope.composeEmail.body,
-         title: $scope.composeEmail.subject,
-         target : selecttype.casetype($scope.composeEmail.to.originalObject.type),
-         target_id: parseInt($scope.composeEmail.to.originalObject.id),
-         file : value.split(',')[1],
-         file_format : getfileformat,
-       };
-      }
-
-
-
-        $http.post(mustafasite + '/job_seeker/message', JSON.stringify(data), config).then(function(response) {
-          $scope.GetSendMessage();
-          $scope.atachmailmodel = null;
-          $scope.composeEmail = {};
-          $scope.searchStr = null;
-          $scope.activeTab = "sent";
-        });
-
-
-    });
-
-
-
-    };
-
-
-
-
-
-
-    $scope.showreceivemail = function(email) {
-
       var config = {
 
         headers: {
@@ -895,14 +838,100 @@ app.controller('jobseekerdashboardpage',
 
       }
 
-      $http.get(mustafasite + '/job_seeker/message/' + email.id, JSON.stringify(data), config).then(function(response) {
-        $scope.isreceiveVisible = true;
+      var data = null;
+      if ($scope.atachmailmodel == null) {
 
-        $scope.selectedreceiveEmail = email;
+
+        if ($scope.sentusertype != null) {
+          data = {
+           text: $scope.composeEmail.body,
+           title: $scope.composeEmail.subject,
+           target : selecttype.casetype($scope.sentusertype),
+           target_id: parseInt($scope.sentuserid),
+           // file : value.split(',')[1],
+           // file_format : getfileformat,
+         };
+       } else if($scope.sentusertype == null) {
+          data = {
+           text: $scope.composeEmail.body,
+           title: $scope.composeEmail.subject,
+           target : selecttype.casetype($scope.composeEmail.to.originalObject.type),
+           target_id: parseInt($scope.composeEmail.to.originalObject.id),
+           // file : value.split(',')[1],
+           // file_format : getfileformat,
+         };
+        }
+
+
+
+          $http.post(mustafasite + '/job_seeker/message', JSON.stringify(data), config).then(function(response) {
+            $scope.GetSendMessage();
+            $scope.composeEmail = {};
+            $scope.searchStr = null;
+            $scope.searchStr = null;
+            $scope.sentusertype =null;
+            $scope.sentuserid =null;
+            var input = $('#_value');
+            input.val("");
+            $scope.isreceiveVisible = false;
+            $scope.activeTab = "sent";
+          });
+
+
+
+
+      }else if ($scope.atachmailmodel != null) {
+        var getfileformat = $scope.atachmailmodel.name.split('.').pop();
+      var getfilebase64 = Upload.base64DataUrl($scope.atachmailmodel);
+      getfilebase64.then(function(value) {
+          // var getlenght = $scope.composeEmail;
+          // console.log(Object.keys(getlenght).length);
+          // console.log($scope.composeEmail);
+          // console.log($scope.sentusertype);
+        if ($scope.sentusertype != null) {
+          data = {
+           text: $scope.composeEmail.body,
+           title: $scope.composeEmail.subject,
+           target : selecttype.casetype($scope.sentusertype),
+           target_id: parseInt($scope.sentuserid),
+           file : value.split(',')[1],
+           file_format : getfileformat,
+         };
+       } else if($scope.sentusertype == null) {
+          data = {
+           text: $scope.composeEmail.body,
+           title: $scope.composeEmail.subject,
+           target : selecttype.casetype($scope.composeEmail.to.originalObject.type),
+           target_id: parseInt($scope.composeEmail.to.originalObject.id),
+           file : value.split(',')[1],
+           file_format : getfileformat,
+         };
+        }
+
+
+
+          $http.post(mustafasite + '/job_seeker/message', JSON.stringify(data), config).then(function(response) {
+            $scope.GetSendMessage();
+            $scope.atachmailmodel = null;
+            $scope.composeEmail = {};
+            $scope.searchStr = null;
+            $scope.searchStr = null;
+            $scope.sentusertype =null;
+            $scope.sentuserid =null;
+            var input = $('#_value');
+            input.val("");
+            $scope.isreceiveVisible = false;
+            $scope.activeTab = "sent";
+          });
+
+
       });
 
-    };
 
+
+      }
+
+    };
 
 
     $scope.backtoreceivemail = function() {
@@ -1003,7 +1032,7 @@ app.controller('jobseekerdashboardpage',
 
       }
 
-      $http.get(mustafasite + '/job_seeker/receive_message', config).then(function(response) {
+      $http.get(mustafasite + '/job_seeker/receive_message?per_page=100000', config).then(function(response) {
         $scope.ReceiveMessage = response.data.messages;
       });
 
@@ -1011,6 +1040,32 @@ app.controller('jobseekerdashboardpage',
 
     $scope.GetReceiveMessage();
 
+    $scope.showreceivemail = function(email) {
+
+      var config = {
+
+        headers: {
+
+          'Content-Type': 'application/json',
+
+          'Access-Token': $localStorage.TokenKey.access,
+
+        }
+
+      }
+
+      if (email.seen == true) {
+        $scope.isreceiveVisible = true;
+        $scope.selectedreceiveEmail = email;
+      } else if (email.seen == false){
+        $http.get(mustafasite + '/job_seeker/message/' + email.id, config).then(function(response) {
+          $scope.isreceiveVisible = true;
+          $scope.GetReceiveMessage();
+          $scope.selectedreceiveEmail = email;
+        });
+      }
+
+    };
 
 
 
@@ -1018,20 +1073,32 @@ app.controller('jobseekerdashboardpage',
 
       $scope.composeEmail = {};
 
-      $scope.activeTab = "compose";
+  		$scope.activeTab = "compose";
 
-      $scope.composeEmail.subject = selectedreceiveEmail.title;
+  		$scope.composeEmail.subject = selectedsentEmail.title;
+  		if (selectedsentEmail.from == "EMP") {
+  			var ShowNameMailReplay = selectedsentEmail.employer.fa_name;
+  			var input = $('#_value');
+  			input.val(ShowNameMailReplay);
+  			$scope.sentuserid = selectedsentEmail.employer.id;
+  			$scope.sentusertype = "EMP";
+  		}
+  		if (selectedsentEmail.from == "SP") {
+  			var ShowNameMailReplay = selectedsentEmail.service_provider.fa_name;
+  			var input = $('#_value');
+  			input.val(ShowNameMailReplay);
+  			$scope.sentuserid = selectedsentEmail.service_provider.id;
+  			$scope.sentusertype = "SP";
+  		}
+  		if (selectedsentEmail.from == "JS") {
+  			var ShowNameMailReplay = selectedsentEmail.job_seeker.fa_name;
+  			var input = $('#_value');
+  			input.val(ShowNameMailReplay);
+  			$scope.sentuserid = selectedsentEmail.job_seeker.id;
+  			$scope.sentusertype = "JS";
+  		}
 
-      if (selectedreceiveEmail.from == "EMP") {
-        $scope.composeEmail.to = selectedreceiveEmail.employer.id;
-        $scope.composeEmail.type = "EMP";
-      }
-      if (selectedreceiveEmail.from == "SP") {
-        $scope.composeEmail.to = selectedreceiveEmail.service_provider.id;
-        $scope.composeEmail.type = "SP";
-      }
-
-      $scope.isreceiveVisible = false;
+  		$scope.isreceiveVisible = false;
 
     };
 
@@ -1076,7 +1143,7 @@ app.controller('jobseekerdashboardpage',
 
       }
 
-      $http.delete(mustafasite + '/job_seeker/message/' + selectedreceiveEmail.id , JSON.stringify(data), config).then(function(response) {
+      $http.delete(mustafasite + '/job_seeker/message/' + selectedreceiveEmail.id , config).then(function(response) {
         $scope.GetReceiveMessage();
         $scope.isreceiveVisible = false;
       });
@@ -1120,7 +1187,7 @@ app.controller('jobseekerdashboardpage',
 
       }
 
-      $http.delete(mustafasite + '/job_seeker/message/' + selectedreceiveEmail.id , JSON.stringify(data), config).then(function(response) {
+      $http.delete(mustafasite + '/job_seeker/message/' + selectedsentEmail.id , config).then(function(response) {
         $scope.GetSendMessage();
         $scope.issentVisible = false;
       });
